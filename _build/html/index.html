@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to genomon’s documentation! &mdash; genomon 0.1.0 ドキュメント</title>
+  <title>Overview &mdash; genomon 0.1.0 ドキュメント</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="genomon 0.1.0 ドキュメント" href="#"/> 
+        <link rel="author" title="このドキュメントについて"
+              href="about.html"/>
+    <link rel="top" title="genomon 0.1.0 ドキュメント" href="#"/>
+        <link rel="next" title="クイックスタート" href="quick_start.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -69,7 +72,63 @@
         
           
           
-              <ul class="simple">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">クイックスタート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id2">サンプルの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id3">設定シートの記述方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id4">コマンドの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id5">結果ファイルの確認</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sample.html">サンプルについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sample.html#id2">サンプルの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html#id3">サンプルの実行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="param_sheet.html">設定シートの記述方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#input">[Input] セクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#compare">[Compare] セクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#controlpanel">[ControlPanel] セクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">コマンドの実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command.html#dna">DNA解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command.html#rna">RNA解析</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="result.html">結果ファイルの構成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="result.html#id2">ディレクトリ構成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_code.html">Error Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code1">Error Code1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code2">Error Code2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">このドキュメントについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">開発者向けガイドライン</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#source-code-structure">1. Source code structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#yaml-files">2.YAML files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#job-description-yaml-file">2.1. job description yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#analysis-parameter-yaml-file">2.2. analysis parameter yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#system-configuration-file">2.3. system configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#utility-functions">3.Utility functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#id2">3.1. パラメーター取得の関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#id3">3.2. ジョブ実行の関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#id4">3.3. 実行結果の保存関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#id5">3.4. シェルスクリプトの作成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#execution-and-debug">4.Execution and Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#id6">開発環境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#genomon">genomon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#genomon-doc">genomon-doc</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
           
@@ -94,7 +153,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
       
-    <li>Welcome to genomon&#8217;s documentation!</li>
+    <li>Overview</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -107,26 +166,105 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="welcome-to-genomon-s-documentation">
-<h1>Welcome to genomon&#8217;s documentation!<a class="headerlink" href="#welcome-to-genomon-s-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul class="simple">
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Welcome to genomon&#8217;s documentation!</p>
+<p>Genomon-exome は Exome シークエンスの結果であるFASTQファイルのマッピング，データ解析を行い Mutation の候補の一覧を出力するソフトウェアです．</p>
+<p>ライセンスの元で自由に使用・改変・再配布が可能です．</p>
+<p>Genomon-exome は様々なオープンソフトウェアを組み合わせたパイプラインと呼ばれるソフトです．</p>
+<div class="admonition attention">
+<p class="first admonition-title">注意</p>
+<ul class="last simple">
+<li>ヒトゲノム(hg19)のみに対応しています．</li>
+<li>HGCのスーパーコンピュータ Shirokane3 上で行うことを前提として記載しております．</li>
 </ul>
 </div>
 </div>
+<div class="section" id="genomon">
+<h2>Genomon<a class="headerlink" href="#genomon" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Genomon-exome は以下の特徴を備えています．</p>
+<blockquote>
+<div>cutadapt を使用してPCRアーティファクト（アダプタシークエンス）の除去が可能です．
+BWA (Burrows-Wheeler Aligner) を使用してFASTQをヒトゲノム (hg19) へのマッピングを行います．
+GATK (The Genome Analysis Toolkit) を使用して bamファイルのリアライメントを行います．
+Picard を使用してマッピング率やカバレージの情報を出力します．
+データ解析を行い Mutation 候補の一覧をExcelで表示可能なTSV形式で出力します．
+ANNOVAR を使用して Mutation の候補の一覧にアノテーションを付与します．
+Bioconductor のDNAcopy パッケージを使用してCopy Number data 解析を実施します．
+ヒトゲノム解析センター (HGC) のスーパーコンピュータ にのみ対応しています．
+1サンプルの解析が1日で完了します．同時に最大10サンプル程度実行できます (同時実行数はスパコンの利用コースに依存します)．</div></blockquote>
+</div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">クイックスタート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id2">サンプルの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id3">設定シートの記述方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id4">コマンドの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id5">結果ファイルの確認</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sample.html">サンプルについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sample.html#id2">サンプルの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample.html#id3">サンプルの実行</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="param_sheet.html">設定シートの記述方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#input">[Input] セクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#compare">[Compare] セクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#controlpanel">[ControlPanel] セクション</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">コマンドの実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command.html#dna">DNA解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command.html#rna">RNA解析</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="result.html">結果ファイルの構成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="result.html#id2">ディレクトリ構成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_code.html">Error Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code1">Error Code1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code2">Error Code2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">このドキュメントについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">開発者向けガイドライン</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#source-code-structure">1. Source code structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#yaml-files">2.YAML files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#utility-functions">3.Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#execution-and-debug">4.Execution and Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#id6">開発環境</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">These docs are maintained by the genomon development team.</p>
+</div>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span>索引</span></a></li>
 <li><a class="reference internal" href="py-modindex.html"><span>モジュール索引</span></a></li>
 <li><a class="reference internal" href="search.html"><span>検索ページ</span></a></li>
 </ul>
 </div>
+</div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="クイックスタート" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
