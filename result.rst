@@ -6,7 +6,7 @@
 ディレクトリ構成
 ========================================
 
-``
+.. sourcecode:: shell
     data
     results
         config
@@ -18,5 +18,6 @@
             summary
             analysis data
             
-``
+
+
 
