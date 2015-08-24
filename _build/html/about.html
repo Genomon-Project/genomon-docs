@@ -106,7 +106,11 @@
 <li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code2">Error Code2</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">このドキュメントについて</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contuct-us">Contuct Us</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-editors">For Editors</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="developers.html">開発者向けガイドライン</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="developers.html#source-code-structure">1. Source code structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developers.html#yaml-files">2.YAML files</a><ul>
@@ -169,8 +173,51 @@
             
   <div class="section" id="id1">
 <h1>このドキュメントについて<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="contuct-us">
+<h2>Contuct Us<a class="headerlink" href="#contuct-us" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ご質問やバグを発見の際にはメールにてご連絡ください.</p>
 <p><a class="reference external" href="mailto:xxxx&#37;&#52;&#48;xxxx">xxxx<span>&#64;</span>xxxx</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="for-editors">
+<h2>For Editors<a class="headerlink" href="#for-editors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このドキュメントはSphinxを利用して作成しています。</p>
+<p>記述方法はこちらを参照してください。</p>
+<blockquote>
+<div><ul class="simple">
+<li>Sphinx公式　<a class="reference external" href="http://docs.sphinx-users.jp/rest.html">reStructuredText入門</a></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
+<li>Sphinx公式　<a class="reference external" href="http://docs.sphinx-users.jp/markup/index.html">Sphinxマークアップ集</a></li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
+<li>reStructuredTextチートシート日本語化プロジェクト <a class="reference external" href="https://github.com/takuan-osho/rst-cheatsheet/blob/japanese/rst-cheatsheet.rst">rst-cheatsheet</a></li>
+</ul>
+</div></blockquote>
+<p>ドキュメントのビルド方法</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="c">## PythonにSphinxをインストール</span>
+<span class="nv">$ </span>pip install Sphinx
+
+<span class="c">## git-hubからgenomon-docをclone</span>
+<span class="nv">$ </span>git clone -b develop https://github.com/Genomon-Project/genomon-docs.git
+
+<span class="c">## ディレクトリルートの*.rstファイルを編集</span>
+
+<span class="c">## ビルド</span>
+<span class="nv">$ </span>sphinx-build -b html . _build/html
+
+<span class="o">{</span>doc root<span class="o">}</span>/_build/html/ ディレクトリ配下に *.html ファイルができているので確認
+
+<span class="c">## 必要に応じて、commit/push</span>
+<span class="nv">$ </span>git commit
+<span class="nv">$ </span>git push https://github.com/Genomon-Project/genomon-docs.git develop
+</pre></div>
+</div>
+</div>
 </div>
 
 
