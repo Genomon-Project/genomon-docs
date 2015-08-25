@@ -6,10 +6,16 @@
 
 .. code-block:: bash
 
-    ./Genomon [Analysis type: DNA|RNA] [Output directory] [sample list file]
+    ./Genomon [Analysis type: DNA|RNA] [Output directory] [Sample list file]
 
-Analysis typeには、DNA解析をする場合は、'DNA'を、RNA解析をする場合は、'RNA'を指定してください。
 
+パラメータについて
+
+ - Analysis type:DNA解析をする場合は、'DNA'を、RNA解析をする場合は、'RNA'を指定してください。
+ - Output directory:結果ファイルを出力するディレクトリを指定してください。なければ作成されます。
+ - Sample list file:あらかじめ作成したサンプルシートを指定してください。
+
+サンプルシートの記述方法は `こちら <./param_sheet.html>`_ を参照してください。
 
 DNA解析
 ========================================
