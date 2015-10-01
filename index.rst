@@ -22,7 +22,7 @@ Quick_start
 -----------
 
 
-Get genomon
+Get Genomon
 -----------
 ::
 
