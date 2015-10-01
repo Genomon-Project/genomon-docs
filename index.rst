@@ -15,7 +15,7 @@ DNA(Whole genome/Whole exome)の解析
   :SV検出:   数十～数百baseのindelも検出できます！
 RNAseqの解析
   :Fusionの検出: 50bpのシークエンスリードでも解析できます！
-  :発現解析    :
+  :発現解析:
 
 
 Quick start
