@@ -21,17 +21,14 @@ RNAseqの解析
 Quick_start
 -----------
 
+
 Get genomon
 -----------
 ::
 
   git clone git@github.com:Genomon-Project/GenomonPipeline.git
+Just run:
+::
 
-.. note::
-
-   These docs are maintained by the genomon development team. 
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+  python setup.py build
+  python setup.py install [--user]
