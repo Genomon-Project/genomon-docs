@@ -9,8 +9,9 @@
     :target: https://img.shields.io/badge/license-GPL--3-blue.svg
 
 
+=======
 Genomon
-========
+=======
 
 Welcome
 -------
