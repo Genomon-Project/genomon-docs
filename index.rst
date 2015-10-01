@@ -18,7 +18,7 @@ RNAseqの解析
   :発現解析    :
 
 
-Quick_start
+Quick start
 -----------
 
 
