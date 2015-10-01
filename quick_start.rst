@@ -1,13 +1,18 @@
 ========================================
 Quick Start
 ========================================
+Human Genome Center (HGC)ではGenomonはインストール済みです．genomon_pipeline と実行すれば起動します．
 
-{text}
+DNA解析
+-------
+DNAパイプライン解析:
 
-サンプルの実行
---------------
+::
+    
+   >genomon_pipeline dna sample_conf.txt project_root_directory
 
-{text}
+:sample_conf.txt: 解析対象のサンプルを記述したファイルになります
+:project root directory: 結果出力ディレクトリのルートを指定してください
 
 設定シートの記述方法
 --------------------
