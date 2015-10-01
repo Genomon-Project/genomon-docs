@@ -3,6 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. image:: https://img.shields.io/badge/python-2.7-blue.svg
+    :target: https://img.shields.io/badge/python-2.7-blue.svg
+.. image:: https://img.shields.io/badge/license-GPL--3-blue.svg
+    :target: https://img.shields.io/badge/license-GPL--3-blue.svg
 Genomon
 ========
 
