@@ -8,3 +8,6 @@ http://genomon.readthedocs.org/ja/master/
 [開発版]
 
 http://genomon.readthedocs.org/ja/latest/
+
+[read the docs]
+https://readthedocs.org/projects/genomon/
