@@ -6,7 +6,7 @@
 Genomon
 ========
 
-welcome
+Welcome
 -------
 Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
 
@@ -18,10 +18,10 @@ RNAseqの解析
   :発現量の解析:
 
 
-quick_start
+Quick_start
 -----------
 
-get genomon
+Get genomon
 -----------
 ::
 
