@@ -25,22 +25,9 @@ RNAseqの解析
   :発現解析:
 
 
-Quick start
------------
-
-
-Get Genomon
------------
-::
-
-  git clone git@github.com:Genomon-Project/GenomonPipeline.git
-Just run:
-::
-
-  python setup.py build
-  python setup.py install [--user]
-
-
+Genomon
+-------
+Contents:
 .. toctree::
   :maxdepth: 2
 
