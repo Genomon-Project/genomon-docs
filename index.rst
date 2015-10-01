@@ -12,16 +12,16 @@ Overview
 
 
 Introduction
-============
+------------
 Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
 
 Genomon でできること
-=======
+--------------------
 DNA(Whole genome/Whole exome)の解析
-  :変異call: non codingの領域も高精度にCallできます！
+  :変異call: non-codingの領域も高精度にCallできます！
   :SV検出:   数十～数百baseのindelも検出できます！
 RNAseqの解析
-  :Fusionの検出:
+  :Fusionの検出: 50bpのシークエンスリードでも解析できます！
   :発現量の解析:
 
 
