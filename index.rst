@@ -25,18 +25,17 @@ RNAseqの解析
   :発現解析:
 
 
-Genomon
+Contents
 -------
-Contents:
 .. toctree::
   :maxdepth: 2
 
-  quick_start
-  sample
-  param_sheet
-  command
-  result
-  error_code
-  about
-  developers
+  QuickStart
+  Sample
+  ParamSheet
+  Command
+  Result
+  Error_code
+  About
+  Developers
 
