@@ -2,40 +2,26 @@
    sphinx-quickstart on Thu Jul 30 15:55:28 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+   
+Welcome to Genomon's documentation!
+=============================================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+   
+   quick_start.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 
 .. image:: https://img.shields.io/badge/python-2.7-blue.svg
     :target: https://img.shields.io/badge/python-2.7-blue.svg
 .. image:: https://img.shields.io/badge/license-GPL--3-blue.svg
     :target: https://img.shields.io/badge/license-GPL--3-blue.svg
-   
- 
-=======
-Genomon
-=======
-
-Welcome
--------
-Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
-
-DNA(Whole genome/Whole exome)の解析
-  :変異call: non-codingの領域も高精度にCallできます！
-  :SV検出:   数十～数百baseのindelも検出できます！
-RNAseqの解析
-  :Fusionの検出: 50bpのシークエンスリードでも解析できます！
-  :発現解析:
-
-
-Contents
--------
-.. toctree::
-  :maxdepth: 2
-
-  QuickStart
-  Sample
-  ParamSheet
-  Command
-  Result
-  Error_code
-  About
-  Developers
-
