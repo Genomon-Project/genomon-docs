@@ -11,8 +11,8 @@ GENOMON
     :depth: 2
 
 
-Introduction
-------------
+welcome
+-------
 Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
 
 DNA(Whole genome/Whole exome)の解析
