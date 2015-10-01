@@ -3,13 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+Genomon
 ========
-GENOMON
-========
-
-.. contents
-    :depth: 2
-
 
 welcome
 -------
@@ -23,20 +18,14 @@ RNAseqの解析
   :発現量の解析:
 
 
-Indices and tables
-==================
+quick_start
+-----------
 
-.. toctree::
-    :maxdepth: 2
+get genomon
+-----------
+::
 
-    quick_start
-    sample
-    param_sheet
-    command
-    result
-    error_code
-    about
-    developers
+  git clone git@github.com:Genomon-Project/GenomonPipeline.git
 
 .. note::
 
