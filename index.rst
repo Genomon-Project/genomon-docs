@@ -14,10 +14,10 @@ Overview
 Introduction
 ============
 
-Welcome to genomon's documentation!
+:: 
 
-Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
-GNU GPL v3ライセンスの元で自由に使用・改変・再配布が可能です．
+  Welcome to genomon's documentation!        
+  Genomon は DNA,RNAseqのシークエンス結果を解析するパイプラインです．
 
 Genomon
 =======
