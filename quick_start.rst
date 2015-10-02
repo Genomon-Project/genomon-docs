@@ -11,7 +11,7 @@ DNAパイプライン解析:
     
    >genomon_pipeline dna sample_conf.txt project_root_directory
 
-:dna/rna: dna解析を実施するときはdnaを指定します
+:dna/rna: DNA解析を実施するときはdnaを指定します
 :sample_conf.txt: 解析対象のサンプルを記述したファイルになります
 :project root directory: 結果出力のルートディレクトリを指定してください
 
