@@ -1,7 +1,7 @@
 ========================================
 Quick Start
 ========================================
-Human Genome Center (HGC)ではGenomonはインストール済みです．genomon_pipeline と実行すれば起動します．
+Human Genome Center (HGC)ではGenomonはインストール済みです．早速動かしてみましょう。
 
 DNA解析
 -------
