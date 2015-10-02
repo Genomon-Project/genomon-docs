@@ -1,22 +1,22 @@
 ========================================
-Quick Start
+Quick Start DNA解析
 ========================================
 Human Genome Center (HGC)ではGenomonはインストール済みです．早速動かしてみましょう。
 
-DNA解析コマンドの実行
+コマンドの実行
 -------
 
 ::
     
-   >genomon_pipeline dna sample_conf project_root_directory
+   >genomon_pipeline dna sample_conf.csv project_root_directory
 
 :dna/rna: DNA解析を実施するときはdnaを指定します
-:sample conf: 解析対象のサンプルを記述したファイルになります
-:project root directory: 結果出力のルートディレクトリを指定します
+:sample_conf.csv(.tsv): 解析対象のサンプルを記述したファイルになります
+:project_root_directory: 結果出力のルートディレクトリを指定します
 
 sample confの記述方法
 --------------------
-Genomonでは解析対象のサンプルをsample confに入力します。sample confに複数のサンプルを記述することにより、同時に解析できます．
+Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。sample_conf.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．.csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．
 
 ::
   
