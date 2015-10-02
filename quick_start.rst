@@ -12,11 +12,11 @@ DNA解析コマンドの実行
 
 :dna/rna: DNA解析を実施するときはdnaを指定します
 :sample conf: 解析対象のサンプルを記述したファイルになります
-:project root directory: 結果出力のルートディレクトリを指定してください
+:project root directory: 結果出力のルートディレクトリを指定します
 
 sample confの記述方法
 --------------------
-Genomonでは解析対象のサンプルをsample confに入力します。複数のサンプルをsample confに記述することにより、複数サンプルを同時に解析できます．
+Genomonでは解析対象のサンプルをsample confに入力します。sample confに複数のサンプルを記述することにより、同時に解析できます．
 
 ::
   
@@ -47,8 +47,10 @@ Genomonでは解析対象のサンプルをsample confに入力します。複�
   panel3,sample2_control,sample3_control
   
 
-結果ファイルの確認
+結果ファイル
 ------------------
+:bam: 指定したproject_root_directory/bam/sample/sample_markdup.bam
+:変異call結果: 指定したproject_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
+:SV検出結果: 指定したproject_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-{text}
 
