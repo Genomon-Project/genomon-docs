@@ -8,15 +8,15 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 
 ::
     
-   >genomon_pipeline dna sample_conf.csv project_root_directory
+   >genomon_pipeline dna sample_conf.csv(.tsv) project_root_directory
 
-:dna/rna: DNA解析を実施するときはdnaを指定します
+:dna/rna: DNA解析を実行するときはdnaを指定します
 :sample_conf.csv(.tsv): 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
 
 sample confの記述方法
 --------------------
-Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。sample_conf.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．.csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．
+Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。sample_conf.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．.csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_AML_project.csv
 
 ::
   
