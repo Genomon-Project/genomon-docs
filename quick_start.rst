@@ -49,8 +49,8 @@ Genomonでは解析対象のサンプルをsample confに入力します。sampl
 
 結果ファイル
 ------------------
-:bam: 指定したproject_root_directory/bam/sample/sample_markdup.bam
-:変異call結果: 指定したproject_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
-:SV検出結果: 指定したproject_root_directory/sv/sample名/sample名.genomonSV.result.txt
+:bam: project_root_directory/bam/sample/sample_markdup.bam
+:変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
+:SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
 
