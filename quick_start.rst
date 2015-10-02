@@ -3,9 +3,8 @@ Quick Start
 ========================================
 Human Genome Center (HGC)ではGenomonはインストール済みです．早速動かしてみましょう。
 
-DNA解析
+DNA解析コマンドの実行
 -------
-DNAパイプライン解析:
 
 ::
     
@@ -47,17 +46,6 @@ Genomonでは解析対象のサンプルをsample confに入力します。複�
   panel2,sample1_control,sample3_control
   panel3,sample2_control,sample3_control
   
-
-
-
-
-
-{text}
-
-コマンドの実行
---------------
-
-{text}
 
 結果ファイルの確認
 ------------------
