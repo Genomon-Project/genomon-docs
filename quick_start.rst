@@ -56,7 +56,7 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
 
 
 おすすめフィルタ
-Fisher（P-value）>= 1.0
-EBCall（P-value）>= 3.0
+:Fisher（P-value）>= 1.0
+:EBCall（P-value）>= 3.0
 
 
