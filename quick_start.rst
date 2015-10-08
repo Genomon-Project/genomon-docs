@@ -39,18 +39,24 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
   sample3_disease,sample3_control,panel1
   
   # 項目[controlpanel]にはpanel名とリストに登録するcontrolサンプル名を記述します．
-  # 形式はpanel名,サンプル名1,サンプル名2,・・・です。
+  # 形式はpanel名,サンプル名1,サンプル名2,・・・サンプル名Nです。
   # panelに登録するcontrolサンプルの数は10～20サンプルが良いです（詳細はこちら）．
   [controlpanel]
   panel1,sample1_control,sample2_control
   panel2,sample1_control,sample3_control
   panel3,sample2_control,sample3_control
   
+サンプルファイルのリンク：<http://genomon.hgc.jp/data/exome/summary.tar.gz>
 
 結果ファイル
 ------------------
 :bam: project_root_directory/bam/sample/sample_markdup.bam
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
+
+
+おすすめフィルタ
+Fisher（P-value）>= 1.0
+EBCall（P-value）>= 3.0
 
 
