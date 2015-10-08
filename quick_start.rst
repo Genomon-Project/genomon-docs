@@ -23,30 +23,30 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
   # 項目[fastq]にはinput fastqファイルを記載します．
   # 形式はサンプル名,read1.fastq,read2.fastqです。順不同です．
   [fastq]
-  sample1_tumor,/home/genomon/S1_T_read1.fastq,/home/genomon/S1_T_read2.fastq
-  sample1_normal,/home/genomon/S1_N_read1.fastq,/home/genomon/S1_N_read2.fastq
-  sample2_tumor,/home/genomon/S2_T_read1.fastq,/home/genomon/S2_T_read2.fastq
-  sample2_normal,/home/genomon/S2_N_read1.fastq,/home/genomon/S1_N_read2.fastq
-  sample2_tumor,/home/genomon/S2_T_read1.fastq,/home/genomon/S2_T_read2.fastq
-  sample2_normal,/home/genomon/S2_N_read1.fastq,/home/genomon/S1_N_read2.fastq
+  sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
+  sample1_normal,/home/genomon/sample1_N_read1.fastq,/home/genomon/sample1_N_read2.fastq
+  sample2_tumor,/home/genomon/sample2_T_read1.fastq,/home/genomon/sample2_T_read2.fastq
+  sample2_normal,/home/genomon/sampel2_N_read1.fastq,/home/genomon/sample2_N_read2.fastq
+  sample3_tumor,/home/genomon/sample3_T_read1.fastq,/home/genomon/sample3_T_read2.fastq
+  sample3_normal,/home/genomon/samptl3_N_read1.fastq,/home/genomon/sample3_N_read2.fastq
   
   # 項目[compare]にはtumorとmatched normalで比較するペアを記述します．
   # 形式はtumorサンプル名,normalサンプル名,non-matched_normal_panelです。順不同です．
   # non-matched_normal_panelはなくてもOKです。
   [compare]
-  sample1_tumor,sample1_normal,panel2
-  sample2_tumor,sample2_normal,panel3
-  sample3_tumor,sample3_normal,panel1
+  sample1_tumor,sample1_normal,panel1
+  sample2_tumor,sample2_normal,panel2
+  sample3_tumor,sample3_normal,panel3
   
   # 項目[normalpanel]にはpanel名とリストに登録するnormalサンプル名を記述します．
   # 形式はpanel名,サンプル名1,サンプル名2,・・・サンプル名Nです。
   # panelに登録するnormalサンプルの数は10～20サンプルが良いです（詳細はこちら）．
   [normalpanel]
-  panel1,sample1_normal,sample2_normal
+  panel1,sample2_normal,sample3_normal
   panel2,sample1_normal,sample3_normal
-  panel3,sample2_normal,sample3_normal
+  panel3,sample1_normal,sample2_normal
   
-サンプルファイルのリンク：<http://genomon.hgc.jp/data/exome/summary.tar.gz>
+サンプルファイルのリンク：<https://www.hgc.jp/w3varann/sample.csv>
 
 結果ファイル
 ------------------
