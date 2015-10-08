@@ -8,7 +8,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 
 ::
     
-   >genomon_pipeline dna sample_conf.csv(.tsv) project_root_directory
+   genomon_pipeline dna sample_conf.csv(.tsv) project_root_directory
 
 :dna/rna: DNA解析を実行するときはdnaを指定します
 :sample_conf.csv(.tsv): 解析対象のサンプルを記述したファイルになります
