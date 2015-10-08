@@ -77,7 +77,7 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
 :bp_mismatch_count: 変異候補周辺のbreakpointの数(同一ポジションのbreakpointの数)
 :distance_from_breakpoint: 変異候補からbreakpoointが何塩基離れているか表示されます．
 :simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
-:simple_repeat_seq: 上記SimpleRepeatのの配列
+:simple_repeat_seq: 上記SimpleRepeatの配列
 :P-value(EBCall): EBCall -log10(p値)
 
 おすすめフィルタ
@@ -89,6 +89,6 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
 
 気をつけること
 ------------------
-NormalサンプルにTumor contentが入っているとP-value値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
+NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
 
