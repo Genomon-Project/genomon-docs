@@ -72,9 +72,9 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
 :readPairNum_normal: 変異が含まれるリード数
 :variantPairNum_normal: 変異が含まれないリード数
 :otherPairNum_normal: リアライメントできなかったリード数
-:indel_variantNum: 変異候補周辺のindel数(同一ポジションのindelの数)
+:indel_variantNum: 変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
 :indel_mismatch_rate: 上記indelのミスマッチ率
-:bp_mismatch_count: 変異候補周辺のbreakpointの数(同一ポジションのbreakpointの数)
+:bp_mismatch_count: 変異候補周辺のbreakpointを含むリード数(breakpointは同一ポジションにあれば加算される)
 :distance_from_breakpoint: 変異候補からbreakpoointが何塩基離れているか表示されます．
 :simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
 :simple_repeat_seq: 上記SimpleRepeatの配列
