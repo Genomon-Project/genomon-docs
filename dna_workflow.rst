@@ -20,7 +20,7 @@ DNA解析パイプラインworkfllow
 変異Call
 -------------------
 
-  :identify_mutations: interval_listに指定されたゲノムの範囲で変異コールします（範囲毎に並列実行します）．
+  :identify_mutations: interval_listに指定されたゲノムの範囲毎に変異コールします.
   :merge_mutation: ゲノムの範囲毎に出力された結果をマージします．
 
 
@@ -36,7 +36,7 @@ SV検出
 --------------------------
 
   :link_input_fastq: project root directory内にFASTQファイルをリンクします．
-  :link_input_bam: project root directory内にBAMファイルをリンクします．セットのBAIファイルもlinkします．
-  :bam_to2fastq: BAMをFASTQにConvertします．
+  :link_import_bam: project root directory内にBAM＆BAIファイルをリンクします.
+  :bam2fastq: BAMをFASTQにConvertします．
 
 
