@@ -23,6 +23,7 @@ Contents:
    
    quick_start.rst
    sample_conf.rst
+   dna_workflow.rst
 
 Indices and tables
 ==================
