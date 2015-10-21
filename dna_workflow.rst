@@ -32,7 +32,7 @@ DNA解析パイプラインworkfllow
 SV検出 stage
 -------------------
 
- | Alignment stageで生成したBAMでも、すでにお手持ちのBAMのどちらからでも、SV検出することができます．
+ | リードアライメントstageで生成したBAMでも、すでにお手持ちのBAMのどちらからでも、SV検出することができます．
 
    :parse_sv: bamファイルから、breakpointやSVの証拠となるリードをparseします．
    :merge_sv: parse_svの結果から、control panelを作成します．
