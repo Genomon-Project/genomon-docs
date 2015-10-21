@@ -4,11 +4,11 @@ Sample Configの書き方
 
 項目は5種類あります。
 
-:[fastq]: FASTQを入力としてパイプラインを実行します．
-:[bam_tofastq]: BAMを入力してFASTQに戻して、再アライメントして解析します．
-:[bam_import]: 入力したBAMで解析を実行します．
-:[compare]: tumor normalペアのサンプル、controlパネルを指定します．
-:[control_panel]: controlパネルのペアを指定します．
+:[fastq]:FASTQを入力としてパイプラインを実行します．
+:[bam_tofastq]:BAMを入力してFASTQに戻して、再アライメントして解析します．
+:[bam_import]:入力したBAMで解析を実行します．
+:[compare]:tumor normalペアのサンプル、controlパネルを指定します．
+:[control_panel]:controlパネルのペアを指定します．
 
 | [fastq], [bam_tofastq], [bam_import]は入力ファイルの情報を記載します．
 | [compare],[control_panel]には解析するための情報をきさいします．
