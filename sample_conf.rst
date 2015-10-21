@@ -78,7 +78,8 @@ bam indexファイル(.bai)がセットで必要です。
 
   # panel名,normalサンプル1,normalサンプル2,normalサンプル3,・・・,normalサンプルNと記載してください。
   panel1,sample1_normal,sample2_normal,sample3_normal,sample4_normal
-
+  panel2,sample5_normal,sample6_normal,sample7_normal,sample8_normal
+  
 | サンプル数Nに最大値はないです。
 | サンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
 | パネル名は任意で指定してください。
