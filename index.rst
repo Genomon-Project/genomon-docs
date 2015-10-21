@@ -22,6 +22,7 @@ Contents:
    :maxdepth: 2
    
    quick_start.rst
+   sample_conf.rst
 
 Indices and tables
 ==================
