@@ -48,7 +48,7 @@ bam indexファイル(.bai)がセットで必要です。
 
 ::
 
-  # Tumorサンプル名Normalサンプル名,Controlパネル名 と記載してください．
+  # Tumorサンプル名,Normalサンプル名,Controlパネル名 と記載してください．
 
   # パターン１：tumorとnormalのペアのサンプルで、コントロールパネルがある場合
   # tumorサンプル名,normalサンプル名,コントロールパネル名 と記載してください。コントロールパネル名は項目[control_panel]で定義した名前を使用します。
