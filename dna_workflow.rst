@@ -9,7 +9,7 @@ DNA解析パイプラインworkfllow
  | 記載方法は「Sample Configの書き方」をみてください。
  
  
-リードアライメントstage
+リードアライメント
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします。
@@ -17,14 +17,14 @@ DNA解析パイプラインworkfllow
   :markdup: sorted BAMに対してmerge＋mark duplicateします．
 
 
-変異Call stage
+変異Call
 -------------------
 
   :identify_mutations: interval_listに指定されたゲノムの範囲で変異コールします．ゲノムの範囲毎にジョブを投入します（並列処理します）
   :map_dna_sequence: ゲノムの範囲毎に出力された結果をマージします．
 
 
-SV検出 stage
+SV検出
 -------------------
 
    :parse_sv: bamファイルから、breakpointやSVの証拠となるリードをparseします．
