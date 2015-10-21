@@ -13,14 +13,14 @@ DNA解析パイプラインworkfllow
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします．
-  :map_dna_sequence: リファレンスゲノムにアライメントします．分割したままの単位でソートします．
+  :map_dna_sequence: 分割した単位リファレンスゲノムにアライメント、そしてソートします．
   :markdup: sorted BAMに対してmerge＋mark duplicateします．
 
 
 変異Call
 -------------------
 
-  :identify_mutations: interval_listに指定されたゲノムの範囲で変異コールします．ゲノムの範囲毎にジョブを投入します（並列処理します）
+  :identify_mutations: interval_listに指定されたゲノムの範囲で変異コールします（範囲毎に並列実行します）．
   :merge_mutation: ゲノムの範囲毎に出力された結果をマージします．
 
 
