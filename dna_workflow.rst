@@ -4,7 +4,8 @@ DNA解析パイプラインworkfllow
 
  .. image:: dna_workflow.png
 
- | Inputは[fastq], [bam_tofastq], [bam_import] の3種類あります。すべてsample confで定義します。
+ | Inputは
+ | [fastq], [bam_tofastq], [bam_import] の3種類あります。すべてsample confで定義します。
  | 記載方法は「Sample Configの書き方」をみてください。
  
  
