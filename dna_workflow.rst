@@ -13,7 +13,7 @@ DNA解析パイプラインworkfllow
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします．
-  :map_dna_sequence: 分割した単位リファレンスゲノムにアライメント、そしてソートします．
+  :map_dna_sequence: 分割した単位でリファレンスゲノムにアライメント、そしてソートします．
   :markdup: sorted BAMに対してmerge＋mark duplicateします．
 
 
