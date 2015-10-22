@@ -48,8 +48,8 @@ sample confを記載しましょう
   panel2,sample1_normal,sample3_normal
   panel3,sample1_normal,sample2_normal
   
- | サンプルファイルのリンク :any:`csv/quick_start_sample.csv`
- | サンプルファイルの書き方詳細は :doc:`sample_conf` に書いてあります．
+| サンプルファイルのリンク :any:`csv/quick_start_sample.csv`
+| サンプルファイルの書き方詳細は :doc:`sample_conf` に書いてあります．
 
 結果ファイル
 ------------------
