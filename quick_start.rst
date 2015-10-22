@@ -8,16 +8,16 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 
 ::
     
-   genomon_pipeline dna sample_conf.csv(.tsv) project_root_directory
+   genomon_pipeline dna sample_cfg.csv(.tsv) project_root_directory
 
 :dna/rna: DNA解析を実行するときはdnaを指定します
-:sample_conf.csv(.tsv): 解析対象のサンプルを記述したファイルになります
+:sample_cfg.csv(.tsv): 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
 
-sample confを記載しましょう
+sample cfgを記載しましょう
 --------------------
  | Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。
- | sample_conf.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．
+ | sample_cfg.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．
  | .csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
 
 ::
@@ -48,8 +48,8 @@ sample confを記載しましょう
   panel2,sample1_normal,sample3_normal
   panel3,sample1_normal,sample2_normal
   
-| サンプルファイルのリンク :any:`csv/quick_start_sample.csv`
-| サンプルファイルの書き方詳細は :doc:`sample_conf` に書いてあります．
+| sample_cfgの例 :any:`csv/quick_start_sample.`
+| sample_cfgの書き方詳細は :doc:`sample_conf` に書いてあります．
 
 結果ファイル
 ------------------
