@@ -8,25 +8,25 @@
 
   プロジェクトルートディレクトリ
     -bam
-	  -各サンプル名
-	    -サンプル名.markdup.bam
-		-サンプル名.markdup.bam.bai
-		-サンプル名.markdup.bam.md5
-		-サンプル名.markdup.metrics
+      -各サンプル名
+        -サンプル名.markdup.bam
+    	-サンプル名.markdup.bam.bai
+	-サンプル名.markdup.bam.md5
+	-サンプル名.markdup.metrics
     -fastq
-	  -各サンプル名
-	    -1_1.fastq
-		-2_2.fastq
+	-各サンプル名
+	  -1_1.fastq
+	  -1_2.fastq
     -log
-	  -qsubのログ
+      -qsubのログ
     -mutation
-	  -各サンプル名
-	    -サンプル名.genomon_mutations.result.txt
+      -各サンプル名
+      -サンプル名.genomon_mutations.result.txt
     -script
-	  -qsub実行script
+      -qsub実行script
     -sv 
-	  -各サンプル名
-        -サンプル名.genomon_SV.result.txt
+      -各サンプル名
+      -サンプル名.genomon_SV.result.txt
 	
 	
 bamディレクトリ
