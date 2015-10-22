@@ -47,6 +47,7 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
   panel3,sample1_normal,sample2_normal
   
 サンプルファイルのリンク：<https://www.hgc.jp/w3varann/sample.csv>
+サンプルファイルの書き方詳細は :doc:`sample_conf` に書いてあります．
 
 結果ファイル
 ------------------
