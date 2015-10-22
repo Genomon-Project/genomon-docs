@@ -13,7 +13,7 @@ sample.cfg
 
  | 入力ファイルの設定や、tumor　normalのサンプルのペア情報を記載します
 
-  link <sample.cfgの書き方>
+  see sample_conf
  
 dna_task_param.cfg
 ------------------
