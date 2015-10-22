@@ -14,7 +14,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :sample_cfg.csv(.tsv): 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
 
-sample cfgを記載しましょう
+sample_cfg.csvを記載しましょう
 --------------------
  | Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。
  | sample_cfg.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．
