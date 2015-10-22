@@ -54,5 +54,5 @@ Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力しま�
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-結果ファイルの各項目の説明は :doc: `dna_results`に書いてあります．
+結果ファイルの各項目の説明は :doc:`dna_results` に書いてあります．
 
