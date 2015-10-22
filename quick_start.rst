@@ -23,9 +23,9 @@ TODO:起動ファイルを作成して、こちらの実行例を変更する必
 
 sample_conf.csvを記載しましょう
 --------------------
- | Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。
- | sample_conf.[csv/tsv]に複数のサンプルを記述することにより、同時に解析できます．
- | .csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
+| Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。
+| sample_conf.[csv/tsv]に複数のサンプルを記述することにより、同時に解析できます．
+| .csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
 
 .. code-block:: bash
   
