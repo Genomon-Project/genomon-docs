@@ -22,8 +22,9 @@ Contents:
    :maxdepth: 2
    
    quick_start.rst
-   sample_conf.rst
    dna_workflow.rst
+   sample_conf.rst
+   output_info.rst
    
 
 Indices and tables
