@@ -25,7 +25,7 @@ Contents:
    dna_workflow.rst
    sample_conf.rst
    output_info.rst
-   
+   config_info.rst
 
 Indices and tables
 ==================
