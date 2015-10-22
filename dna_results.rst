@@ -19,7 +19,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :mismatch_rate_tumor: Tumorのミスマッチ率．
 :strand_ratio_tumor: Tumorのstrand ratio．
 :mismatch_rate_normal: Normalのミスマッチ率
-:strand_ratio:_normal Normalのstrand ratio.
+:strand_ratio_normal: Normalのstrand ratio.
 :P-value(fisher): Fisher -log10(p値)
 :RefNum_tumor: 変異が含まれるリード数
 :AltNum_tumor: 変異が含まれないリード数
