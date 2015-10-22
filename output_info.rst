@@ -21,12 +21,12 @@ Outputについて
       -qsubのログ
     -mutation
       -各サンプル名
-      -サンプル名.genomon_mutations.result.txt
+        -サンプル名.genomon_mutations.result.txt
     -script
       -qsub実行script
     -sv 
       -各サンプル名
-      -サンプル名.genomon_SV.result.txt
+        -サンプル名.genomon_SV.result.txt
 	
 	
 bamディレクトリ
