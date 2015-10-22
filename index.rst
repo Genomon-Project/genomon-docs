@@ -9,8 +9,8 @@
     :target: https://img.shields.io/badge/license-GPL--3-blue.svg
 
 |
-.. image:: genomon_kun.png
-.. image:: genomon_logo.png
+.. image:: image/genomon_kun.png
+.. image:: image/genomon_logo.png
 
 |
 Welcome to Genomon's documentation!
