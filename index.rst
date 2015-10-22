@@ -23,6 +23,7 @@ Contents:
    
    quick_start.rst
    dna_workflow.rst
+   command.rst
    sample_conf.rst
    dna_results.rst
    output_info.rst
