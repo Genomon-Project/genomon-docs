@@ -40,10 +40,10 @@ sample confを記載しましょう
   sample2_tumor,sample2_normal,panel2
   sample3_tumor,sample3_normal,panel3
   
-  # 項目[normalpanel]にはpanel名とリストに登録するnormalサンプル名を記述します．
+  # 項目[control_panel]にはpanel名とリストに登録するnormalサンプル名を記述します．
   # 形式はpanel名,サンプル名1,サンプル名2,・・・サンプル名Nです。
-  # panelに登録するnormalサンプルの数は10～20サンプルが良いです（詳細はこちら）．
-  [normalpanel]
+  # panelに登録するnormalサンプルの数は変異Callであれば10～20サンプル　SV検出はあればあるだけ良い．
+  [control_panel]
   panel1,sample2_normal,sample3_normal
   panel2,sample1_normal,sample3_normal
   panel3,sample1_normal,sample2_normal
