@@ -48,7 +48,7 @@ sample cfgを記載しましょう
   panel2,sample1_normal,sample3_normal
   panel3,sample1_normal,sample2_normal
   
-| sample_cfgの例 :any:`csv/quick_start_sample.`
+| sample_cfgの例 :any:`csv/quick_start_sample`
 | sample_cfgの書き方詳細は :doc:`sample_conf` に書いてあります．
 
 結果ファイル
