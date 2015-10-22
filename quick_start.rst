@@ -11,11 +11,13 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
   # usage  
   genomon_pipeline dna DNA_sample.csv project_root_directory genomon.cfg dna_task_param.cfg
   # 実行例
-　genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
+  genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
 　
 :dna/rna: DNA解析を実行するときはdnaを指定します
 :sample_conf.[csv/tsv]: 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
+
+| commandの実行方法詳細は :doc:`command` に書いてあります．
 
 TODO:起動ファイルを作成して、こちらの実行例を変更する必要がある．
 
