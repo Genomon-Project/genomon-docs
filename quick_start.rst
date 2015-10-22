@@ -6,7 +6,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 コマンドの実行
 -------
 
-::
+.. code-block:: bash
     
    genomon_pipeline dna sample_cfg.csv(.tsv) project_root_directory
 
@@ -20,7 +20,7 @@ sample_cfg.csvを記載しましょう
  | sample_cfg.csv(.tsv)に複数のサンプルを記述することにより、同時に解析できます．
  | .csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
 
-::
+.. code-block:: bash
   
   # 項目[fastq]にはinput fastqファイルを記載します．
   # 形式はサンプル名,read1.fastq,read2.fastqです。順不同です．

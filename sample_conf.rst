@@ -19,7 +19,7 @@ Sample.cfgの書き方
 
 | 項目[fastq]にはinput fastqファイルのパスを記載します．
 
-::
+.. code-block:: bash
 
   # サンプル名,read1.fastq,read2.fastq  と記載してください
   sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
@@ -33,7 +33,7 @@ Sample.cfgの書き方
 
 | 項目[bam_import]にはbamファイルのパスを記載します．
 
-::
+.. code-block:: bash
 
   # サンプル名,bam  と記載してください
   sample3_tumor,/home/genomon/sample3_T.bam
@@ -46,7 +46,7 @@ bam indexファイル(.bai)がセットで必要です。
 
 | 項目[compare]にはtumorとnormalのペア情報を記載します．normalのコントロールパネルを作る場合は、そちらも記載します．
 
-::
+.. code-block:: bash
 
   # Tumorサンプル名,Normalサンプル名,Controlパネル名 と記載してください．
 
@@ -74,7 +74,7 @@ bam indexファイル(.bai)がセットで必要です。
 
 項目[controlpanel]には、normalのサンプル名を複数指定して、panel名を付けてnormalサンプルの集まりとして指定します．
 
-::
+.. code-block:: bash
 
   # panel名,normalサンプル1,normalサンプル2,normalサンプル3,・・・,normalサンプルNと記載してください。
   panel1,sample1_normal,sample2_normal,sample3_normal,sample4_normal
