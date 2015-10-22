@@ -1,10 +1,10 @@
 ========================================
-DNA解析パイプラインworkfllow
+DNA解析パイプラインschemes
 ========================================
 
  .. image:: dna_workflow.png
 
- | Inputは
+ | Inputの方法は
  | [fastq], [bam_tofastq], [bam_import] の3種類あります．すべてsample confで定義します．
  | 記載方法は「Sample Configの書き方」をみてください．
  
@@ -13,8 +13,8 @@ DNA解析パイプラインworkfllow
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします．
-  :map_dna_sequence: 分割した単位でリファレンスゲノムにアライメント、そしてソートします．
-  :markdup: sorted BAMに対してmerge＋mark duplicateします．
+  :map_dna_sequence: 分割したファイル単位でリファレンスゲノムにアライメント、そしてソートします．
+  :markdup: Sorted BAMに対してmerge＋mark duplicateします．
 
 
 変異Call
@@ -27,9 +27,9 @@ DNA解析パイプラインworkfllow
 SV検出
 -------------------
 
-   :parse_sv: bamファイルから、breakpointやSVの証拠となるリードをparseします．
-   :merge_sv: parse_svの結果から、control panelを作成します．
-   :filt_sv: parse_svに対して、control panelやnormalサンプルを用いて偽陽性をフィルタして、SVの候補を検出します．
+  :parse_sv: bamファイルから、breakpointやSVの証拠となるリードをparseします．
+  :merge_sv: parse_svの結果から、control panelを作成します．
+  :filt_sv: parse_svに対して、control panelやnormalサンプルを用いて偽陽性をフィルタして、SVの候補を検出します．
 
 
 その他、個別で機能するTask
