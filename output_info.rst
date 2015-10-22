@@ -59,7 +59,7 @@ logディレクトリ
 mutationディレクトリ
 ----------------
 
-:サンプル名.genomon_mutations.result.txt: 変異Callの結果.
+:サンプル名.genomon_mutations.result.txt: 変異Callの結果が出力されます.
 
   
 scriptディレクトリ
@@ -72,4 +72,4 @@ scriptディレクトリ
 SVディレクトリ
 ----------------
 
-:サンプル名.genomon_SV.result.txt: SV検出の結果.
+:サンプル名.genomon_SV.result.txt: SV検出の結果が出力されます.
