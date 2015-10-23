@@ -2,16 +2,17 @@
 Sample_confの書き方
 ========================================
 
-項目は5種類あります。
+項目は6種類あります。
 
 :[fastq]: FASTQを入力としてパイプラインを実行します．
 :[bam_tofastq]: BAMを入力してFASTQに戻して、再アライメントして解析します．
 :[bam_import]: 入力したBAMで解析を実行します．
-:[compare]: tumor normalペアのサンプル、controlパネルを指定します．
+:[mutation_call]: 変異Callが実行されます．
+:[sv_detection]: SV検出が実行されます．
 :[controlpanel]: controlパネルのペアを指定します．
 
 | [fastq], [bam_tofastq], [bam_import]は入力ファイルの情報を記載します．
-| [compare],[controlpanel]には解析するための情報をきさいします．
+| [mutation_call],[sv_detection],[controlpanel]には解析するための情報をきさいします．
 
 
 [fastq]の記載方法
@@ -41,10 +42,11 @@ Sample_confの書き方
 bam indexファイル(.bai)がセットで必要です。
 
 
-[compare]の記載方法
----------------------
+[mutation_call][sv_detection]の記載方法
+----------------------------------------
 
-| 項目[compare]にはtumorとnormalのペア情報を記載します．normalのコントロールパネルを作る場合は、そちらも記載します．
+| 項目[mutation_call][sv_detection]にはtumorとnormalのペア情報を記載します．
+| normalのコントロールパネルを作る場合は、そちらも記載します．
 
 .. code-block:: bash
 
@@ -66,7 +68,7 @@ bam indexファイル(.bai)がセットで必要です。
   # tumorサンプル名,None,None と記載してください。
   sample4_tumor,None,None
 
-こちらに記載している、サンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
+この項目に定義するサンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
 
 
 [controlpanel]の記載方法
