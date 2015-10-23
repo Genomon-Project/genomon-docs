@@ -42,7 +42,7 @@ Sample_confの書き方
 bam indexファイル(.bai)がセットで必要です。
 
 
-[mutation_call][sv_detection]の記載方法
+[mutation_call],[sv_detection]の記載方法
 ----------------------------------------
 
 | 項目[mutation_call][sv_detection]にはtumorとnormalのペア情報を記載します．
