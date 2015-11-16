@@ -62,9 +62,9 @@ SV検出結果 各カラムの説明
 :12: exon overlapping the 2nd breakpoint
 :13: #read_pairs not supporting the variant (reference read pairs) for the tumor sample
 :14: #read_pairs supporting the variant (variant read paris) for the tumor sample
-:15: #read_pairs not supporting the variant for the matched control sample
-:16: #read_pairs supporting the variant for the matched control sample
-:17: frequency of variant read pairs for the tumor sample
+:15: frequency of variant read pairs for the tumor sample
+:16: #read_pairs not supporting the variant for the matched control sample
+:17: #read_pairs supporting the variant for the matched control sample
 :18: frequency of variant read pairs for the matched control sample
 :19: p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference v.s. variant read pairs)
 
