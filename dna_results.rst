@@ -21,11 +21,11 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :mismatch_rate_normal: Normalのミスマッチ率
 :strand_ratio_normal: Normalのstrand ratio.
 :P-value(fisher): Fisher -log10(p値)
-:RefNum_tumor: 変異が含まれるリード数
-:AltNum_tumor: 変異が含まれないリード数
+:RefNum_tumor: 変異を含まないリード数
+:AltNum_tumor: 変異を含むリード数
 :OtherNum_tumor: リアライメントできなかったリード数
-:RefNum_normal: 変異が含まれるリード数
-:AltNum_normal: 変異が含まれないリード数
+:RefNum_normal: 変異を含まないリード数
+:AltNum_normal: 変異を含むリード数
 :OtherNum_normal: リアライメントできなかったリード数
 :P-value(fisher)_realignment: Fisher -log10(p値) tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
 :indel_variantNum: 変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
