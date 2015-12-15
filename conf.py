@@ -57,8 +57,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'genomon'
-copyright = u'2015, Kenichi Chiba, Yuichi Shiraishi, Eigo Shimizu, Hiroko Tanaka and Satoru Miyano'
-author = u'Kenichi Chiba, Yuichi Shiraishi, Eigo Shimizu, Hiroko Tanaka and Satoru Miyano'
+copyright = u'2015, Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi'
+author = u'Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
