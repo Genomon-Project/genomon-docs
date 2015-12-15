@@ -7,12 +7,12 @@ Genomonのインストール
 | インストール方法は :doc:`install` に記載しました．
 難しくないと思いますので、がんばってください．
 
-sample_conf.csvを記載しましょう
+sample.csvを記載しましょう
 --------------------
 
-| Genomonでは解析対象のサンプルをsample_conf.csvに記述します。
-| sample_conf.csvに複数のサンプルを記述することにより、同時に解析できます．
-| .csvの拡張子の場合は,(カンマ区切り) ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
+| Genomonでは解析対象のサンプルをsample.csvに記述します。
+| sample.csvに複数のサンプルを記述することにより、同時に解析できます．
+| .csvの拡張子の場合は,(カンマ区切り) ファイル名は変更しても大丈夫です．例)sample_AML_project.csv
 
 .. code-block:: bash
   
@@ -36,25 +36,25 @@ sample_conf.csvを記載しましょう
 .. code-block:: bash
   
   # usage  
-  genomon_pipeline dna [DNA_sample.csv] [project_root_directory] genomon.cfg dna_task_param.cfg
+  genomon_pipeline dna [sample.csv] [output_root_directory] genomon.cfg dna_task_param.cfg
   
 :dna/rna: DNA解析を実行するときはdnaを指定します
-:sample_conf.[csv/tsv]: 解析対象のサンプルを記述したファイルになります
-:project_root_directory: 結果出力のルートディレクトリを指定します
-
-| commandの実行方法詳細は :doc:`command` に記載があります．
+:sample.csv: 解析対象のサンプルを記述したファイルになります
+:output_root_directory: 結果出力のルートディレクトリを指定します
 
 .. code-block:: bash
 
     # 実行例
   genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
 
+| commandの実行方法詳細は :doc:`command` に記載があります．
+
 
 結果ファイル
 ------------------
-:bam: project_root_directory/bam/sample/sample_markdup.bam
-:変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
-:SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
+:bam: output_root_directory/bam/sample/sample_markdup.bam
+:変異Call結果: output_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
+:SV検出結果: output_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
 結果ファイルの各項目の説明は :doc:`dna_results` に記載があります．
 
