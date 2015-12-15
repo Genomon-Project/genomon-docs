@@ -24,6 +24,7 @@ Contents:
    quick_start.rst
    dna_workflow.rst
    rna_workflow.rst
+   install.rst
    command.rst
    sample_conf.rst
    dna_results.rst
