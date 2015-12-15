@@ -21,12 +21,13 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   quick_start.rst
+   dna_quick_start.rst
+   rna_quick_start.rst
    dna_workflow.rst
    rna_workflow.rst
    install.rst
    command.rst
-   sample_conf.rst
+   sample_csv.rst
    dna_results.rst
    output_info.rst
    config_info.rst
