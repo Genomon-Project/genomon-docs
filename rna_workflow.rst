@@ -11,7 +11,7 @@ RNA解析パイプラインschemes
  | Fustion検出が実行されます．
  
 
- Fusion検出
+Fusion検出
 -----------------------
 
   :task_star_align: starによるリファレンスゲノムにアライメントを実行します．
