@@ -19,7 +19,7 @@ Genomonのインストール
 :sample_conf.[csv/tsv]: 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
 
-| commandの実行方法詳細は :doc:`command` に書いてあります．
+| commandの実行方法詳細は :doc:`command` に記載があります．
 
 sample_conf.csvを記載しましょう
 --------------------
@@ -42,8 +42,7 @@ sample_conf.csvを記載しましょう
   [compare]
   sample1_tumor,sample1_normal,None
 
-| sample_confの例 :any:`csv/quick_start_sample`
-| sample_confの書き方詳細は :doc:`sample_conf` に書いてあります．
+| sample_confの書き方詳細は :doc:`sample_conf` に記載があります．いくつかの解析パターンがありますのでご覧ください．
 
 結果ファイル
 ------------------
@@ -51,7 +50,7 @@ sample_conf.csvを記載しましょう
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-結果ファイルの各項目の説明は :doc:`dna_results` に書いてあります．
+結果ファイルの各項目の説明は :doc:`dna_results` に記載があります．
 
 .. code-block:: bash
 
