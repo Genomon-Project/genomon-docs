@@ -35,7 +35,7 @@ SV検出
   :filt_sv: parse_svに対して、control panelやnormalサンプルを用いて偽陽性をフィルタして、SVの候補を検出します．
 
 
-bam summary
+Summary出力
 -------------------
   :bam_stats:  bamのreadとmappingのstatisticsを生成します．
   :coverage: bamのcoverageを生成します．
