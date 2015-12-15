@@ -81,10 +81,9 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 
 変異Call 比較なしパターン おすすめフィルタ
 ---------------------------
-Fisher（P-value）>= 1.0
-EBCall（P-value）>= 4.0
+10%_posterior_quantile >= 0.1
 variantPairNum_tumor >= 4
-variantPairNum_normal <= 1(固形腫瘍) <= 2(血液腫瘍)
+10%_posterior_quantile(realignment) >= 0.1
 
 SV検出結果 各カラムの説明
 ---------------------------
