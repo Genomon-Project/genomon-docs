@@ -4,7 +4,7 @@ Quick Start DNA解析
 
 Genomonのインストール
 -------
-| インストール方法は :doc:`install` に書いてあります．
+| インストール方法は :doc:`install` に記載しました．
 難しくないと思いますので、がんばってください．
 
 コマンドの実行
@@ -13,20 +13,17 @@ Genomonのインストール
 .. code-block:: bash
   
   # usage  
-  genomon_pipeline dna DNA_sample.csv project_root_directory genomon.cfg dna_task_param.cfg
-  # 実行例
-  genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
-　
+  genomon_pipeline dna [DNA_sample.csv] [project_root_directory] genomon.cfg dna_task_param.cfg
+  
 :dna/rna: DNA解析を実行するときはdnaを指定します
 :sample_conf.[csv/tsv]: 解析対象のサンプルを記述したファイルになります
 :project_root_directory: 結果出力のルートディレクトリを指定します
 
 | commandの実行方法詳細は :doc:`command` に書いてあります．
 
-TODO:起動ファイルを作成して、こちらの実行例を変更する必要がある．
-
 sample_conf.csvを記載しましょう
 --------------------
+
 | Genomonでは解析対象のサンプルをsample_conf.csv(.tsv)に入力します。
 | sample_conf.[csv/tsv]に複数のサンプルを記述することにより、同時に解析できます．
 | .csvの拡張子の場合は,(カンマ区切り) .tsvの拡張子の場合は (タブ区切り)でカラムを区切ってください．ファイル名は変更しても大丈夫です．例)sample_conf_AML_project.csv
@@ -67,3 +64,7 @@ sample_conf.csvを記載しましょう
 
 結果ファイルの各項目の説明は :doc:`dna_results` に書いてあります．
 
+.. code-block:: bash
+
+    # 実行例
+  genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
