@@ -1,7 +1,8 @@
 --------------------------------
 インストールします．
 --------------------------------
-Human Genome Center(HGC)スパコン向け．
+Human Genome Center(HGC)スパコン向け．  
+Pythonの設定と、Genomonと必要なパッケージをインストールします．
 
 
 pythonの環境設定
@@ -17,7 +18,7 @@ pythonの環境設定
   $export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 これらを~/.bash_profileに記載しておいた方がいいです．
 
-genomon2と必要なパッケージのインストール 
+Genomonと必要なパッケージのインストール 
 -------
 必要なパッケージはこちら→GenomonPipeline,ruffus,PyYAML,drmaa, xlwt,xlrd
 
