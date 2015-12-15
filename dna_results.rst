@@ -84,6 +84,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 10%_posterior_quantile >= 0.1
 variantPairNum_tumor >= 4
 10%_posterior_quantile(realignment) >= 0.1
+EBCall（P-value）>= 4.0
 
 SV検出結果 各カラムの説明
 ---------------------------
