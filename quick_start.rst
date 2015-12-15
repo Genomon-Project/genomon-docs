@@ -12,7 +12,7 @@ sample.csvを記載しましょう
 
 | Genomonでは解析対象のサンプルをsample.csvに記述します。
 | sample.csvに複数のサンプルを記述することにより、同時に解析できます．
-| .csvの拡張子の場合は,(カンマ区切り) ファイル名は変更しても大丈夫です．例)sample_AML_project.csv
+| .csvファイルの形式は,(カンマ区切り) 、ファイル名はこのように例)sample_AML_project.csv作成しても大丈夫です．
 
 .. code-block:: bash
   
