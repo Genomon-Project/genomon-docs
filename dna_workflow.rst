@@ -34,7 +34,7 @@ SV検出
 bam summary
 -------------------
   :bam_stats:  bamのreadとmappingのstatisticsを生成します．
-  :coverage: bamのcoverageを出します．
+  :coverage: bamのcoverageを生成します．
   :merge_summary: bam_statsの結果と、coverageの結果をマージします．
   
   
