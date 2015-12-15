@@ -9,16 +9,16 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-変異Call結果 各カラムの説明
+変異Call結果(Tumor V.S. Normal)で比較をしたパターン 各カラムの説明
 ---------------------------
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 :Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
 :annovarの結果: annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http://annovar.openbioinformatics.org/en/latest/user-guide/download/
 :depth_tumor: Tumorのdepth
-:variantNum_tumor: Tumorのvariantの数
+:variantNum_tumor: Tumorの変異アレルの数
 :depth_normal: Normalのdepth
-:variantNum_normal: Normalのvariantの数
+:variantNum_normal: Normalの変異アレルの数
 :bases_tumor: Tumorの塩基数．フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
 :bases_normal: Normalの塩基数．
 :A_C_G_T_tumor: Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
@@ -41,10 +41,10 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :distance_from_breakpoint: 変異候補からbreakpoointが何塩基離れているか表示されます．
 :simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
 :simple_repeat_seq: 上記SimpleRepeatの配列
-:P-value(EBCall): EBCall -log10(p値)
+:P-value(EBCall): EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
 :HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
-変異Callおすすめフィルタ
+変異Call(Tumor V.S. Normal比較)おすすめフィルタ
 ------------------
  | Fisher（P-value）>= 1.0
  | EBCall（P-value）>= 4.0
@@ -53,6 +53,31 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
  | 
  | NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
+変異Call結果 比較なしパターン 各カラムの説明
+---------------------------
+:Chr Start End: 変異候補のポジション
+:Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
+:Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
+:annovarの結果: annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+:depth: depth
+:variantNum: 変異アレルのリード数
+:bases: フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
+:A_C_G_T: SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
+:misRate: ミスマッチ率．
+:strandRatio: strand ratio．
+:10%_posterior_quantile: depthと変異アレルの数は二項分布でモデル化するためにβ分布を利用.10%の値
+:posterior_mean:  mean値
+:90%_posterior_quantile: 90%の値
+:readPairNum: 変異を含まないリード数
+:variantPairNum: 変異を含むリード数
+:otherPairNum: リアライメントできなかったリード数
+:10%_posterior_quantile(realignment): realignmentのreadPairNumとvariantPairNumでβ分布を利用.10%の値
+:posterior_mean(realignment): mean値
+:90%_posterior_quantile(realignment): 90%の値
+:simple_repeat_pos: SimpleRepeatに登録されているか
+:simple_repeat_seq: 上記SimpleRepeatの配列
+:P-value(EBCall): EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
+:HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 SV検出結果 各カラムの説明
 ---------------------------
