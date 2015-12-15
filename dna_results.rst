@@ -19,12 +19,14 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :variantNum_tumor: Tumorのvariantの数
 :depth_normal: Normalのdepth
 :variantNum_normal: Normalのvariantの数
-:A,C,G,T_tumor: Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
-:A,C,G,T_normal: Normalの塩基数．
-:mismatch_rate_tumor: Tumorのミスマッチ率．
-:strand_ratio_tumor: Tumorのstrand ratio．
-:mismatch_rate_normal: Normalのミスマッチ率
-:strand_ratio_normal: Normalのstrand ratio.
+:bases_tumor: Tumorの塩基数．フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
+:bases_normal: Normalの塩基数．
+:A_C_G_T_tumor: Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
+:A_C_G_T_normal: Normalの塩基数．
+:misRate_tumor: Tumorのミスマッチ率．
+:strandRatio_tumor: Tumorのstrand ratio．
+:misRate_normal: Normalのミスマッチ率
+:strandRatio_normal: Normalのstrand ratio.変異数がない場合は---が出力されます．
 :P-value(fisher): Fisher -log10(p値)
 :RefNum_tumor: 変異を含まないリード数
 :AltNum_tumor: 変異を含むリード数
@@ -40,6 +42,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
 :simple_repeat_seq: 上記SimpleRepeatの配列
 :P-value(EBCall): EBCall -log10(p値)
+:HGVDの結果: HGVDをご使用の方はHGVCの結果が出力されます．
 
 変異Callおすすめフィルタ
 ------------------
