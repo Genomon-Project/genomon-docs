@@ -42,7 +42,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
 :simple_repeat_seq: 上記SimpleRepeatの配列
 :P-value(EBCall): EBCall -log10(p値)
-:HGVDの結果: HGVDをご使用の方はHGVCの結果が出力されます．
+:HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 変異Callおすすめフィルタ
 ------------------
