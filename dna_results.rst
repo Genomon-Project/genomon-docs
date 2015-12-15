@@ -9,7 +9,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-変異Call結果(Tumor V.S. Normal)で比較をしたパターン 各カラムの説明
+変異Call結果(Tumor V.S. Normalで比較) 各カラムの説明
 ---------------------------
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
