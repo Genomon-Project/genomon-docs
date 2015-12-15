@@ -13,15 +13,14 @@ DNA解析パイプラインschemes
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします．
-  :map_dna_sequence: 分割したファイル単位でリファレンスゲノムにアライメント、そしてソートします．
-  :markdup: Sorted BAMに対してmerge＋mark duplicateします．
+  :map_dna_sequence: 分割したFASTQ単位でリファレンスゲノムにアライメント、そしてソートします．
+  :markdup: 分割されているソートしたBAMを１つにmerge＋mark duplicateします．
 
 
 変異Call
 -------------------
 
-  :identify_mutations: interval_listに指定されたゲノムの範囲毎に変異コールします.
-  :merge_mutation: ゲノムの範囲毎に出力された結果をマージします．
+  :identify_mutations: 変異コールします.
 
 
 SV検出
@@ -32,6 +31,13 @@ SV検出
   :filt_sv: parse_svに対して、control panelやnormalサンプルを用いて偽陽性をフィルタして、SVの候補を検出します．
 
 
+bam summary
+-------------------
+  :bam_stats:  bamのreadとmappingのstatisticsを生成します．
+  :coverage: bamのcoverageを出します．
+  :merge_summary: bam_statsの結果と、coverageの結果をマージします．
+  
+  
 その他、個別で機能するTask
 --------------------------
 
