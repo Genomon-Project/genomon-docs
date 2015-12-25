@@ -6,7 +6,7 @@ Pythonの設定と、Genomonと必要なパッケージをインストールし�
 
 
 pythonの環境設定
--------
+----------------
 バージョンが2.7以外である場合は以下をExportしてください.
 
 .. code-block:: bash
@@ -16,10 +16,11 @@ pythonの環境設定
   $export LD_LIBRARY_PATH=/usr/local/package/python2.7/current/lib:$LD_LIBRARY_PATH
   $export PYTHONPATH=~/.local/lib/python2.7/site-packages
   $export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
+
 これらを~/.bash_profileに記載しておいた方がいいです．
 
-Genomonと必要なパッケージのインストール 
--------
+Genomonと必要なパッケージのインストール
+---------------------------------------
 必要なパッケージはこちら→GenomonPipeline,ruffus,PyYAML,drmaa, xlwt,xlrd
 
 .. code-block:: bash
@@ -45,3 +46,4 @@ Genomonと必要なパッケージのインストール
   # PyYAMLのインストール
   $cd ../PyYAML
   $python setup.py install --user
+

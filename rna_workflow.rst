@@ -6,7 +6,7 @@ RNA解析パイプラインschemes
 
  | Inputの方法は
  | [fastq]の1種類です．sample confで定義します．
- | 記載方法は「Sample Configの書き方」をみてください．
+ | 記載方法は :doc:`sample_csv` をみてください．
  
  | Fustion検出が実行されます．
  

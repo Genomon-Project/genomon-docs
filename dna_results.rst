@@ -10,7 +10,8 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
 変異Call結果(Tumor V.S. Normalで比較) 各カラムの説明
----------------------------
+______________________________________________________
+
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 :Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
@@ -45,7 +46,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 変異Call(Tumor V.S. Normal比較)おすすめフィルタ
-------------------
+-----------------------------------------------
  | Fisher（P-value）>= 1.0
  | EBCall（P-value）>= 4.0
  | variantPairNum_tumor >= 4
@@ -54,7 +55,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
  | NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
 変異Call結果 比較なしパターン 各カラムの説明
----------------------------
+--------------------------------------------
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 :Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
@@ -80,14 +81,14 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 :HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 変異Call 比較なしパターン おすすめフィルタ
----------------------------
+------------------------------------------
  | 10%_posterior_quantile >= 0.1
  | variantPairNum_tumor >= 4
  | 10%_posterior_quantile(realignment) >= 0.1
  | EBCall（P-value）>= 4.0
 
 SV検出結果 各カラムの説明
----------------------------
+-------------------------
 :1: chromosome for the 1st breakpoint
 :2: coordinate for the 1st breakpoint
 :3: direction of the 1st breakpoint

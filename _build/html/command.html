@@ -30,11 +30,9 @@
   
 
   
-        <link rel="author" title="このドキュメントについて"
-              href="about.html"/>
     <link rel="top" title="genomon 0.1.0 ドキュメント" href="index.html"/>
-        <link rel="next" title="結果ファイルの構成" href="result.html"/>
-        <link rel="prev" title="設定シートの記述方法" href="param_sheet.html"/> 
+        <link rel="next" title="DNA解析結果" href="dna_results.html"/>
+        <link rel="prev" title="Sample_confの書き方" href="sample_csv.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,17 +45,27 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
 
-        
-          <a href="index.html" class="icon icon-home"> genomon
-        
+          
+            <a href="index.html" class="icon icon-home"> genomon
+          
 
-        
-        </a>
+          
+          </a>
 
-        
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -66,76 +74,35 @@
   </form>
 </div>
 
-        
-      </div>
+          
+        </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-          
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">クイックスタート</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id2">サンプルの実行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id3">設定シートの記述方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id4">コマンドの実行</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#id5">結果ファイルの確認</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sample.html">サンプルについて</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sample.html#id2">サンプルの構成</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sample.html#id3">サンプルの実行</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="param_sheet.html">設定シートの記述方法</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#input">[Input] セクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#compare">[Compare] セクション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param_sheet.html#controlpanel">[ControlPanel] セクション</a></li>
-</ul>
-</li>
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dna_quick_start.html">Quick Start DNA解析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rna_quick_start.html">Quick Start RNA解析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dna_workflow.html">DNA解析パイプラインschemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rna_workflow.html">RNA解析パイプラインschemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Genomonインストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sample_csv.html">Sample_confの書き方</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">コマンドの実行</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dna">DNA解析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rna">RNA解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dna">DNA解析実行例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rna">RNA解析実行例</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="result.html">結果ファイルの構成</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="result.html#id2">ディレクトリ構成</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="error_code.html">Error Code</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code1">Error Code1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error_code.html#error-code2">Error Code2</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">このドキュメントについて</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developers.html">開発者向けガイドライン</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developers.html#source-code-structure">1. Source code structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developers.html#yaml-files">2.YAML files</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#job-description-yaml-file">2.1. job description yaml file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#analysis-parameter-yaml-file">2.2. analysis parameter yaml file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#system-configuration-file">2.3. system configuration file</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developers.html#utility-functions">3.Utility functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#id2">3.1. パラメーター取得の関数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#id3">3.2. ジョブ実行の関数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#id4">3.3. 実行結果の保存関数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#id5">3.4. シェルスクリプトの作成</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="developers.html#execution-and-debug">4.Execution and Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developers.html#id6">開発環境</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#genomon">genomon</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developers.html#genomon-doc">genomon-doc</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="dna_results.html">DNA解析結果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rna_results.html">RNA解析結果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output_info.html">Outputについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_info.html">Configファイルについて</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -150,7 +117,13 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
@@ -165,31 +138,63 @@
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="id1">
 <h1>コマンドの実行<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>{text}</p>
+<p>コマンドは下記のように実行してください．</p>
+<div class="highlight-bash"><div class="highlight"><pre>genomon_pipeline <span class="o">[</span>Analysis <span class="nb">type</span>: dna,rna<span class="o">]</span> sample_cfg.csv<span class="o">(</span>.tsv<span class="o">)</span> project_root_directory genomon_conf_file task_conf_file
+</pre></div>
+</div>
+<p>パラメータについて</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Analysis type:</th><td class="field-body">DNA解析をする場合は、&#8217;dna&#8217;を、RNA解析をする場合は、&#8217;rna&#8217;を指定してください．</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">project_root_directory:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">結果ファイルを出力するディレクトリを指定してください。指定したディレクトリをルートにoutputが生成されます．</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">sample_conf_file:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">解析するサンプルと入力ファイルを指定します．</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">genomon_conf_file:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">使用するソフトウェアやデータベースファイルの指定をします．</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">task_conf_file:</th><td class="field-body">DNA解析用(dna_task_param.cfg)とRNA解析用(dna_task_param.cfg)のファイルが用意されています．基本的にコマンドオプションのパラメータは最適化されております．閾値の問題で候補が出力されない場合はこちらのファイルをコピーして編集してください．</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>sample_conf_fileの記述方法は <cite>こちら :doc:`sample_csv</cite> を参照してください。</p>
 <div class="section" id="dna">
-<h2>DNA解析<a class="headerlink" href="#dna" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>{text}</p>
+<h2>DNA解析実行例<a class="headerlink" href="#dna" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>genomon_pipeline dna ~/tmp DNA_sample.csv genomon.cfg dna_task_param.cfg
+</pre></div>
+</div>
 </div>
 <div class="section" id="rna">
-<h2>RNA解析<a class="headerlink" href="#rna" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>{text}</p>
+<h2>RNA解析実行例<a class="headerlink" href="#rna" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>genomon_pipeline rna ~/tmp RNA_sample.csv genomon.cfg rna_task_param.cfg
+</pre></div>
+</div>
 </div>
 </div>
 
 
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="result.html" class="btn btn-neutral float-right" title="結果ファイルの構成" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dna_results.html" class="btn btn-neutral float-right" title="DNA解析結果" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="param_sheet.html" class="btn btn-neutral" title="設定シートの記述方法" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sample_csv.html" class="btn btn-neutral" title="Sample_confの書き方" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -198,10 +203,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2015, Eigo Shimizu, Yuichi Shiraishi, Kenichi Chiba, Hiroko Tanaka and Satoru Miyano.
+        &copy; Copyright 2015, Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi.
+
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 

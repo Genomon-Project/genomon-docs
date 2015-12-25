@@ -10,7 +10,7 @@ DNA解析パイプラインschemes
  | 解析は変異Call,SV検出,BamSummary出力の3種類あり、
  | [mutation_call], [sv_detection], [summary] の項目を定義すると実行されます．sample confで定義します．
  
- | 記載方法は「Sample Configの書き方」をみてください．
+ | 記載方法は :doc:`sample_csv` をみてください．
  
  
 リードアライメント

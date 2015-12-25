@@ -9,10 +9,12 @@
     :target: https://img.shields.io/badge/license-GPL--3-blue.svg
 
 |
+
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
 |
+
 Welcome to Genomon's documentation!
 =============================================
 
@@ -29,6 +31,7 @@ Contents:
    sample_csv.rst
    command.rst
    dna_results.rst
+   rna_results.rst
    output_info.rst
    config_info.rst
 
