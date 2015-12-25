@@ -10,13 +10,13 @@ Outputについて
     -bam
       -各サンプル名
         -サンプル名.markdup.bam
-    	-サンプル名.markdup.bam.bai
-	-サンプル名.markdup.bam.md5
-	-サンプル名.markdup.metrics
+        -サンプル名.markdup.bam.bai
+    -サンプル名.markdup.bam.md5
+    -サンプル名.markdup.metrics
     -fastq
-	-各サンプル名
-	  -1_1.fastq
-	  -1_2.fastq
+    -各サンプル名
+      -1_1.fastq
+      -1_2.fastq
     -log
       -qsubのログ
     -mutation
@@ -24,6 +24,10 @@ Outputについて
         -サンプル名.genomon_mutations.result.txt
     -script
       -qsub実行script
+    -summary
+      -各サンプル名
+        -サンプル名.xls
+        -サンプル名.tsv
     -sv 
       -各サンプル名
         -サンプル名.genomon_SV.result.txt
@@ -39,7 +43,7 @@ bamディレクトリ
 
 | [fastq][bam_tofastq]から実行した場合は、上記4つのファイルが出力されます.
 | [bam_import]から実行した場合は、対象のbamファイルがこのディレクトリにlinkされます.
-  
+|
 
 fastqディレクトリ
 -----------------
@@ -48,8 +52,8 @@ fastqディレクトリ
 
 | [fastq]から実行した場合は、このディレクトリにfastqファイルがlinkされます.
 | [bam_tofastq]から実行した場合は、bamからconvertされたfastqファイルがこのディレクトリに出力されます.
+|
 
-  
 logディレクトリ
 ---------------
   
@@ -61,14 +65,20 @@ mutationディレクトリ
 
 :サンプル名.genomon_mutations.result.txt: 変異Callの結果が出力されます.
 
-  
 scriptディレクトリ
 ------------------
 
 | qsubされたshell scriptです.
 | こちらのscriptの中身をみると、どのような処理が実行されたか一目瞭然です.
-  
-  
+|
+
+summaryディレクトリ
+-------------------
+
+:サンプル名.xls: bam summaryがEXCELファイルで出力されます.
+:サンプル名.tsv: サンプル名.xlsをテキスト形式で出力したものです.内容は同じです.
+
+
 SVディレクトリ
 --------------
 

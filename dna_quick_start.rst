@@ -4,8 +4,10 @@ Quick Start DNA解析
 
 Genomonのインストール
 ---------------------
+
 | インストール方法は :doc:`install` に記載しました．
 | うまくいかないことがあれば、xxxxxにご連絡ください．
+| 
 
 sample.csvを記載しましょう
 --------------------------
@@ -28,14 +30,16 @@ sample.csvを記載しましょう
   [compare]
   sample1_tumor,sample1_normal,None
 
-| sample_confの書き方詳細は :doc:`sample_csv` に記載があります．いくつかの解析パターンがありますのでご覧ください．
+| sample_confの書き方詳細は :doc:`sample_csv` に記載があります．
+| いくつかの解析パターンがありますのでご覧ください．
+| 
 
 コマンドの実行
 --------------
 
 .. code-block:: bash
   
-  # usage  
+  # usage
   genomon_pipeline dna [sample.csv] [output_root_directory] genomon.cfg dna_task_param.cfg
   
 :dna/rna: DNA解析を実行するときはdnaを指定します
@@ -44,11 +48,11 @@ sample.csvを記載しましょう
 
 .. code-block:: bash
 
-    # 実行例
+  # 実行例
   genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
 
 | commandの実行方法詳細は :doc:`command` に記載があります．
-
+| 
 
 結果ファイル
 ------------------
@@ -56,5 +60,5 @@ sample.csvを記載しましょう
 :変異Call結果: output_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: output_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-結果ファイルの各項目の説明は :doc:`dna_results` に記載があります．
+| 結果ファイルの各項目の説明は :doc:`dna_results` に記載があります．
 

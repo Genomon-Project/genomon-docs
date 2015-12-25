@@ -5,12 +5,16 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 
 結果ファイル
 ------------------
+
 :bam: project_root_directory/bam/sample/sample_markdup.bam
 :変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
 
-変異Call結果(Tumor V.S. Normalで比較) 各カラムの説明
-______________________________________________________
+変異Call結果(Tumor V.S. Normalで比較)
+-------------------------------------
+
+各カラムの説明
+**************
 
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
@@ -45,8 +49,9 @@ ______________________________________________________
 :P-value(EBCall): EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
 :HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
-変異Call(Tumor V.S. Normal比較)おすすめフィルタ
------------------------------------------------
+おすすめフィルタ
+****************
+
  | Fisher（P-value）>= 1.0
  | EBCall（P-value）>= 4.0
  | variantPairNum_tumor >= 4
@@ -54,8 +59,12 @@ ______________________________________________________
  | 
  | NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
-変異Call結果 比較なしパターン 各カラムの説明
---------------------------------------------
+変異Call結果 比較なしパターン
+-----------------------------
+
+各カラムの説明
+**************
+
 :Chr Start End: 変異候補のポジション
 :Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 :Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
@@ -80,15 +89,20 @@ ______________________________________________________
 :P-value(EBCall): EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
 :HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
 
-変異Call 比較なしパターン おすすめフィルタ
-------------------------------------------
+おすすめフィルタ
+****************
+
  | 10%_posterior_quantile >= 0.1
  | variantPairNum_tumor >= 4
  | 10%_posterior_quantile(realignment) >= 0.1
  | EBCall（P-value）>= 4.0
 
-SV検出結果 各カラムの説明
--------------------------
+SV検出結果
+----------
+
+各カラムの説明
+**************
+
 :1: chromosome for the 1st breakpoint
 :2: coordinate for the 1st breakpoint
 :3: direction of the 1st breakpoint
@@ -110,4 +124,67 @@ SV検出結果 各カラムの説明
 :19: p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference v.s. variant read pairs)
 
 
+Summary
+-------
+
+各カラムの説明
+**************
+
+:bam_filename:           the name of the bam file stats have been collected for.
+:sample:                 the name of the sample (taken from the bam file).
+:platform:               the name of the hardware platform (taken from the bam file).
+:platform_unit:          the platform unit (i.e. lane/run) of the hardware platform (taken from the bam file).
+:library:                the library name associated with the read group.	
+:readgroup:              the read group name.
+:read_length_r1:         the read length associated with read 1.
+:read_length_r2:         the read length associated with read 2.
+:#_mapped_bases:         the total number of mapped bases.
+
+  :#_mapped_bases_r1:    the total number of mapped bases for all read 1s.
+  :#_mapped_bases_r2:    the total number of mapped bases for all read 2s.
+
+:#_divergent_bases:      the total number of bases divergent from the reference.
+
+  :#_divergent_bases_r1: the total number of bases divergent from the reference for all read 1s.
+  :#_divergent_bases_r2: the total number of bases divergent from the reference for all read 2s.
+
+:#_total_reads:          the total number of reads.
+
+  :#_total_reads_r1:     the total number of read 1s.
+  :#_total_reads_r2:     the total number of read 2s.
+
+:#_mapped_reads:         the total number of unmapped reads.
+
+  :#_mapped_reads_r1:    the total number of unmapped read 1s.
+  :#_mapped_reads_r2:    the total number of unmapped read 2s.
+
+:#_mapped_reads_properly_paired: the total number of properly paired reads.
+:#_gc_bases_r1:          the total number of G/C bases in read 1s.
+:#_gc_bases_r2:          the total number of G/C bases in read 2s.
+:mean_insert_size:       the mean insert size.
+:insert_size_sd:         the insert size standard deviation.
+:median_insert_size:     the median insert size.
+:#_duplicate_reads:      the total number of duplicate reads.
+:total_depth:            the total number of depth.
+:bait_size:              bait size.
+:average_depth:          the mean depth. (total_depth/bait_size)
+:depth_stdev:            the depth standard deviation.
+:Nx_ratio:               coverage N※以上のdepthを持つbaseの比率. (Nx/bait_size)
+:Nx:                     N以上のdepthを持つbase総数
+
+※ coverage Nは設定ファイル `dna_task_param.cfg` で指定した値です。:doc:`config_info`
+
+dna_task_param.cfg
+
+.. code-block:: cfg
+    :linenos:
+    :emphasize-lines: 3
+     
+    [coverage]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    coverage    = 2,10,20,30,40,50,100
+    wgs_flag = False
+    wgs_incl_bed_width = 1000000
+    wgs_i_bed_lines = 10000
+    wgs_i_bed_width = 100
 

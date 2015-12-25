@@ -6,12 +6,13 @@ DNA解析パイプラインschemes
 
  | Inputの方法は
  | [fastq], [bam_tofastq], [bam_import] の3種類あります．すべてsample confで定義します．
- 
- | 解析は変異Call,SV検出,BamSummary出力の3種類あり、
- | [mutation_call], [sv_detection], [summary] の項目を定義すると実行されます．sample confで定義します．
- 
+ | 
+ | 解析は変異Call, SV検出, BamSummary出力 の3種類あり、
+ | [mutation_call], [sv_detection], [summary] の項目を定義すると実行されます．
+ | sample confで定義します．
+ | 
  | 記載方法は :doc:`sample_csv` をみてください．
- 
+ | 
  
 リードアライメント
 -----------------------

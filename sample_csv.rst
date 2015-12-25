@@ -10,10 +10,11 @@ Sample_confの書き方
 :[mutation_call]: 変異Callが実行されます．
 :[sv_detection]: SV検出が実行されます．
 :[controlpanel]: controlパネルのペアを指定します．
+:[summary]: BamSummaryを出力します.
 
-| [fastq], [bam_tofastq], [bam_import]は入力ファイルの情報を記載します．
-| [mutation_call],[sv_detection],[controlpanel]には解析するための情報をきさいします．
-
+| [fastq], [bam_tofastq], [bam_import] は入力ファイルの情報を記載します．
+| [mutation_call], [sv_detection], [controlpanel], [summary] には解析するための情報を記載します．
+|
 
 [fastq]の記載方法
 ---------------------
@@ -26,8 +27,8 @@ Sample_confの書き方
   sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
   sample1_normal,/home/genomon/sample1_N_read1.fastq,/home/genomon/sample1_N_read2.fastq
 
-サンプル名は任意で指定してください。ディレクトリやファイル名で使用されます。
-
+| サンプル名は任意で指定してください。ディレクトリやファイル名で使用されます。
+| 
 
 [bam_import]の記載方法
 --------------------------
@@ -39,8 +40,8 @@ Sample_confの書き方
   # サンプル名,bam  と記載してください
   sample3_tumor,/home/genomon/sample3_T.bam
   
-bam indexファイル(.bai)がセットで必要です。
-
+| bam indexファイル(.bai)がセットで必要です。
+| 
 
 [mutation_call],[sv_detection]の記載方法
 ----------------------------------------
@@ -68,8 +69,8 @@ bam indexファイル(.bai)がセットで必要です。
   # tumorサンプル名,None,None と記載してください。
   sample4_tumor,None,None
 
-この項目に定義するサンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
-
+| この項目に定義するサンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
+| 
 
 [controlpanel]の記載方法
 ----------------------------
@@ -85,6 +86,26 @@ bam indexファイル(.bai)がセットで必要です。
 | サンプル数Nに最大値はないです。
 | サンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
 | パネル名は任意で指定してください。
+| 
+
+[summary]の記載方法
+----------------------------
+
+項目[summary]にはサンプル名を記載します．
+
+.. code-block:: bash
+
+  # ペアで記載する必要はありません。1行づつサンプル名を記載してください
+  sample1_normal
+  sample2_normal
+  sample3_normal
+  sample1_tumor
+  sample2_tumor
+  sample3_tumor
+
+
+| この項目に定義するサンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
+| 
 
 
 
