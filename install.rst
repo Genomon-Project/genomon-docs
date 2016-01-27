@@ -33,10 +33,10 @@ DRMAAの設定を行ってください
 
 .. code-block:: bash
 
-  #こちらはN1GE用（HGCスパコンであればこちらでOK）です。ご使用しているDRMシステムのライブラリに変更をお願いします。
+  # N1GE用のDRMAA（HGCスパコンであればこちらでOK）です。ご使用しているDRMシステムのライブラリに変更をお願いします。
   export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 
-これらを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
+これらのexportを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
 
 Genomonと必要なパッケージのインストール
 ^^^^^^^^^^^^^^^^
