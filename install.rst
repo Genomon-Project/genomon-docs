@@ -23,7 +23,7 @@ Genomonではバージョンが2.7を使用します.
 
 .. code-block:: bash
 
-  # python 2.7以外である場合は以下をExportしてください
+  # python 2.7以外の場合は以下をExportしてください
   export PYTHONHOME=/usr/local/package/python/2.7.10
   export PATH=${PYTHONHOME}/bin:$PATH
   export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
