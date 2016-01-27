@@ -23,7 +23,7 @@ Genomonではバージョンが2.7を使用します.
 
 .. code-block:: bash
 
-  python 2.7以外である場合は以下をExportしてください
+  # python 2.7以外である場合は以下をExportしてください
   export PYTHONHOME=/usr/local/package/python/2.7.10
   export PATH=${PYTHONHOME}/bin:$PATH
   export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
@@ -35,7 +35,7 @@ DRMAAの設定を行ってください
 
   export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 
-これらを~/.bash_profileに記載しておいた方がいいです（今まで使用していたpythonのソフトウェアに影響がなければ）．
+これらを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
 
 Genomonと必要なパッケージのインストール
 ^^^^^^^^^^^^^^^^
