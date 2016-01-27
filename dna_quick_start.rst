@@ -11,13 +11,11 @@ Quick Start DNA解析
 
 Genomon2のインストール
 ---------------------
-| Quick Start DNA解析はHuman genome center(HGC)のスパコンのユーザ向けです。
 | HGCには、Genomon2で使用するツール(BWA,Samtools等)が既にインストールされています(ANNOVARを除く)。
 | そのためご自身のユーザディレクトリにGenomon2をインストールするだけで、解析をはじめることができます。
-
 | HGCスパコンユーザの方はこちら
 | →インストール方法は :doc:`install` に記載しました．
-
+|
 | HGC以外のコンピュータにGenomonをインストールしたい方はこちら
 | →記載中
 
