@@ -10,7 +10,7 @@ Quick Start DNA解析
 + 結果ファイルを見てみましょう
 
 Genomon2のインストール
----------------------
+^^^^^^^^
 | HGCには、Genomon2で使用するツール(BWA,Samtools等)が既にインストールされています(ANNOVARを除く)。
 | そのためご自身のユーザディレクトリにGenomon2をインストールするだけで、解析をはじめることができます。
 | HGCスパコンユーザの方はこちら
@@ -19,8 +19,8 @@ Genomon2のインストール
 | HGC以外のコンピュータにGenomonをインストールしたい方はこちら
 | →記載中
 
-sample.csvを記載しましょう
---------------------------
+sampleシートに解析対象サンプルを記載しましょう
+^^^^^^^^
 
 | Genomonでは解析対象のサンプルをsample.csvに記述します。
 | sample.csvに複数のサンプルを記述することにより、同時に解析できます．
@@ -45,7 +45,7 @@ sample.csvを記載しましょう
 | 
 
 コマンドの実行
---------------
+^^^^^^^^
 
 .. code-block:: bash
   
@@ -64,8 +64,8 @@ sample.csvを記載しましょう
 | commandの実行方法詳細は :doc:`command` に記載があります．
 | 
 
-結果ファイル
-------------------
+結果ファイルを見てみましょう
+^^^^^^^^
 :bam: output_root_directory/bam/sample/sample_markdup.bam
 :変異Call結果: output_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
 :SV検出結果: output_root_directory/sv/sample名/sample名.genomonSV.result.txt
