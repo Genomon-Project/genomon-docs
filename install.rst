@@ -37,19 +37,19 @@ Genomonと必要なパッケージのインストール
 .. code-block:: bash
 
   # genomon-pipeline(本体)のダウンロード
-  $wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.0.2.tar.gz
-  $tar xzvf v2.0.2.tar.gz
+  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v${ダウンロードしたバージョン}.tar.gz
+  tar xzvf v${ダウンロードしたバージョン}.tar.gz
   # ruffusのダウンロード
-  $wget https://github.com/bunbun/ruffus/archive/v2.6.3.tar.gz
-  $tar xzvf v2.6.3.tar.gz
+  wget https://github.com/bunbun/ruffus/archive/v2.6.3.tar.gz
+  tar xzvf v2.6.3.tar.gz
   # PyYAMLのダウンロード
-  $git clone https://github.com/ravenac95/PyYAML
+  git clone https://github.com/ravenac95/PyYAML
   # drmaa,xlwt,xlrdのインストール
-  $pip install drmaa --user
-  $pip install xlwt --user
-  $pip install xlrd --user
+  pip install drmaa --user
+  pip install xlwt --user
+  pip install xlrd --user
   # genomon-pipeline(本体)のインストール
-  $cd GenomonPipeline-2.0.2
+  $cd GenomonPipeline-${ダウンロードしたバージョン}
   $python setup.py install --user
   # ruffusのインストール
   $cd ../ruffus-2.6.3
