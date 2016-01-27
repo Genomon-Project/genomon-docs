@@ -1,8 +1,8 @@
 --------------------------------
 Genomonインストール
 --------------------------------
-Human Genome Center(HGC)スパコン向け．  
-Pythonの設定と、Genomonと必要なパッケージをインストールします．
+・Human Genome Center(HGC)スパコン向けです
+・Pythonの設定と、Genomonと必要なパッケージをインストールします．
 
 
 pythonの環境設定
