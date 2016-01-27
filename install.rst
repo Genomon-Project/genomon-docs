@@ -12,7 +12,8 @@ Genomonインストール
 .. code-block:: bash
 
   Linux
-  Drmaaが使用できるDRMシステムが使用できること
+  Drmaaが使用できるDRMシステムが使用できること(HGCではGrid Engineを使用しています)
+  http://www.drmaa.org/
 
 
 pythonの環境設定
