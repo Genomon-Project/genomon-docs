@@ -10,8 +10,8 @@ Genomonインストール
 | HGCスパコン以外のコンピュータにインストールする場合
 | 必要な環境
 1. Linux
-2. Drmaaが使用できるDRMシステムが使用できること(HGCではGrid Engineを使用しています)
-  http://www.drmaa.org/
+2. Drmaaが使用できるDRMシステム(HGCではGrid Engineを使用しています) 
+| Drmaa: http://www.drmaa.org/
 
 
 pythonの環境設定
