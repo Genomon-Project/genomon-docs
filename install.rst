@@ -19,11 +19,11 @@ pythonの環境設定
 
 .. code-block:: bash
 
-  $export PYTHONHOME=/usr/local/package/python2.7/current
-  $export PATH=$PYTHONHOME/bin:$PATH
-  $export LD_LIBRARY_PATH=/usr/local/package/python2.7/current/lib:$LD_LIBRARY_PATH
-  $export PYTHONPATH=~/.local/lib/python2.7/site-packages
-  $export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
+  export PYTHONHOME=/usr/local/package/python/2.7.10
+  export PATH=${PYTHONHOME}/bin:$PATH
+  export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
+  export PYTHONPATH=~/.local/lib/python2.7/site-packages
+  export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 
 これらを~/.bash_profileに記載しておいた方がいいです．
 
