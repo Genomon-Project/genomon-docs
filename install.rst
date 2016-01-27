@@ -49,26 +49,23 @@ Genomonと必要なパッケージのインストール
   
 Genomonで使用しているソフトウェア
 ---------------------------------  
-====        ============           ==========             =========                                                   ========
-項目        インストール           ライセンス             webサイト                                                   コメント
-====        ============           ==========             =========                                                   ========
-blat        要インストール         独自ライセンス         https://genome.ucsc.edu/FAQ/FAQblat.html#blat3              BLAT v. 34
-bwa         要インストール         GNU GPL v3             http://bio-bwa.sourceforge.net/                             bwa-0.7.8
-samtools    要インストール         The MIT/Expat License  http://samtools.sourceforge.net/                            samtools-1.2
-bedtools    要インストール         GNU GPL v2             http://code.google.com/p/bedtools/                          bedtools-2.24.0
-biobambam   要インストール         GNU GPL v3             https://github.com/gt1/biobambam                            biobambam-0.0.191
-PCAP        要インストール         GNU GPL v2             https://github.com/ICGC-TCGA-PanCancer/PCAP-core            v1.8.0
-tophat2     要インストール         Artistic License 1.0   http://ccb.jhu.edu/software/tophat/index.shtml              2.0.14.Linux
-STAR        要インストール         GNU GPL v3             https://github.com/alexdobin/STAR                           2.4
-STAR-Fusion 要インストール         GNU GPL v3             https://github.com/STAR-Fusion/STAR-Fusion                  Genomon2-v2.0.5では使用していない
-genomon_sv  要インストール         GNU GPL v3             https://github.com/Genomon-Project/GenomonSV                v0.1.2
-fusionfusion要インストール         GNU GPL v3             https://github.com/Genomon-Project/fusionfusion             v0.1.0
-mutfilter   要インストール         GNU GPL v3             https://github.com/Genomon-Project/GenomonMutationFilter    v0.1.0
-ebfilter    要インストール         GNU GPL v3             https://github.com/Genomon-Project/EBFilter                 v0.1.1
-fisher      要インストール         GNU GPL v3             https://github.com/Genomon-Project/GenomonFisher            v0.1.1
-mutanno     要インストール         GNU GPL v3             https://github.com/Genomon-Project/GenomonMutationAnnotator v0.1.0
-annovar     各ユーザがインストール 独自ライセンス         http://annovar.openbioinformatics.org/en/latest/            個人使用のみ認められている。versionは最新でよい
-====        ============           ==========             =========                                                   ========
-
-
-
++--------------+-----------------------+-------------------------------------------------------------+-------------------------------------------------+
+| 項目         | ライセンス            | webサイト                                                   | コメント                                        |
++--------------+-----------------------+-------------------------------------------------------------+-------------------------------------------------+
+| blat         | 独自ライセンス        | https://genome.ucsc.edu/FAQ/FAQblat.html#blat3              | BLAT v. 34                                      |
+| bwa          | GNU GPL v3            | http://bio-bwa.sourceforge.net/                             | bwa-0.7.8                                       |
+| samtools     | The MIT/Expat License | http://samtools.sourceforge.net/                            | samtools-1.2                                    |
+| bedtools     | GNU GPL v2            | http://code.google.com/p/bedtools/                          | bedtools-2.24.0                                 |
+| biobambam    | GNU GPL v3            | https://github.com/gt1/biobambam                            | biobambam-0.0.191                               |
+| PCAP         | GNU GPL v2            | https://github.com/ICGC-TCGA-PanCancer/PCAP-core            | v1.8.0                                          |
+| tophat2      | Artistic License 1.0  | http://ccb.jhu.edu/software/tophat/index.shtml              | 2.0.14.Linux                                    |
+| STAR         | GNU GPL v3            | https://github.com/alexdobin/STAR                           | 2.4                                             |
+| STAR-Fusion  | GNU GPL v3            | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon2-v2.0.5では使用していない               |
+| genomon_sv   | GNU GPL v3            | https://github.com/Genomon-Project/GenomonSV                | v0.1.2                                          |
+| fusionfusion | GNU GPL v3            | https://github.com/Genomon-Project/fusionfusion             | v0.1.0                                          |
+| mutfilter    | GNU GPL v3            | https://github.com/Genomon-Project/GenomonMutationFilter    | v0.1.0                                          |
+| ebfilter     | GNU GPL v3            | https://github.com/Genomon-Project/EBFilter                 | v0.1.1                                          |
+| fisher       | GNU GPL v3            | https://github.com/Genomon-Project/GenomonFisher            | v0.1.1                                          |
+| mutanno      | GNU GPL v3            | https://github.com/Genomon-Project/GenomonMutationAnnotator | v0.1.0                                          |
+| annovar      | 独自ライセンス        | http://annovar.openbioinformatics.org/en/latest/            | 個人使用のみ認められている。versionは最新でよい |
++--------------+-----------------------+-------------------------------------------------------------+-------------------------------------------------+
