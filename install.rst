@@ -17,16 +17,22 @@ Genomonインストール
 + Genomonで使用しているソフトウェアのインストール
 + Genomonで使用しているデータベースのインストール
 
-pythonの環境設定
+環境設定
 ^^^^^^^^^^^^^^^^
-バージョンが2.7以外である場合は以下をExportしてください.
+Genomonではバージョンが2.7を使用します.
 
 .. code-block:: bash
 
+  python 2.7以外である場合は以下をExportしてください
   export PYTHONHOME=/usr/local/package/python/2.7.10
   export PATH=${PYTHONHOME}/bin:$PATH
   export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
   export PYTHONPATH=~/.local/lib/python2.7/site-packages
+  
+DRMAAの設定を行ってください
+
+.. code-block:: bash
+
   export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 
 これらを~/.bash_profileに記載しておいた方がいいです（今まで使用していたpythonのソフトウェアに影響がなければ）．
