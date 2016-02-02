@@ -76,9 +76,33 @@ Genomonではpythonバージョン2.7を使用します.
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
 | ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlを使用して各種データ (snp131など) をダウンロードします．
-| データベースダウンロードtoolを用意しましたので、こちらをannovarディレクトリに入れてください
 
-genomon.cfgを編集する
+.. code-block:: bash
+
+  # Annovarのデータベースをダウンロードします．コピペして使ってください． 
+  DATABASE_LIST="
+  refGene
+  avsift
+  ljb26_all
+  cosmic68wgs
+  cosmic70
+  esp6500siv2_all
+  1000g2010nov
+  1000g2014oct
+  snp131
+  snp138
+  snp131NonFlagged
+  snp138NonFlagged
+  clinvar_20150629
+  "
+  for DATABASE in $DATABASE_LIST
+  do
+    ./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar $DATABASE humandb/
+  done
+  ./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
+  ./annotate_variation.pl -buildver hg19 -downdb genomicSuperDups humandb/
+
+ANNOVARを使用するようにgenomon.cfgを編集する
 
 .. code-block:: bash
 
