@@ -3,62 +3,33 @@ Quick Start DNA解析
 ========================================
 
 #. Genomon2のインストール
-#. sampleシートに解析対象サンプルを記載しましょう
 #. コマンドの実行
 #. 結果ファイルを見てみましょう
 
-1. Genomon2のインストール
+1. Genomonのインストール
 ^^^^^^^^
-| HGCスパコンには、Genomon2で使用する解析ソフトウェア(BWA,Samtools等)が既にインストールされています(ANNOVARは別途インストールが必要です)。そのためご自身のユーザディレクトリにGenomon2をインストールするだけで、解析をはじめることができます．
+| HGCスパコンには、Genomonで使用する解析ソフトウェア(BWA,Samtools等)が既にインストールされています(ANNOVARは別途インストールが必要です)。そのためご自身のユーザディレクトリにGenomonをインストールするだけで、解析をはじめることができます．
 |
-| HGCスパコンユーザの方でGenomon2を使ってみたいという方
 | → :doc:`install` にインストール方法を記載しました．
 |
-| HGC以外のコンピュータにGenomon2をインストールしたい方はこちら
-| →記載中
 
-2. sampleシートに解析対象サンプルを記載しましょう
-^^^^^^^^
-
-| Genomonでは解析対象のサンプルをsample.csvに記述します。
-| sample.csvに複数のサンプルを記述することにより、同時に解析できます．
-| .csvファイルの形式は,(カンマ区切り) 、ファイル名はこのように例)sample_AML_project.csv作成しても大丈夫です．
-
-.. code-block:: bash
-  
-  # 項目[fastq]にはinput fastqファイルを記載します．
-  # 形式はサンプル名,read1.fastq,read2.fastqです。順不同です．
-  [fastq]
-  sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
-  sample1_normal,/home/genomon/sample1_N_read1.fastq,/home/genomon/sample1_N_read2.fastq
-
-  # 項目[compare]にはtumorとmatched normalで比較するペアを記述します．
-  # 形式はtumorサンプル名,normalサンプル名,non-matched_normal_panelです。順不同です．
-  # non-matched_normal_panelはなくてもOKです。
-  [compare]
-  sample1_tumor,sample1_normal,None
-
-| sample_confの書き方詳細は :doc:`sample_csv` に記載があります．
-| いくつかの解析パターンがありますのでご覧ください．
-| 
-
-コマンドの実行
+2. テストサンプルの実行
 ^^^^^^^^
 
 .. code-block:: bash
   
-  # usage
-  genomon_pipeline dna [sample.csv] [output_root_directory] genomon.cfg dna_task_param.cfg
-  
-:dna/rna: DNA解析を実行するときはdnaを指定します
-:sample.csv: 解析対象のサンプルを記述したファイルになります
-:output_root_directory: 結果出力のルートディレクトリを指定します
+テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので、それを使用しましょう．
+# qloginする
+$qlogin
+# GenomonPipelineに移動
+$cd GenomonPipeline-v{バージョン}
+# 実行
+$./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
+(output_directoryには出力したいディレクトリを設定指定ください)
 
-.. code-block:: bash
-
-  # 実行例
-  genomon_pipeline dna DNA_sample.csv ~/tmp/ALL_project genomon.cfg dna_task_param.cfg
-
+| sample.csvの記載方法は :doc:`sample_csv` に記載があります．
+| testdata/sample.csvの中身をみて、書き方を学んでいただくのも良いかと思います．
+|
 | commandの実行方法詳細は :doc:`command` に記載があります．
 | 
 
