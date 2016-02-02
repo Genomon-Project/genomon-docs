@@ -16,22 +16,25 @@ Quick Start DNA解析
 2. テストサンプルの実行
 ^^^^^^^^
 
+テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので、それを使用しましょう．
+
 .. code-block:: bash
   
-テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので、それを使用しましょう．
-# qloginする
-$qlogin
-# GenomonPipelineに移動
-$cd GenomonPipeline-v{バージョン}
-# 実行
-$./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
-(output_directoryには出力したいディレクトリを設定指定ください)
+  # qloginする
+  $qlogin
+  # GenomonPipelineに移動
+  $cd GenomonPipeline-v{バージョン}
+  # 実行
+  $./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
+  # output_directoryには出力したいディレクトリを指定してください
 
 | sample.csvの記載方法は :doc:`sample_csv` に記載があります．
 | testdata/sample.csvの中身をみて、書き方を学んでいただくのも良いかと思います．
 |
 | commandの実行方法詳細は :doc:`command` に記載があります．
 | 
+
+実際のサンプルデータでも、sample.csvを記載して、上記のようにコマンドを実行すればOKです．
 
 結果ファイルを見てみましょう
 ^^^^^^^^
