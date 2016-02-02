@@ -21,7 +21,7 @@ Genomonインストール
 
 1. 環境設定
 ^^^^^^^^^^^^^^^^
-1-1 pythonの環境設定
+1-1. pythonの環境設定
 Genomonではpythonバージョン2.7を使用します.
 
 .. code-block:: bash
@@ -32,7 +32,7 @@ Genomonではpythonバージョン2.7を使用します.
   export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
   export PYTHONPATH=~/.local/lib/python2.7/site-packages
   
-1-2 DRMAAの環境設定
+1-2. DRMAAの環境設定
 スパコンにジョブを投入するときに使うライブラリを設定します．
 
 .. code-block:: bash
@@ -45,7 +45,7 @@ Genomonではpythonバージョン2.7を使用します.
 2. Genomonのインストール
 ^^^^^^^^^^^^^^^^
 2-1. Genomon＆必要なパッケージのインストール
-必要なパッケージは６コ→GenomonPipeline,ruffus,PyYAML,drmaa,xlwt,xlrd
+必要なパッケージは６つです→GenomonPipeline,ruffus,PyYAML,drmaa,xlwt,xlrd
 
 .. code-block:: bash
 
