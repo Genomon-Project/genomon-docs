@@ -62,14 +62,14 @@ Genomonではpythonバージョン2.7を使用します.
   pip install xlwt --user
   pip install xlrd --user
   # genomon-pipeline(本体)のインストール
-  $cd GenomonPipeline-${ダウンロードしたバージョン}
-  $python setup.py install --user
+  cd GenomonPipeline-${ダウンロードしたバージョン}
+  python setup.py install --user
   # ruffusのインストール
-  $cd ../ruffus-2.6.3
-  $python setup.py install --user
+  cd ../ruffus-2.6.3
+  python setup.py install --user
   # PyYAMLのインストール
-  $cd ../PyYAML
-  $python setup.py install --user
+  cd ../PyYAML
+  python setup.py install --user
   
 2-2. Annovarを使用したい場合、Annovarのインストールをします
 
