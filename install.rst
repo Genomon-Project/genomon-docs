@@ -72,6 +72,7 @@ Genomonではpythonバージョン2.7を使用します.
   $python setup.py install --user
   
 2-3. Annovarを使用したい場合、Annovarのインストールをします
+
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
 | ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlを使用して各種データ (snp131など) をダウンロードします．
