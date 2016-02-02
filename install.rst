@@ -4,14 +4,18 @@ Genomonインストール
 
 | HGCスパコンユーザの方は以下の設定をしていただければ使用可能になります.
 #. 環境設定
-#. Genomon＆必要なパッケージのインストール
-#. Annovarを使用したい場合、Annovarのインストールをします
+  1-1 pythonの環境設定
+  1-2 DRMAAの環境設定
+#. Genomonのインストール
+　2-1. Genomon＆必要なパッケージのインストール
+　2-2. Annovarを使用したい場合、Annovarのインストールをします
+　2-3. HGVDの使用について
 #. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 
 | HGCスパコンユーザ以外の方は以下の設定が追加で必要です.
-5. 必要な環境
-6. Genomonで使用しているデータベースのインストール
-7. Genomonで使用しているソフトウェアのインストール
+4. 必要な環境
+5. Genomonで使用しているデータベースのインストール
+6. Genomonで使用しているソフトウェアのインストール
 
 1. 環境設定
 ^^^^^^^^^^^^^^^^
@@ -36,8 +40,9 @@ Genomonではpythonバージョン2.7を使用します.
 
 これらのexportを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
 
-2. Genomon＆必要なパッケージのインストール
+2. Genomonのインストール
 ^^^^^^^^^^^^^^^^
+2-1. Genomon＆必要なパッケージのインストール
 必要なパッケージは６コ→GenomonPipeline,ruffus,PyYAML,drmaa,xlwt,xlrd
 
 .. code-block:: bash
@@ -64,7 +69,14 @@ Genomonではpythonバージョン2.7を使用します.
   $cd ../PyYAML
   $python setup.py install --user
   
-4. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
+2-3. Annovarを使用したい場合、Annovarのインストールをします
+| ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
+| http://www.openbioinformatics.org/annovar/annovar_download_form.php
+| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlを使用して各種データ (snp131など) をダウンロードします．
+| データベースダウンロードtoolを用意しましたので、こちらをannovarディレクトリに入れてください
+
+  
+3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 ^^^^^^^^^^^^^^^^
 
 Genomonで使用するデータベースとソフトウェアは、インストールしたGenomonPipeline/genomon.cfgに記載されています。各々のライセンスについてご理解のうえ、Genomonをご使用いただければと思います。
@@ -133,7 +145,7 @@ Genomonで使用するデータベースとソフトウェアは、インスト�
 
 
 
-5. 必要な環境
+4. 必要な環境
 ^^^^^^^^^^^^^^^^
 
 ここからはHGCスパコン以外のコンピュータにインストールする場合に必要な手順です
@@ -143,11 +155,11 @@ Genomonで使用するデータベースとソフトウェアは、インスト�
 * Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
  ※HGCではGrid Engineを使用しています
 
-6. Genomonで使用しているデータベースのインストール
+5. Genomonで使用しているデータベースのインストール
 ^^^^^^^^^^^^^^^^
 執筆中
 
-7. Genomonで使用しているソフトウェアのインストール
+6. Genomonで使用しているソフトウェアのインストール
 ^^^^^^^^^^^^^^^^
 
 GenomonPipeline/genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールしてgenomon.cfgを書き換えてください
