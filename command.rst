@@ -24,9 +24,9 @@ DNA解析実行例
 
     genomon_pipeline dna DNA_sample.csv dna_outputdir genomon.cfg dna_task_param.cfg
     
-    # DNA_sample.csv     : 自分でcsvファイルをつくる 
+    # DNA_sample.csv     : 自分でつくる 
     # dna_outputdir      : 任意の出力場所を指定する
-    # genomon.cfg        : genomonが用意しているものでok RNA解析と共通
+    # genomon.cfg        : genomonが用意しているもので基本ok RNA解析と共通
     # dna_task_param.cfg : prefixがdna_のほうを使う
 
 RNA解析実行例
@@ -36,7 +36,7 @@ RNA解析実行例
 
     genomon_pipeline rna RNA_sample.csv rna_outputdir genomon.cfg rna_task_param.cfg
 
-    # RNA_sample.csv     : 自分でcsvファイルをつくる 
+    # RNA_sample.csv     : 自分でつくる 
     # rna_outputdir      : 任意の出力場所を指定する
-    # genomon.cfg        : genomonが用意しているものでok DNA解析と共通
+    # genomon.cfg        : genomonが用意しているもので基本ok DNA解析と共通
     # rna_task_param.cfg : prefixがrna_のほうを使う
