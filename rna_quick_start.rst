@@ -27,7 +27,7 @@ Quick Start RNA解析
   # GenomonPipelineに移動
   $cd GenomonPipeline-v{バージョン}
   # 実行
-  $./genomon_pipeline dna /home/w3varann/testRNA/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
+  $./genomon_pipeline rna /home/w3varann/testRNA/sample.csv {output_directory} genomon.cfg rna_task_param.cfg 
   # output_directoryには出力したいディレクトリを指定してください
 
 | sample.csvの記載方法詳細は :doc:`sample_csv` にあります．
@@ -43,10 +43,13 @@ Quick Start RNA解析
 
 | 結果ファイルはこのように出力されます．
 
-:fusion検出結果: output_root_directory/fusion/sample名/sample名_fusion_fusion.result.txt
+:fusion検出結果: {output_directory}/fusion/sample名/sample名_fusion_fusion.result.txt
+
+| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください(v2.0.5で出力した結果)
+
+:fusion検出結果: ~w3varann/test_rna/rna_result_v2.0.5/fusion/MCF-7_test/fusion_fusion.result.txt
 
 | 結果ファイルの各項目の説明など詳細は :doc:`dna_results` に記述しました．
 
-:bam: ~w3varann/testdata/dna_result_v2.0.5/bam/sample_tumor/sample_tumor.markdup.bam
-:変異Call(13件): ~w3varann/testdata/dna_result_v2.0.5/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
+
 
