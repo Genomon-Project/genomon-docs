@@ -25,7 +25,7 @@ Sample_confの書き方
 | [mutation_call], [sv_detection], [controlpanel], [summary] には解析するための情報を記載します．
 |
 | RNA解析では
-| [fastq]のみ指定でき、FASTQファイルを指定しgenomonを実行するだけでfusionの結果まで出力されます.
+| [fastq]のみ指定できます．FASTQファイルを指定しgenomonを実行するだけでfusionの結果まで出力されます.
 |
 
 [fastq]の記載方法
