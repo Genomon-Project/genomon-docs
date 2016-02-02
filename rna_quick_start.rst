@@ -49,7 +49,7 @@ Quick Start RNA解析
 
 :fusion検出結果: ~w3varann/test_rna/rna_result_v2.0.5/fusion/MCF-7_test/fusion_fusion.result.txt
 
-| 結果ファイルの各項目の説明など詳細は :doc:`dna_results` に記述しました．
+| 結果ファイルの各項目の説明など詳細は :doc:`rna_results` に記述しました．
 
 
 
