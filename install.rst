@@ -71,12 +71,38 @@ Genomonではpythonバージョン2.7を使用します.
   $cd ../PyYAML
   $python setup.py install --user
   
-2-3. Annovarを使用したい場合、Annovarのインストールをします
+2-2. Annovarを使用したい場合、Annovarのインストールをします
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
 | ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlを使用して各種データ (snp131など) をダウンロードします．
 | データベースダウンロードtoolを用意しましたので、こちらをannovarディレクトリに入れてください
+
+genomon.cfgを編集する
+
+.. code-block:: bash
+
+  [SOFTWARE]
+  annovar = [annovarのパスをダウンロードしたannovar]に変更する．
+  (例)annovar = /home/genomon/tools/annovar
+
+dna_task_param.cfgを編集する
+
+.. code-block:: bash
+
+  [annotation]
+  active_annovar_flag = False
+  をTrueに変更する (Annovarの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+
+2-3. HGVDの使用について
+
+| HGVDのサイトのをお読みいただいた上、問題がなければdna_task_param.cfgを編集する
+| http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
+
+.. code-block:: bash
+
+  active_HGVD_flag = False
+  をTrueに変更する (HGVDの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
 
   
 3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
