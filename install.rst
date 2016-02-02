@@ -3,23 +3,15 @@ Genomonインストール
 --------------------------------
 
 | HGCスパコンユーザの方は以下2つの設定をしていただければ使用可能になります。
-+ pythonの環境設定
-+ Genomonと必要なパッケージのインストール
-| Annovarを使用したい場合は別途Annovarのインストールをしてください。
-| Genomonで使用するソフトウェアのライセンスにつきましてもご理解いただければと思います。一覧はこちら。
-| 
-| HGCスパコン以外のコンピュータにインストールする場合
-| 必要な環境
-1. Linux
-2. Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
- ※HGCではGrid Engineを使用しています
+#. 環境設定
+#. Genomon＆必要なパッケージのインストール
+#. Annovarを使用したい場合、Annovarのインストールをします
+#. Genomonで使用するソフトウェアのライセンスについてご理解ください
 
-+ Genomonで使用しているソフトウェアのインストール
-+ Genomonで使用しているデータベースのインストール
-
-環境設定
+1. 環境設定
 ^^^^^^^^^^^^^^^^
-Genomonではバージョンが2.7を使用します.
+1-1 pythonの環境設定
+Genomonではpythonバージョン2.7を使用します.
 
 .. code-block:: bash
 
@@ -29,7 +21,8 @@ Genomonではバージョンが2.7を使用します.
   export LD_LIBRARY_PATH=${PYTHONHOME}/lib:${LD_LIBRARY_PATH}
   export PYTHONPATH=~/.local/lib/python2.7/site-packages
   
-DRMAAの設定を行ってください
+1-2 DRMAAの環境設定
+スパコンにジョブを投入するときに使うライブラリを設定します．
 
 .. code-block:: bash
 
@@ -38,9 +31,9 @@ DRMAAの設定を行ってください
 
 これらのexportを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
 
-Genomonと必要なパッケージのインストール
+2. Genomon＆必要なパッケージのインストール
 ^^^^^^^^^^^^^^^^
-必要なパッケージはこちら→GenomonPipeline,ruffus,PyYAML,drmaa, xlwt,xlrd
+必要なパッケージは６コ→GenomonPipeline,ruffus,PyYAML,drmaa,xlwt,xlrd
 
 .. code-block:: bash
 
@@ -66,10 +59,10 @@ Genomonと必要なパッケージのインストール
   $cd ../PyYAML
   $python setup.py install --user
   
-Genomonで使用しているソフトウェアのインストール
+4. Genomonで使用するソフトウェアのライセンスについてご理解ください
 ^^^^^^^^^^^^^^^^
 
-genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールしてgenomon.cfgを書き換えてください
+
 
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | 項目         | ライセンス            | webサイト                                                   | コメント                   |
@@ -107,4 +100,15 @@ genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをイン�
 | annovar      | 独自ライセンス        | http://annovar.openbioinformatics.org/en/latest/            | versionは最新でよい        |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 
+
+| HGCスパコン以外のコンピュータにインストールする場合
+| 必要な環境
+1. Linux
+2. Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
+ ※HGCではGrid Engineを使用しています
+
++ Genomonで使用しているソフトウェアのインストール
++ Genomonで使用しているデータベースのインストール
+
+genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールしてgenomon.cfgを書き換えてください
 
