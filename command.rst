@@ -18,17 +18,17 @@
 sample_conf_fileの記述方法は、:doc:`sample_csv` を参照してください。
 
 DNA解析実行例
--------------
+^^^^^^^^^^
 
 .. code-block:: bash
 
-    genomon_pipeline dna ~/tmp DNA_sample.csv genomon.cfg dna_task_param.cfg
+    genomon_pipeline dna DNA_sample.csv dna_outputdir genomon.cfg dna_task_param.cfg
 
 
 RNA解析実行例
--------------
+^^^^^^^^^^
 
 .. code-block:: bash
 
-    genomon_pipeline rna ~/tmp RNA_sample.csv genomon.cfg rna_task_param.cfg
+    genomon_pipeline rna RNA_sample.csv rna_outputdir genomon.cfg rna_task_param.cfg
 
