@@ -6,7 +6,7 @@ Genomonインストール
 #. 環境設定
 #. Genomon＆必要なパッケージのインストール
 #. Annovarを使用したい場合、Annovarのインストールをします
-#. Genomonで使用するソフトウェアのライセンスについてご理解ください
+#. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 
 1. 環境設定
 ^^^^^^^^^^^^^^^^
@@ -59,9 +59,12 @@ Genomonではpythonバージョン2.7を使用します.
   $cd ../PyYAML
   $python setup.py install --user
   
-4. Genomonで使用するソフトウェアのライセンスについてご理解ください
+4. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 ^^^^^^^^^^^^^^^^
-・REFERENCE
+
+Genomonで使用するデータベースとソフトウェアは、インストールしたGenomonPipeline/genomon.cfgに記載されています。各々のライセンスについてご理解のうえ、Genomonをご使用いただければと思います。
+
+・REFERENCE　データベースについて記載一覧
 
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | 項目         | ライセンス            | webサイト                                                   | コメント                   |
@@ -77,15 +80,15 @@ Genomonではpythonバージョン2.7を使用します.
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | gaptxt       | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| bait_file    | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
+| bait_file    | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    | refGene.txtをもとに作成    |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| simple_repeat| freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
-| _tabix_db    |                       |                                                             |                            |
+| simple_repeat| freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    | simpleRepeat.txtにtabixをつ|
+| _tabix_db    |                       |                                                             |けたもの                    |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| HGVD_tabix_db| citationのrequest有   | http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html?       |                            |
+| HGVD_tabix_db| citationのrequest有   | http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html?       | HGVDにtabixをつけたもの    |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 
-・SOFRWARE
+・SOFRWARE　ソフトウェアについて記載一覧
 
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | 項目         | ライセンス            | webサイト                                                   | コメント                   |
