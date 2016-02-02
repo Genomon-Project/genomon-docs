@@ -48,10 +48,10 @@ Quick Start DNA解析
 
 | 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください(v2.0.5で出力した結果)
 
-:bam: /home/w3varann/testdata/dna_sample_result_v2.0.5/bam/sample_tumor/sample_tumor.markdup.bam
-:変異Call(13件、Annovar,HGVDなしで実行): /home/w3varann/testdata/dna_sample_result_v2.0.5/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
-:SV(0件です): /home/w3varann/testdata/dna_sample_result_v2.0.5/sv/sample_tumor/sample_tumor.genomonSV.result.txt
-:summary(0件です): /home/w3varann/testdata/dna_sample_result_v2.0.5/summary/sample_tumor/sample_tumor.tsv
+:bam: /home/w3varann/testdata/dna_result_v2.0.5/bam/sample_tumor/sample_tumor.markdup.bam
+:変異Call(13件): /home/w3varann/testdata/dna_result_v2.0.5/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
+:SV(0件): /home/w3varann/testdata/dna_result_v2.0.5/sv/sample_tumor/sample_tumor.genomonSV.result.txt
+:summary: /home/w3varann/testdata/dna_result_v2.0.5/summary/sample_tumor/sample_tumor.xls
 
 | 結果ファイルの各項目の説明など詳細は :doc:`dna_results` に記述しました．
 |
