@@ -75,11 +75,11 @@ Genomonではpythonバージョン2.7を使用します.
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlを使用して各種データ (snp131など) をダウンロードします．
+| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用して各種データ (snp131など) をダウンロードします．
 
 .. code-block:: bash
 
-  # Annovarのデータベースをダウンロードします．コピペして使ってください． 
+  # Genomonで必要なAnnovarのデータベースをダウンロードします．コピペして使ってください． 
   DATABASE_LIST="
   refGene
   avsift
