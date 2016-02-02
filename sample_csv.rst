@@ -9,7 +9,7 @@ Sample_confの書き方
 +-----------------+---------------------------------------------------+
 | [bam_tofastq]   | BAMを入力してFASTQファイルに戻してから解析します  |
 +-----------------+---------------------------------------------------+
-| [bam_import]    | 入力したBAMで再アライメントせずに解析を実行します |
+| [bam_import]    | 入力したBAMを再アライメントせずに解析を実行します |
 +-----------------+---------------------------------------------------+
 | [mutation_call] | 変異Callが実行されます                            |
 +-----------------+---------------------------------------------------+
@@ -20,18 +20,22 @@ Sample_confの書き方
 | [summary]       | BamSummaryを出力します                            |
 +-----------------+---------------------------------------------------+
 
+| DNA解析では
 | [fastq], [bam_tofastq], [bam_import] は入力ファイルの情報を記載します．
 | [mutation_call], [sv_detection], [controlpanel], [summary] には解析するための情報を記載します．
 |
+| RNA解析では
+| [fastq]のみ指定でき、FASTQファイルを指定しgenomonを実行するだけでfusionの結果まで出力されます.
+|
 
 [fastq]の記載方法
----------------------
+^^^^^^^^^^^^
 
 | 項目[fastq]にはinput fastqファイルのパスを記載します．
 
 .. code-block:: bash
 
-  # サンプル名,read1.fastq,read2.fastq  と記載してください
+  # サンプル名,read1.fastq,read2.fastq  と記載します（カンマ区切りです）
   sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
   sample1_normal,/home/genomon/sample1_N_read1.fastq,/home/genomon/sample1_N_read2.fastq
 
@@ -39,20 +43,20 @@ Sample_confの書き方
 | 
 
 [bam_import]の記載方法
---------------------------
+^^^^^^^^^^^^
 
-| 項目[bam_import]にはbamファイルのパスを記載します．
+| 項目[bam_import]にはinput bamファイルのパスを記載します．
 
 .. code-block:: bash
 
-  # サンプル名,bam  と記載してください
+  # サンプル名,bam  と記載してください（カンマ区切りです）
   sample3_tumor,/home/genomon/sample3_T.bam
   
 | bam indexファイル(.bai)がセットで必要です。
 | 
 
 [mutation_call],[sv_detection]の記載方法
-----------------------------------------
+^^^^^^^^^^^^
 
 | 項目[mutation_call][sv_detection]にはtumorとnormalのペア情報を記載します．
 | normalのコントロールパネルを作る場合は、そちらも記載します．
@@ -70,7 +74,7 @@ Sample_confの書き方
   sample1_tumor,sample1_normal,None
   
   # パターン３：tumorだけで、normalのペアのサンプルがない。コントロールパネルがある場合
-  # tumorサンプル名,None,Panel1 と記載してください。
+  # tumorサンプル名,None,コントロールパネル名 と記載してください。
   sample3_tumor,None,Panel1
 
   # パターン４：tumorだけで、normalのペアのサンプルがない。コントロールパネルがない場合
@@ -81,7 +85,7 @@ Sample_confの書き方
 | 
 
 [controlpanel]の記載方法
-----------------------------
+^^^^^^^^^^^^
 
 項目[controlpanel]には、normalのサンプル名を複数指定して、panel名を付けてnormalサンプルの集まりとして指定します．
 
@@ -91,19 +95,19 @@ Sample_confの書き方
   panel1,sample1_normal,sample2_normal,sample3_normal,sample4_normal
   panel2,sample5_normal,sample6_normal,sample7_normal,sample8_normal
   
-| サンプル数Nに最大値はないです。
+| 指定するサンプル数Nに最大値はないです。
 | サンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
 | パネル名は任意で指定してください。
 | 
 
 [summary]の記載方法
-----------------------------
+^^^^^^^^^^^^
 
 項目[summary]にはサンプル名を記載します．
 
 .. code-block:: bash
 
-  # ペアで記載する必要はありません。1行づつサンプル名を記載してください
+  # ペアで記載する必要はありません。summary出力するサンプル名を記載してください
   sample1_normal
   sample2_normal
   sample3_normal
