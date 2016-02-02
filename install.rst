@@ -79,8 +79,8 @@ Genomonではpythonバージョン2.7を使用します.
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | bait_file    | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| simple_repea | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
-|t_tabix_db    |                       |                                                             |                            |
+| simple_repeat| freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
+| _tabix_db    |                       |                                                             |                            |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | HGVD_tabix_db| citationのrequest有   | http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html?       |                            |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
