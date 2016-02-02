@@ -7,7 +7,7 @@
 
   genomon_pipeline [Analysis type: dna,rna] sample_cfg.csv(.tsv) project_root_directory genomon_conf_file task_conf_file
 
-  #Analysis type          : DNA解析をする場合は、```dna``` を、RNA解析をする場合は、```rna``` を指定してください．
+  #Analysis type          : DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定してください．
   #project_root_directory : 結果ファイルを出力するディレクトリを指定してください。指定したディレクトリをルートにoutputが生成されます．
   #sample_conf_file       : 解析するサンプルと入力ファイルを指定します．
   #genomon_conf_file      : 使用するソフトウェアやデータベースファイルの指定をします．
