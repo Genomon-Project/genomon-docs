@@ -28,7 +28,7 @@ Quick Start DNA解析
   $./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
   # output_directoryには出力したいディレクトリを指定してください
 
-| sample.csvの記載方法は :doc:`sample_csv` にあります．
+| sample.csvの記載方法詳細は :doc:`sample_csv` にあります．
 | testdata/sample.csvの中身をみて、書き方を学んでいただくのも良いかと思います．
 |
 | commandの実行方法詳細は :doc:`command` に記載があります．
