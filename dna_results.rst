@@ -57,6 +57,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
  | EBCall（P-value）>= 4.0
  | variantPairNum_tumor >= 4
  | variantPairNum_normal <= 1(固形腫瘍) <= 2(血液腫瘍)
+ | P-value(fisher)_realignment: >= 1.0
  | 
  | NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
