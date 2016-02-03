@@ -17,12 +17,11 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 **************
 
 .. csv-table::
-.. |br| raw:: html
 
     Chr Start End, 変異候補のポジション
     Ref, 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます． 
     Alt, 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-    annovarの結果, annovarをご使用の方はannovarの結果が出力されます．|br| 各カラムの説明はannovarのwebページでチェックしてください．http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+    annovarの結果, annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http://annovar.openbioinformatics.org/en/latest/user-guide/download/
     depth_tumor, Tumorのdepth
     variantNum_tumor, Tumorの変異アレルの数 
     depth_normal, Normalのdepth 
