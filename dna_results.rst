@@ -17,6 +17,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 **************
 
 .. csv-table::
+.. |br| raw:: html
 
     Chr Start End, 変異候補のポジション
     Ref, 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます． 
@@ -51,7 +52,6 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
     P-value(EBCall), EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
     HGVDの結果, HGVDをご使用の方はここにHGVDの結果が出力されます．
 
-.. |br| raw:: html
 
 おすすめフィルタ
 ****************
