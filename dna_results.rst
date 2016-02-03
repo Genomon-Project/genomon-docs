@@ -26,7 +26,7 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
     variantNum_tumor, Tumorの変異アレルの数 
     depth_normal, Normalのdepth 
     variantNum_normal, Normalの変異アレルの数
-    bases_tumor, Tumorの塩基数．フォーマットは |br| (depth_strand+\,variantNum_strand+\,depth_strand-\,variantNum_strand-)の数になります．
+    bases_tumor, Tumorの塩基数．フォーマットは |br| "(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)"の数になります．
     bases_normal, Normalの塩基数．
     A_C_G_T_tumor, Tumorの塩基数．|br| SNVの場合は(A\,C\,G\,T)の各個数，indelの場合は(Depth\, indelのリード数)になります．
     A_C_G_T_norma, Normalの塩基数．
