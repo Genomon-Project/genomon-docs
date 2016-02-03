@@ -3,15 +3,15 @@
 
 コマンドは下記のように実行してください．
 
-.. code-block:: None
+.. code-block:: bash
 
   genomon_pipeline [Analysis type: dna,rna] sample_cfg.csv(.tsv) output_root_directory genomon_conf_file task_conf_file
 
-  #Analysis type         : DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定してください．
-  #sample_conf_file      : 解析するサンプルと入力ファイルを指定します．
-  #output_root_directory : 結果ファイルを出力するディレクトリを指定してください。指定したディレクトリをルートにoutputが生成されます．
-  #genomon_conf_file     : 使用するソフトウェアやデータベースファイルの指定をします．
-  #task_conf_file        : DNA解析用(dna_task_param.cfg)とRNA解析用(dna_task_param.cfg)のファイルが用意されています．
+  # Analysis type         : DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定してください．
+  # sample_conf_file      : 解析するサンプルと入力ファイルを指定します．
+  # output_root_directory : 結果ファイルを出力するディレクトリを指定してください。指定したディレクトリをルートにoutputが生成されます．
+  # genomon_conf_file     : 使用するソフトウェアやデータベースファイルの指定をします．
+  # task_conf_file        : DNA解析用(dna_task_param.cfg)とRNA解析用(dna_task_param.cfg)のファイルが用意されています．
                           コマンドオのパラメータは基本的に最適化されております．閾値の問題で候補が出力されない場合は、
                           これらデフォルトのファイルをコピーして編集してください．
  
