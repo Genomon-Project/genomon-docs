@@ -22,6 +22,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: DNA Analysis Documentation
    
    dna_quick_start.rst
    dna_workflow.rst
@@ -31,6 +32,10 @@ Contents:
    dna_output_info.rst
    dna_results.rst
    dna_config_info.rst
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: RNA Analysis Documentation
    
    rna_quick_start.rst
    rna_workflow.rst
