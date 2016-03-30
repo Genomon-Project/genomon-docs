@@ -47,10 +47,3 @@
    rna_results.rst
    rna_config_info.rst
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
