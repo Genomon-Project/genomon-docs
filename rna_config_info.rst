@@ -18,24 +18,21 @@ rna_genomon.cfg
     
     [REFERENCE]
     # prepared reference fasta file
-    star_genome                             = /home/w3varann/genomon_pipeline-2.2.0/database/GRCh37.STAR-STAR_2.4.0k
+    star_genome      = /home/w3varann/genomon_pipeline-2.2.0/database/GRCh37.STAR-STAR_2.4.0k
     
     [SOFTWARE]
     # prepared tools
-    samtools                                = /home/w3varann/genomon_pipeline-2.2.0/tools/samtools-1.2/samtools
-    tophat2                                 = /home/w3varann/genomon_pipeline-2.2.0/tools/tophat-2.0.14.Linux_x86_64/tophat2
-    STAR                                    = /home/w3varann/genomon_pipeline-2.2.0/tools/STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
-    STAR-Fusion                             = /home/w3varann/genomon_pipeline-2.2.0/tools/STAR-Fusion-master/STAR-Fusion
-    fusionfusion                            = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/fusionfusion
-    
-    # annovar needs to be installed individually
-    annovar                                 = /your_annovar
-    
+    samtools         = /home/w3varann/genomon_pipeline-2.2.0/tools/samtools-1.2/samtools
+    tophat2          = /home/w3varann/genomon_pipeline-2.2.0/tools/tophat-2.0.14.Linux_x86_64/tophat2
+    STAR             = /home/w3varann/genomon_pipeline-2.2.0/tools/STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
+    STAR-Fusion      = /home/w3varann/genomon_pipeline-2.2.0/tools/STAR-Fusion-master/STAR-Fusion
+    fusionfusion     = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/fusionfusion
+
     [ENV]
-    PERL5LIB                                = /home/w3varann/.local/lib/perl/lib:/home/w3varann/.local/lib/perl/lib/perl5:/home/w3varann/.local/lib/perl/lib/perl5/x86_64-linux-thread-multi
-    PYTHONHOME                              = /usr/local/package/python2.7/current
-    PYTHONPATH                              = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib/python
-    LD_LIBRARY_PATH                         = /usr/local/package/python2.7/current/lib:/home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib
+    PERL5LIB         = /home/w3varann/.local/lib/perl/lib:/home/w3varann/.local/lib/perl/lib/perl5:/home/w3varann/.local/lib/perl/lib/perl5/x86_64-linux-thread-multi
+    PYTHONHOME       = /usr/local/package/python2.7/current
+    PYTHONPATH       = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib/python
+    LD_LIBRARY_PATH  = /usr/local/package/python2.7/current/lib:/home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib
     
     
     ######################################################################
@@ -62,3 +59,6 @@ rna_genomon.cfg
     [fusionfusion]
     qsub_option = -l ljob,s_vmem=5.3G,mem_req=5.3G
     param_file = /home/w3varann/database/fusionfusion_hg19/param.cfg
+    
+    
+    
