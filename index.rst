@@ -24,16 +24,22 @@ Contents:
    :maxdepth: 2
    
    dna_quick_start.rst
-   rna_quick_start.rst
    dna_workflow.rst
-   rna_workflow.rst
-   install.rst
-   sample_csv.rst
-   command.rst
+   dna_install.rst
+   dna_sample_csv.rst
+   dna_command.rst
+   dna_output_info.rst
    dna_results.rst
+   dna_config_info.rst
+   
+   rna_quick_start.rst
+   rna_workflow.rst
+   rna_install.rst
+   rna_sample_csv.rst
+   rna_command.rst
+   rna_output_info.rst
    rna_results.rst
-   output_info.rst
-   config_info.rst
+   rna_config_info.rst
 
 Indices and tables
 ==================
