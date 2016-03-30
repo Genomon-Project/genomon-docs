@@ -18,7 +18,7 @@ Fusion検出
   :task_fusion_fusion: fusionを検出します．
 
 
-その他、個別で機能するTask
+その他Task
 --------------------------
 
   :link_input_fastq: project root directory内にFASTQファイルをリンクします．
