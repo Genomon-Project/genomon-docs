@@ -18,7 +18,7 @@
 Welcome to Genomon's documentation!
 =============================================
 
-Contents:
+
 
 .. toctree::
    :maxdepth: 2
