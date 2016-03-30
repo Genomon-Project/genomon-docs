@@ -14,7 +14,7 @@ DNA解析パイプラインschemes
  | 記載方法は :doc:`sample_csv` をみてください．
  | 
  
-リードアライメント
+マッピング
 -----------------------
 
   :split fastq: 並列してアライメントをするためにFASTQをsplitします．
@@ -43,7 +43,7 @@ Summary出力
   :merge_summary: bam_statsの結果と、coverageの結果をマージします．
   
   
-その他、個別で機能するTask
+その他Task
 --------------------------
 
   :link_input_fastq: project root directory内にFASTQファイルをリンクします．
