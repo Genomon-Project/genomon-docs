@@ -11,8 +11,8 @@
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
-—The Zen of Cancer Genome Sequence Analysis—
----------------------------------------------
+Genomon’s documentation
+-----------------------
 
 :Author: Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi
 :Date: |today|
