@@ -22,11 +22,16 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: Install Documentation
+
+   install.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: DNA Analysis Documentation
    
    dna_quick_start.rst
    dna_workflow.rst
-   dna_install.rst
    dna_sample_csv.rst
    dna_command.rst
    dna_output_info.rst
@@ -39,7 +44,6 @@ Contents:
    
    rna_quick_start.rst
    rna_workflow.rst
-   rna_install.rst
    rna_sample_csv.rst
    rna_command.rst
    rna_output_info.rst
