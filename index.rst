@@ -13,12 +13,9 @@
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
-|
-
-Welcome to Genomon's documentation!
-=============================================
-
-
+:Author: Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi
+:Date: |today|
+:Version: v2.2.0
 
 .. toctree::
    :maxdepth: 2
