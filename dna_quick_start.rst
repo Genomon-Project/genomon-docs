@@ -2,9 +2,7 @@
 Quick Start DNA解析
 ========================================
 
-#. Genomonのインストール
-#. コマンドの実行
-#. 結果ファイルを見てみましょう
+*サンプルシートを記載してGenomonコマンドを1回実行するだけで、変異コール, SV, BamSummaryの結果がでてきます！*
 
 1. Genomonのインストール
 ^^^^^^^^
@@ -16,7 +14,7 @@ Quick Start DNA解析
 2. コマンドの実行
 ^^^^^^^^
 
-テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので、それを使用して実行してみましょう．
+テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので、それ実行してみましょう．
 
 .. code-block:: bash
   
@@ -33,21 +31,17 @@ Quick Start DNA解析
 3. 結果ファイルを見てみましょう
 ^^^^^^^^
 
-| 結果ファイルはこのように出力されます．
+* **bam** -- {output_directory}/bam/sample名/sample名_markdup.bam
+* **変異Call(13件)** -- {output_directory}/mutation/sample名/sample名_genomon_mutations.result.txt
+* **SV(0件)** -- {output_directory}/sv/sample名/sample名.genomonSV.result.txt
+* **summary** -- {output_directory}/sv/sample名/sample名.xls
 
-:bam: {output_directory}/bam/sample名/sample名_markdup.bam
-:変異Call結果: {output_directory}/mutation/sample名/sample名_genomon_mutations.result.txt
-:SV検出結果: {output_directory}/sv/sample名/sample名.genomonSV.result.txt
-:summary結果: {output_directory}/sv/sample名/sample名.xls
+| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください
 
-| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください(v2.0.5で出力した結果)
-
-:bam: ~w3varann/testdata/dna_result_v2.0.5/bam/sample_tumor/sample_tumor.markdup.bam
-:変異Call(13件): ~w3varann/testdata/dna_result_v2.0.5/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
-:SV(0件): ~w3varann/testdata/dna_result_v2.0.5/sv/sample_tumor/sample_tumor.genomonSV.result.txt
-:summary: ~w3varann/testdata/dna_result_v2.0.5/summary/sample_tumor/sample_tumor.xls
+* **bam** -- ~w3varann/testdata/dna_result_v2.2.0/bam/sample_tumor/sample_tumor.markdup.bam
+* **変異Call(13件)** -- ~w3varann/testdata/dna_result_v2.2.0/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
+* **SV(0件)** -- ~w3varann/testdata/dna_result_v2.2.0/sv/sample_tumor/sample_tumor.genomonSV.result.txt
+* **summary** -- ~w3varann/testdata/dna_result_v2.2.0/summary/sample_tumor/sample_tumor.xls
 
 | 結果ファイルの各項目の説明など詳細は :doc:`dna_results` に記述しました．
 |
-| *サンプルシートを記載してGenomonコマンドを1回実行するだけで、*
-| *変異コール, SV, BamSummaryの結果がでてきます！*
