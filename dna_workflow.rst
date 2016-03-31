@@ -47,6 +47,6 @@ Post Analysis Task
 --------------------------
 * **link_input_fastq** -- 指定したFASTQをoutputディレクトリ内にリンクします．
 * **link_import_bam** -- 指定したBAMをoutputディレクトリ内にリンクします．
-* **bam2fastq** -- 指定したBAMをFASTQにConvertしoutputディレクトリ内にリンクします．
+* **bam2fastq** -- 指定したBAMをFASTQにConvertしoutputディレクトリ内に出力します．
 
 
