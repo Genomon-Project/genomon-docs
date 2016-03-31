@@ -3,7 +3,8 @@ DNA解析パイプラインschemes
 ========================================
 
  .. image:: image/dna_workflow.png
-
+  :scale: 100%
+  
  | Inputの方法は
  | [fastq], [bam_tofastq], [bam_import] の3種類あります．すべてsample confで定義します．
  | 
