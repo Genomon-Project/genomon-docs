@@ -9,10 +9,10 @@ DNA解析パイプラインschemes
  |
  | 解析は変異Call, SV検出, BamSummary出力 の3種類あり、 [mutation_call], [sv_detection], [summary] の項目をsample confで定義すると実行されます．
  |
- | [mutation_call], [sv_detection], [summary]の各解析が完了した後、自動的にpost Analysis Taskが実行されます．実行したくない場合は、:doc:`dna_config_info` の設定を変更する必要があります．
+ | [mutation_call], [sv_detection], [summary]の各解析が完了した後、自動的にpost Analysis Taskが実行されます．実行したくない場合は、dna_genomon.cfg の設定を変更する必要があります．
  |
  | sample confの記載方法は :doc:`dna_sample_csv` をみてください．
- | 
+ | dna_genomon.cfgについては :doc:`dna_config_info` をみてください．
  
 マッピング Task
 -----------------------
