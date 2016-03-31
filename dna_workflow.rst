@@ -11,8 +11,8 @@ DNA解析パイプラインschemes
  |
  | [mutation_call], [sv_detection], [summary]の各解析が完了した後、自動的にpost Analysis Taskが実行されます．実行したくない場合は、dna_genomon.cfg の設定を変更する必要があります．
  |
- | sample confの記載方法は :doc:`dna_sample_csv` をみてください．
- | dna_genomon.cfgについては :doc:`dna_config_info` をみてください．
+ | sample confの記載方法は :doc:`dna_sample_csv` をご参照ください．
+ | dna_genomon.cfgを変更する場合は :doc:`dna_config_info` をご参照ください．
  
 マッピング Task
 -----------------------
