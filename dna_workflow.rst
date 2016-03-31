@@ -36,6 +36,12 @@ Summary出力 Task
 * **coverage** -- bamのcoverageを生成します．
 * **merge_summary** -- bam_statsの結果と、coverageの結果をマージします．
 
+Post Analysis Task
+-------------------
+* **paplot** -- SV検出した候補とsummary結果をplotしグラフを出力します．
+* **post_analysis_sv** -- 全サンプルのSV検出した候補をマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
+* **post_analysis_summary** -- 全サンプルのsummary結果をマージして出力します．
+
 その他Task
 --------------------------
 * **link_input_fastq** -- 指定したFASTQをoutputディレクトリ内にリンクします．
