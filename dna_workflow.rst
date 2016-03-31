@@ -14,15 +14,15 @@ DNA解析パイプラインschemes
  | 記載方法は :doc:`sample_csv` をみてください．
  | 
  
-マッピング
+マッピング Task
 -----------------------
 
-  :split fastq: 並列してアライメントをするためにFASTQをsplitします．
-  :map_dna_sequence: 分割したFASTQ単位でリファレンスゲノムにアライメント、そしてソートします．
-  :markdup: 分割されているソートしたBAMを１つにmerge＋mark duplicateします．
+* **split fastq** -- 並列してアライメントをするためにFASTQをsplitします．
+* **map_dna_sequence** -- 分割したFASTQ単位でリファレンスゲノムにアライメント、そしてソートします．
+* **markdup** -- 分割されているソートしたBAMを１つにmerge＋mark duplicateします．
 
 
-変異Call
+変異Call Task
 -------------------
 
   :identify_mutations: 変異コールします.
