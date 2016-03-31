@@ -1,5 +1,5 @@
 ========================================
-Sample_confの書き方
+DNA Sample_conf.csvの書き方
 ========================================
 
 項目は6種類あります。
@@ -23,9 +23,6 @@ Sample_confの書き方
 | DNA解析では
 | [fastq], [bam_tofastq], [bam_import] は入力ファイルの情報を記載します．
 | [mutation_call], [sv_detection], [controlpanel], [summary] には解析するための情報を記載します．
-|
-| RNA解析では
-| [fastq]のみ指定できます．FASTQファイルを指定しgenomonを実行するだけでfusionの結果まで出力されます.
 |
 
 [fastq]の記載方法
@@ -118,7 +115,4 @@ Sample_confの書き方
 
 | この項目に定義するサンプル名は[fastq], [bam_tofastq], [bam_import]のいずれかで定義されていなくてはなりません．
 | 
-
-
-
 
