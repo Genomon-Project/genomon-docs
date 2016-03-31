@@ -31,9 +31,9 @@ Quick Start DNA解析
 3. 結果ファイルを見てみましょう
 ^^^^^^^^
 
-.. code-block:: bash
+| 結果ファイルは実行時に指定した output_directory に出力されます．
 
-| output_directoryに以下のように出力されます．
+.. code-block:: bash
 
   # bam
   {output_directory}/bam/sample名/sample名_markdup.bam
