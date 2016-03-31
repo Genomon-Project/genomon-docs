@@ -8,9 +8,9 @@ Quick Start DNA解析
 
 1. Genomonのインストール
 ^^^^^^^^
-| HGCスパコンには、Genomonで使用する解析ソフトウェア(BWA,Samtools等)が既にインストールされています(ANNOVARは別途インストールが必要です)。そのためご自身のユーザディレクトリにGenomonをインストールするだけで、解析をはじめることができます．
+| HGCスパコンには、Genomonで使用する解析ソフトウェアが既にインストールされています(ANNOVARは別途インストールが必要です)。そのためご自身のユーザディレクトリにGenomonをインストールするだけで、解析をはじめることができます．
 |
-| → :doc:`install` にインストール方法を記載しました．
+| → :doc:`install` にインストール方法の記載があります．
 |
 
 2. コマンドの実行
@@ -25,16 +25,10 @@ Quick Start DNA解析
   # GenomonPipelineに移動
   $cd GenomonPipeline-v{バージョン}
   # 実行
-  $./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} genomon.cfg dna_task_param.cfg 
+  $./genomon_pipeline dna /home/w3varann/testdata/sample.csv {output_directory} dna_genomon.cfg
   # output_directoryには出力したいディレクトリを指定してください
 
-| sample.csvの記載方法詳細は :doc:`sample_csv` にあります．
-| testdata/sample.csvの中身をみて、書き方を学んでいただくのも良いかと思います．
-|
-| commandの実行方法詳細は :doc:`command` に記載があります．
-| 
-
-実際のサンプルデータでも、sample.csvを記載して、上記のようにコマンドを実行すればOKです．
+| 実際のデータでも、ファイルパスとサンプルデータをsample.csv(ファイル名変更可)に記載して、上記のようにコマンドを実行すればOKです．まずはsample.csvの中身をみて、書き方を学んでいただくのが良いかと思います．commandの実行方法詳細は :doc:`dna_command` に記載があります．
 
 3. 結果ファイルを見てみましょう
 ^^^^^^^^
