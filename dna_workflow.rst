@@ -40,8 +40,8 @@ Summary出力 Task
 Post Analysis Task
 -------------------
 * **paplot** -- SV検出した候補とsummary結果をplotしグラフを出力します．
-* **post_analysis_summary** -- 全サンプルのsummary結果をマージして出力します．
-* **post_analysis_sv** -- 全サンプルのSV検出した候補をマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
+* **post_analysis_summary** -- 全サンプルのsummary結果を１つのファイルにマージして出力します．
+* **post_analysis_sv** -- 全サンプルのSV検出した候補を１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
 
 その他Task
 --------------------------
