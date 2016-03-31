@@ -33,6 +33,8 @@ Quick Start DNA解析
 
 .. code-block:: bash
 
+| output_directoryに以下のように出力されます．
+
   # bam
   {output_directory}/bam/sample名/sample名_markdup.bam
   # 変異Call(13件)
@@ -42,7 +44,9 @@ Quick Start DNA解析
   # summary
   {output_directory}/sv/sample名/sample名.xls
 
-| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください
+| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください．
+
+.. code-block:: bash
 
   # bam
   ~w3varann/testdata/dna_result_v2.2.0/bam/sample_tumor/sample_tumor.markdup.bam
