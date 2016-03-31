@@ -12,7 +12,7 @@ DNA解析パイプラインschemes
  | [mutation_call], [sv_detection], [summary] の項目を定義すると実行されます．
  | sample confで定義します．
  | 
- | 記載方法は :doc:`sample_csv` をみてください．
+ | 記載方法は :doc:`dna_sample_csv` をみてください．
  | 
  
 マッピング Task
