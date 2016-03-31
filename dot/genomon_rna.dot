@@ -1,0 +1,47 @@
+digraph "Genomon Pipeline Schemes RNA"
+{
+	size = "11";
+	splines = true;
+	fontsize = "30";
+	ranksep = 0.3;
+	node[fontname = "helvetica", fontsize="12"];
+	graph[clusterrank = "local"];
+	
+	subgraph clustertasks
+	{
+		rank="min";
+		fontname = "helvetica"
+		fontcolor = "#FF3232";
+		label = "Genomon Pipeline Schemes RNA";
+
+		t3[color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", label="[fastq]", shape=box3d, style=filled];
+
+		t0[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="link_input_fastq", shape=box3d, style=filled];
+		t1[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="task_star_align", shape=box3d, style=filled];
+		t2[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="task_fusionfusion", shape=box3d, style=filled];
+
+		t4[color="#1C1C1C", fillcolor="#EFA03B", fontcolor="#000000", label="fusion_fusion.result.txt", shape=box3d, style=filled];
+
+		t0 -> t1[color="#0044A0"];
+		t1 -> t2[color="#0044A0"];
+		t3 -> t0[color="#0044A0"];
+		t2 -> t4[color="#0044A0"];
+	}
+	subgraph clusterkey1
+	{
+		rank = "min";
+		style  = filled;
+		
+		fontname = "helvetica"
+		fontsize = 16;
+		color = "#F6F4F4";
+		label = "Key:"
+
+		node[margin="0.2,0.2", fontname = "helvetica", fontsize="10"];
+		k1_1[color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", label="Input", shape=box3d, style=filled];
+		k2_1[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="Task to run", shape=box3d, style=filled];
+		k4_1[color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", label="Output", shape=box3d, style=filled];
+		k1_1 -> k2_1[color="#0044A0", arrowtype=normal];
+		k2_1 -> k4_1[color="#0044A0", arrowtype=normal];
+	}
+}
