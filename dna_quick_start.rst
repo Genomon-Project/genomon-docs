@@ -31,17 +31,27 @@ Quick Start DNA解析
 3. 結果ファイルを見てみましょう
 ^^^^^^^^
 
-* **bam** -- {output_directory}/bam/sample名/sample名_markdup.bam
-* **変異Call(13件)** -- {output_directory}/mutation/sample名/sample名_genomon_mutations.result.txt
-* **SV(0件)** -- {output_directory}/sv/sample名/sample名.genomonSV.result.txt
-* **summary** -- {output_directory}/sv/sample名/sample名.xls
+.. code-block:: bash
+
+  # bam
+  {output_directory}/bam/sample名/sample名_markdup.bam
+  # 変異Call(13件)
+  {output_directory}/mutation/sample名/sample名_genomon_mutations.result.txt
+  # SV(0件)
+  {output_directory}/sv/sample名/sample名.genomonSV.result.txt
+  # summary
+  {output_directory}/sv/sample名/sample名.xls
 
 | 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください
 
-* **bam** -- ~w3varann/testdata/dna_result_v2.2.0/bam/sample_tumor/sample_tumor.markdup.bam
-* **変異Call(13件)** -- ~w3varann/testdata/dna_result_v2.2.0/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
-* **SV(0件)** -- ~w3varann/testdata/dna_result_v2.2.0/sv/sample_tumor/sample_tumor.genomonSV.result.txt
-* **summary** -- ~w3varann/testdata/dna_result_v2.2.0/summary/sample_tumor/sample_tumor.xls
+  # bam
+  ~w3varann/testdata/dna_result_v2.2.0/bam/sample_tumor/sample_tumor.markdup.bam
+  # 変異Call(13件)
+  ~w3varann/testdata/dna_result_v2.2.0/mutation/sample_tumor/sample_tumor_genomon_mutations.result.txt
+  # SV(0件)
+  ~w3varann/testdata/dna_result_v2.2.0/sv/sample_tumor/sample_tumor.genomonSV.result.txt
+  # summary
+  ~w3varann/testdata/dna_result_v2.2.0/summary/sample_tumor/sample_tumor.xls
 
 | 結果ファイルの各項目の説明など詳細は :doc:`dna_results` に記述しました．
 |
