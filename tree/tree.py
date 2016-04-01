@@ -58,15 +58,17 @@ def main():
     border: 1px solid #CCCCCC;
     margin: 4px;
     font-size: 16px;
+    font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
     display: block;
     color: #333333;
   }
   .filelist dt, .filelist dd{
-    margin-left: 0px;
+    margin: 0px;
     padding: 4px 0 4px 0;
-    }
-    .filelist dl{
-    padding-left: 3px;
+  }
+  .filelist dl{
+    margin: 0px;
+    padding: 0px 0px 0px 30px;
   }
   /* dir style */
   .filelist dl dt:before, .filelist dl dd:before{
@@ -133,7 +135,7 @@ def main():
     
     fild_all_files(os.path.abspath(args.input_dir), f)
         
-    f.write(footer)            
+    f.write(footer)
     f.close()
     
 if __name__ == "__main__":
