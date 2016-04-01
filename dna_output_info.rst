@@ -5,7 +5,7 @@ DNA解析で出力されるファイルについて
 出力ディレクトリ階層
 ---------------------
 
- .. image:: image/dna_workflow.png
+ .. image:: image/dna_tree.png
   :scale: 100%
 	
 	
