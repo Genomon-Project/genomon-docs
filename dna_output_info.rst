@@ -4,33 +4,9 @@ DNA解析で出力されるファイルについて
 
 出力ディレクトリ階層
 ---------------------
-::
 
-  プロジェクトルートディレクトリ
-    -bam
-      -各サンプル名
-        -サンプル名.markdup.bam
-        -サンプル名.markdup.bam.bai
-    -サンプル名.markdup.bam.md5
-    -サンプル名.markdup.metrics
-    -fastq
-    -各サンプル名
-      -1_1.fastq
-      -1_2.fastq
-    -log
-      -qsubのログ
-    -mutation
-      -各サンプル名
-        -サンプル名.genomon_mutations.result.txt
-    -script
-      -qsub実行script
-    -summary
-      -各サンプル名
-        -サンプル名.xls
-        -サンプル名.tsv
-    -sv 
-      -各サンプル名
-        -サンプル名.genomon_SV.result.txt
+ .. image:: image/dna_workflow.png
+  :scale: 100%
 	
 	
 bamディレクトリ
