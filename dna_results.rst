@@ -203,7 +203,7 @@ SV検出結果
 :19: p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference v.s. variant read pairs)
 
 
-Summary
+BAM Summary 結果
 -------
 
 各カラムの説明
