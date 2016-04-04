@@ -12,8 +12,6 @@ DNA解析結果ファイルの各項目の説明
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-* *Stable* -- `v.2.0`_
-
 各カラムの説明
 **************
 `Chr Start End`
@@ -64,7 +62,7 @@ DNA解析結果ファイルの各項目の説明
 `OtherNum_normal`
  リアライメントできなかったリード数
 `P-value(fisher)_realignment`
- Fisher -log10(p値) tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
+ Fisher-log10(p値).tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
 `indel_variantNum`
  変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
 `indel_mismatch_rate`
@@ -82,16 +80,7 @@ DNA解析結果ファイルの各項目の説明
 `HGVDの結果`
  HGVDをご使用の方はここにHGVDの結果が出力されます．
 
-おすすめフィルタ
-****************
 
- | Fisher（P-value）>= 1.0
- | EBCall（P-value）>= 4.0
- | variantPairNum_tumor >= 4
- | variantPairNum_normal <= 1(固形腫瘍) <= 2(血液腫瘍)
- | P-value(fisher)_realignment: >= 1.0
- | 
- | NormalサンプルにTumor contentが入っているとP値が低くなります。がん原因遺伝子がフィルタで消えてないか確認しましょう．
 
 変異Call結果 比較なしパターン
 -----------------------------
