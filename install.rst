@@ -214,26 +214,25 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 `ref_fasta`
  | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります。まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています。
-1) Human Genome ftpサイトが変更されていた (2016.01.28確認)
-ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
-2) Human herpesvirus 4 complete wild type genome
-http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta
-3) decoy
-ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/
-hs37d5cs.fa.gz
+ | 1) Human Genome ftpサイトが変更されていた (2016.01.28確認)
+ | ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
+ | 2) Human herpesvirus 4 complete wild type genome
+ | http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta
+ | 3) decoy
+ | ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5cs.fa.gz
 
-| リファレンスの特性について詳細は上記の各webサイトの説明よんでください。たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります。他にbwa index, fasta indexを生成する必要があります。
+ | リファレンスの特性について詳細は上記の各webサイトの説明よんでください。たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります。他にbwa index, fasta indexを生成する必要があります。
 
-| ・bwa index ファイルの作成コマンド
-| /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
-| ・FASTA index ファイルの作成コマンド
-| /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
+ | ・bwa index ファイルの作成コマンド
+ | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
+ | ・FASTA index ファイルの作成コマンド
+ | /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
 
 `interval_list`
-自作したファイルです。並列処理をするために使用します。
+ | 自作したファイルです。並列処理をするために使用します。
 
 `star_genome`
-Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが、100で大体よいとマニュアルに書いてあって、実際に問題なく検出できているので、現在はread lengthによって変えなくても良しとしています
+ | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが、100で大体よいとマニュアルに書いてあって、実際に問題なく検出できているので、現在はread lengthによって変えなくても良しとしています
 ・STAR index ファイルの作成コマンド
 STAR 
 --runThreadN 8 \
