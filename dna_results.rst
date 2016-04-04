@@ -1,14 +1,13 @@
 ========================================
-DNA解析結果ファイルの説明
+DNA解析結果ファイルの各項目の説明
 ========================================
-Human Genome Center (HGC)ではGenomonはインストール済みです．早速動かしてみましょう。
 
 結果ファイル
 ------------------
 
 :bam: project_root_directory/bam/sample/sample_markdup.bam
-:変異Call結果: project_root_directory/mutation/sample名/sample名_genomon_mutations.result.txt
-:SV検出結果: project_root_directory/sv/sample名/sample名.genomonSV.result.txt
+:変異Call結果: ${sample}_genomon_mutations.result.(filt).txt
+:SV検出結果: ${sample}_genomon.genomonSV.result.(filt).txt
 
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
@@ -16,38 +15,38 @@ Human Genome Center (HGC)ではGenomonはインストール済みです．早速
 各カラムの説明
 **************
 
-:Chr Start End: 変異候補のポジション
-:Ref: 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
-:Alt: 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-:annovarの結果: annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http://annovar.openbioinformatics.org/en/latest/user-guide/download/
-:depth_tumor: Tumorのdepth
-:variantNum_tumor: Tumorの変異アレルの数
-:depth_normal: Normalのdepth
-:variantNum_normal: Normalの変異アレルの数
-:bases_tumor: Tumorの塩基数．フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
-:bases_normal: Normalの塩基数．
-:A_C_G_T_tumor: Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
-:A_C_G_T_normal: Normalの塩基数．
-:misRate_tumor: Tumorのミスマッチ率．
-:strandRatio_tumor: Tumorのstrand ratio．
-:misRate_normal: Normalのミスマッチ率
-:strandRatio_normal: Normalのstrand ratio.変異数がない場合は---が出力されます．
-:P-value(fisher): Fisher -log10(p値)
-:RefNum_tumor: 変異を含まないリード数
-:AltNum_tumor: 変異を含むリード数
-:OtherNum_tumor: リアライメントできなかったリード数
-:RefNum_normal: 変異を含まないリード数
-:AltNum_normal: 変異を含むリード数
-:OtherNum_normal: リアライメントできなかったリード数
-:P-value(fisher)_realignment: Fisher -log10(p値) tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
-:indel_variantNum: 変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
-:indel_mismatch_rate: 上記indelのミスマッチ率
-:bp_mismatch_count: 変異候補周辺のbreakpointを含むリード数(breakpointは同一ポジションにあれば加算される)
-:distance_from_breakpoint: 変異候補からbreakpoointが何塩基離れているか表示されます．
-:simple_repeat_pos: 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
-:simple_repeat_seq: 上記SimpleRepeatの配列
-:P-value(EBCall): EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
-:HGVDの結果: HGVDをご使用の方はここにHGVDの結果が出力されます．
+* **Chr Start End** -- 変異候補のポジション
+* **Ref** -- 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
+* **Alt** -- 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
+* **annovarの結果** -- annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http** --//annovar.openbioinformatics.org/en/latest/user-guide/download/
+* **depth_tumor** -- Tumorのdepth
+* **variantNum_tumor** -- Tumorの変異アレルの数
+* **depth_normal** -- Normalのdepth
+* **variantNum_normal** -- Normalの変異アレルの数
+* **bases_tumor** -- Tumorの塩基数．フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
+* **bases_normal** -- Normalの塩基数．
+* **A_C_G_T_tumor** -- Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
+* **A_C_G_T_normal** -- Normalの塩基数．
+* **misRate_tumor** -- Tumorのミスマッチ率．
+* **strandRatio_tumor** -- Tumorのstrand ratio．
+* **misRate_normal** -- Normalのミスマッチ率
+* **strandRatio_normal** -- Normalのstrand ratio.変異数がない場合は---が出力されます．
+* **P-value(fisher)** -- Fisher -log10(p値)
+* **RefNum_tumor** -- 変異を含まないリード数
+* **AltNum_tumor** -- 変異を含むリード数
+* **OtherNum_tumor** -- リアライメントできなかったリード数
+* **RefNum_normal** -- 変異を含まないリード数
+* **AltNum_normal** -- 変異を含むリード数
+* **OtherNum_normal** -- リアライメントできなかったリード数
+* **P-value(fisher)_realignment** -- Fisher -log10(p値) tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
+* **indel_variantNum** -- 変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
+* **indel_mismatch_rate** -- 上記indelのミスマッチ率
+* **bp_mismatch_count** -- 変異候補周辺のbreakpointを含むリード数(breakpointは同一ポジションにあれば加算される)
+* **distance_from_breakpoint** -- 変異候補からbreakpoointが何塩基離れているか表示されます．
+* **simple_repeat_pos** -- 変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
+* **simple_repeat_seq** -- 上記SimpleRepeatの配列
+* **P-value(EBCall)** -- EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
+* **HGVDの結果** -- HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 
 おすすめフィルタ
