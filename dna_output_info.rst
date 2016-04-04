@@ -54,8 +54,8 @@ Post_analysis結果
 
 | このThe Integrative Genomics Viewer (IGV) で読み込むと、変異CAll結果とSVのポジションが画像として保存されます．
 
-* **mutation/capture_script/capture.bat** -- 変異Call結果の周辺ポジションのIGV画面を保存するときに使用する.
-* **sv/capture_script/capture.bat** -- SV検出結果の周辺ポジションのIGV画像を保存るときに使用する.
+* **mutation/capture_script/capture.bat** -- 変異Call結果の周辺ポジションをIGVでsnapshotする.
+* **sv/capture_script/capture.bat** -- SV検出結果の周辺ポジションをIGVでnapshotする.
 
 IGVのBAT取り込み方法についてはこちら
 https://www.broadinstitute.org/software/igv/batch
