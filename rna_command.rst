@@ -5,7 +5,7 @@ RNA解析コマンドを実行する
 
 .. code-block:: bash
 
-  genomon_pipeline [Analysis type: rna] sample_cfg.csv genomon_conf_file
+  genomon_pipeline [Analysis type: rna] sample_cfg.csv output_root_directory genomon_conf_file
 
   # Analysis type         : DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定してください．
   # sample_conf_file      : 解析するサンプルと入力ファイルを指定します．
