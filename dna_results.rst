@@ -7,7 +7,7 @@ DNA解析結果ファイルの各項目の説明
 
 :変異Call結果: ${sample}_genomon_mutations.result.(filt).txt
 :SV検出結果: ${sample}_genomon.genomonSV.result.(filt).txt
-:BAM Summary結果 : ${sample}.tsv
+:BAM Summary結果: ${sample}.tsv
 
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
