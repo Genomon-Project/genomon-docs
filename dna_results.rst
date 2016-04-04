@@ -12,14 +12,29 @@ DNA解析結果ファイルの各項目の説明
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-フィルタ済み結果ファイルは
-※ coverage Nは設定ファイル `dna_tggggcfg` で指定した値です。:doc:`dna_config_info`
-
-dna_task_param.cfg
+フィルタ済み結果ファイルはdna_genomon.cfg`で設定した値が反映されます。詳細は:doc:`dna_config_info`を参照ください
 
 .. code-block:: cfg
     :linenos:
     :emphasize-lines: 3
+
+    [realignment_filter]
+    disease_min_mismatch=4
+    control_max_mismatch=2
+    score_diff=5
+    window_size=200
+    max_depth=5000
+    fisher_pval-log10_thres = 1.0
+    post_10_q_thres = 0.1
+
+    [indel_filter]
+    search_length=40
+    neighbor=5
+    base_quality=20
+    min_depth=8
+    max_mismatch=100000
+    max_allele_freq=1
+
      
     [coverage]
     qsub_option = -l s_vmem=1G,mem_req=1G
