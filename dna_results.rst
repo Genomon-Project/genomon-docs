@@ -16,7 +16,7 @@ genomon_mutations.result.(filt).txt(フィルタ済み結果)ファイルはdna_
 
 .. code-block:: cfg
     :linenos:
-    :emphasize-lines: 2 3 7 12
+    :emphasize-lines: 2,3,7,12
 
     [realignment_filter]
     disease_min_mismatch=4
