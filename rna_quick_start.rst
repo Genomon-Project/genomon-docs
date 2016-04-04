@@ -35,19 +35,19 @@ Quick Start RNA解析
 |
 | commandの実行方法詳細は :doc:`command` に記載があります．
 | 
+実際のデータでも、ファイルパスとサンプルデータをsample.csv(ファイル名変更可)に記載して、上記のようにコマンドを実行すればOKです．まずはsample.csvの中身をみて、書き方を学んでいただくのが良いかと思います．commandの実行方法詳細は :doc:`rna_command` に記載があります．
 
-実際のサンプルデータでも、sample.csvを記載して、上記のようにコマンドを実行すればOKです．
 
 3. 結果ファイルを見てみましょう
 ^^^^^^^^
 
-| 結果ファイルはこのように出力されます．
+| 結果ファイルは実行時に指定したoutput_directoryに出力されます．
 
 :fusion検出結果: {output_directory}/fusion/sample名/sample名_fusion_fusion.result.txt
 
 | 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください(v2.0.5で出力した結果)
 
-:fusion検出結果: ~w3varann/test_rna/rna_result_v2.0.5/fusion/MCF-7_test/fusion_fusion.result.txt
+:fusion検出結果: ~w3varann/test_rna/rna_result_v2.2.0/fusion/MCF-7_test/fusion_fusion.result.txt
 
 | 結果ファイルの各項目の説明など詳細は :doc:`rna_results` に記述しました．
 
