@@ -7,28 +7,41 @@ DNA解析で出力されるファイルについて
 
  .. image:: image/dna_tree.png
   :scale: 100%
-	
-	
-bamディレクトリ
----------------
 
-:sample名.markdup.bam: bamファイル
-:sample名.markdup.bam.bai: bam indexファイル
-:sample名.markdup.bam.md5: bamのmd5
-:sample名.markdup.metrics: mark duplicateした時に出力されるduplicateリードの情報
+マッピング結果（BAM)
+-----------------------
+| bam/$sample(各サンプル)ディレクトリ内に出力されます．
 
-| [fastq][bam_tofastq]から実行した場合は、上記4つのファイルが出力されます.
-| [bam_import]から実行した場合は、対象のbamファイルがbamディレクトリにlinkされます.
-|
+* **${sample}.markdup.bam** -- BAMファイル．
+* **${sample}.markdup.bam.bai** -- BAM indexファイル．
+* **${sample}.markdup.metrics** -- markduplicateしたリードのmetrics情報．
+* **${sample}.markdup.bam.md5** -- BAMのmd5値．
 
-fastqディレクトリ
------------------
+変異Call結果
+-----------------------
+| mutation/$sample(各サンプル)ディレクトリ内に出力されます．
 
-:1_1.fastq 1_2.fastq: ペアエンドのfastqファイル.
+* **${sample}_genomon_mutations.result.filt.txt** -- 変異Call結果．P値などで適切なフィルタがなされている．
+* **${sample}_genomon_mutations.result.txt** -- 変異Call結果．フィルタなしのrawデータ．advanced user向け．
 
-| [fastq]から実行した場合は、fastqディレクトリにfastqファイルがlinkされます.
-| [bam_tofastq]から実行した場合は、bamからconvertされたfastqファイルがこのディレクトリに出力されます.
-|
+SV検出結果
+-----------------------
+sv/$sample(各サンプル)ディレクトリ内に出力されます．
+
+* **${sample}.genomonSV.result.filt.txt** -- SV検出結果．P値などで適切なフィルタがなされている．
+* **${sample}.genomonSV.result.txt** -- SV検出結果．フィルタなしのrawデータ．advanced user向け．
+* **他 bedpe.gzファイルなど** -- デバッグ用のファイル．advanced user向け．
+
+Bam Summary結果
+-----------------------
+sv/$sample(各サンプル)ディレクトリ内に出力されます．
+
+* **${sample}.tsv** -- Summary結果．
+* **${sample}.xls** -- Summary結果．${sample}.tsvをExcelにしたもの．
+* **${sample}.bamstats** -- BAMのアライメント率結果など．この結果は${$summary}.tsvに含まれている．
+* **${sample}.coverage** -- BAMのカバレッジ結果など．この結果は${$summary}.tsvに含まれている．
+
+
 
 logディレクトリ
 ---------------
