@@ -16,7 +16,7 @@ genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomo
 
 .. code-block:: cfg
     :linenos:
-    :emphasize-lines: 3,6,7,11,17
+    :emphasize-lines: 2,6,7,11,17
 
     [fisher_mutation_call]
     fisher_pval-log10_thres = 1.0
