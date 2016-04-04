@@ -86,29 +86,52 @@ DNA解析結果ファイルの各項目の説明
 各カラムの説明
 **************
 
-`Chr Start End` 変異候補のポジション
-`Ref` 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
-`Alt` 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-`annovarの` `annovar`_ をご使用の方はannovarの結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
-`depth` depth
-`variantNum` 変異アレルのリード数
-`bases` フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
-`A_C_G_T` SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
-`misRate` ミスマッチ率．
-`strandRatio` strand ratio．
-`10%_posterior_quantile` depthと変異アレルの数は二項分布でモデル化するためにβ分布を利用.10%の値
-`posterior_mean`  mean値
-`90%_posterior_quantile` 90%の値
-`readPairNum` 変異を含まないリード数
-`variantPairNum` 変異を含むリード数
-`otherPairNum` リアライメントできなかったリード数
-`10%_posterior_quantile(realignment)` realignmentのreadPairNumとvariantPairNumでβ分布を利用.10%の値
-`posterior_mean(realignment)` mean値
-`90%_posterior_quantile(realignment)` 90%の値
-`simple_repeat_pos` SimpleRepeatに登録されているか
-`simple_repeat_seq` 上記SimpleRepeatの配列
-`P-value(EBCall)` EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
-`HGVDの結果` HGVDをご使用の方はここにHGVDの結果が出力されます．
+`Chr Start End` 
+ 変異候補のポジション
+`Ref`
+ 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
+`Alt`
+ 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
+`annovarの`
+ `annovar`_ をご使用の方はannovarの結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
+`depth`
+ depth
+`variantNum`
+ 変異アレルのリード数
+`bases`
+ フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
+`A_C_G_T`
+ SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
+`misRate`
+ ミスマッチ率．
+`strandRatio`
+ strand ratio．
+`10%_posterior_quantile`
+ depthと変異アレルの数は二項分布でモデル化するためにβ分布を利用.10%の値
+`posterior_mean`
+ mean値
+`90%_posterior_quantile`
+ 90%の値
+`readPairNum`
+ 変異を含まないリード数
+`variantPairNum`
+ 変異を含むリード数
+`otherPairNum`
+ リアライメントできなかったリード数
+`10%_posterior_quantile(realignment)`
+ realignmentのreadPairNumとvariantPairNumでβ分布を利用.10%の値
+`posterior_mean(realignment)`
+ mean値
+`90%_posterior_quantile(realignment)`
+ 90%の値
+`simple_repeat_pos`
+ SimpleRepeatに登録されているか
+`simple_repeat_seq`
+ 上記SimpleRepeatの配列
+`P-value(EBCall)`
+ EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
+`HGVDの結果`
+ HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 
 おすすめフィルタ
