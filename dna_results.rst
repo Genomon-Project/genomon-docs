@@ -14,72 +14,71 @@ DNA解析結果ファイルの各項目の説明
 
 各カラムの説明
 **************
-
-* *Chr Start End* 
+`Chr Start End`
  変異候補のポジション
-* *Ref* 
+`Ref`
  変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
-* *Alt* 
+`Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-* *annovarの結果* 
- annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http* 
+`annovarの結果`
+ annovarをご使用の方はannovarの結果が出力されます．各カラムの説明はannovarのwebページでチェックしてください．http`
 //annovar.openbioinformatics.org/en/latest/user-guide/download/
-* *depth_tumor* 
+`depth_tumor`
  Tumorのdepth
-* *variantNum_tumor* 
+`variantNum_tumor`
  Tumorの変異アレルの数
-* *depth_normal* 
+`depth_normal`
  Normalのdepth
-* *variantNum_normal* 
+`variantNum_normal`
  Normalの変異アレルの数
-* *bases_tumor* 
+`bases_tumor`
  Tumorの塩基数．フォーマットは(depth_strand+,variantNum_strand+,depth_strand-,variantNum_strand-)の数になります．
-* *bases_normal* 
+`bases_normal`
  Normalの塩基数．
-* *A_C_G_T_tumor* 
+`A_C_G_T_tumor`
  Tumorの塩基数．SNVの場合は（A,C,G,T) の各個数，indel の場合は (Depth, indelのリード数) になります．
-* *A_C_G_T_normal* 
+`A_C_G_T_normal`
  Normalの塩基数．
-* *misRate_tumor* 
+`misRate_tumor`
  Tumorのミスマッチ率．
-* *strandRatio_tumor* 
+`strandRatio_tumor`
  Tumorのstrand ratio．
-* *misRate_normal* 
+`misRate_normal`
  Normalのミスマッチ率
-* *strandRatio_normal* 
+`strandRatio_normal`
  Normalのstrand ratio.変異数がない場合は
 -が出力されます．
-* *P-value(fisher)* 
+`P-value(fisher)`
  Fisher -log10(p値)
-* *RefNum_tumor* 
+`RefNum_tumor`
  変異を含まないリード数
-* *AltNum_tumor* 
+`AltNum_tumor`
  変異を含むリード数
-* *OtherNum_tumor* 
+`OtherNum_tumor`
  リアライメントできなかったリード数
-* *RefNum_normal* 
+`RefNum_normal`
  変異を含まないリード数
-* *AltNum_normal* 
+`AltNum_normal`
  変異を含むリード数
-* *OtherNum_normal* 
+`OtherNum_normal`
  リアライメントできなかったリード数
-* *P-value(fisher)_realignment* 
+`P-value(fisher)_realignment`
  Fisher -log10(p値) tableは((RefNum_tumor,RefNum_normal),(AltNum_tumor,AltNum_normal))
-* *indel_variantNum* 
+`indel_variantNum`
  変異候補周辺のindelを含むリード数(indelは同一ポジションであれば加算される)
-* *indel_mismatch_rate* 
+`indel_mismatch_rate`
  上記indelのミスマッチ率
-* *bp_mismatch_count* 
+`bp_mismatch_count`
  変異候補周辺のbreakpointを含むリード数(breakpointは同一ポジションにあれば加算される)
-* *distance_from_breakpoint* 
+`distance_from_breakpoint`
  変異候補からbreakpoointが何塩基離れているか表示されます．
-* *simple_repeat_pos* 
+`simple_repeat_pos`
  変異候補のポジションとSimpleRepeatに登録されているポジションがintersectした場合にSimpleRepeatのポジションが表示されます．
-* *simple_repeat_seq* 
+`simple_repeat_seq`
  上記SimpleRepeatの配列
-* *P-value(EBCall)* 
+`P-value(EBCall)`
  EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
-* *HGVDの結果* 
+`HGVDの結果`
  HGVDをご使用の方はここにHGVDの結果が出力されます．
 
 
