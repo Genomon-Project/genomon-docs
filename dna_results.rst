@@ -23,7 +23,7 @@ DNA解析結果ファイルの各項目の説明
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
 `annovarの結果`
- annovarをご使用の方はこのカラムに結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
+  `annovar`_ をご使用の方はこのカラムに結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
 `depth_tumor`
  Tumorのdepth
 `variantNum_tumor`
@@ -81,8 +81,6 @@ DNA解析結果ファイルの各項目の説明
  EBCall -log10(p値) sample.csvにcontrolパネルがNoneの場合は出力されません
 `HGVDの結果`
  HGVDをご使用の方はここにHGVDの結果が出力されます．
-
-.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
 
 おすすめフィルタ
 ****************
@@ -224,3 +222,4 @@ dna_task_param.cfg
     wgs_i_bed_lines = 10000
     wgs_i_bed_width = 100
 
+.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
