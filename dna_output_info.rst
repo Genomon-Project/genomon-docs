@@ -60,32 +60,15 @@ Post_analysis結果
 IGVのBAT取り込み方法についてはこちら
 https://www.broadinstitute.org/software/igv/batch
 
-logディレクトリ
----------------
-  
-| qsubのログファイルが出力されます.
+paplot結果
+-----------------------
+
+| SV検出結果とSummary結果をビジュアライゼーションした結果です．
+| paplotディレクトリをダウンロードし、index.htmlをダブルクリックしてください．結果を確認できます．
+
+config log script
+-----------------------
+
+| 実行時のパラメータやツールの設定情報、log、使用したScriptが保存されます．
 
 
-mutationディレクトリ
---------------------
-
-:サンプル名.genomon_mutations.result.txt: 変異Callの結果が出力されます.
-
-scriptディレクトリ
-------------------
-
-| qsubされたshell scriptです.
-| どのような処理が実行されたかチェックすることができます．
-|
-
-summaryディレクトリ
--------------------
-
-:サンプル名.xls: bam summaryがEXCELファイルで出力されます.
-:サンプル名.tsv: サンプル名.xlsをテキスト形式で出力したものです.内容は同じです.
-
-
-SVディレクトリ
---------------
-
-:サンプル名.genomon_SV.result.txt: SV検出の結果が出力されます.
