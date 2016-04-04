@@ -12,8 +12,7 @@ DNA解析結果ファイルの各項目の説明
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-.. _v.2.0: http://genomon.readthedocs.org/ja/v2.0/
-.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+* *Stable* -- `v.2.0`_
 
 各カラムの説明
 **************
@@ -24,7 +23,7 @@ DNA解析結果ファイルの各項目の説明
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
 `annovarの結果`
- `annovar`_をご使用の方はこのカラムに結果が出力されます．各カラムの説明は`annovar`_のwebページでチェックしてください．
+ annovarをご使用の方はこのカラムに結果が出力されます．各カラムの説明はannovarのwebページ<http://annovar.openbioinformatics.org/en/latest/user-guide/download/>でチェックしてください．
 `depth_tumor`
  Tumorのdepth
 `variantNum_tumor`
