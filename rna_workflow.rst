@@ -6,7 +6,7 @@ RNA解析パイプラインschemes
 
  Inputの方法は[fastq]の1種類です．sample confで定義します．記載方法は :doc:`rna_sample_csv` をみてください．
  
-Fusion検出
+Fusion検出 Task
 ----------------
 
 * **task_star_align** -- starによるリファレンスゲノムにアライメントを実行します．
