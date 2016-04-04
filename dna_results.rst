@@ -185,13 +185,12 @@ Summary
  the read length associated with read 2.
 `#_mapped_bases`
  the total number of mapped bases.
- :#_mapped_bases_r1: the total number of mapped bases for all read 1s.
- :#_mapped_bases_r2: the total number of mapped bases for all read 2s.
-
+:#_mapped_bases_r1: the total number of mapped bases for all read 1s.
+:#_mapped_bases_r2: the total number of mapped bases for all read 2s.
 `#_divergent_bases`
  the total number of bases divergent from the reference.
- :#_divergent_bases_r1: the total number of bases divergent from the reference for all read 1s.
- :#_divergent_bases_r2: the total number of bases divergent from the reference for all read 2s.
+:#_divergent_bases_r1: the total number of bases divergent from the reference for all read 1s.
+:#_divergent_bases_r2: the total number of bases divergent from the reference for all read 2s.
 `#_total_reads`
  the total number of reads.
 `#_total_reads_r1`
@@ -200,8 +199,8 @@ Summary
  the total number of read 2s.
 `#_mapped_reads`
  the total number of unmapped reads.
- :#_mapped_reads_r1: the total number of unmapped read 1s.
- :#_mapped_reads_r2: the total number of unmapped read 2s.
+:#_mapped_reads_r1: the total number of unmapped read 1s.
+:#_mapped_reads_r2: the total number of unmapped read 2s.
 `#_mapped_reads_properly_paired`
  the total number of properly paired reads.
 `#_gc_bases_r1`
