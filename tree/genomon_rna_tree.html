@@ -1,0 +1,110 @@
+<html lang="ja">
+<head>
+  <title>tree</title>
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <style type="text/css">
+  .filelist{
+    background-color: #EEEEEE;
+    padding: 12px 24px 12px 24px;
+    border: 1px solid #CCCCCC;
+    margin: 4px;
+    font-size: 16px;
+    display: block;
+    color: #333333;
+  }
+  .filelist dt, .filelist dd{
+    margin-left: 0px;
+    padding: 4px 0 4px 0;
+    }
+    .filelist dl{
+    padding-left: 3px;
+  }
+  /* dir style */
+  .filelist dl dt:before, .filelist dl dd:before{
+    content: "┗";
+    float: left;
+    width: 20px;
+    margin-left: -20px;
+    color: #D36015;
+  }
+  .filelist dt icon:before{
+    content: "\f07c";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #D36015;
+  }
+  /* files icons */
+  .filelist dd icon_text:before{
+    content: "\f15c";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_archive:before{
+    content: "\f1c6";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_xls:before{
+    content: "\f1c3";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_image:before{
+    content: "\f1c5";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  </style>
+</head>
+<body>
+<dl class="fa filelist">
+<dt><icon/>test_sample</dt>
+<dl>
+<dt><icon/>fastq</dt>
+<dl>
+<dt><icon/>${sample}</dt>
+</dl>
+<dt><icon/>star</dt>
+<dl>
+<dt><icon/>${sample}</dt>
+<dl>
+<dd><icon_text/>${sample}.Aligned.sortedByCoord.out.bam</dd>
+<dd><icon_text/>${sample}.Aligned.sortedByCoord.out.bam.bai</dd>
+</dl>
+</dl>
+<dt><icon/>fusion</dt>
+<dl>
+<dt><icon/>${sample}</dt>
+<dl>
+<dd><icon_text/>${sample}_fusion_fusion.result.txt</dd>
+<dd><icon_text/>${sample}_star.fusion.result.txt</dd>
+</dl>
+</dl>
+<dt><icon/>config</dt>
+<dl>
+</dl>
+<dt><icon/>log</dt>
+<dl>
+</dl>
+<dt><icon/>script</dt>
+<dl>
+</dl>
+</dl></dl>
+</body>
+</html>
