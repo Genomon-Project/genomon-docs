@@ -27,7 +27,7 @@ Quick Start RNA解析
   # GenomonPipelineに移動
   $cd GenomonPipeline-v{バージョン}
   # 実行
-  $./genomon_pipeline rna /home/w3varann/testRNA/sample.csv {output_directory} genomon.cfg rna_task_param.cfg 
+  $./genomon_pipeline rna /home/w3varann/testRNA/sample.csv {output_directory} rna_genomon.cfg 
   # output_directoryには出力したいディレクトリを指定してください
 
 | sample.csvの記載方法詳細は :doc:`sample_csv` にあります．
