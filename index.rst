@@ -20,8 +20,11 @@
 :Date: |today|
 :Version: v2.2.0
 
-| The character of Genomon is desined by Yuki Tsujita.
-| http://jp.linkedin.com/pub/yuki-tsujita/7/692/582
+| Stable v2.0.5
+|
+| The character of Genomon is desined by Yuki Tsujita
+
+.. _Yuki Tsujita: http://jp.linkedin.com/pub/yuki-tsujita/7/692/582
 
 .. toctree::
    :maxdepth: 2
