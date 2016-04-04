@@ -5,7 +5,6 @@ DNA解析結果ファイルの各項目の説明
 結果ファイル
 ------------------
 
-:bam: project_root_directory/bam/sample/sample_markdup.bam
 :変異Call結果: ${sample}_genomon_mutations.result.(filt).txt
 :SV検出結果: ${sample}_genomon.genomonSV.result.(filt).txt
 
@@ -45,8 +44,7 @@ DNA解析結果ファイルの各項目の説明
 `misRate_normal`
  Normalのミスマッチ率
 `strandRatio_normal`
- Normalのstrand ratio.変異数がない場合は
--が出力されます．
+ Normalのstrand ratio.変異数がない場合は-が出力されます．
 `P-value(fisher)`
  Fisher -log10(p値)
 `RefNum_tumor`
