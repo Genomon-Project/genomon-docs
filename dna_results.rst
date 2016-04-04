@@ -12,11 +12,11 @@ DNA解析結果ファイルの各項目の説明
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-フィルタ済み結果ファイルはdna_genomon.cfg`で設定した値が反映されます。詳細は:doc:`dna_config_info`を参照ください
+genomon_mutations.result.(filt).txt(フィルタ済み結果)ファイルはdna_genomon.cfg`で設定した以下のハイライトの値でフィルタされています．詳細は:doc:`dna_config_info`を参照ください
 
 .. code-block:: cfg
     :linenos:
-    :emphasize-lines: 3
+    :emphasize-lines: 2 3 7 12
 
     [realignment_filter]
     disease_min_mismatch=4
