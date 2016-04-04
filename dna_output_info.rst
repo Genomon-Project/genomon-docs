@@ -43,7 +43,6 @@ BAM Summary結果
 
 Post_analysis結果
 -----------------------
-| post_analysisディレクトリ内に出力されます．
 | サンプル毎に出力される変異CallやSV検出結果をマージしたファイルを取得できます．
 | 同じ名前のファイルがある場合、ファイルは上書きされます．
 
@@ -53,7 +52,13 @@ Post_analysis結果
 * **merge_genomon_sv.result.txt** -- SV検出結果をマージしたファイル(フィルタなし）．
 * **merge_genomon_bam_summary.txt** -- BAM Summary結果をマージしたファイル．
 
+| このThe Integrative Genomics Viewer (IGV) で読み込むと、変異CAll結果とSVのポジションが画像として保存されます．
 
+* **mutation/capture_script/capture.bat** -- 変異Call結果の周辺ポジションのIGV画面を保存するときに使用する.
+* **sv/capture_script/capture.bat** -- SV検出結果の周辺ポジションのIGV画像を保存るときに使用する.
+
+IGVのBAT取り込み方法についてはこちら
+https://www.broadinstitute.org/software/igv/batch
 
 logディレクトリ
 ---------------
