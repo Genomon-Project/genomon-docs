@@ -23,9 +23,8 @@
 .. _v.2.0: http://genomon.readthedocs.org/ja/v2.0/
 .. _Yuki Tsujita: http://jp.linkedin.com/pub/yuki-tsujita/7/692/582
 
-  Stable: `v.2.0`_
-  
-  The character of Genomon is desined by `Yuki Tsujita`_
+  | Stable: `v.2.0`_
+  | The character of Genomon is desined by `Yuki Tsujita`_
 
 .. toctree::
    :maxdepth: 2
