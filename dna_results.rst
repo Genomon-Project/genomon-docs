@@ -23,7 +23,7 @@ DNA解析結果ファイルの各項目の説明
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
 `annovarの結果`
- annovarをご使用の方はこのカラムに結果が出力されます．各カラムの説明はannovarのwebページ<http://annovar.openbioinformatics.org/en/latest/user-guide/download/>でチェックしてください．
+ annovarをご使用の方はこのカラムに結果が出力されます．各カラムの説明は`annovarのwebページ<http://annovar.openbioinformatics.org/en/latest/user-guide/download/>`でチェックしてください．
 `depth_tumor`
  Tumorのdepth
 `variantNum_tumor`
