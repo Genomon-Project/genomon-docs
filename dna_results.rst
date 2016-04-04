@@ -27,25 +27,10 @@ DNA解析結果ファイルの各項目の説明
     fisher_pval-log10_thres = 1.0
     post_10_q_thres = 0.1
 
-    [indel_filter]
-    search_length=40
-    neighbor=5
-    base_quality=20
-    min_depth=8
-    max_mismatch=100000
-    max_allele_freq=1
-
-     
-    [coverage]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    coverage    = 2,10,20,30,40,50,100
-    wgs_flag = False
-    wgs_incl_bed_width = 1000000
-    wgs_i_bed_lines = 10000
-    wgs_i_bed_width = 100
-
-.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
-
+    [eb_filter]
+    map_quality = 20
+    base_quality = 15
+    ebcall_pval-log10_thres = 4.0
 
 
 各カラムの説明
