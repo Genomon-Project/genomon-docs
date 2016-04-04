@@ -12,6 +12,27 @@ DNA解析結果ファイルの各項目の説明
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
+フィルタ済み結果ファイルは
+※ coverage Nは設定ファイル `dna_tggggcfg` で指定した値です。:doc:`dna_config_info`
+
+dna_task_param.cfg
+
+.. code-block:: cfg
+    :linenos:
+    :emphasize-lines: 3
+     
+    [coverage]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    coverage    = 2,10,20,30,40,50,100
+    wgs_flag = False
+    wgs_incl_bed_width = 1000000
+    wgs_i_bed_lines = 10000
+    wgs_i_bed_width = 100
+
+.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+
+
+
 各カラムの説明
 **************
 `Chr Start End`
@@ -229,7 +250,7 @@ Summary
  N以上のdepthを持つbase総数
  
 
-※ coverage Nは設定ファイル `dna_task_param.cfg` で指定した値です。:doc:`config_info`
+※ coverage Nは設定ファイル `dna_task_param.cfg` で指定した値です。:doc:`dna_config_info`
 
 dna_task_param.cfg
 
