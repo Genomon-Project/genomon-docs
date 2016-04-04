@@ -4,43 +4,28 @@ RNA解析で出力されるファイルについて
 
 出力ディレクトリ階層
 ---------------------
-::
 
-  プロジェクトルートディレクトリ
-    -bam
-      -各サンプル名
-    -fastq
-      -各サンプル名
-        -1_1.fastq
-        -1_2.fastq
-    -log
-      -qsubのログ
-    -script
-      -qsub実行script
-
+ .. image:: image/rna_tree.png
+  :scale: 100%
 	
 	
-bamディレクトリ
----------------
+マッピング結果（BAM)
+-----------------------
+| star/$sample(各サンプル)ディレクトリ内に出力されます．
 
-fastqディレクトリ
------------------
-
-:1_1.fastq 1_2.fastq: ペアエンドのfastqファイル.
-
-| [fastq]から実行した場合は、このディレクトリにfastqファイルがlinkされます.
-| [bam_tofastq]から実行した場合は、bamからconvertされたfastqファイルがこのディレクトリに出力されます.
-|
-
-logディレクトリ
----------------
-  
-| qsubのログファイルが出力されます.
+* **${sample}.Aligned.sortedByCoord.out.bam** -- BAMファイル．
+* **${sample}.Aligned.sortedByCoord.out.bam.bai** -- BAM indexファイル．
 
 
-scriptディレクトリ
-------------------
+Fusion検出結果
+-----------------------
+| fusion/$sample(各サンプル)ディレクトリ内に出力されます．
 
-| qsubされたshell scriptです.
-| こちらのscriptの中身をみると、どのような処理が実行されたか一目瞭然です.
-|
+* **${sample}_fusion_fusion.result.txt** -- fusionfusion結果ファイル．
+* **${sample}_star.fusion.result.txt** -- 中間ファイル．デバッグ用．
+
+config log script
+-----------------------
+
+| 実行時のパラメータやツールの設定情報、log、使用したScriptが保存されます．
+
