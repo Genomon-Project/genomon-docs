@@ -105,6 +105,26 @@ genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomo
 変異Call結果 比較なしパターン
 -----------------------------
 
+genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutations.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は:doc:`dna_config_info`を参照ください
+
+.. code-block:: cfg
+    :linenos:
+    :emphasize-lines: 2,8,13
+
+    [realignment_filter]
+    disease_min_mismatch=4
+    control_max_mismatch=2
+    score_diff=5
+    window_size=200
+    max_depth=5000
+    fisher_pval-log10_thres = 1.0
+    post_10_q_thres = 0.1
+
+    [eb_filter]
+    map_quality = 20
+    base_quality = 15
+    ebcall_pval-log10_thres = 4.0
+
 各カラムの説明
 **************
 
