@@ -18,9 +18,11 @@
 
 :Author: Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi
 :Date: |today|
-:Version: v2.2.0
+:Version: v2.2.x
 
-Stable v2.0.5
+Stable: `v.2.0.x`
+
+.. _v.2.0.x: http://genomon.readthedocs.org/ja/v2.0/
 
 The character of Genomon is desined by `Yuki Tsujita`_
 
