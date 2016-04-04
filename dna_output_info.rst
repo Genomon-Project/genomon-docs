@@ -66,6 +66,9 @@ paplot結果
 | SV検出結果とSummary結果をビジュアライゼーションした結果です．
 | paplotディレクトリをダウンロードし、index.htmlをダブルクリックしてください．結果を確認できます．
 
+paplotの使い方についてはこちら
+http://paplot-jp.readthedocs.org/ja/latest/
+
 config log script
 -----------------------
 
