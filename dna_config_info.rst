@@ -5,9 +5,9 @@ DNA Configファイルについて
 dna_genomon.cfg
 ------------------
 
- | DNAパイプライン実行時に使用されるファイルです。
- | 各ツールオプションのパラメータを設定することができます。
- | またパイプラインの各Taskのqsubで使用するメモリ量を設定できます。
+ | DNAパイプライン実行時に使用されるファイルです．
+ | 各ツールオプションのパラメータを設定することができます．
+ | またパイプラインの各Taskのqsubで使用するメモリ量を設定できます．
 
 .. code-block:: cfg
     :linenos:
@@ -108,12 +108,15 @@ dna_genomon.cfg
     [fisher_mutation_call]
     # 変異ポジションのリード数が指定した数以下であれば候補の対象となりません,tumor normalともに指定した本数以上なければなりません
     min_depth = 8
-    # mapping qualityが指定した値以下であればその情報は使用されません。
+    # mapping qualityが指定した値以下であればその情報は使用されません．
     map_quality = 20
-    # base qualityが指定した値以下であればその情報は使用されません。
+    # base qualityが指定した値以下であればその情報は使用されません．
     base_quality = 15
+    # tumorのallele比がこの値以下であれば候補の対象となりません．
     disease_min_allele_frequency = 0.02
+    # normalのallele比がこの値以上であれば候補の対象となりません．
     control_max_allele_frequency = 0.1
+    # fihser検定による結果の閾値です．
     fisher_thres_hold = 0.1
     # 変異アレルのリード数は二項分布でモデル化できますが、これをベイズ的にやろうとしてベータ分布を利用し、その結果の10% posterio quantileを閾値としています.
     post_10_q = 0.02
@@ -129,8 +132,9 @@ dna_genomon.cfg
     control_max_mismatch=2
     # リードリアライメント時にはマルチアライメントしているのですが、1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら、そのリードを使用しないという設定です
     score_diff=5
-    # リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異position + window size(bases)のリファレンスゲノムを作っています。
+    # リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異position + window size(bases)のリファレンスゲノムを作っています．
     window_size=200
+    # 対象の変異positionがこの値以上であればrealignment対象となりません．
     max_depth=5000
     # こちらの値はmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
     fisher_pval-log10_thres = 1.0
@@ -142,7 +146,7 @@ dna_genomon.cfg
     search_length=40
     # 探し出したindelが候補のポジションから指定した値のrange内にいればindelフィルタの対象とします
     neighbor=5
-    # samtools mpileupをつかって、indelをサーチするのですが、mpileupのオプションである-qの値となります。deletionの場合はbasequalityは無視されます。
+    # samtools mpileupをつかって、indelをサーチするのですが、mpileupのオプションである-qの値となります．deletionの場合はbasequalityは無視されます．
     base_quality=20
     #depthと書かれている場合は変異ポジションのリード数のthresholdになります．
     min_depth=8
@@ -151,18 +155,26 @@ dna_genomon.cfg
     
     [breakpoint_filter]
     max_depth=1000
+    # ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
     min_clip_size=20
     junc_num_thres=0
+    # mapping qualityが指定した値以下であればその情報は使用されません．
     map_quality=10
     
     [eb_filter]
+    # mapping qualityが指定した値以下であればその情報は使用されません．
     map_quality = 20
+    # base qualityが指定した値以下であればその情報は使用されません．
     base_quality = 15
+    # こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
     ebcall_pval-log10_thres = 4.0
     
     [annotation]
+    # annovarを使用するにはこのflagをTrueにしてください．
     active_annovar_flag = False
+    # annovarのオプションを変更することができます．
     table_annovar_params = -buildver hg19 -remove --otherinfo -protocol refGene,cytoBand,genomicSuperDups,esp6500siv2_all,1000g2010nov_all,1000g2014oct_all,1000g2014oct_afr,1000g2014oct_eas,1000g2014oct_eur,snp131,snp138,snp131NonFlagged,snp138NonFlagged,cosmic68wgs,cosmic70,clinvar_20150629,ljb26_all -operation g,r,r,f,f,f,f,f,f,f,f,f,f,f,f,f,f
+    # HGVDを使用するにはこのflagをTrueにしてください．
     active_HGVD_flag = False
     
     [mutation_merge]
@@ -171,7 +183,7 @@ dna_genomon.cfg
     ##########
     ## Genomon SV
     [genomon_sv]
-    param_file = /home/w3varann/genomon_pipeline-2.1.0/database/GenomonSV/param.yaml
+    param_file = /home/w3varann/genomon_pipeline-2.2.0/database/GenomonSV/param.yaml
     
     [sv_parse]
     qsub_option = -l s_vmem=2G,mem_req=2G
@@ -187,11 +199,11 @@ dna_genomon.cfg
     [pa_plot]
     enable = True
     title = Genomon
-    config_file = /home/w3varann/genomon_pipeline-2.1.0/tools/paplot-0.2.7/paplot.cfg
+    config_file = /home/w3varann/genomon_pipeline-2.2.0/tools/paplot-0.2.7/paplot.cfg
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [post_analysis]
     enable = True
-    config_file = /home/w3varann/genomon_pipeline-2.1.0/tools/GenomonPostAnalysis-1.0.1/genomon_post_analysis.cfg
+    config_file = /home/w3varann/genomon_pipeline-2.2.0/tools/GenomonPostAnalysis-1.0.1/genomon_post_analysis.cfg
     qsub_option = -l s_vmem=2G,mem_req=2G
 
