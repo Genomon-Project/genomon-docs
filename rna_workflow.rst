@@ -9,9 +9,8 @@ RNA解析パイプラインschemes
 Fusion検出
 ----------------
 
-* **task_star_align* -- starによるリファレンスゲノムにアライメントを実行します．
-* **task_fusion_fusion* -- fusionを検出します．
-
+* **task_star_align** -- starによるリファレンスゲノムにアライメントを実行します．
+* **task_fusion_fusion** -- fusionを検出します．
 
 その他Task
 --------------------------
