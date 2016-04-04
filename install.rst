@@ -214,58 +214,68 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 `ref_fasta`
  | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります。まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています。
+ |
  | 1) Human Genome ftpサイトが変更されていた (2016.01.28確認)
  | ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
  | 2) Human herpesvirus 4 complete wild type genome
  | http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta
  | 3) decoy
  | ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5cs.fa.gz
-
+ |
  | リファレンスの特性について詳細は上記の各webサイトの説明よんでください。たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります。他にbwa index, fasta indexを生成する必要があります。
-
+ |
  | ・bwa index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
  | ・FASTA index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
-
+ |
+ 
 `interval_list`
  | 自作したファイルです。並列処理をするために使用します。
 
 `star_genome`
  | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが、100で大体よいとマニュアルに書いてあって、実際に問題なく検出できているので、現在はread lengthによって変えなくても良しとしています
-・STAR index ファイルの作成コマンド
-STAR 
---runThreadN 8 \
---runMode genomeGenerate \
---genomeDir $HOME/database/GRCh37.STAR-STAR_2.4.0k \
---genomeFastaFiles $HOME/database/GRCh37.fa/GRCh37.fa \
---sjdbGTFfile $HOME/database/GTF/Homo_sapiens.GRCh37.74.gtf \
---sjdbOverhang 100
+
+.. code-block:: bash
+    #STAR index ファイルの作成コマンド
+    STAR \
+    --runThreadN 8 \
+    --runMode genomeGenerate \
+    --genomeDir $HOME/database/GRCh37.STAR-STAR_2.4.0k \
+    --genomeFastaFiles $HOME/database/GRCh37.fa/GRCh37.fa \
+    --sjdbGTFfile $HOME/database/GTF/Homo_sapiens.GRCh37.74.gtf \
+    --sjdbOverhang 100
 
 `gaptxt`
-NCBIからダウンロードして解凍してご使用ください（originalのままを使用しています）
-http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/gap.txt.gz
+ | NCBIからダウンロードして解凍してご使用ください（originalのままを使用しています）
+ | http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/gap.txt.gz
 
 `bait_file`
-exomeの場合のbam summaryのcoverageを計算するとき使います。SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います。refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています。作成方法は以下のwebサイトに記載しています。
-https://github.com/ken0-1n/RefGeneTxtToBed
-Whole genomeシーケンスの場合はbait_fileを使用しません。WGSの場合はdna_task_param.cfgの[coverage]　 wgs_flag = Trueに変更してください．
+ | exomeの場合のbam summaryのcoverageを計算するとき使います。SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います。refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています。作成方法は以下のwebサイトに記載しています。
+ | https://github.com/ken0-1n/RefGeneTxtToBed
+ | Whole genomeシーケンスの場合はbait_fileを使用しません。WGSの場合はdna_task_param.cfgの[coverage]　 wgs_flag = Trueに変更してください．
 
 `simple_repeat_tabix_db`
-NCBIからsimpleRepeat.bedをダウンロードしてtabixのindexファイルをはります。
-http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/simpleRepeat.txt.gz
-・tabixを作成する
-cut -f2- simpleRepeat.txt > simpleRepeat.bed
-tabix-0.2.6/bgzip simpleRepeat.bed
-tabix-0.2.6/tabix simpleRepeat.bed.gz
+ | NCBIからsimpleRepeat.bedをダウンロードしてtabixのindexファイルをはります。
+ | http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/simpleRepeat.txt.gz
+
+.. code-block:: bash
+
+    # tabixを作成する
+    cut -f2- simpleRepeat.txt > simpleRepeat.bed
+    tabix-0.2.6/bgzip simpleRepeat.bed
+    tabix-0.2.6/tabix simpleRepeat.bed.gz
 
 `HGVD_tabix_db`
-京都大学からHGVDのファイルをダウンロード、VCF→TAB変換し、tabixのindexファイルをはります。
-http://www.genome.med.kyoto-u.ac.jp/SnpDB/HGVD1208-V1_42-dbSNP137.tar.gz
-.tabixを作成する
-python annotator_HGVD.py DBexome20131010.tab | sort -k1,1 -k2,2n -k3,3n -k4,4 -k5,5 -k6,6 > DBexome20131010.bed
-tabix-0.2.6/bgzip DBexome20131010.bed
-tabix-0.2.6/tabix DBexome20131010.bed.gz
+ | 京都大学からHGVDのファイルをダウンロード、VCF→TAB変換し、tabixのindexファイルをはります。
+ | http://www.genome.med.kyoto-u.ac.jp/SnpDB/HGVD1208-V1_42-dbSNP137.tar.gz
+
+.. code-block:: bash
+
+    # tabixを作成する
+    python annotator_HGVD.py DBexome20131010.tab | sort -k1,1 -k2,2n -k3,3n -k4,4 -k5,5 -k6,6 > DBexome20131010.bed
+    tabix-0.2.6/bgzip DBexome20131010.bed
+    tabix-0.2.6/tabix DBexome20131010.bed.gz
 
 
 
