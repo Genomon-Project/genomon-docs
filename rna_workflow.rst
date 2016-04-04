@@ -15,5 +15,5 @@ Fusion検出
 その他Task
 --------------------------
 
-* **link_input_fastq* -- outputディレクトリにFASTQファイルをリンクします．
+* **link_input_fastq** -- outputディレクトリにFASTQファイルをリンクします．
   
