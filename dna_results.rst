@@ -93,7 +93,7 @@ DNA解析結果ファイルの各項目の説明
  変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-`annovarの`
+`annovarの結果`
  `annovar`_ をご使用の方はannovarの結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
 `depth`
  depth
@@ -112,7 +112,7 @@ DNA解析結果ファイルの各項目の説明
 `posterior_mean`
  mean値
 `90%_posterior_quantile`
- 90%の値
+ depthと変異アレルの数は二項分布でモデル化するためにβ分布を利用.90%の値
 `readPairNum`
  変異を含まないリード数
 `variantPairNum`
@@ -124,7 +124,7 @@ DNA解析結果ファイルの各項目の説明
 `posterior_mean(realignment)`
  mean値
 `90%_posterior_quantile(realignment)`
- 90%の値
+ realignmentのreadPairNumとvariantPairNumでβ分布を利用.90%の値
 `simple_repeat_pos`
  SimpleRepeatに登録されているか
 `simple_repeat_seq`
