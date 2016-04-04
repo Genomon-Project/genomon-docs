@@ -253,7 +253,20 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 `bait_file`
  | exomeの場合のbam summaryのcoverageを計算するとき使います。SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います。refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています。作成方法は以下のwebサイトに記載しています。
  | https://github.com/ken0-1n/RefGeneTxtToBed
- | Whole genomeシーケンスの場合はbait_fileを使用しません。WGSの場合はdna_task_param.cfgの[coverage]　 wgs_flag = Trueに変更してください．
+ | Whole genomeシーケンスの場合はbait_fileを使用しません。WGSの場合はdna_genomon.cfgの以下のハイライトのパラメタをTrueに変更してください．
+ 
+.. code-block:: cfg
+    :linenos:
+    :emphasize-lines: 4
+     
+    [coverage]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    coverage    = 2,10,20,30,40,50,100
+    wgs_flag = False
+    wgs_incl_bed_width = 1000000
+    wgs_i_bed_lines = 10000
+    wgs_i_bed_width = 100
+
 
 `simple_repeat_tabix_db`
  | NCBIからsimpleRepeat.bedをダウンロードしてtabixのindexファイルをはります。
