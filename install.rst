@@ -224,10 +224,10 @@ hs37d5cs.fa.gz
 
 | リファレンスの特性について詳細は上記の各webサイトの説明よんでください。たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります。他にbwa index, fasta indexを生成する必要があります。
 
-|・bwa index ファイルの作成コマンド
-|/home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
-|・FASTA index ファイルの作成コマンド
-|/home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
+| ・bwa index ファイルの作成コマンド
+| /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
+| ・FASTA index ファイルの作成コマンド
+| /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
 
 `interval_list`
 自作したファイルです。並列処理をするために使用します。
