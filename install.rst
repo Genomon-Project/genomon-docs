@@ -299,4 +299,4 @@ GenomonPipeline/{dna/rna}_genomon.cfgのカテゴリ[SOFTWARE]に記載されて
 
 
 .. _GRCh37-lite.fa.gz: ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
-.. hs37d5cs.fa.gz: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5cs.fa.gz
+.. _hs37d5cs.fa.gz: ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5cs.fa.gz
