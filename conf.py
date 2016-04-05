@@ -57,8 +57,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'genomon'
-copyright = u'2015, Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi'
-author = u'Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi'
+copyright = u'2015, Kenichi Chiba, Yuichi Shiraishi'
+author = u'Kenichi Chiba, Yuichi Shiraishi and contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -233,7 +233,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'genomon.tex', u'genomon Documentation',
-   u'Eigo Shimizu, Yuichi Shiraishi, Kenichi Chiba, Hiroko Tanaka and Satoru Miyano', 'manual'),
+   u'Kenichi Chiba and Yuichi Shiraishi', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
