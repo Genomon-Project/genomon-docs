@@ -36,7 +36,7 @@ Genomonではpythonバージョン2.7を使用します.
 
 .. code-block:: bash
 
-  # N1GE用のDRMAA（HGCスパコンであればこちらでOK）です。ご使用しているDRMシステムのライブラリに変更をお願いします。
+  # N1GE用のDRMAA（HGCスパコンであればこちらでOK）です．ご使用しているDRMシステムのライブラリに変更をお願いします．
   export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
 
 これらのexportを~/.bash_profileに記載しておいた方が楽です（今まで使用していたpythonのツールに影響がなければ推奨）．
@@ -127,7 +127,7 @@ ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所
 3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 ^^^^^^^^^^^^^^^^
 
-Genomonで使用するデータベースとソフトウェアは、インストールしたGenomonPipeline/genomon.cfgに記載されています。各々のライセンスについてご理解のうえ、Genomonをご使用いただければと思います。
+Genomonで使用するデータベースとソフトウェアは、インストールしたGenomonPipeline/genomon.cfgに記載されています．各々のライセンスについてご理解のうえ、Genomonをご使用いただければと思います．
 
 ・REFERENCE　データベースについて記載一覧
 
@@ -137,11 +137,11 @@ Genomonで使用するデータベースとソフトウェアは、インスト�
 | ref_fasta    | citationのrequest有   | http://www.ncbi.nlm.nih.gov/refseq/publications/            | Reference Genome, bwa index|
 |              |                       |                                                             | and fasta index.           |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| interval_lis | freely usable         | ―                                                           | 自作品                     |
+| interval_lis | freely usable         | 自作品のためなし                                            | 自作品                     |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| star_genome  | ?                     | ―                                                           | STAR index                 |
+| star_genome  | STARで生成したもの    | SOFTWARE.STARと同じwebサイト                                | STAR index                 |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| hg19_genome  | bedtoolsに含まれる    | SOFTWARE.bedtoolsと同じwebサイトと同じ                      | bedtoolsに含まれているFile |
+| hg19_genome  | bedtoolsに含まれる    | SOFTWARE.bedtoolsと同じwebサイト　　　                      | bedtoolsに含まれているFile |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | gaptxt       | freely usable         | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/    |                            |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
@@ -193,7 +193,7 @@ Genomonで使用するデータベースとソフトウェアは、インスト�
 
 
 ここからはHGCスパコン以外のコンピュータにインストールする場合に必要な手順です．
-GenomonはHGC以外のスパコンではないサーバににも稼働実績があります．
+GenomonはHGC以外のスパコンではないサーバでも稼働実績があります．
 
 * Linux
 * Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
@@ -202,19 +202,19 @@ GenomonはHGC以外のスパコンではないサーバににも稼働実績が�
 
 5. Genomonで使用しているデータベースのインストール
 ^^^^^^^^^^^^^^^^
-GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
+GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載されているデータベースをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
 
 `ref_fasta`
- | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります。まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています。
+ | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
  
- | 1) Human Genome (2016.01.28確認)                                                                                                   
+ | 1) Human Genome                                                                                                   
  | `GRCh37-lite.fa.gz`_
  | 2) Human herpesvirus 4 complete wild type genome
  | http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta
  | 3) decoy
  | `hs37d5cs.fa.gz`_
  
- | リファレンスの特性について詳細は上記の各webサイトの説明よんでください。たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります。他にbwa index, fasta indexを生成する必要があります。
+ | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にbwa index, fasta indexを生成する必要があります．
  |
  | ・bwa index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
@@ -223,7 +223,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
  |
  
 `interval_list`
- | 自作したファイルです。並列処理をするために使用します。
+ | 自作したファイルです．並列処理をするために使用します．
 
 `star_genome`
  | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが、100で大体よいとマニュアルに書いてあって、実際に問題なく検出できているので、現在はread lengthによって変えなくても良しとしています
@@ -243,9 +243,9 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
  | http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/gap.txt.gz
 
 `bait_file`
- | exomeの場合のbam summaryのcoverageを計算するとき使います。SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います。refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています。作成方法は以下のwebサイトに記載しています。
+ | exomeの場合のbam summaryのcoverageを計算するとき使います．SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います．refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています．作成方法は以下のwebサイトに記載しています．
  | https://github.com/ken0-1n/RefGeneTxtToBed
- | Whole genomeシーケンスの場合はbait_fileを使用しません。WGSの場合はdna_genomon.cfgの以下のハイライトのパラメタをTrueに変更してください．
+ | Whole genomeシーケンスの場合はbait_fileを使用しません．WGSの場合はdna_genomon.cfgの以下のハイライトのパラメタをTrueに変更してください．
  
 .. code-block:: cfg
     :linenos:
@@ -261,7 +261,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 
 `simple_repeat_tabix_db`
- | NCBIからsimpleRepeat.bedをダウンロードしてtabixのindexファイルをはります。
+ | NCBIからsimpleRepeat.bedをダウンロードしてtabixのindexファイルをはります．
  | http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/simpleRepeat.txt.gz
 
 .. code-block:: bash
@@ -272,7 +272,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
     tabix-0.2.6/tabix simpleRepeat.bed.gz
 
 `HGVD_tabix_db`
- | 京都大学からHGVDのファイルをダウンロード、VCF→TAB変換し、tabixのindexファイルをはります。
+ | 京都大学からHGVDのファイルをダウンロード、VCF→TAB変換し、tabixのindexファイルをはります．
  | http://www.genome.med.kyoto-u.ac.jp/SnpDB/HGVD1208-V1_42-dbSNP137.tar.gz
 
 .. code-block:: bash
