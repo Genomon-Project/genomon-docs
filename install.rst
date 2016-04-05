@@ -200,7 +200,7 @@ GenomonはHGC以外のスパコンではないサーバでも稼働実績があ�
 * DRMシステムを入れて運用する程度のスペックのあるサーバ
  ※HGCではGrid Engineを使用しています
 
-5. Genomonで使用しているデータベースのインストール
+4. Genomonで使用しているデータベースのインストール
 ^^^^^^^^^^^^^^^^
 GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載されているデータベースをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
 
@@ -284,7 +284,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 
 
-6. Genomonで使用しているソフトウェアのインストール
+5. Genomonで使用しているソフトウェアのインストール
 ^^^^^^^^^^^^^^^^
 
 GenomonPipeline/{dna/rna}_genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
