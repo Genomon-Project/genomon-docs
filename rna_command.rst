@@ -20,8 +20,8 @@ RNA解析コマンド実行例
 
 .. code-block:: bash
 
-    genomon_pipeline rna rna_sample.csv outputdir rna_genomon.cfg
+    genomon_pipeline rna sample.csv outputdir rna_genomon.cfg
     
-    # rna_sample.csv     : 自分でつくる 
+    # sample.csv         : 自分でつくる 
     # outputdir          : 任意の出力場所を指定する
     # rna_genomon.cfg    : Genomonで用意しているもので基本ok
