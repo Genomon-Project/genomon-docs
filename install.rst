@@ -214,9 +214,9 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 `ref_fasta`
  | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります。まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています。
- |
- | 1) Human Genome ftpサイトが変更されていた (2016.01.28確認)
- | ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
+ 
+ | 1) Human Genome (2016.01.28確認)                                                                                                   
+ | `GRCh37-lite.fa.gz`_
  | 2) Human herpesvirus 4 complete wild type genome
  | http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta
  | 3) decoy
@@ -297,3 +297,5 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
 
 GenomonPipeline/{dna/rna}_genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
 
+
+.. _GRCh37-lite.fa.gz: ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
