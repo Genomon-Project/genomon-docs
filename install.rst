@@ -101,17 +101,13 @@ Genomonではpythonバージョン2.7を使用します.
   ./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
   ./annotate_variation.pl -buildver hg19 -downdb genomicSuperDups humandb/
 
-ANNOVARを使用するようにgenomon.cfgを編集する
+ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所の変更をお願いします．
 
 .. code-block:: bash
 
   [SOFTWARE]
   annovar = [annovarのパスをダウンロードしたannovar]に変更する．
   (例)annovar = /home/genomon/tools/annovar
-
-dna_task_param.cfgを編集する
-
-.. code-block:: bash
 
   [annotation]
   active_annovar_flag = False
