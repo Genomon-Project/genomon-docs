@@ -16,7 +16,7 @@
 —The Zen of Cancer Genome Sequence Analysis
 -----------------------
 
-* **Author** -- Kenichi Chiba, Eigo Shimizu and Yuichi Shiraishi
+* **Author** -- Kenichi Chiba, Yuichi Shiraishi and contributors
 * **Date** -- |today|
 * **Version** -- v2.2
 * *Stable* -- `v.2.0`_
