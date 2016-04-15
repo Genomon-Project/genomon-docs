@@ -11,15 +11,17 @@
     border: 1px solid #CCCCCC;
     margin: 4px;
     font-size: 16px;
+    font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
     display: block;
     color: #333333;
   }
   .filelist dt, .filelist dd{
-    margin-left: 0px;
+    margin: 0px;
     padding: 4px 0 4px 0;
-    }
-    .filelist dl{
-    padding-left: 3px;
+  }
+  .filelist dl{
+    margin: 0px;
+    padding: 0px 0px 0px 30px;
   }
   /* dir style */
   .filelist dl dt:before, .filelist dl dd:before{
@@ -74,114 +76,131 @@
 </head>
 <body>
 <dl class="fa filelist">
-<dt><icon/>test_sample</dt>
-<dl>
-<dt><icon/>fastq</dt>
-<dl>
-<dt><icon/>${sample}</dt>
-<dl>
-<dd><icon_text/>single_end_output.txt</dd>
-<dd><icon_text/>unmatched_first_output.txt</dd>
-<dd><icon_text/>unmatched_second_output.txt</dd>
-<dd><icon_text/>fastq_line_num.txt</dd>
+	<dt><icon/>test_sample</dt>
+	<dl>
+		<dt><icon/>fastq</dt>
+		<dl>
+			<dt><icon/>${sample}</dt>
+			<dl>
+				<dd><icon_text/>single_end_output.txt</dd>
+				<dd><icon_text/>unmatched_first_output.txt</dd>
+				<dd><icon_text/>unmatched_second_output.txt</dd>
+				<dd><icon_text/>fastq_line_num.txt</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>bam</dt>
+		<dl>
+			<dt><icon/>${sample}</dt>
+			<dl>
+				<dd><icon_text/>${sample}.markdup.bam</dd>
+				<dd><icon_text/>${sample}.markdup.bam.bai</dd>
+				<dd><icon_text/>${sample}.markdup.metrics</dd>
+				<dd><icon_text/>${sample}.markdup.bam.md5</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>mutation</dt>
+		<dl>
+			<dt><icon/>${sample}</dt>
+			<dl>
+				<dd><icon_text/>${sample}.genomon_mutation.result.txt</dd>
+				<dd><icon_text/>${sample}.genomon_mutation.result.filt.txt</dd>
+			</dl>
+			<dt><icon/>control_panel</dt>
+			<dl>
+			</dl>
+		</dl>
+
+		<dt><icon/>sv</dt>
+		<dl>
+			<dt><icon/>${sample}</dt>
+			<dl>
+				<dd><icon_text/>${sample}.genomonSV.result.txt</dd>
+				<dd><icon_text/>${sample}.genomonSV.result.filt.txt</dd>
+				<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz.tbi</dd>
+				<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz.tbi</dd>
+			</dl>
+			<dt><icon/>control_panel</dt>
+			<dl>
+				<dd><icon_text/>${sample}${list}.control_info.txt</dd>
+			</dl>
+			<dt><icon/>non_matched_control_panel</dt>
+			<dl>
+			</dl>
+		</dl>
+
+		<dt><icon/>summary</dt>
+		<dl>
+			<dt><icon/>${sample}</dt>
+			<dl>
+				<dd><icon_text/>${sample}.genomonQC.result.txt</dd>
+				<dd><icon_text/>${sample}.bamstats</dd>
+				<dd><icon_text/>${sample}.coverage</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>post_analysis</dt>
+		<dl>
+			<dt><icon/>${sample_sheet}</dt>
+				<dl>
+				<dt><icon/>mutation</dt>
+				<dl>
+					<dt><icon/>capture_script</dt>
+					<dl>
+						<dd><icon_text/>capture.bat</dd>
+					</dl>
+				</dl>
+				
+				<dt><icon/>sv</dt>
+				<dl>
+					<dt><icon/>capture_script</dt>
+					<dl>
+						<dd><icon_text/>capture.bat</dd>
+					</dl>
+				</dl>
+				
+				<dd><icon_text/>merge.mutation.tumor.csv</dd>
+				<dd><icon_text/>merge.sv.tumor.csv</dd>
+				<dd><icon_text/>merge.summary.csv</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>paplot</dt>
+		<dl>
+			<dt><icon/>${sample_sheet}</dt>
+			<dl>
+				<dt><icon/>Genomon</dt>
+				<dl>
+				</dl>
+				<dt><icon/>lib</dt>
+				<dl>
+				</dl>
+				<dt><icon/>style</dt>
+				<dl>
+				</dl>
+				<dt><icon/>js</dt>
+				<dl>
+				</dl>
+				<dd><icon_text/>index.html</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>config</dt>
+		<dl>
+		</dl>
+
+		<dt><icon/>log</dt>
+		<dl>
+		</dl>
+
+		<dt><icon/>script</dt>
+		<dl>
+		</dl>
+
+	</dl>
 </dl>
-</dl>
-<dt><icon/>bam</dt>
-<dl>
-<dt><icon/>${sample}</dt>
-<dl>
-<dd><icon_text/>${sample}.markdup.bam</dd>
-<dd><icon_text/>${sample}.markdup.bam.bai</dd>
-<dd><icon_text/>${sample}.markdup.metrics</dd>
-<dd><icon_text/>${sample}.markdup.bam.md5</dd>
-</dl>
-</dl>
-<dt><icon/>mutation</dt>
-<dl>
-<dt><icon/>${sample}</dt>
-<dl>
-<dd><icon_text/>${sample}_genomon_mutations.result.txt</dd>
-<dd><icon_text/>${sample}_genomon_mutations.result.filt.txt</dd>
-</dl>
-<dt><icon/>control_panel</dt>
-<dl>
-</dl>
-</dl>
-<dt><icon/>sv</dt>
-<dl>
-<dt><icon/>${sample}</dt>
-<dl>
-<dd><icon_text/>${sample}.genomonSV.result.txt</dd>
-<dd><icon_text/>${sample}.genomonSV.result.filt.txt</dd>
-<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz</dd>
-<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz.tbi</dd>
-<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz</dd>
-<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz.tbi</dd>
-</dl>
-<dt><icon/>config</dt>
-<dl>
-<dd><icon_text/>${sample}.yaml</dd>
-<dd><icon_text/>${control}.control.yaml</dd>
-</dl>
-<dt><icon/>non_matched_control_panel</dt>
-<dl>
-</dl>
-</dl>
-<dt><icon/>summary</dt>
-<dl>
-<dt><icon/>${sample}</dt>
-<dl>
-<dd><icon_text/>${sample}.tsv</dd>
-<dd><icon_xls/>${sample}.xls</dd>
-<dd><icon_text/>${sample}.bamstats</dd>
-<dd><icon_text/>${sample}.coverage</dd>
-</dl>
-</dl>
-<dt><icon/>post_analysis</dt>
-<dl>
-<dt><icon/>mutation</dt>
-<dl>
-<dt><icon/>capture_script</dt>
-<dl>
-<dd><icon_text/>capture.bat</dd>
-</dl>
-</dl>
-<dt><icon/>sv</dt>
-<dl>
-<dt><icon/>capture_script</dt>
-<dl>
-<dd><icon_text/>capture.bat</dd>
-</dl>
-</dl>
-<dd><icon_text/>merge.mutation.tumor.csv</dd>
-<dd><icon_text/>merge.sv.tumor.csv</dd>
-<dd><icon_text/>merge.summary.csv</dd>
-</dl>
-<dt><icon/>paplot</dt>
-<dl>
-<dt><icon/>Genomon</dt>
-<dl>
-</dl>
-<dt><icon/>lib</dt>
-<dl>
-</dl>
-<dt><icon/>style</dt>
-<dl>
-</dl>
-<dt><icon/>js</dt>
-<dl>
-</dl>
-<dd><icon_text/>index.html</dd>
-</dl>
-<dt><icon/>config</dt>
-<dl>
-</dl>
-<dt><icon/>log</dt>
-<dl>
-</dl>
-<dt><icon/>script</dt>
-<dl>
-</dl>
-</dl></dl>
 </body>
 </html>
