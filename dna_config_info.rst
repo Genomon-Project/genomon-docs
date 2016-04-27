@@ -41,7 +41,7 @@ dna_genomon.cfg
     pa_plot                = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/pa_plot
     mutil                  = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/mutil
     
-    # annovar needs to be installed individually
+    # ANNOVAR needs to be installed individually
     annovar                = /your_annovar
     
     [ENV]
