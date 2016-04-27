@@ -44,13 +44,13 @@ Genomonではpythonバージョン2.7を使用します.
 2. Genomonのインストール
 ^^^^^^^^^^^^^^^^
 2-1. Genomon＆必要なパッケージのインストール
-必要なパッケージは６つです→GenomonPipeline,ruffus,PyYAML,drmaa,xlwt,xlrd
+必要なパッケージは６つです→GenomonPipeline, ruffus, PyYAML, drmaa, xlwt, xlrd
 
 .. code-block:: bash
 
   # genomon-pipeline(本体)のダウンロード
-  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v${ダウンロードしたバージョン}.tar.gz
-  tar xzvf v${ダウンロードしたバージョン}.tar.gz
+  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.2.0.tar.gz
+  tar xzvf v2.2.0.tar.gz
   # ruffusのダウンロード
   wget https://github.com/bunbun/ruffus/archive/v2.6.3.tar.gz
   tar xzvf v2.6.3.tar.gz
@@ -59,7 +59,7 @@ Genomonではpythonバージョン2.7を使用します.
   # drmaa,xlwt,xlrdのインストール
   pip install drmaa --user
   # genomon-pipeline(本体)のインストール
-  cd GenomonPipeline-${ダウンロードしたバージョン}
+  cd GenomonPipeline-v2.2.0
   python setup.py install --user
   # ruffusのインストール
   cd ../ruffus-2.6.3
