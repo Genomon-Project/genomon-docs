@@ -10,7 +10,7 @@ Genomonインストール
     1-2. DRMAAの環境設定
   2. Genomonのインストール
     2-1. Genomon＆必要なパッケージのインストール
-    2-2. Annovarを使用したい場合、Annovarのインストールをします
+    2-2. ANNOVARを使用したい場合、ANNOVARのインストールをします
     2-3. HGVDの使用について
   3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 
@@ -68,15 +68,15 @@ Genomonではpythonバージョン2.7を使用します.
   cd ../PyYAML
   python setup.py install --user
   
-2-2. Annovarを使用したい場合、Annovarのインストールをします
+2-2. ANNOVARを使用したい場合、ANNOVARのインストールをします
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用して各種データ (snp131など) をダウンロードします．
+| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用して各種データ (dbsnp131など) をダウンロードします．
 
 .. code-block:: bash
 
-  # Genomonで必要なAnnovarのデータベースをダウンロードします．Copy and Pasteして使ってください． 
+  # Genomonで必要なANNOVARのデータベースをダウンロードします．Copy and Pasteして使ってください． 
   DATABASE_LIST="
   refGene
   avsift
@@ -104,12 +104,12 @@ ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所
 .. code-block:: bash
 
   [SOFTWARE]
-  annovar = [annovarのパスをダウンロードしたannovar]に変更する．
+  annovar = [ANNOVARのパスをダウンロードしたANNOVAR]に変更する．
   (例)annovar = /home/genomon/tools/annovar
 
   [annotation]
   active_annovar_flag = False
-  をTrueに変更する (Annovarの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+  をTrueに変更する (ANNOVARの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
 
 2-3. HGVDの使用について
 
@@ -194,7 +194,7 @@ Genomonで使用するデータベースとソフトウェアは、インスト�
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 | mutil        | GNU GPL v3            | https://github.com/Genomon-Project/GenomonMutationAnnotator | v0.3.0                     |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
-| annovar      | 独自ライセンス        | http://annovar.openbioinformatics.org/en/latest/            | versionは最新でよい        |
+| ANNOVAR      | 独自ライセンス        | http://annovar.openbioinformatics.org/en/latest/            | versionは最新でよい        |
 +--------------+-----------------------+-------------------------------------------------------------+----------------------------+
 
 
