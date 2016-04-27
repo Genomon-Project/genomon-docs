@@ -24,31 +24,35 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Install Documentation
-
-   install.rst
+   :caption: Quick Start-Up Guide for HGC
+   dna_quick_start.rst
+   rna_quick_start.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: DNA Analysis Documentation
    
-   dna_quick_start.rst
-   dna_workflow.rst
    dna_sample_csv.rst
-   dna_command.rst
-   dna_output_info.rst
-   dna_results.rst
    dna_config_info.rst
+   dna_command.rst
+   dna_results.rst
+   dna_workflow.rst
+   dna_output_info.rst
    
 .. toctree::
    :maxdepth: 2
    :caption: RNA Analysis Documentation
    
-   rna_quick_start.rst
-   rna_workflow.rst
    rna_sample_csv.rst
-   rna_command.rst
-   rna_output_info.rst
-   rna_results.rst
    rna_config_info.rst
+   rna_command.rst
+   rna_results.rst
+   rna_workflow.rst
+   rna_output_info.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Install Documentation
+
+   install.rst
 
