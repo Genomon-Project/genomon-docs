@@ -1,55 +1,93 @@
-========================================
 Quick Start RNA解析
-========================================
+===================
 
-#. Genomonのインストール
-#. コマンドの実行
-#. 結果ファイルを見てみましょう
+こちらはHGCスパコン利用者向けのページになります．HGCスパコン以外でGenomonをご使用の方はGenomonをインストールしていただく必要があります．Genomonインストール方法については，:doc:`install` を参照してください．
 
+.. code-block:: none 
 
-1. Genomonのインストール
-^^^^^^^^
-| HGCスパコンには，Genomonで使用する解析ソフトウェア(STAR等)が既にインストールされています．ご自身のユーザディレクトリにGenomonをインストールするだけで，解析をはじめることができます．
-|
-| → :doc:`install` にインストール方法を記載しました．
-| DNA解析でインストールした場合は，再度インストールする必要はありません．GenomonはDNA解析とRNA解析の機能をもっています．
-| 
+  RNA解析に必要な手順
+    1．パイプライン設定ファイルをつくる
+    2．テストサンプルでGenomonを実行してみる
+    3. サンプル設定ファイルをつくる
+    4．Genomonを実行する
+    5．結果ファイルを確認する
 
-2. コマンドの実行
-^^^^^^^^
+RNA解析に必要な手順
+^^^^^^^^^^^^^^^^^^^
+HGCスパコンでのRNA解析に必要な手順をまとめました．
 
-テストサンプルを実行してインストールが正しくされたか確かめましょう．テストサンプルは用意されていますので，それを使用して実行してみましょう．
+1. パイプライン設定ファイルを作成する
+-------------------------------------
+
+最適化されたパラメータが記載されたパイプライン設定ファイルがHGCスパコンに用意してあります．
+パラメータを変更する際，rna_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
+
+.. code-block:: bash
+
+  # RNA解析用パイプライン設定ファイル
+  /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
+  
+2．テストサンプルでGenomonを実行してみる
+----------------------------------------
+
+テストサンプルでGenomonを実行してみましょう．Genomonが正しく使用できるか，パイプライン設定ファイルの記述が正しくできているか確認することができます．テストサンプルはファイルサイズが小さいので数分で処理が完了します．
 
 .. code-block:: bash
   
   # qloginする
   $qlogin
-  # GenomonPipelineに移動
-  $cd GenomonPipeline-v{バージョン}
-  # 実行
-  $./genomon_pipeline rna /home/w3varann/testRNA/sample.csv {output_directory} rna_genomon.cfg 
-  # output_directoryには出力したいディレクトリを指定してください
+  # Genomonを実行する
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  # 実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv /home/genomon/output_test_RNA /home/genomon/rna_genomon.cfg
+  #
+  # 解析タイプ
+  #   'rna'を指定します．
+  # サンプル設定ファイル
+  #   /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csvを指定します．
+  # 出力ルートディレクトリ
+  #   任意の出力ルートディレクトリを指定します．
+  # パイプライン設定ファイル
+  #   2.で作成したパイプライン設定ファイルを指定します．
 
-| sample.csvの記載方法詳細は :doc:`sample_csv` にあります．
-| testRNA/sample.csvの中身をみて，書き方を学んでいただくのも良いかと思います．
-|
-| commandの実行方法詳細は :doc:`command` に記載があります．
-| 
-実際のデータでも，ファイルパスとサンプルデータをsample.csv(ファイル名変更可)に記載して，上記のようにコマンドを実行すればOKです．まずはsample.csvの中身をみて，書き方を学んでいただくのが良いかと思います．commandの実行方法詳細は :doc:`rna_command` に記載があります．
+3. サンプル設定ファイルを作成する
+---------------------------------
 
+サンプル設定ファイルには解析対象のFASTQを指定します．
 
-3. 結果ファイルを見てみましょう
-^^^^^^^^
+サンプル設定ファイルの記載方法は  :doc:`rna_sample_csv` を参照ください．
 
-| 結果ファイルは実行時に指定したoutput_directoryに出力されます．
+4．Genomonを実行する
+--------------------
 
-:fusion検出結果: {output_directory}/fusion/sample名/sample名_fusion_fusion.result.txt
+作成したサンプル設定ファイルを指定して，Genomonを実行しましょう．
 
-| 我々が実行したサンプルデータの結果はこちらにありますので比べてみてください(v2.0.5で出力した結果)
+.. code-block:: bash
+  
+  # qloginする
+  $qlogin
+  # Genomonを実行する
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  # 実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/genomon/sample_config.csv /home/genomon/output_RNA /home/genomon/rna_genomon.cfg
+  #
+  # 解析タイプ
+  #   'rna'を指定します．
+  # サンプル設定ファイル
+  #    1.で作成したサンプル設定ファイルを指定します．
+  # 出力ルートディレクトリ
+  #    任意の出力ルートディレクトリを指定します．
+  # パイプライン設定ファイル
+  #    2.で作成したパイプライン設定ファイルを指定します．
 
-:fusion検出結果: ~w3varann/test_rna/rna_result_v2.2.0/fusion/MCF-7_test/fusion_fusion.result.txt
+5．結果ファイルを確認する
+-------------------------
 
-| 結果ファイルの各項目の説明など詳細は :doc:`rna_results` に記述しました．
+結果ファイルは実行時に指定した 出力ルートディレクトリに以下に出力されます．
 
+.. code-block:: bash
 
+  # Fusion検出結果
+  {出力ルートディレクトリ}/fusion/{サンプル名}/fusion_fusion.result.txt
 
+結果ファイルの説明は :doc:`rna_results` を参照ください．
