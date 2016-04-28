@@ -34,12 +34,12 @@ QC (Bam Summary) 出力 Task
 ---------------------------
 * **bam_stats** -- bamのreadとmappingのstatisticsを生成します．
 * **coverage** -- bamのcoverageを生成します．
-* **merge_summary** -- bam_statsの結果と、coverageの結果をマージします．
+* **merge_qc** -- bam_statsの結果と、coverageの結果をマージします．
 
 Post Analysis Task
 -------------------
-* **paplot** -- SV検出した候補とsummary結果をplotしグラフを出力します．
-* **post_analysis_summary** -- 全サンプルのsummary結果を１つのファイルにマージして出力します．
+* **paplot** -- SV検出した候補とQC結果 (BAM Summary) をplotしグラフを出力します．
+* **post_analysis_summary** -- 全サンプルのQC結果 (BAM Summary) を１つのファイルにマージして出力します．
 * **post_analysis_sv** -- 全サンプルのSV検出した候補を１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
 
 その他Task
