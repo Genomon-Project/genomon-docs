@@ -109,7 +109,7 @@ genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon
 変異Call結果 比較なしパターン
 -----------------------------
 
-genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutations.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
+genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutation.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
 
 .. code-block:: cfg
     :linenos:
