@@ -4,6 +4,7 @@ Quick Start DNA解析
 こちらはHGCスパコン利用者向けのページになります．HGCスパコン以外でGenomonをご使用の方はGenomonをインストールしていただく必要があります．Genomonインストール方法については，:doc:`install` を参照してください．
 
 .. code-block:: none 
+
   1．Genomonを実行してみる．
   2．DNA解析に必要な手順．
     2-1. サンプル設定ファイルをつくる
