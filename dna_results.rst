@@ -314,7 +314,7 @@ QC結果 (BAM Summary)
  N以上のdepthを持つbase総数
  
 
-※ coverage Nは設定ファイル `dna_task_param.cfg` で指定した値です．:doc:`dna_config_info`
+※ coverage Nは設定ファイルパイプライン設定ファイルで指定した値です．
 
 .. code-block:: cfg
     :linenos:
