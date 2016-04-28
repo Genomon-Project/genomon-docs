@@ -35,7 +35,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 .. code-block:: bash
   
   # qloginする
-  $qlogin
+  qlogin
   # Genomonを実行する
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
@@ -65,7 +65,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 .. code-block:: bash
   
   # qloginする
-  $qlogin
+  qlogin
   # Genomonを実行する
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
