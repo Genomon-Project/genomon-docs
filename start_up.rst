@@ -1,43 +1,34 @@
-HGCスパコンでGenomonを実行するのに必要なこと
-==============
+HGCスパコンでGenomonを実行する
+==============================
 
- | ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン)にはGenomonはすでにインストールされております。
- | 以下のコマンドを実行するだけで、ゲノムもしくはトランスクリプトーム解析ができます。
+ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン)にはGenomonはすでにインストールされております。HGCスパコンアカウントをお持ちの方は，以下のコマンドを実行するだけで，DNA，RNA解析ができます．
 
 .. code-block:: bash
 
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {dna, rnaを選択する} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh 
+ 　パラメータ１：{DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定する}
+ 　パラメータ２：{サンプル設定ファイルを指定する}
+ 　パラメータ３：{出力ルートディレクトリを指定する}
+ 　パラメータ４：{パイプライン設定ファイルを指定する}
 
+ご使用者にやっていただくことは、この4つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
 
-  | ご使用者にやっていただくことは、
-  #. DNA解析かRNA解析のどちらかを実行するか決める
-  #. FASTQなど解析するファイルを指定したサンプル設定ファイルを作成する
-  #. 出力ルートディレクトリを決める
-  #. パイプライン設定ファイルを指定する
-  
-  
+各引数の説明
+**************
+
+`DNA解析かRNA解析のどちらかを実行するか決める
+`FASTQなど解析するファイルを指定したサンプル設定ファイルを作成する
+`出力ルートディレクトリを決める
+`パイプライン設定ファイルを指定する
   
 
 sample_cfg.csvの記述方法は、:doc:`dna_sample_csv` を参照してください．
 
-
-各カラムの説明
-**************
-`Chr Start End`
- 変異候補のポジション
-`Ref`
- 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
-`Alt`
- 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-
-
-DNA解析実行例
-^^^^^^^^^^
-
 .. code-block:: bash
 
-    genomon_pipeline dna dna_sample.csv outputdir dna_genomon.cfg
-    
-    # sample.csv         : 自分でつくる 
-    # outputdir          : 任意の出力場所を指定する
-    # dna_genomon.cfg    : Genomonで用意しているもので基本ok
+  # DNA解析の実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_ACC dna_genomon.cfg
+
+  # RNA解析の実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna sample_config.csv /home/genomon/sample_RNA_ACC rna_genomon.cfg
+
