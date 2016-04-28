@@ -187,9 +187,9 @@ genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomo
 SV検出結果
 ----------
 genomonSV.result.filt.txt(フィルタ済み結果)ファイルは，genomonSV.result.txtをdna_genomon.cfgで設定したパラメータに基づいてフィルタリングした結果です．
+
 各カラムの説明
 **************
-
 `Chr_1`
  第１ブレークポイントにおける染色体
  chromosome for the 1st breakpoint
