@@ -59,8 +59,8 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   (例)annovar = /home/genomon/tools/annovar
 
   [annotation]
-  active_annovar_flag = False
-  をTrueに変更する (ANNOVARの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+  active_annovar_flag = True
+  FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
 
 2-3. HGVDの使用について
 
