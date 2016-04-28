@@ -17,12 +17,12 @@ DNA Sample_conf.csvの書き方
 +-----------------+---------------------------------------------------+
 | [controlpanel]  | controlパネルのペアを指定します                   |
 +-----------------+---------------------------------------------------+
-| [summary]       | BamSummaryを出力します                            |
+| [qc]       | BamSummaryを出力します                            |
 +-----------------+---------------------------------------------------+
 
 | DNA解析では
 | [fastq], [bam_tofastq], [bam_import] は入力ファイルの情報を記載します．
-| [mutation_call], [sv_detection], [controlpanel], [summary] には解析するための情報を記載します．
+| [mutation_call], [sv_detection], [controlpanel], [qc] には解析するための情報を記載します．
 |
 
 [fastq]の記載方法
@@ -97,14 +97,14 @@ DNA Sample_conf.csvの書き方
 | パネル名は任意で指定してください。
 | 
 
-[summary]の記載方法
+[qc]の記載方法
 ^^^^^^^^^^^^
 
-項目[summary]にはサンプル名を記載します．
+項目[qc]にはサンプル名を記載します．
 
 .. code-block:: bash
 
-  # ペアで記載する必要はありません。summary出力するサンプル名を記載してください
+  # ペアで記載する必要はありません。QC出力するサンプル名を記載してください
   sample1_normal
   sample2_normal
   sample3_normal
