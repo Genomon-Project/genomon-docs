@@ -38,6 +38,8 @@ ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar
 
 .. code-block:: bash
 
+  # qloginする
+  $qlogin
   # ANNOVARをダウンロードします．
   wget {Eメールに記載されたannovar.latest.tar.gzのURL}
   # ANNOVARを解凍します．
