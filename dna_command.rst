@@ -1,26 +1,20 @@
 DNA 解析コマンドを実行する
 ==========================
 
-コマンドのUsageです
+コマンドの使用方法です．
 
 .. code-block:: bash
+  # Genomonを実行する
+  genomon_pipeline {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  # 実行例
+  genomon_pipeline dna /home/genomon/sample_config_DNA.csv /home/genomon/output_test_DNA /home/genomon/dna_genomon.cfg
+  
+`解析タイプ　'dna'，'rna'`
+    DNA解析をする場合は，dna を，RNA解析をする場合は，rna を指定します．
+`サンプル設定ファイル　'sample_config.csv'`
+    解析対象のファイル（FASTQやBAMなど）を記載したファイルを作成し，そのファイル名を指定します．
+`出力ルートディレクトリ　'output_root_directory'`
+    出力ルートディレクトリを指定します．結果がこのディレクトリ以下に出力されます．
+`パイプライン設定ファイル　'genomon.cfg'`
+    パイプライン設定ファイルを指定します．一般的なExome解析，Whole Genome解析のパイプライン設定ファイルをHGCスパコンに用意しております．
 
-  genomon_pipeline [Analysis type: dna] sample.csv output_root_directory genomon_conf_file
-
-  # Analysis type         : DNA解析をする場合は，dna を，RNA解析をする場合は，rna を指定してください．
-  # sample_conf_file      : 解析するサンプルと入力ファイルを指定します．
-  # output_root_directory : 結果ファイルを出力するディレクトリを指定してください．指定したディレクトリをルートにoutputが生成されます．
-  # genomon_conf_file     : 使用するソフトウェアやデータベースファイルの指定をします．また解析ソフトウェアで使用するパラメータを変更できます．パラメータは最適化されております．変更する場合はこのファイルをコピーして編集してください．
-
-sample_cfg.csvの記述方法は，:doc:`dna_sample_csv` を参照してください．
-
-DNA解析実行例
-^^^^^^^^^^
-
-.. code-block:: bash
-
-    genomon_pipeline dna dna_sample.csv outputdir dna_genomon.cfg
-    
-    # sample.csv         : 自分でつくる 
-    # outputdir          : 任意の出力場所を指定する
-    # dna_genomon.cfg    : Genomonで用意しているもので基本ok
