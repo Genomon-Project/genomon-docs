@@ -8,7 +8,7 @@ RNA 解析コマンドを実行する
   # Genomonを実行する
   genomon_pipeline {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
-  genomon_pipeline dna /home/genomon/sample_config_RNA.csv /home/genomon/output_test_RNA /home/genomon/rna_genomon.cfg
+  genomon_pipeline rna /home/genomon/sample_config_RNA.csv /home/genomon/output_test_RNA /home/genomon/rna_genomon.cfg
   
 `解析タイプ　'dna'，'rna'`
     DNA解析をする場合は，dna を，RNA解析をする場合は，rna を指定します．
