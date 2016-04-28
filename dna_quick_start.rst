@@ -34,8 +34,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．各ユーザがANNOVARを使用するためにUser License Agreementをする必要があります．こちらにHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました。
 
-| 
-| ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
+ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
 
 .. code-block:: bash
 
