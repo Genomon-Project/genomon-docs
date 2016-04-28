@@ -6,17 +6,17 @@
 .. code-block:: bash
 　
   # HGCスパコンでのGenomon使用方法
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {analysis type} {sample config file} {output root directory} {pipeline config_file}
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
 
 ご使用者にやっていただくことは、コマンドに必要な４つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
 
-`1. analysis type`
+`1. 解析タイプ`
     DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定します．
-`2. sample config file`
+`2. サンプル設定ファイル`
     解析対象のファイル（FASTQやBAMなど）を記載したファイルを作成し、そのファイル名を指定します．
-`3. output root directory`
+`3. 出力ルートディレクトリ`
     出力ルートディレクトリを指定します．結果がこのディレクトリ以下に出力されます．
-`4. pipeline config_file`
+`4. パイプライン設定ファイル`
     パイプライン設定ファイルを指定します．最適化されたパラメータが記載されたパイプライン設定ファイルをHGCスパコンに用意しております．
 
 .. code-block:: bash
