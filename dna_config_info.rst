@@ -12,32 +12,32 @@ DNA パイプライン設定ファイルについて
     
     [REFERENCE]
     # prepared reference fasta file
-    ref_fasta                               = # the path to the GRCh37.fa
-    interval_list                           = # the path to the GRCh37_noScaffold_noDecoy.interval_list
-    hg19_genome                             = # the path to the bedtools-2.24.0/genomes/human.hg19.genome
-    gaptxt                                  = # the path to the gap.txt
-    bait_file                               = # the path to the refGene.coding.exon.151207.bed
-    simple_repeat_tabix_db                  = # the path to the simpleRepeat.bed.bgz
-    HGVD_tabix_db                           = # the path to the DBexome20131010.bed.gz
+    ref_fasta                   = # the path to the GRCh37.fa
+    interval_list               = # the path to the GRCh37_noScaffold_noDecoy.interval_list
+    hg19_genome                 = # the path to the bedtools-2.24.0/genomes/human.hg19.genome
+    gaptxt                      = # the path to the gap.txt
+    bait_file                   = # the path to the refGene.coding.exon.151207.bed
+    simple_repeat_tabix_db      = # the path to the simpleRepeat.bed.bgz
+    HGVD_tabix_db               = # the path to the DBexome20131010.bed.gz
 
     [SOFTWARE]
     # prepared tools
-    blat                                    = # the path to the blat_x86_64/blat
-    bwa                                     = # the path to the bwa-0.7.8/bwa
-    samtools                                = # the path to the samtools-1.2/samtools
-    bedtools                                = # the path to the bedtools-2.24.0/bin/bedtools
-    biobambam                               = # the path to the biobambam-0.0.191/bin
-    bamstats                                = # the path to the PCAP-core-dev.20150511/bin/bam_stats.pl
-    htslib                                  = # the path to the htslib-1.3
-    genomon_sv                              = # the path to the bin/GenomonSV
-    sv_utils                                = # the path to the bin/sv_utils
-    mutfilter                               = # the path to the bin/mutfilter
-    ebfilter                                = # the path to the bin/EBFilter
-    fisher                                  = # the path to the bin/fisher
-    mutanno                                 = # the path to the bin/mutanno
-    genomon_pa                              = # the path to the bin/genomon_pa
-    pa_plot                                 = # the path to the bin/pa_plot
-    mutil                                   = # the path to the bin/mutil
+    blat                        = # the path to the blat_x86_64/blat
+    bwa                         = # the path to the bwa-0.7.8/bwa
+    samtools                    = # the path to the samtools-1.2/samtools
+    bedtools                    = # the path to the bedtools-2.24.0/bin/bedtools
+    biobambam                   = # the path to the biobambam-0.0.191/bin
+    bamstats                    = # the path to the PCAP-core-dev.20150511/bin/bam_stats.pl
+    htslib                      = # the path to the htslib-1.3
+    genomon_sv                  = # the path to the bin/GenomonSV
+    sv_utils                    = # the path to the bin/sv_utils
+    mutfilter                   = # the path to the bin/mutfilter
+    ebfilter                    = # the path to the bin/EBFilter
+    fisher                      = # the path to the bin/fisher
+    mutanno                     = # the path to the bin/mutanno
+    genomon_pa                  = # the path to the bin/genomon_pa
+    pa_plot                     = # the path to the bin/pa_plot
+    mutil                       = # the path to the bin/mutil
 
     # ANNOVAR needs to be installed individually
     annovar                                 = # the path to the annovar
