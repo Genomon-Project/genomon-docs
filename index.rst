@@ -22,7 +22,7 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Quick Start-Up Guide for HGC
+   :caption: Quick Start-Up Guide
 
    start_up.rst
    dna_quick_start.rst
