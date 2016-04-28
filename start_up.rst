@@ -17,7 +17,7 @@ HGCスパコンでGenomonを実行する
 `3. output root directory`
     出力ルートディレクトリを指定します．結果がこのディレクトリ以下に出力されます．
 `4. pipeline config_file`
-    パイプライン設定ファイルを指定します．最適化されたパラメータが記載されたパイプライン設定ファイルをHGCスパコンに用意しております。
+    パイプライン設定ファイルを指定します．最適化されたパラメータが記載されたパイプライン設定ファイルをHGCスパコンに用意しております．
 
 .. code-block:: bash
 
@@ -29,4 +29,6 @@ HGCスパコンでGenomonを実行する
 
   # RNA解析の実行例
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna sample_config.csv /home/genomon/sample_RNA_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
+  
+  * qloginをする必要があります．
 
