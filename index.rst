@@ -8,8 +8,6 @@
 .. image:: https://img.shields.io/badge/license-GPL--3-blue.svg
     :target: https://img.shields.io/badge/license-GPL--3-blue.svg
 
-|
-
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
@@ -26,6 +24,7 @@
    :maxdepth: 2
    :caption: Quick Start-Up Guide for HGC
 
+   start_up.rst
    dna_quick_start.rst
    rna_quick_start.rst
 
