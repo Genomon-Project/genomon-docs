@@ -25,9 +25,9 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
-  # Exome解析用パイプライン設定ファイル
+  # Exome解析用パイプライン設定ファイルはこちらにあります
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
-  # Whole Genome解析用パイプライン設定ファイル
+  # Whole Genome解析用パイプライン設定ファイルはこちらにあります
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
 変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．（ANNOVARをインストールしなくてもGenomonは実行できます．ANNOVARのインストールが必要ない方は，次の「2．テストサンプルでGenomonを実行してみる」にお進み下さい．以下にHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました．
