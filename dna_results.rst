@@ -1,18 +1,21 @@
-========================================
-DNA解析結果ファイルの各項目の説明
-========================================
+
+DNA解析結果ファイルの説明
+=========================
 
 結果ファイル
-------------------
+------------
 
-:変異Call結果: ${sample}.genomon_mutation.result.(filt).txt
-:SV検出結果: ${sample}.genomonSV.result.(filt).txt
-:QC結果 (BAM Summary): ${sample}.genomonQC.result.txt
+`変異コール結果`
+    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_mutation_filt.txt
+`SV検出結果`
+    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_sv_filt.txt
+`BAMのQuality Controlの結果`
+    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_qc.txt
 
-変異Call結果(Tumor V.S. Normalで比較)
+変異コール結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutation.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
+(Tumor V.S. Normalで比較した)変異コール結果ファイルはパイプライン設定ファイルの以下のハイライトの値でフィルタしています．
 
 .. code-block:: cfg
     :linenos:
@@ -106,10 +109,10 @@ genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon
 
 
 
-変異Call結果 比較なしパターン
------------------------------
+変異Call結果 (Tumor V.S. Normalで比較しない)
+--------------------------------------------
 
-genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutation.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
+(Tumor V.S. Normalで比較しない)変異コール結果ファイルはパイプライン設定ファイルの以下のハイライトの値でフィルタしています．
 
 .. code-block:: cfg
     :linenos:
