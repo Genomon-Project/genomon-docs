@@ -4,7 +4,8 @@ RNA解析結果ファイルの説明
 
 結果ファイル
 ------------------
-ここに説明を書く
+
+融合遺伝子検出については https://github.com/Genomon-Project/fusionfusion を参照してください．
 
 
 
