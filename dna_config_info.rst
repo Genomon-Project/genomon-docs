@@ -84,10 +84,10 @@ dna_genomon.cfg
     
     ##########
     # BAM file statistics
-    [bam_stats]
+    [qc_bamstats]
     qsub_option = -l s_vmem=1G,mem_req=1G
     
-    [coverage]
+    [qc_coverage]
     qsub_option = -l s_vmem=1G,mem_req=1G
     coverage    = 2,10,20,30,40,50,100
     wgs_flag = False
@@ -95,7 +95,7 @@ dna_genomon.cfg
     wgs_i_bed_lines = 10000
     wgs_i_bed_width = 100
     
-    [summary]
+    [qc_merge]
     qsub_option = -l s_vmem=1G,mem_req=1G
     
     ###########
@@ -195,13 +195,21 @@ dna_genomon.cfg
     ##########
     ## Post Analysis
     [pa_plot]
+    # paplotを使用しない場合はFalse
     enable = True
+    # pairを設定していないサンプルをpaplotの対象から除く場合はFalse
+    include_unpair = True
+    # controlpanelを使用しないサンプルをpaplotの対象から除く場合はFalse
+    include_unpanel = True
     title = Genomon
-    config_file = /home/w3varann/genomon_pipeline-2.2.0/tools/paplot-0.2.7/paplot.cfg
+    remarks = Data used in this report were generated using below software.
+    software = genomon_pipeline:Genomon-Pipeline, genomon_sv:GenomonSV, sv_utils:sv_utils, fisher:GenomonFisher, mutfilter:GenomonMutationFilter, ebfilter:EBFilter, mutanno:mutanno, mutil:mutil
+    config_file = # the path to the paplot-0.2.8/paplot.cfg
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [post_analysis]
+    # Genomon Post Analysisを使用しない場合はFalse
     enable = True
-    config_file = /home/w3varann/genomon_pipeline-2.2.0/tools/GenomonPostAnalysis-1.0.1/genomon_post_analysis.cfg
+    config_file = # the path to the GenomonPostAnalysis-1.0.2/genomon_post_analysis.cfg
     qsub_option = -l s_vmem=2G,mem_req=2G
 
