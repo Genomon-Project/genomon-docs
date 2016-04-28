@@ -24,7 +24,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
-  # RNA解析用パイプライン設定ファイル
+  # RNA解析用パイプライン設定ファイルはこちらにあります
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
   
 2．テストサンプルでGenomonを実行してみる
