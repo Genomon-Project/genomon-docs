@@ -34,7 +34,15 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # qloginする
   $qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ dna を指定する} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  # 解析タイプ
+  #    dnaを指定します．
+  # サンプル設定ファイル
+  #    1.で作成したサンプル設定ファイルを指定します．
+  # 出力ルートディレクトリ
+  #    任意の出力ルートディレクトリを指定します．
+  # パイプライン設定ファイル
+  #    2.で作成したパイプライン設定ファイルを指定します．
 
 4．結果ファイルを確認する
 -------------------------
