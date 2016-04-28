@@ -5,7 +5,7 @@ DNA Configファイルについて
 dna_genomon.cfg
 ------------------
 
- DNA解析パイプライン実行時に読込まれるファイルです．各ツールのフィルタリングの閾値などのパラメータを設定することができます．基本的にはこちらの値は最適化されているため、まずはデフォルトの最適化された値でGenomonを実行してみてください．
+ DNA解析パイプライン実行時に読込まれるファイルです．各ツールのフィルタリングの閾値などのパラメータを設定することができます．基本的にはこちらの値は最適化されているため，まずはデフォルトの最適化された値でGenomonを実行してみてください．
 
 .. code-block:: cfg
     :linenos:
@@ -116,19 +116,19 @@ dna_genomon.cfg
     control_max_allele_frequency = 0.1
     # fihser検定による結果の閾値です．
     fisher_thres_hold = 0.1
-    # 変異アレルのリード数は二項分布でモデル化できますが、これをベイズ的にやろうとしてベータ分布を利用し、その結果の10% posterio quantileを閾値としています.
+    # 変異アレルのリード数は二項分布でモデル化できますが，これをベイズ的にやろうとしてベータ分布を利用し，その結果の10% posterio quantileを閾値としています.
     post_10_q = 0.02
-    # fisher_thres_holdとの違いは、こちらの値はmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
+    # fisher_thres_holdとの違いは，こちらの値はmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
     fisher_pval-log10_thres = 1.0
-    # post_10_qとの違いは、こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
+    # post_10_qとの違いは，こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
     post_10_q_thres = 0.1
     
     [realignment_filter]
-    # tumorの変異数が指定した値以上であれば、フィルタ済み結果ファイルに出力されます
+    # tumorの変異数が指定した値以上であれば，フィルタ済み結果ファイルに出力されます
     disease_min_mismatch=4
-    # normalの変異数が指定した値以下であれば、フィルタ済み結果ファイルに出力されます
+    # normalの変異数が指定した値以下であれば，フィルタ済み結果ファイルに出力されます
     control_max_mismatch=2
-    # リードリアライメント時にはマルチアライメントしているのですが、1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら、そのリードを使用しないという設定です
+    # リードリアライメント時にはマルチアライメントしているのですが，1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，そのリードを使用しないという設定です
     score_diff=5
     # リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異position + window size(bases)のリファレンスゲノムを作っています．
     window_size=200
@@ -144,7 +144,7 @@ dna_genomon.cfg
     search_length=40
     # 探し出したindelが候補のポジションから指定した値のrange内にいればindelフィルタの対象とします
     neighbor=5
-    # samtools mpileupをつかって、indelをサーチするのですが、mpileupのオプションである-qの値となります．deletionの場合はbasequalityは無視されます．
+    # samtools mpileupをつかって，indelをサーチするのですが，mpileupのオプションである-qの値となります．deletionの場合はbasequalityは無視されます．
     base_quality=20
     #depthと書かれている場合は変異ポジションのリード数のthresholdになります．
     min_depth=8
