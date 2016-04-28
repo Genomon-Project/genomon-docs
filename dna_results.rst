@@ -53,8 +53,8 @@ DNA 解析結果ファイルの説明
  変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-`annovarの結果`
-  `annovar`_ をご使用の方はこのカラムに結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
+`ANNOVARの結果`
+  `ANNOVAR`_ をご使用の方はこのカラムに結果が出力されます．各カラムの説明は `ANNOVAR`_ のwebページでチェックしてください．
 `depth_tumor`
  Tumorのdepth
 `variantNum_tumor`
@@ -150,8 +150,8 @@ DNA 解析結果ファイルの説明
  変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
 `Alt`
  変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
-`annovarの結果`
- `annovar`_ をご使用の方はannovarの結果が出力されます．各カラムの説明は `annovar`_ のwebページでチェックしてください．
+`ANNOVARの結果`
+ `ANNOVAR`_ をご使用の方はANNOVARの結果が出力されます．各カラムの説明は `ANNOVAR`_ のwebページでチェックしてください．
 `depth`
  depth
 `variantNum`
@@ -328,4 +328,4 @@ QC結果 (BAM Summary)
     wgs_i_bed_lines = 10000
     wgs_i_bed_width = 100
 
-.. _annovar: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+.. _ANNOVAR: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
