@@ -186,56 +186,57 @@ genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomo
 
 SV検出結果
 ----------
-
+genomonSV.result.filt.txt(フィルタ済み結果)ファイルは，genomonSV.result.txtをdna_genomon.cfgで設定したパラメータに基づいてフィルタリングした結果です．
 各カラムの説明
 **************
 
 `Chr_1`
+ 第１ブレークポイントにおける染色体
  chromosome for the 1st breakpoint
 `Pos_1`
- coordinate for the 1st breakpoint
+ 第１ブレークポイントにおける座標
 `Dir_1`
- direction of the 1st breakpoint
+ 第１ブレークポイントの向き
 `Chr_2`
- chromosome for the 2nd breakpoint
+ 第２ブレークポイントにおける染色体
 `Pos_2`
- coordinate for the 2nd breakpoint
+ 第２ブレークポイントにおける座標
 `Dir_2`
- direction of the 2nd breakpoint
+ 第２ブレークポイントの向き
 `Inserted_Seq`
- inserted nucleotides within the breakpoints
+ ブレークポイント間の挿入塩基配列
 `Variant_Type`
- type of the structural variation
+ 構造変異のタイプ（deletion, inversion, tandem_duplication, translocation）
 `Gene_1`
- gene overlapping the 1st breakpoint
+ 第１ブレークポイントにおける遺伝子
 `Gene_2`
- gene overlapping the 2nd breakpoint
+ 第２ブレークポイントにおける遺伝子
 `Exon_1`
- exon overlapping the 1st breakpoint
+ 第１ブレークポイントにおけるエキソンに対応する遺伝子
 `Exon_2`
- exon overlapping the 2nd breakpoint
+ 第２ブレークポイントにおけるエキソンに対応する遺伝子
 `Num_Tumor_Ref_Read_Pair`
- #read_pairs not supporting the variant (reference read pairs) for the tumor sample
+ tumor sampleにおけるリファレンス配列（構造変異なし配列）をサポートするリードペアの本数
 `Num_Tumor_Var_Read_Pair`
- #read_pairs supporting the variant (variant read paris) for the tumor sample
+ tumor sampleにおける変異配列をサポートするリードペアの本数
 `Tumor_VAF`
- frequency of variant read pairs for the tumor sample 
+ tumor sampleにおける変異配列をサポートするリードペアの割合
 `Num_Control_Ref_Read_Pair`
- #read_pairs not supporting the variant for the matched control sample
+ matched control sampleにおけるリファレンス配列（構造変異なし配列）をサポートするリードペアの本数
 `Num_Control_Var_Read_Pair`
- #read_pairs supporting the variant for the matched control sample
+ matched control sampleにおける変異配列をサポートするリードペアの本数
 `Control_VAF`
- frequency of variant read pairs for the matched control sample 
+ matched control sampleにおける変異配列をサポートするリードペアの割合
 `Minus_Log_Fisher_P_value`
- minus common logarithm of p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference variant read pairs)
+ -log10 (P-value) fisher's exact test on contingency table of (tumor v.s. matched control) and (reference variant read pairs)
 `Non-Matched_Control_Sample_With_Max_Junction`
- sample name with the maximum number of junction read pairs
+ non-matched control sampleにおいて対応するjunction read pairが最大となったサンプル
 `Num_Max_Non-Matched_Control_Junction`
- the maximum number of junction read pairs among non-matched control samples
+ non-matched control sampleにおいて対応するjunction read pairの最大数
 `Max_Over_Hang_1`
- maximum overlang size of supporting read pairs from the 1st breakpoint
+ 第１ブレークポイントにおける最大オーバーハングサイズ
 `Max_Over_Hang_2`
- maximum overlang size of supporting read pairs from the 2nd breakpoint
+ 第２ブレークポイントにおける最大オーバーハングサイズ
 
 
 BAM Summary 結果
