@@ -32,7 +32,8 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．以下にHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました．
 
-| **ANNOVARのインストールとGenomonへの設定方法**
+**ANNOVARのインストールとGenomonへの設定方法**
+
 各ユーザがANNOVARを使用するためにはANNOVARのウェブページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
 
 .. code-block:: bash
@@ -75,14 +76,15 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：dna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv /home/genomon/output_root_directory /home/genomon/dna_genomon.cfg
-`解析タイプ`
-    'dna'を指定します．
-`サンプル設定ファイル`
-    /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csvを指定します．
-`出力ルートディレクトリ`
-    任意の出力ルートディレクトリを指定します．
-`パイプライン設定ファイル`
-    2.で作成したパイプライン設定ファイルを指定します．
+  #
+  # 解析タイプ
+  #   'dna'を指定します．
+  # サンプル設定ファイル
+  #   /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csvを指定します．
+  # 出力ルートディレクトリ
+  #   任意の出力ルートディレクトリを指定します．
+  # パイプライン設定ファイル
+  #   2.で作成したパイプライン設定ファイルを指定します．
 
 3. サンプル設定ファイルを作成する
 ---------------------------------
