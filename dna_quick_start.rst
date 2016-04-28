@@ -55,7 +55,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 .. code-block:: cfg
   :linenos:
-  :emphasize-lines: 2,6,7,11,17
+  :emphasize-lines: 2,6
   
   [SOFTWARE]
   annovar = [ダウンロードしたANNOVARのパス]に変更する．
@@ -73,7 +73,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 .. code-block:: bash
   
   # qloginする
-  $qlogin
+  qlogin
   # Genomonを実行する
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：dna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
@@ -103,7 +103,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 .. code-block:: bash
   
   # qloginする
-  $qlogin
+  qlogin
   # Genomonを実行する
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：dna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
