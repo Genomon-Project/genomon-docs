@@ -21,6 +21,8 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 最適化されたパラメータが記載されたパイプライン設定ファイルをHGCスパコンにあります。こちらのファイルを
 
+/home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
+/home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
 3．Genomonを実行する
 --------------------
@@ -32,7 +34,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # qloginする
   $qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna {1.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {2.で作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ dna を指定する} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
 
 4．結果ファイルを確認する
 -------------------------
