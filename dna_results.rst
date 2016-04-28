@@ -190,25 +190,52 @@ SV検出結果
 各カラムの説明
 **************
 
-:1: chromosome for the 1st breakpoint
-:2: coordinate for the 1st breakpoint
-:3: direction of the 1st breakpoint
-:4: chromosome for the 2nd breakpoint
-:5: coordinate for the 2nd breakpoint
-:6: direction of the 2nd breakpoint
-:7: inserted nucleotides within the breakpoints
-:8: type of the structural variation
-:9: gene overlapping the 1st breakpoint
-:10: gene overlapping the 2nd breakpoint
-:11: exon overlapping the 1st breakpoint
-:12: exon overlapping the 2nd breakpoint
-:13: #read_pairs not supporting the variant (reference read pairs) for the tumor sample
-:14: #read_pairs supporting the variant (variant read paris) for the tumor sample
-:15: frequency of variant read pairs for the tumor sample
-:16: #read_pairs not supporting the variant for the matched control sample
-:17: #read_pairs supporting the variant for the matched control sample
-:18: frequency of variant read pairs for the matched control sample
-:19: p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference v.s. variant read pairs)
+`Chr_1`
+chromosome for the 1st breakpoint
+`Pos_1`
+coordinate for the 1st breakpoint
+`Dir_1`
+direction of the 1st breakpoint
+`Chr_2`
+chromosome for the 2nd breakpoint
+`Pos_2`
+coordinate for the 2nd breakpoint
+`Dir_2`
+direction of the 2nd breakpoint
+`Inserted_Seq`
+inserted nucleotides within the breakpoints
+`Variant_Type`
+type of the structural variation
+`Gene_1`
+gene overlapping the 1st breakpoint
+`Gene_2`
+gene overlapping the 2nd breakpoint
+`Exon_1`
+exon overlapping the 1st breakpoint
+`Exon_2`
+exon overlapping the 2nd breakpoint
+`Num_Tumor_Ref_Read_Pair`
+#read_pairs not supporting the variant (reference read pairs) for the tumor sample
+`Num_Tumor_Var_Read_Pair`
+#read_pairs supporting the variant (variant read paris) for the tumor sample
+`Tumor_VAF`
+frequency of variant read pairs for the tumor sample 
+`Num_Control_Ref_Read_Pair`
+#read_pairs not supporting the variant for the matched control sample
+`Num_Control_Var_Read_Pair`
+#read_pairs supporting the variant for the matched control sample
+`Control_VAF`
+frequency of variant read pairs for the matched control sample 
+`Minus_Log_Fisher_P_value`
+minus common logarithm of p-value for the Fisher's exact text (on contingency table of (tumor v.s. matched control) and (reference v.s. variant read pairs)
+`Non-Matched_Control_Sample_With_Max_Junction`
+sample name with the maximum number of junction read pairs
+`Num_Max_Non-Matched_Control_Junction`
+the maximum number of junction read pairs among non-matched control samples
+`Max_Over_Hang_1`
+maximum overlang size of supporting read pairs from the 1st breakpoint
+`Max_Over_Hang_2`
+maximum overlang size of supporting read pairs from the 2nd breakpoint
 
 
 BAM Summary 結果
