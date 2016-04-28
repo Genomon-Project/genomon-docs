@@ -35,7 +35,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用して各種データ (dbsnp131など) をダウンロードします．
+| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのスクリプトを使用してdbSNP131などの各種データベースをダウンロードします．
 
 .. code-block:: bash
 
@@ -47,7 +47,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   cd annovar
   # Genomonで必要なANNOVARのデータベースをダウンロードするスクリプトをコピーします
   cp /home/w3varann/genomon_pipeline-2.2.0/genomon_script/annovar_database_download.sh .
-  # ダウンロードを実行します．
+  # ANNOVARのスクリプトを使用してダウンロードを実行します．
   bash ./annovar_database_download.sh
 
 ANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所を変更する必要があります．
