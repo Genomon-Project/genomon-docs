@@ -62,7 +62,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 **2．テストサンプルでGenomonを実行してみる**
 
-テストサンプルでGenomonを実行してみましょう．Genomonが正しく使用できるか、パイプライン設定ファイルの記述ができているか確認することができます。テストサンプルはファイルサイズが小さいので数分で処理が完了します．
+テストサンプルでGenomonを実行してみましょう．Genomonが正しく使用できるか、パイプライン設定ファイルの記述が正しくできているか確認することができます。テストサンプルはファイルサイズが小さいので数分で処理が完了します．
 
 .. code-block:: bash
   
@@ -72,13 +72,13 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：dna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   
 `解析タイプ`
-'dna'を指定します．
+    'dna'を指定します．
 `サンプル設定ファイル`
-/home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv
+    /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv
 `出力ルートディレクトリ`
-任意の出力ルートディレクトリを指定します．
+    任意の出力ルートディレクトリを指定します．
 `パイプライン設定ファイル`
-2.で作成したパイプライン設定ファイルを指定します．
+    2.で作成したパイプライン設定ファイルを指定します．
 
 **3. サンプル設定ファイルを作成する**
 
@@ -99,13 +99,13 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：dna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   
 `解析タイプ`
-'dna'を指定します．
+    'dna'を指定します．
 `サンプル設定ファイル`
-1.で作成したサンプル設定ファイルを指定します．
+    1.で作成したサンプル設定ファイルを指定します．
 `出力ルートディレクトリ`
-任意の出力ルートディレクトリを指定します．
+    任意の出力ルートディレクトリを指定します．
 `パイプライン設定ファイル`
-2.で作成したパイプライン設定ファイルを指定します．
+    2.で作成したパイプライン設定ファイルを指定します．
 
 **5．結果ファイルを確認する**
 
@@ -114,11 +114,11 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 .. code-block:: bash
 
   # Mutation Call結果
-  {出力ルートディレクトリ}/mutation/sample名/sample名.genomon_mutation.result.txt
+  {出力ルートディレクトリ}/mutation/sample名/sample名_genomon_mutations.result.txt
   # SV検出結果
   {出力ルートディレクトリ}/sv/sample名/sample名.genomonSV.result.txt
-  # QC結果 (BAM Summary)
-  {出力ルートディレクトリ}/qc/sample名/sample名.genomonQC.result.txt
+  # summary
+  {出力ルートディレクトリ}/sv/sample名/sample名.xls
 
 結果ファイルの各項目の説明など詳細は :doc:`dna_results` を参照ください．
 
