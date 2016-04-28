@@ -2,15 +2,20 @@
 DNA解析結果ファイルの説明
 =========================
 
-結果ファイル
-------------
+結果ファイルは実行時に指定した 出力ルートディレクトリに以下に出力されます．
 
-`変異コール結果`
-    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_mutation_filt.txt
-`SV検出結果`
-    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_sv_filt.txt
-`BAMのQuality Controlの結果`
-    {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_qc.txt
+.. code-block:: bash
+
+  # 変異コール結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_mutation_filt.txt
+  # SV検出結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_sv_filt.txt
+  # BAMのQuality Controlの結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_qc.txt
+  # Paplotの結果
+  # index.htmlをクリックすることで結果が表示されます．
+  {出力ルートディレクトリ}/paplot/{サンプル設定ファイル名}
+
 
 変異コール結果(Tumor V.S. Normalで比較)
 -------------------------------------
