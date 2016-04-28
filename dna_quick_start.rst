@@ -6,24 +6,18 @@ Quick Start DNA解析
 .. code-block:: none 
 
   1．DNA解析に必要な手順．
-    1-1. サンプル設定ファイルをつくる
-    1-2．パイプライン設定ファイルをつくる
-    1-3．テストサンプルでGenomonを実行してみる．
+    1-1．パイプライン設定ファイルをつくる
+    1-2．テストサンプルでGenomonを実行してみる．
+    1-3. サンプル設定ファイルをつくる
     1-4．Genomonを実行する
     1-5．結果ファイルを確認する
 
 
 1．DNA解析に必要な手順
 ^^^^^^^^^^^^^^^^^^^
-HGCスパコンでのDNA解析に必要な手順をまとめました
+HGCスパコンでのDNA解析に必要な手順をまとめました．
 
-**1-1. サンプル設定ファイルを作成する**
-
-サンプル設定ファイルには解析対象のFASTQやBAMファイル，どの解析（変異コール，SV検出，BAMのQuality Control)を実行するのかを指定します．
-
-サンプル設定ファイルの記載方法は  :doc:`dna_sample_csv` を参照ください．
-
-**1-2. パイプライン設定ファイルを作成する**
+**1-1. パイプライン設定ファイルを作成する**
 
 最適化されたパラメータが記載されたパイプライン設定ファイルがHGCスパコンに用意してあります．
 パラメータを変更する場合はExome解析の場合はdna_exome_genomon.cfg，Whole Genome解析の場合はdna_wgs_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
@@ -35,9 +29,9 @@ HGCスパコンでのDNA解析に必要な手順をまとめました
   # Whole Genome解析用パイプライン設定ファイル
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
-変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．各ユーザがANNOVARを使用するためにUser License Agreementをする必要があります．以下にHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました．
+変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．以下にHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました．
 
-ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
+各ユーザがANNOVARを使用するためにはUser License Agreementをする必要があります．ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
 
 .. code-block:: bash
 
@@ -66,7 +60,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   active_annovar_flag = True
   FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
 
-**1-3．テストサンプルでGenomonを実行してみる**
+**1-2．テストサンプルでGenomonを実行してみる**
 
 テストサンプルでGenomonを実行してみましょう．Genomonが正しく使用できるか、パイプライン設定ファイルの記述ができているか確認することができます。テストサンプルはファイルサイズが小さいので数分で処理が完了します．
 
@@ -85,6 +79,13 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 任意の出力ルートディレクトリを指定します．
 `パイプライン設定ファイル`
 2.で作成したパイプライン設定ファイルを指定します．
+
+**1-3. サンプル設定ファイルを作成する**
+
+サンプル設定ファイルには解析対象のFASTQやBAMファイル，どの解析（変異コール，SV検出，BAMのQuality Control)を実行するのかを指定します．
+
+サンプル設定ファイルの記載方法は  :doc:`dna_sample_csv` を参照ください．
+
 
 **1-4．Genomonを実行する**
 
