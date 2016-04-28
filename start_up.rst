@@ -5,29 +5,26 @@ HGCスパコンでGenomonを実行する
 
 .. code-block:: bash
 
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh 
- 　パラメータ１：{DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定する}
- 　パラメータ２：{サンプル設定ファイルを指定する}
- 　パラメータ３：{出力ルートディレクトリを指定する}
- 　パラメータ４：{パイプライン設定ファイルを指定する}
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {analysis type} {sample config file} {output root directory} {pipeline config_file}
 
-ご使用者にやっていただくことは、この4つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
+ご使用者にやっていただくことは、コマンドに必要な４つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
 
-各引数の説明
-**************
-
-`DNA解析かRNA解析のどちらかを実行するか決める
-`FASTQなど解析するファイルを指定したサンプル設定ファイルを作成する
-`出力ルートディレクトリを決める
-`パイプライン設定ファイルを指定する
-  
-
-sample_cfg.csvの記述方法は、:doc:`dna_sample_csv` を参照してください．
+`analysis type`
+    DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定します．
+`sample config file`
+    解析対象のファイル（FASTQやBAMなど）を記載したファイルを作成し、そのファイル名を指定します．
+`output root directory`
+    出力ルートディレクトリを指定します．結果がこのディレクトリ以下に出力されます．
+`pipeline config_file`
+    パイプライン設定ファイルを指定します．パイプライン設定ファイルはHGCスパコンに用意されております。
 
 .. code-block:: bash
 
-  # DNA解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_ACC dna_genomon.cfg
+  # DNA exome解析の実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_exome_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
+
+  # DNA whole genome解析の実行例
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_WGS_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
   # RNA解析の実行例
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna sample_config.csv /home/genomon/sample_RNA_ACC rna_genomon.cfg
