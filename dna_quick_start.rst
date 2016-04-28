@@ -20,7 +20,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 **1. パイプライン設定ファイルを作成する**
 
 最適化されたパラメータが記載されたパイプライン設定ファイルがHGCスパコンに用意してあります．
-パラメータを変更する場合はExome解析の場合はdna_exome_genomon.cfg，Whole Genome解析の場合はdna_wgs_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
+パラメータを変更する際，Exome解析はdna_exome_genomon.cfg，Whole Genome解析はdna_wgs_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
 
 .. code-block:: bash
 
