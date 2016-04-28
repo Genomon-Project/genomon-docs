@@ -6,7 +6,7 @@ Quick Start DNA解析 (HGCスパコン)
 
 サンプル設定ファイルには解析対象のFASTQやBAMファイルや，どの解析(Mutation Call，SV検出，BAMのQuality Check)を実行するのかを指定します．
 
-結果ファイルの各項目の説明など詳細は :doc:`sample_conf` に記述しました．
+サンプル設定ファイルの記載方法は :doc:`sample_conf` に記述があります．
 
 パイプライン設定ファイルをつくる
 --------------------------------
