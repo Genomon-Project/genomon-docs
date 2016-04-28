@@ -4,7 +4,8 @@ HGCスパコンでGenomonを実行する
 ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン)にはGenomonはすでにインストールされております。HGCスパコンアカウントをお持ちの方は，以下のコマンドを実行するだけで，DNA，RNA解析ができます．
 
 .. code-block:: bash
-
+　
+　# HGCスパコンでのGenomon使用方法
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {analysis type} {sample config file} {output root directory} {pipeline config_file}
 
 ご使用者にやっていただくことは、コマンドに必要な４つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
