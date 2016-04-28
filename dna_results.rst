@@ -5,14 +5,14 @@ DNA解析結果ファイルの各項目の説明
 結果ファイル
 ------------------
 
-:変異Call結果: ${sample}_genomon_mutations.result.(filt).txt
-:SV検出結果: ${sample}_genomon.genomonSV.result.(filt).txt
-:BAM Summary結果: ${sample}.tsv
+:変異Call結果: ${sample}.genomon_mutation.result.(filt).txt
+:SV検出結果: ${sample}.genomon.genomonSV.result.(filt).txt
+:QC結果 (BAM Summary): ${sample}.genomonQC.result.txt
 
 変異Call結果(Tumor V.S. Normalで比較)
 -------------------------------------
 
-genomon_mutations.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutations.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
+genomon_mutation.result.filt.txt(フィルタ済み結果)ファイルはgenomon_mutation.result.txtをdna_genomon.cfgで設定した以下のハイライトの値でフィルタしています．詳細は :doc:`dna_config_info` を参照ください
 
 .. code-block:: cfg
     :linenos:
@@ -239,8 +239,8 @@ genomonSV.result.filt.txt(フィルタ済み結果)ファイルは，genomonSV.r
  第２ブレークポイントにおける最大オーバーハングサイズ
 
 
-BAM Summary 結果
--------
+QC結果 (BAM Summary)
+---------------------
 
 各カラムの説明
 **************
