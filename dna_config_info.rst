@@ -180,11 +180,6 @@ DNA パイプライン設定ファイルについて
     
     ##########
     ## Genomon SV
-    [genomon_sv]
-    param_file = /home/w3varann/genomon_pipeline-2.2.0/database/GenomonSV/param.yaml
-    
-##########
-## Genomon SV
 
     [sv_parse]
     qsub_option = -l s_vmem=2G,mem_req=2G
