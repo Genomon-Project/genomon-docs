@@ -20,7 +20,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 1. パイプライン設定ファイルを作成する
 -------------------------------------
 
-最適化されたパラメータが記載されたパイプライン設定ファイルがHGCスパコンに用意してあります．
+一般的なExome解析，Whole Genome解析のためのパイプライン設定ファイルがHGCスパコンに用意してあります．
 パラメータを変更する際，Exome解析はdna_exome_genomon.cfg，Whole Genome解析はdna_wgs_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
 
 .. code-block:: bash
@@ -39,7 +39,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 .. code-block:: bash
 
   # qloginする
-  $qlogin
+  qlogin
   # ANNOVARをダウンロードします．
   wget {Eメールに記載されたannovar.latest.tar.gzのURL}
   # ANNOVARを解凍します．
@@ -54,7 +54,9 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 ダウンロードが完了したらANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所を変更する必要があります．
 
 .. code-block:: cfg
-
+  :linenos:
+  :emphasize-lines: 2,6,7,11,17
+  
   [SOFTWARE]
   annovar = [ダウンロードしたANNOVARのパス]に変更する．
   (例)annovar = /home/genomon/tools/annovar
