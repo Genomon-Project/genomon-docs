@@ -10,7 +10,7 @@ Genomonインストール
     1-2. DRMAAの環境設定
   2. Genomonのインストール
     2-1. Genomon＆必要なパッケージのインストール
-    2-2. ANNOVARを使用したい場合、ANNOVARのインストールをします
+    2-2. ANNOVARを使用したい場合，ANNOVARのインストールをします
     2-3. HGVDの使用について
   3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 
@@ -68,7 +68,7 @@ Genomonではpythonバージョン2.7を使用します.
   cd ../PyYAML
   python setup.py install --user
   
-2-2. ANNOVARを使用したい場合、ANNOVARのインストールをします
+2-2. ANNOVARを使用したい場合，ANNOVARのインストールをします
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
@@ -113,7 +113,7 @@ ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所
 
 2-3. HGVDの使用について
 
-| HGVDのサイトのをお読みいただいた上、使用規約等に問題がなければdna_genomon.cfgを編集する
+| HGVDのサイトのをお読みいただいた上，使用規約等に問題がなければdna_genomon.cfgを編集する
 | http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
 
 .. code-block:: bash
@@ -125,7 +125,7 @@ ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所
 3. Genomonで使用するデータベースとソフトウェアのライセンスについてご理解ください
 ^^^^^^^^^^^^^^^^
 
-Genomonで使用するデータベースとソフトウェアは、インストールしたGenomonPipeline/genomon.cfgに記載されています．各々のライセンスについてご理解のうえ、Genomonをご使用いただければと思います．
+Genomonで使用するデータベースとソフトウェアは，インストールしたGenomonPipeline/genomon.cfgに記載されています．各々のライセンスについてご理解のうえ，Genomonをご使用いただければと思います．
 
 ・REFERENCE　データベースについて記載一覧
 
@@ -211,7 +211,7 @@ GenomonはHGC以外のスパコンではないサーバでも稼働実績があ�
 GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載されているデータベースをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
 
 `ref_fasta`
- | cfgに指定したリファレンスゲノムと、それに紐づくbwa indexファイル、FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが、Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
+ | cfgに指定したリファレンスゲノムと，それに紐づくbwa indexファイル，FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが，Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
  
  | 1) Human Genome                                                                                                   
  | `GRCh37-lite.fa.gz`_
@@ -220,7 +220,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
  | 3) decoy
  | `hs37d5cs.fa.gz`_
  
- | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば、GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にbwa index, fasta indexを生成する必要があります．
+ | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば，GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にbwa index, fasta indexを生成する必要があります．
  |
  | ・bwa index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
@@ -232,7 +232,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
  | 自作したファイルです．並列処理をするために使用します．
 
 `star_genome`
- | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが、100で大体よいとマニュアルに書いてあって、実際に問題なく検出できているので、現在はread lengthによって変えなくても良しとしています
+ | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが，100で大体よいとマニュアルに書いてあって，実際に問題なく検出できているので，現在はread lengthによって変えなくても良しとしています
 
 .. code-block:: bash
     #STAR index ファイルの作成コマンド
@@ -249,7 +249,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
  | http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/gap.txt.gz
 
 `bait_file`
- | exomeの場合のbam summaryのcoverageを計算するとき使います．SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います．refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして、そちらをbaitの範囲としています．作成方法は以下のwebサイトに記載しています．
+ | exomeの場合のbam summaryのcoverageを計算するとき使います．SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います．refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして，そちらをbaitの範囲としています．作成方法は以下のwebサイトに記載しています．
  | https://github.com/ken0-1n/RefGeneTxtToBed
  | Whole genomeシーケンスの場合はbait_fileを使用しません．WGSの場合はdna_genomon.cfgの以下のハイライトのパラメタをTrueに変更してください．
  
@@ -278,7 +278,7 @@ GenomonPipeline/${dna/rna}_genomon.cfgのカテゴリ[REFERENCE]に記載され�
     tabix-0.2.6/tabix simpleRepeat.bed.gz
 
 `HGVD_tabix_db`
- | 京都大学からHGVDのファイルをダウンロード、VCF→TAB変換し、tabixのindexファイルをはります．
+ | 京都大学からHGVDのファイルをダウンロード，VCF→TAB変換し，tabixのindexファイルをはります．
  | http://www.genome.med.kyoto-u.ac.jp/SnpDB/HGVD1208-V1_42-dbSNP137.tar.gz
 
 .. code-block:: bash
