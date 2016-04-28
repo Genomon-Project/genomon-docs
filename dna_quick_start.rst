@@ -64,13 +64,13 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 
 2-3. HGVDの使用について
 
-| HGVDのサイトのをお読みいただいた上、使用規約等に問題がなければdna_genomon.cfgを編集する
+| HGVDのサイトのをお読みいただいた上、使用規約等に問題がなければパイプライン設定ファイルを編集する
 | http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
 
 .. code-block:: bash
 
-  active_HGVD_flag = False
-  をTrueに変更する (HGVDの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+  active_HGVD_flag = True
+  FalseをTrueに変更する (HGVDの使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
 
 3．Genomonを実行する
 --------------------
