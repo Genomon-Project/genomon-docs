@@ -1,11 +1,7 @@
-========================================
-DNA Configファイルについて
-========================================
+DNA パイプライン設定ファイルについて
+====================================
 
-dna_genomon.cfg
-------------------
-
- DNA解析パイプライン実行時に読込まれるファイルです．各ツールのフィルタリングの閾値などのパラメータを設定することができます．基本的にはこちらの値は最適化されているため，まずはデフォルトの最適化された値でGenomonを実行してみてください．
+パイプライン設定ファイルはGenomon実行時に読込まれるファイルです．各ツールのパスやパラメータを設定することができます。一般的なExome解析のための設定となっております．
 
 .. code-block:: cfg
     :linenos:
@@ -16,40 +12,42 @@ dna_genomon.cfg
     
     [REFERENCE]
     # prepared reference fasta file
-    ref_fasta              = /home/w3varann/genomon_pipeline-2.2.0/database/GRCh37/GRCh37.fa
-    interval_list          = /home/w3varann/genomon_pipeline-2.2.0/database/GRCh37/GRCh37_noScaffold_noDecoy.interval_list
-    hg19_genome            = /home/w3varann/genomon_pipeline-2.2.0/tools/bedtools-2.24.0/genomes/human.hg19.genome
-    gaptxt                 = /home/w3varann/genomon_pipeline-2.2.0/database/hg19.fa/gap.txt
-    bait_file              = /home/w3varann/genomon_pipeline-2.2.0/database/bait/refGene.coding.exon.151207.bed
-    simple_repeat_tabix_db = /home/w3varann/genomon_pipeline-2.2.0/database/tabix/simpleRepeat.bed.bgz
-    HGVD_tabix_db          = /home/w3varann/genomon_pipeline-2.2.0/database/tabix/DBexome20131010.bed.gz
-    
+    ref_fasta                               = # the path to the GRCh37.fa
+    interval_list                           = # the path to the GRCh37_noScaffold_noDecoy.interval_list
+    hg19_genome                             = # the path to the bedtools-2.24.0/genomes/human.hg19.genome
+    gaptxt                                  = # the path to the gap.txt
+    bait_file                               = # the path to the refGene.coding.exon.151207.bed
+    simple_repeat_tabix_db                  = # the path to the simpleRepeat.bed.bgz
+    HGVD_tabix_db                           = # the path to the DBexome20131010.bed.gz
+
     [SOFTWARE]
     # prepared tools
-    blat                   = /home/w3varann/genomon_pipeline-2.2.0/tools/blat_x86_64/blat
-    bwa                    = /home/w3varann/genomon_pipeline-2.2.0/tools/bwa-0.7.8/bwa
-    samtools               = /home/w3varann/genomon_pipeline-2.2.0/tools/samtools-1.2/samtools
-    bedtools               = /home/w3varann/genomon_pipeline-2.2.0/tools/bedtools-2.24.0/bin/bedtools
-    biobambam              = /home/w3varann/genomon_pipeline-2.2.0/tools/biobambam-0.0.191/bin
-    PCAP                   = /home/w3varann/genomon_pipeline-2.2.0/tools/PCAP-core-dev.20150511
-    genomon_sv             = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/GenomonSV
-    mutfilter              = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/mutfilter
-    ebfilter               = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/EBFilter
-    fisher                 = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/fisher
-    mutanno                = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/mutanno
-    genomon_pa             = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/genomon_pa
-    pa_plot                = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/pa_plot
-    mutil                  = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/bin/mutil
-    
+    blat                                    = # the path to the blat_x86_64/blat
+    bwa                                     = # the path to the bwa-0.7.8/bwa
+    samtools                                = # the path to the samtools-1.2/samtools
+    bedtools                                = # the path to the bedtools-2.24.0/bin/bedtools
+    biobambam                               = # the path to the biobambam-0.0.191/bin
+    bamstats                                = # the path to the PCAP-core-dev.20150511/bin/bam_stats.pl
+    htslib                                  = # the path to the htslib-1.3
+    genomon_sv                              = # the path to the bin/GenomonSV
+    sv_utils                                = # the path to the bin/sv_utils
+    mutfilter                               = # the path to the bin/mutfilter
+    ebfilter                                = # the path to the bin/EBFilter
+    fisher                                  = # the path to the bin/fisher
+    mutanno                                 = # the path to the bin/mutanno
+    genomon_pa                              = # the path to the bin/genomon_pa
+    pa_plot                                 = # the path to the bin/pa_plot
+    mutil                                   = # the path to the bin/mutil
+
     # ANNOVAR needs to be installed individually
-    annovar                = /your_annovar
-    
+    annovar                                 = # the path to the annovar
+
     [ENV]
-    PERL5LIB               = /home/w3varann/.local/lib/perl/lib:/home/w3varann/.local/lib/perl/lib/perl5:/home/w3varann/.local/lib/perl/lib/perl5/x86_64-linux-thread-multi
-    PYTHONHOME             = /usr/local/package/python2.7/current
-    PYTHONPATH             = /home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib/python
-    LD_LIBRARY_PATH        = /usr/local/package/python2.7/current/lib:/home/w3varann/genomon_pipeline-2.2.0/python2.7-packages/lib
-    
+    PERL5LIB                                = # the path to the perl module
+    PYTHONHOME                              = # the path to the python home
+    PYTHONPATH                              = # the path to the python path
+    LD_LIBRARY_PATH                         = # the path to the python library
+
     
     ######################################################################
     #
@@ -110,6 +108,8 @@ dna_genomon.cfg
     map_quality = 20
     # base qualityが指定した値以下であればその情報は使用されません．
     base_quality = 15
+    # tumoreのvariant readがこの値以上でなければ候補の対象となりません．
+    min_variant_read = 4
     # tumorのallele比がこの値以下であれば候補の対象となりません．
     disease_min_allele_frequency = 0.02
     # normalのallele比がこの値以上であれば候補の対象となりません．
@@ -183,15 +183,24 @@ dna_genomon.cfg
     [genomon_sv]
     param_file = /home/w3varann/genomon_pipeline-2.2.0/database/GenomonSV/param.yaml
     
+##########
+## Genomon SV
+
     [sv_parse]
     qsub_option = -l s_vmem=2G,mem_req=2G
-    
+    params =
+
     [sv_merge]
     qsub_option = -l s_vmem=2G,mem_req=2G
-    
+    params = 
+
     [sv_filt]
     qsub_option = -l s_vmem=2G,mem_req=2G
-    
+    params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
+    annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
+    sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
+    sv_utils_annotation_dir = # the path to the sv_utils-0.4.0beta/resource 
+
     ##########
     ## Post Analysis
     [pa_plot]
