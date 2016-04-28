@@ -32,14 +32,13 @@ SV検出結果
 * **${sample}.genomonSV.result.txt** -- SV検出結果．フィルタなしのrawデータ．advanced user向け．
 * **他 bedpe.gzファイルなど** -- デバッグ用のファイル．advanced user向け．
 
-BAM Summary結果
+QC結果 (BAM Summary)
 -----------------------
-| sv/$sample(各サンプル)ディレクトリ内に出力されます．
+| qc/$sample(各サンプル)ディレクトリ内に出力されます．
 
-* **${sample}.tsv** -- Summary結果．
-* **${sample}.xls** -- Summary結果．${sample}.tsvをExcelにしたもの．
-* **${sample}.bamstats** -- BAMのアライメント率の結果など．${$summary}.tsvに含まれている．
-* **${sample}.coverage** -- BAMのカバレッジ結果など．${$summary}.tsvに含まれている．
+* **${sample}.genomonQC.result.txt** -- QC結果．
+* **${sample}.bamstats** -- BAMのアライメント率の結果など．${$summary}.genomonQC.result.txtに含まれている．
+* **${sample}.coverage** -- BAMのカバレッジ結果など．${$summary}.genomonQC.result.txtに含まれている．
 
 Post_analysis結果
 -----------------------
