@@ -9,13 +9,13 @@ HGCスパコンでGenomonを実行する
 
 ご使用者にやっていただくことは、コマンドに必要な４つのパラメータを指定していただき、HGCにインストール済みのGenomonを実行するだけです。
 
-`analysis type`
+`1. analysis type`
     DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定します．
-`sample config file`
+`2. sample config file`
     解析対象のファイル（FASTQやBAMなど）を記載したファイルを作成し、そのファイル名を指定します．
-`output root directory`
+`3. output root directory`
     出力ルートディレクトリを指定します．結果がこのディレクトリ以下に出力されます．
-`pipeline config_file`
+`4. pipeline config_file`
     パイプライン設定ファイルを指定します．パイプライン設定ファイルはHGCスパコンに用意されております。
 
 .. code-block:: bash
