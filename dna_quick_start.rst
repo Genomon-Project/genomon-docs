@@ -95,8 +95,8 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   {出力ルートディレクトリ}/mutation/sample名/sample名_genomon_mutations.result.txt
   # SV検出結果
   {出力ルートディレクトリ}/sv/sample名/sample名.genomonSV.result.txt
-  # summary
-  {出力ルートディレクトリ}/sv/sample名/sample名.xls
+  # QC結果 (BAM Summary)
+  {出力ルートディレクトリ}/sv/sample名/sample名.genomonQC.result.txt
 
 結果ファイルの各項目の説明など詳細は :doc:`dna_results` を参照ください．
 
