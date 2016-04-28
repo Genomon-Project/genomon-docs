@@ -23,6 +23,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 -------------------------------------
 
 最適化されたパラメータが記載されたパイプライン設定ファイルがHGCスパコンに用意してあります．
+パラメータを変更する場合はExome解析の場合はdna_exome_genomon.cfg，Whole Genome解析の場合はdna_wgs_genomon.cfgをローカルディレクトリにコピーしてご使用ください．
 
 .. code-block:: bash
 
@@ -31,11 +32,10 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # Whole Genome解析用パイプライン設定ファイル
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
-2-2. ANNOVARのインストールと設定
+変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．各ユーザがANNOVARを使用するためにUser License Agreementをする必要があります．こちらにHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました。
 
-| ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
-| http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのスクリプトを使用してdbSNP131などの各種データベースをダウンロードします．
+| 
+| ANNOVARのホームページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
 
 .. code-block:: bash
 
@@ -55,22 +55,12 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 .. code-block:: bash
 
   [SOFTWARE]
-  annovar = [ANNOVARのパスをダウンロードしたANNOVAR]に変更する．
+  annovar = [ダウンロードしたANNOVARのパス]に変更する．
   (例)annovar = /home/genomon/tools/annovar
 
   [annotation]
   active_annovar_flag = True
   FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
-
-2-3. HGVDの使用について
-
-| HGVDのサイトのをお読みいただいた上、使用規約等に問題がなければパイプライン設定ファイルを編集する
-| http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
-
-.. code-block:: bash
-
-  active_HGVD_flag = True
-  FalseをTrueに変更する (HGVDの使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
 
 3．Genomonを実行する
 --------------------
