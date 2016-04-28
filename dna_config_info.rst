@@ -40,13 +40,13 @@ DNA パイプライン設定ファイルについて
     mutil                       = # the path to the bin/mutil
 
     # ANNOVAR needs to be installed individually
-    annovar                                 = # the path to the annovar
+    annovar                     = # the path to the annovar
 
     [ENV]
-    PERL5LIB                                = # the path to the perl module
-    PYTHONHOME                              = # the path to the python home
-    PYTHONPATH                              = # the path to the python path
-    LD_LIBRARY_PATH                         = # the path to the python library
+    PERL5LIB                    = # the path to the perl module
+    PYTHONHOME                  = # the path to the python home
+    PYTHONPATH                  = # the path to the python path
+    LD_LIBRARY_PATH             = # the path to the python library
 
     
     ######################################################################
