@@ -54,8 +54,8 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 ダウンロードが完了したらANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所を変更する必要があります．
 
 .. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 2,6
+  :linenos:
+  :emphasize-lines: 2,6
 
   [SOFTWARE]
   annovar = [ダウンロードしたANNOVARのパス]に変更する．
