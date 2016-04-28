@@ -1,18 +1,35 @@
-DNA解析コマンドを実行する
+HGCスパコンでGenomonを実行するのに必要なこと
 ==============
 
-コマンドのUsageです
+ | ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン)にはGenomonはすでにインストールされております。
+ | 以下のコマンドを実行するだけで、ゲノムもしくはトランスクリプトーム解析ができます。
 
 .. code-block:: bash
 
-  genomon_pipeline [Analysis type: dna] sample.csv output_root_directory genomon_conf_file
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {dna, rnaを選択する} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
 
-  # Analysis type         : DNA解析をする場合は、dna を、RNA解析をする場合は、rna を指定してください．
-  # sample_conf_file      : 解析するサンプルと入力ファイルを指定します．
-  # output_root_directory : 結果ファイルを出力するディレクトリを指定してください。指定したディレクトリをルートにoutputが生成されます．
-  # genomon_conf_file     : 使用するソフトウェアやデータベースファイルの指定をします．また解析ソフトウェアで使用するパラメータを変更できます．パラメータは最適化されております．変更する場合はこのファイルをコピーして編集してください．
+
+  | ご使用者にやっていただくことは、
+  #. DNA解析かRNA解析のどちらかを実行するか決める
+  #. FASTQなど解析するファイルを指定したサンプル設定ファイルを作成する
+  #. 出力ルートディレクトリを決める
+  #. パイプライン設定ファイルを指定する
+  
+  
+  
 
 sample_cfg.csvの記述方法は、:doc:`dna_sample_csv` を参照してください．
+
+
+各カラムの説明
+**************
+`Chr Start End`
+ 変異候補のポジション
+`Ref`
+ 変異候補のポジションのリファレンス塩基です．Insertion の場合は"-"ハイフンが表示されます．
+`Alt`
+ 変異候補のポジションの塩基配列です．Deletion の場合は"-"ハイフンになります．
+
 
 DNA解析実行例
 ^^^^^^^^^^
