@@ -1,9 +1,5 @@
-========================================
-RNA Configファイルについて
-========================================
-
-rna_genomon.cfg
-------------------
+RNA パイプライン設定ファイルについて
+====================================
 
 RNA解析パイプライン実行時に読込まれるファイルです．各ツールのフィルタリングの閾値などのパラメータを設定することができます．基本的にはこちらの値は最適化されているため，まずはデフォルトの最適化された値でGenomonを実行してみてください．
 
@@ -16,21 +12,21 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     
     [REFERENCE]
     # prepared reference fasta file
-    star_genome                             = # the path to the GRCh37.STAR-STAR_2.4.0k
+    star_genome                 = # the path to the GRCh37.STAR-STAR_2.4.0k
 
     [SOFTWARE]
     # prepared tools
-    samtools                                = # the path to the samtools-1.2/samtools
-    tophat2                                 = # the path to the tophat-2.0.14.Linux_x86_64/tophat2
-    STAR                                    = # the path to the STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
-    STAR-Fusion                             = # the path to the STAR-Fusion-master/STAR-Fusion
-    fusionfusion                            = # the path to the bin/fusionfusion
+    samtools                    = # the path to the samtools-1.2/samtools
+    tophat2                     = # the path to the tophat-2.0.14.Linux_x86_64/tophat2
+    STAR                        = # the path to the STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
+    STAR-Fusion                 = # the path to the STAR-Fusion-master/STAR-Fusion
+    fusionfusion                = # the path to the bin/fusionfusion
 
     [ENV]
-    PERL5LIB                                = # the path to the perl module
-    PYTHONHOME                              = # the path to the python home
-    PYTHONPATH                              = # the path to the python path
-    LD_LIBRARY_PATH                         = # the path to the python library
+    PERL5LIB                    = # the path to the perl module
+    PYTHONHOME                  = # the path to the python home
+    PYTHONPATH                  = # the path to the python path
+    LD_LIBRARY_PATH             = # the path to the python library
 
     
     ######################################################################
