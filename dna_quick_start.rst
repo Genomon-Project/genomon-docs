@@ -124,12 +124,15 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
-  # Mutation Call結果
-  {出力ルートディレクトリ}/mutation/sample名/sample名_genomon_mutations.result.txt
+  # 変異コール結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_mutation_filt.txt
   # SV検出結果
-  {出力ルートディレクトリ}/sv/sample名/sample名.genomonSV.result.txt
-  # summary
-  {出力ルートディレクトリ}/sv/sample名/sample名.xls
-
-結果ファイルの各項目の説明など詳細は :doc:`dna_results` を参照ください．
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_sv_filt.txt
+  # BAMのQuality Controlの結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_qc.txt
+  # Paplotの結果
+  # index.htmlをクリックすることで結果が表示されます．
+  {出力ルートディレクトリ}/paplot/{サンプル設定ファイル名}
+  
+結果ファイルの説明は :doc:`dna_results` を参照ください．
 
