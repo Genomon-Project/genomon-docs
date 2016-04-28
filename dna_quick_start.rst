@@ -31,8 +31,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # Whole Genome解析用パイプライン設定ファイル
   /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
-
-2-2. ANNOVARを使用したい場合、ANNOVARのインストールをします
+2-2. ANNOVARのインストールと設定
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
@@ -40,30 +39,18 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
-  # Genomonで必要なANNOVARのデータベースをダウンロードします．Copy and Pasteして使ってください． 
-  DATABASE_LIST="
-  refGene
-  avsift
-  ljb26_all
-  cosmic68wgs
-  cosmic70
-  esp6500siv2_all
-  1000g2010nov
-  1000g2014oct
-  snp131
-  snp138
-  snp131NonFlagged
-  snp138NonFlagged
-  clinvar_20150629
-  "
-  for DATABASE in $DATABASE_LIST
-  do
-    ./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar $DATABASE humandb/
-  done
-  ./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
-  ./annotate_variation.pl -buildver hg19 -downdb genomicSuperDups humandb/
+  # ANNOVARをダウンロードします．
+  wget {Eメールに記載されたannovar.latest.tar.gzのURL}
+  # ANNOVARを解凍します．
+  tar xzvf annovar.latest.tar.gz
+  # ANNOVARのディレクトリに移動します．
+  cd annovar
+  # Genomonで必要なANNOVARのデータベースをダウンロードするスクリプトをコピーします
+  cp /home/w3varann/genomon_pipeline-2.2.0/genomon_script/annovar_database_download.sh .
+  # ダウンロードを実行します．
+  bash ./annovar_database_download.sh
 
-ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所の変更をお願いします．
+ANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所を変更する必要があります．
 
 .. code-block:: bash
 
