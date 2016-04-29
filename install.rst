@@ -119,9 +119,10 @@ Genomonで使用するデータベースのインストール
 
 .. code-block:: bash
 
+    # TAB変換のツールはこちら
+    git clone https://github.com/Genomon-Project/genomon_utils
     # tabixを作成する
-    wget https://github.com/Genomon-Project/genomon_utils/blob/master/annotator_HGVD.py
-    python annotator_HGVD.py DBexome20131010.tab | sort -k1,1 -k2,2n -k3,3n -k4,4 -k5,5 -k6,6 > DBexome20131010.bed
+    python genomon_utils/annotator_HGVD.py DBexome20131010.tab | sort -k1,1 -k2,2n -k3,3n -k4,4 -k5,5 -k6,6 > DBexome20131010.bed
     tabix-0.2.6/bgzip DBexome20131010.bed
     tabix-0.2.6/tabix DBexome20131010.bed.gz
 
