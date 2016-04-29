@@ -56,7 +56,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'genomon'
+project = u'Genomon'
 copyright = u'2015, Kenichi Chiba, Ai Okada and Yuichi Shiraishi'
 author = u'Kenichi Chiba, Ai Okada, Yuichi Shiraishi and contributors'
 
@@ -232,7 +232,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'genomon.tex', u'genomon Documentation',
+  (master_doc, 'genomon.tex', u'Genomon Documentation',
    u'Kenichi Chiba, and Yuichi Shiraishi', 'manual'),
 ]
 
@@ -262,7 +262,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'genomon', u'genomon Documentation',
+    (master_doc, 'genomon', u'Genomon Documentation',
      [author], 1)
 ]
 
@@ -276,7 +276,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'genomon', u'genomon Documentation',
+  (master_doc, 'genomon', u'Genomon Documentation',
    author, 'genomon', 'One line description of project.',
    'Miscellaneous'),
 ]
