@@ -17,6 +17,7 @@ Genomonで使用しているソフトウェア
 * STAR 2.4 (https://github.com/alexdobin/STAR)
 
 ** Genomon-Projectで製作されたソフトウェア **
+
 * GenomonSV v0.1.2 (https://github.com/Genomon-Project/GenomonSV)
 * fusionfusion v0.1.0 (https://github.com/Genomon-Project/fusionfusion)
 * sv_utils 0.4.0beta (https://github.com/friend1ws/sv_utils)
@@ -29,6 +30,7 @@ Genomonで使用しているソフトウェア
 * GenomonMutationAnnotator v0.3.0 (https://github.com/Genomon-Project/GenomonMutationAnnotator)
 
 **オプショナルで使用することができるソフトウェア**
+
 * ANNOVAR (http://www.openbioinformatics.org/annovar/annovar_download_form.php)
 
 Genomonで使用しているデータベース
@@ -39,6 +41,7 @@ Genomonで使用しているデータベース
 * decoy (`hs37d5cs.fa.gz`_)
 
 **オプショナル使用することができるデータベース**
+
 * HGVD (http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html)
 
 .. _GRCh37-lite.fa.gz: ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
