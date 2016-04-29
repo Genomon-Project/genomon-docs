@@ -76,11 +76,11 @@
 </head>
 <body>
 <dl class="fa filelist">
-	<dt><icon/>test_sample</dt>
+	<dt><icon/>{出力ルートディレクトリ}</dt>
 	<dl>
 		<dt><icon/>fastq</dt>
 		<dl>
-			<dt><icon/>${sample}</dt>
+			<dt><icon/>{サンプル名}</dt>
 			<dl>
 				<dd><icon_text/>single_end_output.txt</dd>
 				<dd><icon_text/>unmatched_first_output.txt</dd>
@@ -91,21 +91,21 @@
 
 		<dt><icon/>bam</dt>
 		<dl>
-			<dt><icon/>${sample}</dt>
+			<dt><icon/>{サンプル名}</dt>
 			<dl>
-				<dd><icon_text/>${sample}.markdup.bam</dd>
-				<dd><icon_text/>${sample}.markdup.bam.bai</dd>
-				<dd><icon_text/>${sample}.markdup.metrics</dd>
-				<dd><icon_text/>${sample}.markdup.bam.md5</dd>
+				<dd><icon_text/>{サンプル名}.markdup.bam</dd>
+				<dd><icon_text/>{サンプル名}.markdup.bam.bai</dd>
+				<dd><icon_text/>{サンプル名}.markdup.metrics</dd>
+				<dd><icon_text/>{サンプル名}.markdup.bam.md5</dd>
 			</dl>
 		</dl>
 
 		<dt><icon/>mutation</dt>
 		<dl>
-			<dt><icon/>${sample}</dt>
+			<dt><icon/>{サンプル名}</dt>
 			<dl>
-				<dd><icon_text/>${sample}.genomon_mutation.result.txt</dd>
-				<dd><icon_text/>${sample}.genomon_mutation.result.filt.txt</dd>
+				<dd><icon_text/>{サンプル名}.genomon_mutation.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.genomon_mutation.result.filt.txt</dd>
 			</dl>
 			<dt><icon/>control_panel</dt>
 			<dl>
@@ -114,18 +114,18 @@
 
 		<dt><icon/>sv</dt>
 		<dl>
-			<dt><icon/>${sample}</dt>
+			<dt><icon/>{サンプル名}</dt>
 			<dl>
-				<dd><icon_text/>${sample}.genomonSV.result.txt</dd>
-				<dd><icon_text/>${sample}.genomonSV.result.filt.txt</dd>
-				<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz</dd>
-				<dd><icon_archive/>${sample}.junction.clustered.bedpe.gz.tbi</dd>
-				<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz</dd>
-				<dd><icon_archive/>${sample}.improper.clustered.bedpe.gz.tbi</dd>
+				<dd><icon_text/>{サンプル名}.genomonSV.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.genomonSV.result.filt.txt</dd>
+				<dd><icon_archive/>{サンプル名}.junction.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>{サンプル名}.junction.clustered.bedpe.gz.tbi</dd>
+				<dd><icon_archive/>{サンプル名}.improper.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>{サンプル名}.improper.clustered.bedpe.gz.tbi</dd>
 			</dl>
 			<dt><icon/>control_panel</dt>
 			<dl>
-				<dd><icon_text/>${sample}${list}.control_info.txt</dd>
+				<dd><icon_text/>{サンプル名}${list}.control_info.txt</dd>
 			</dl>
 			<dt><icon/>non_matched_control_panel</dt>
 			<dl>
@@ -134,17 +134,17 @@
 
 		<dt><icon/>qc</dt>
 		<dl>
-			<dt><icon/>${sample}</dt>
+			<dt><icon/>{サンプル名}</dt>
 			<dl>
-				<dd><icon_text/>${sample}.genomonQC.result.txt</dd>
-				<dd><icon_text/>${sample}.bamstats</dd>
-				<dd><icon_text/>${sample}.coverage</dd>
+				<dd><icon_text/>{サンプル名}.genomonQC.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.bamstats</dd>
+				<dd><icon_text/>{サンプル名}.coverage</dd>
 			</dl>
 		</dl>
 
 		<dt><icon/>post_analysis</dt>
 		<dl>
-			<dt><icon/>${sample_sheet}</dt>
+			<dt><icon/>{サンプル設定ファイル名}</dt>
 				<dl>
 				<dt><icon/>mutation</dt>
 				<dl>
@@ -170,7 +170,7 @@
 
 		<dt><icon/>paplot</dt>
 		<dl>
-			<dt><icon/>${sample_sheet}</dt>
+			<dt><icon/>${サンプル設定ファイル名}</dt>
 			<dl>
 				<dt><icon/>Genomon</dt>
 				<dl>
