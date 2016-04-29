@@ -46,7 +46,7 @@ Genomonで使用するデータベースのインストール
 インストールが必要なデータベースはパイプライン設定ファイルに記載されています．ご使用のコンピュータに各データベースをインストールしてパイプライン設定ファイルの[REFERENCE]に記載されているパスを書き換えてください．
 
 `ref_fasta`
- | cfgに指定したリファレンスゲノムと，それに紐づくbwa indexファイル，FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが，Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
+ | cfgに指定したリファレンスゲノムと，それに紐づくBWA indexファイル，FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが，Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
  
  | 1) Human Genome                                                                                                   
  | `GRCh37-lite.fa.gz`_
@@ -55,9 +55,9 @@ Genomonで使用するデータベースのインストール
  | 3) decoy
  | `hs37d5cs.fa.gz`_
  
- | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば，GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にbwa index, fasta indexを生成する必要があります．
+ | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば，GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にBWA index, FASTA indexを生成する必要があります．
  |
- | ・bwa index ファイルの作成コマンド
+ | ・BWA index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
  | ・FASTA index ファイルの作成コマンド
  | /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
@@ -87,7 +87,7 @@ Genomonで使用するデータベースのインストール
 `bait_file`
  | exomeの場合のbam summaryのcoverageを計算するとき使います．SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います．refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして，そちらをbaitの範囲としています．作成方法は以下のwebサイトに記載しています．
  | https://github.com/ken0-1n/RefGeneTxtToBed
- | Whole genomeシーケンスの場合はbait_fileを使用しません．WGSの場合はdna_genomon.cfgの以下のハイライトのパラメタをTrueに変更してください．
+ | Whole genomeシーケンスの場合はbait_fileを使用しません．Whole Genomeの解析の場合はパイプライン設定ファイルの以下のハイライトのパラメタをTrueに変更してください．
  
 .. code-block:: cfg
     :linenos:
