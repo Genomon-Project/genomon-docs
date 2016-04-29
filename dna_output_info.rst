@@ -9,35 +9,35 @@ DNA解析で出力されるファイルについて
 
 マッピング結果（Bamファイル)
 -----------------------
-| {出力ルートディレクトリ}/bam/{各サンプル}ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/bam/{サンプル名}ディレクトリ内に出力されます．
 
-* **{各サンプル}.markdup.bam** -- Bamファイル．
-* **{各サンプル}.markdup.bam.bai** -- Bam indexファイル．
-* **{各サンプル}.markdup.metrics** -- markduplicateしたリードのmetrics情報．
-* **{各サンプル}.markdup.bam.md5** -- Bamのmd5値．
+* **{サンプル名}.markdup.bam** -- Bamファイル．
+* **{サンプル名}.markdup.bam.bai** -- Bam indexファイル．
+* **{サンプル名}.markdup.metrics** -- markduplicateしたリードのmetrics情報．
+* **{サンプル名}.markdup.bam.md5** -- Bamのmd5値．
 
 変異コール結果
 -----------------------
-| {出力ルートディレクトリ}/mutation/{各サンプル}ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/mutation/{サンプル名}ディレクトリ内に出力されます．
 
-* **{各サンプル}.genomon_mutation.result.filt.txt** -- 変異コール結果．P値などで適切なフィルタ済み．
-* **{各サンプル}.genomon_mutation.result.txt** -- 変異コール結果．フィルタなしのrawデータ．advanced user向け．
+* **{サンプル名}.genomon_mutation.result.filt.txt** -- 変異コール結果．P値などで適切なフィルタ済み．
+* **{サンプル名}.genomon_mutation.result.txt** -- 変異コール結果．フィルタなしのrawデータ．advanced user向け．
 
 SV検出結果
 -----------------------
-| {出力ルートディレクトリ}/sv/{各サンプル}ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/sv/{サンプル名}ディレクトリ内に出力されます．
 
-* **{各サンプル}.genomonSV.result.filt.txt** -- SV検出結果．P値などで適切なフィルタ済み．
-* **{各サンプル}.genomonSV.result.txt** -- SV検出結果．フィルタなしのrawデータ．advanced user向け．
+* **{サンプル名}.genomonSV.result.filt.txt** -- SV検出結果．P値などで適切なフィルタ済み．
+* **{サンプル名}.genomonSV.result.txt** -- SV検出結果．フィルタなしのrawデータ．advanced user向け．
 * **他 bedpe.gzファイルなど** -- デバッグ用のファイル．advanced user向け．
 
 BamのQuality Control結果
 ------------------------
-| {出力ルートディレクトリ}/qc/{各サンプル}ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/qc/{サンプル名}ディレクトリ内に出力されます．
 
-* **{各サンプル}.genomonQC.result.txt** -- QC結果．
-* **{各サンプル}.bamstats** -- Bamのアライメント率の結果など．{各サンプル}.genomonQC.result.txtに含まれている．
-* **{各サンプル}.coverage** -- Bamのカバレッジ結果など．{各サンプル}.genomonQC.result.txtに含まれている．
+* **{サンプル名}.genomonQC.result.txt** -- QC結果．
+* **{サンプル名}.bamstats** -- Bamのアライメント率の結果など．{サンプル名}.genomonQC.result.txtに含まれている．
+* **{サンプル名}.coverage** -- Bamのカバレッジ結果など．{サンプル名}.genomonQC.result.txtに含まれている．
 
 Post_analysis結果
 -----------------------
