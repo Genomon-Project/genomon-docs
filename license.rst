@@ -35,7 +35,8 @@ Genomonで使用しているソフトウェア
 
 Genomonで使用しているデータベース
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-リファレンスゲノム Genomonでは以下の3つのFASTAファイルをマージしたものを使用しています
+**リファレンスゲノム Genomonでは以下の3つのFASTAファイルをマージしたものを使用しています**
+
 * Human Genome (`GRCh37-lite.fa.gz`_)
 * Human herpesvirus 4 complete wild type genome (http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta)
 * decoy (`hs37d5cs.fa.gz`_)
