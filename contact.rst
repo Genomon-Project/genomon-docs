@@ -2,4 +2,4 @@
 ----------
 
 | ご質問やフィードバックなど，お気軽にご連絡ください．
-| genomon.devel@gmail.com.
+| genomon.devel@gmail.com
