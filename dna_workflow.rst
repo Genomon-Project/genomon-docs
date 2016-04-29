@@ -7,7 +7,7 @@ DNA 解析パイプラインSchemes
   
  | Inputの方法は [fastq], [bam_tofastq], [bam_import] の3種類あります．これらはサンプル設定ファイルで定義します．
  |
- | 解析は変異コール, SV検出, BamのQuality Control出力の3種類あり， [mutation_call], [sv_detection], [qc] の項目をサンプル設定ファイルで定義すると実行されます．
+ | 解析は変異コール, SV検出, BAMのQuality Control出力の3種類あり， [mutation_call], [sv_detection], [qc] の項目をサンプル設定ファイルで定義すると実行されます．
  |
  | [mutation_call], [sv_detection], [qc]の各解析が完了した後，自動的にpost Analysis Taskが実行されます．実行したくない場合は，パイプライン設定ファイルを変更する必要があります．
  |
@@ -18,7 +18,7 @@ DNA 解析パイプラインSchemes
 -----------------------
 * **split fastq** -- 並列してマッピングをするためにFASTQを分割します．
 * **map_dna_sequence** -- 分割したFASTQ単位でリファレンスゲノムにマッピング，そしてソートします．
-* **markdup** -- 分割されているソートしたBamを１つにマージして＋重複リードをマークします．
+* **markdup** -- 分割されているソートしたBAMを１つにマージして＋重複リードをマークします．
 
 変異コール Task
 -------------------
@@ -26,20 +26,20 @@ DNA 解析パイプラインSchemes
 
 SV検出 Task
 -------------------
-* **parse_sv** -- Bamファイルから，breakpointやSVの証拠となるリードをparseします．
+* **parse_sv** -- BAMファイルから，breakpointやSVの証拠となるリードをparseします．
 * **merge_sv** -- parse_svの結果から，control panelを作成します．
 * **filt_sv** -- parse_svに対して，control panelやNormalサンプルを用いて偽陽性をフィルタして，SVの候補を検出します．
 
-BamのQuality Control出力 Task
+BAMのQuality Control出力 Task
 ---------------------------
-* **bam_stats** -- Bamのリードとマッピングのstatisticsを生成します．
-* **coverage** -- Bamのcoverageを生成します．
+* **bam_stats** -- BAMのリードとマッピングのstatisticsを生成します．
+* **coverage** -- BAMのcoverageを生成します．
 * **merge_qc** -- bam_statsの結果と，coverageの結果をマージします．
 
 Post Analysis Task
 -------------------
-* **paplot** -- SV検出した候補とBamのQuality Control結果をplotしグラフを出力します．
-* **post_analysis_summary** -- 全サンプルのBamのQuality Control結果を１つのファイルにマージして出力します．
+* **paplot** -- SV検出した候補とBAMのQuality Control結果をplotしグラフを出力します．
+* **post_analysis_summary** -- 全サンプルのBAMのQuality Control結果を１つのファイルにマージして出力します．
 * **post_analysis_sv** -- 全サンプルのSV検出した候補を１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
 
 その他Task
