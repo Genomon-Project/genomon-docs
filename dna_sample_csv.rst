@@ -48,7 +48,7 @@ DNA サンプル設定ファイルについて
   # サンプル名,BAMファイルのパス　と記載してください（カンマ区切りです）
   sample3_tumor,/home/genomon/sample3_T.bam
   
-| bam indexファイル(.bai)がセットで必要です．
+| BAM indexファイル(.bai)がセットで必要です．
 | 
 
 [mutation_call],[sv_detection]の記載方法
