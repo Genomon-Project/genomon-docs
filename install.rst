@@ -178,7 +178,7 @@ Genomonで呼び出されるソフトウェアのインストール
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用して各種データ (dbsnp131など) をダウンロードします．
+| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用してdbSNP131などの各種データをダウンロードします．
 
 .. code-block:: bash
 
@@ -205,7 +205,7 @@ Genomonで呼び出されるソフトウェアのインストール
   ./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
   ./annotate_variation.pl -buildver hg19 -downdb genomicSuperDups humandb/
 
-ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所の変更をお願いします．
+ANNOVARを使用するようにパイプライン設定ファイルを編集する．以下の2か所の変更をお願いします．
 
 .. code-block:: bash
 
