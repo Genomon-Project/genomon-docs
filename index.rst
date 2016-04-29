@@ -3,9 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-# .. image:: https://img.shields.io/badge/python-2.7-blue.svg
-#     :target: https://img.shields.io/badge/python-2.7-blue.svg
-
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
@@ -25,7 +22,7 @@
    start_up.rst
    dna_quick_start.rst
    rna_quick_start.rst
-   lisence.rst
+   license.rst
 
 .. toctree::
    :maxdepth: 2
