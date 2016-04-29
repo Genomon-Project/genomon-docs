@@ -53,7 +53,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 
 ダウンロードが完了したらANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所を変更する必要があります．
 
-.. code-block:: cfg
+.. code-block:: bash
   :linenos:
   :emphasize-lines: 2,6
   
@@ -64,6 +64,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   [annotation]
   active_annovar_flag = True
   FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
+
 
 2．テストサンプルでGenomonを実行してみる
 ----------------------------------------
