@@ -314,7 +314,7 @@ QC結果 (BAMのQuality Control)
  N以上のdepthを持つbase総数
  
 
-※ coverage Nは設定ファイルパイプライン設定ファイルで指定した値です．
+※ coverage Nはパイプライン設定ファイルで指定した値です．
 
 .. code-block:: cfg
     :linenos:
