@@ -45,7 +45,7 @@ DNA サンプル設定ファイルについて
 
 .. code-block:: bash
 
-  # サンプル名,BAMファイルのパスと記載してください（カンマ区切りです）
+  # サンプル名,BAMファイルのパス　と記載してください（カンマ区切りです）
   sample3_tumor,/home/genomon/sample3_T.bam
   
 | bam indexファイル(.bai)がセットで必要です．
@@ -87,7 +87,7 @@ DNA サンプル設定ファイルについて
 
 .. code-block:: bash
 
-  # コントロールパネル名,Normalサンプル1,Normalサンプル2,Normalサンプル3,・・・,NormalサンプルNと記載してください．
+  # コントロールパネル名,Normalサンプル1,Normalサンプル2,Normalサンプル3,・・・,NormalサンプルN　と記載してください．
   panel1,sample1_normal,sample2_normal,sample3_normal,sample4_normal
   panel2,sample5_normal,sample6_normal,sample7_normal,sample8_normal
   
