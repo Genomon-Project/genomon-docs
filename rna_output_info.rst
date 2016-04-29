@@ -8,12 +8,12 @@ RNA 解析で出力されるファイルについて
   :scale: 110%
 	
 	
-マッピング結果（Bamファイル)
+マッピング結果（BAMファイル)
 -----------------------
 | {出力ルートディレクトリ}/star/{サンプル名}ディレクトリ内に出力されます．
 
-* **{サンプル名}.Aligned.sortedByCoord.out.bam** -- Bamファイル．
-* **{サンプル名}.Aligned.sortedByCoord.out.bam.bai** -- Bam indexファイル．
+* **{サンプル名}.Aligned.sortedByCoord.out.bam** -- BAMファイル．
+* **{サンプル名}.Aligned.sortedByCoord.out.bam.bai** -- BAM indexファイル．
 
 
 Fusion検出結果
