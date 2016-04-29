@@ -7,16 +7,16 @@ RNA サンプル設定ファイルのについて
 | [fastq]         | FASTQファイルを入力として解析します               |
 +-----------------+---------------------------------------------------+
 
-RNA解析では[fastq]のみ指定します．FASTQファイルを指定しgenomonを実行するだけでfusionの結果が出力されます.
+RNA解析では[fastq]のみ指定します．FASTQファイルを指定しGenomonを実行するだけで融合遺伝子検出結果が出力されます.
 
 [fastq]の記載方法
 ^^^^^^^^^^^^^^^^^
 
-項目[fastq]にはinput fastqファイルのパスを記載します．
+項目[fastq]には入力FASTQファイルのパスを記載します．
 
 .. code-block:: bash
 
-  # サンプル名,read1.fastq,read2.fastq  と記載します（カンマ区切りです）
+  # サンプル名,ペアリードの1つ目のFASTQ,ペアリードの2つ目のFASTQ  と記載します（カンマ区切りです）
   sample1_tumor,/home/genomon/sample1_T_read1.fastq,/home/genomon/sample1_T_read2.fastq
   sample1_normal,/home/genomon/sample1_N_read1.fastq,/home/genomon/sample1_N_read2.fastq
 
