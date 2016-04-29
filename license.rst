@@ -16,7 +16,7 @@ Genomonで使用しているソフトウェア
 * tophat2 2.0.14.Linux (http://ccb.jhu.edu/software/tophat/index.shtml)
 * STAR 2.4 (https://github.com/alexdobin/STAR)
 
-・Genomon-Projectで製作されたソフトウェア
+** Genomon-Projectで製作されたソフトウェア **
 * GenomonSV v0.1.2 (https://github.com/Genomon-Project/GenomonSV)
 * fusionfusion v0.1.0 (https://github.com/Genomon-Project/fusionfusion)
 * sv_utils 0.4.0beta (https://github.com/friend1ws/sv_utils)
@@ -28,7 +28,7 @@ Genomonで使用しているソフトウェア
 * paplot v0.2.8 (https://github.com/Genomon-Project/paplot)
 * GenomonMutationAnnotator v0.3.0 (https://github.com/Genomon-Project/GenomonMutationAnnotator)
 
-・オプショナルで使用することができるソフトウェア
+**オプショナルで使用することができるソフトウェア**
 * ANNOVAR (http://www.openbioinformatics.org/annovar/annovar_download_form.php)
 
 Genomonで使用しているデータベース
@@ -38,7 +38,7 @@ Genomonで使用しているデータベース
 * Human herpesvirus 4 complete wild type genome (http://www.ncbi.nlm.nih.gov/nuccore/82503188?report=fasta)
 * decoy (`hs37d5cs.fa.gz`_)
 
-・オプショナル使用することができるデータベース
+**オプショナル使用することができるデータベース**
 * HGVD (http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html)
 
 .. _GRCh37-lite.fa.gz: ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
