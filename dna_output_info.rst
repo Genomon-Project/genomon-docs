@@ -7,14 +7,14 @@ DNA 解析で出力されるファイルについて
  .. image:: image/dna_tree.png
   :scale: 100%
 
-マッピング結果（Bamファイル)
+マッピング結果（BAMファイル)
 -----------------------
 | {出力ルートディレクトリ}/bam/{サンプル名}ディレクトリ内に出力されます．
 
-* **{サンプル名}.markdup.bam** -- Bamファイル．
-* **{サンプル名}.markdup.bam.bai** -- Bam indexファイル．
+* **{サンプル名}.markdup.bam** -- BAMファイル．
+* **{サンプル名}.markdup.bam.bai** -- BAM indexファイル．
 * **{サンプル名}.markdup.metrics** -- markduplicateしたリードのmetrics情報．
-* **{サンプル名}.markdup.bam.md5** -- Bamのmd5値．
+* **{サンプル名}.markdup.bam.md5** -- BAMのmd5値．
 
 変異コール結果
 -----------------------
@@ -31,13 +31,13 @@ SV検出結果
 * **{サンプル名}.genomonSV.result.txt** -- SV検出結果．フィルタなしのrawデータ．advanced user向け．
 * **他 bedpe.gzファイルなど** -- デバッグ用のファイル．advanced user向け．
 
-BamのQuality Control結果
+BAMのQuality Control結果
 ------------------------
 | {出力ルートディレクトリ}/qc/{サンプル名}ディレクトリ内に出力されます．
 
 * **{サンプル名}.genomonQC.result.txt** -- QC結果．
-* **{サンプル名}.bamstats** -- Bamのアライメント率の結果など．{サンプル名}.genomonQC.result.txtに含まれている．
-* **{サンプル名}.coverage** -- Bamのカバレッジ結果など．{サンプル名}.genomonQC.result.txtに含まれている．
+* **{サンプル名}.bamstats** -- BAMのアライメント率の結果など．{サンプル名}.genomonQC.result.txtに含まれている．
+* **{サンプル名}.coverage** -- BAMのカバレッジ結果など．{サンプル名}.genomonQC.result.txtに含まれている．
 
 Post_analysis結果
 -----------------------
@@ -48,7 +48,7 @@ Post_analysis結果
 * **merge_genomon_mutations.result.txt** -- 変異コール結果をマージしたファイル(フィルタなし)．
 * **merge_genomon_sv.result.filt.txt** -- SV検出結果をマージしたファイル．
 * **merge_genomon_sv.result.txt** -- SV検出結果をマージしたファイル(フィルタなし)．
-* **merge_genomon_qc.result.txt** -- BamのQuality Control結果をマージしたファイル．
+* **merge_genomon_qc.result.txt** -- BAMのQuality Control結果をマージしたファイル．
 
 | このThe Integrative Genomics Viewer (IGV) で読み込むと，変異CAll結果とSVのポジションが画像として保存されます．
 
