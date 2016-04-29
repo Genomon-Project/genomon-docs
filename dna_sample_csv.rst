@@ -83,7 +83,7 @@ DNA サンプル設定ファイルについて
 [controlpanel]の記載方法
 ^^^^^^^^^^^^
 
-項目[controlpanel]には，Normalのサンプル名を複数指定して，コントロールパネル名を付けてNormalサンプルの集まりとして指定します．
+項目[controlpanel]には，Normalサンプル名を複数指定して，コントロールパネル名を付けてNormalサンプルの集まりとして指定します．
 
 .. code-block:: bash
 
