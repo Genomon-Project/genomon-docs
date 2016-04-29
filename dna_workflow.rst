@@ -30,7 +30,7 @@ SV検出 Task
 * **merge_sv** -- parse_svの結果から，control panelを作成します．
 * **filt_sv** -- parse_svに対して，control panelやNormalサンプルを用いて偽陽性をフィルタして，SVの候補を検出します．
 
-QC (Bam Summary) 出力 Task
+BamのQuality Control出力 Task
 ---------------------------
 * **bam_stats** -- Bamのリードとマッピングのstatisticsを生成します．
 * **coverage** -- Bamのcoverageを生成します．
