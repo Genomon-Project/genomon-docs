@@ -87,7 +87,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
-  # Fusion検出結果
+  # 融合遺伝子検出結果
   {出力ルートディレクトリ}/fusion/{サンプル名}/fusion_fusion.result.txt
 
 結果ファイルの説明は :doc:`rna_results` を参照ください．
