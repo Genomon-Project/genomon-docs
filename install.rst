@@ -9,7 +9,7 @@ HGCスパコン以外のコンピュータにインストールする場合に�
 * Linux
 * Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
 * DRMシステムを入れて運用する程度のスペックのあるコンピュータ
- ※HGCではGrid Engineを使用しています
+ ※HGCスパコンではGrid Engineを使用しています
  
  
 Genomonのインストール
