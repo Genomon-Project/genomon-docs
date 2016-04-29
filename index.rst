@@ -22,7 +22,6 @@
    start_up.rst
    dna_quick_start.rst
    rna_quick_start.rst
-   license.rst
 
 .. toctree::
    :maxdepth: 2
@@ -51,4 +50,11 @@
    :caption: Install Documentation
 
    install.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Information
+
+   license.rst
+   contact.rst
 
