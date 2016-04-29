@@ -1,6 +1,6 @@
---------------------------------
+
 Genomonインストール
---------------------------------
+-------------------
 
 HGCスパコン以外のコンピュータにインストールする場合に必要な手順です．
 
@@ -43,7 +43,7 @@ GenomonとGenomonを動かすのに必要なpythonパッケージのインスト
 Genomonで使用するデータベースのインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-インストールが必要なデータベースはパイプライン設定ファイルに記載されています．
+インストールが必要なデータベースはパイプライン設定ファイルに記載されています．ご使用のコンピュータに各データベースをインストールしてパイプライン設定ファイルの[REFERENCE]に記載されているパスを書き換えてください．
 
 `ref_fasta`
  | cfgに指定したリファレンスゲノムと，それに紐づくbwa indexファイル，FASTA indexファイルを用意する必要があります．まずはメインのリファレンスゲノムですが，Genomon2では以下の3つのFASTAファイルをマージしたものを使用しています．
@@ -125,33 +125,10 @@ Genomonで使用するデータベースのインストール
     tabix-0.2.6/tabix DBexome20131010.bed.gz
 
 
-・パイプライン設定ファイルの[REFERENCE]に記載されているデータベース一覧
+Genomonで呼び出されるソフトウェアのインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+---------------+--------------------------------------------------------------+----------------------------+
-| 項目          | webサイト                                                    | コメント                   |
-+===============+==============================================================+============================+
-| ref_fasta     | http://www.ncbi.nlm.nih.gov/refseq/publications/             |                            |
-|               |                                                              |                            |
-+---------------+--------------------------------------------------------------+----------------------------+
-| interval_list | https://github.com/Genomon-Project/genomon_utils/blob/master |                            |
-|               | GRCh37_noScaffold_noDecoy.interval_list                      |                            |
-+---------------+--------------------------------------------------------------+----------------------------+
-| star_genome   | SOFTWARE.STARと同じwebサイト                                 | STAR index                 |
-+---------------+--------------------------------------------------------------+----------------------------+
-| hg19_genome   | SOFTWARE.bedtoolsと同じwebサイト                             | bedtoolsに含まれているFile |
-+---------------+--------------------------------------------------------------+----------------------------+
-| gaptxt        | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/     |                            |
-+---------------+--------------------------------------------------------------+----------------------------+
-| bait_file     | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/     | refGene.txtをもとに作成    |
-+---------------+--------------------------------------------------------------+----------------------------+
-| simple_repeat | http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/     | simpleRepeat.txtにtabixをつ|
-| _tabix_db     |                                                              | けたもの                   |
-+---------------+--------------------------------------------------------------+----------------------------+
-| HGVD_tabix_db | http://www.genome.med.kyoto-u.ac.jp/SnpDB/index.html?        | HGVDにtabixをつけたもの    |
-+---------------+--------------------------------------------------------------+----------------------------+
-
-
-・ソフトウェアについて記載一覧
+インストールが必要なソフトウェアはパイプライン設定ファイルに記載されています．ご使用のコンピュータに各ソフトウェアをインストールしてパイプライン設定ファイルの[SOFTWARE]に記載されているパスを書き換えてください
 
 +--------------+-------------------------------------------------------------+----------------------------+
 | 項目         | webサイト                                                   | コメント                   |
@@ -197,24 +174,7 @@ Genomonで使用するデータベースのインストール
 | ANNOVAR      | http://annovar.openbioinformatics.org/en/latest/            | versionは最新でよい        |
 +--------------+-------------------------------------------------------------+----------------------------+
 
-
-
-
-
-
-
-
-実行時の環境設定
-^^^^^^^^^^^^^^^^
-ジョブを投入するときに使うDRAMMのライブラリを設定します．
-
-.. code-block:: bash
-
-  # N1GE用のDRMAA（HGCスパコンであればこちらでOK）です．ご使用しているDRMシステムのライブラリに変更をお願いします．
-  export DRMAA_LIBRARY_PATH= the path to the libdrmaa.so.1.0
-
- 
-2-2. ANNOVARを使用したい場合，ANNOVARのインストールをします
+**ANNOVARを使用する場合の設定について**
 
 | ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
 | http://www.openbioinformatics.org/annovar/annovar_download_form.php
@@ -254,38 +214,29 @@ ANNOVARを使用するようにdna_genomon.cfgを編集する．以下の2か所
   (例)annovar = /home/genomon/tools/annovar
 
   [annotation]
-  active_annovar_flag = False
-  をTrueに変更する (ANNOVARの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+  active_annovar_flag = True
+  FalseをTrueに変更する (ANNOVARの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
 
-2-3. HGVDの使用について
 
-| HGVDのサイトのをお読みいただいた上，使用規約等に問題がなければdna_genomon.cfgを編集する
+**HGVDを使用する場合の設定について**
+
+| HGVDのサイトのをお読みいただいた上，使用規約等に問題がなければパイプライン設定ファイルを編集する
 | http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
 
 .. code-block:: bash
 
-  active_HGVD_flag = False
-  をTrueに変更する (HGVDの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
+  active_HGVD_flag = True
+  FalseをTrueに変更する (HGVDの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
 
-  
-
-
-
-ここからはHGCスパコン以外のコンピュータにインストールする場合に必要な手順です．
-GenomonはHGC以外のスパコンではないサーバでも稼働実績があります．
-
-
-
-4. Genomonで使用しているデータベースのインストール
+ 
+実行時の環境設定
 ^^^^^^^^^^^^^^^^
+ジョブを投入するときに使うDRAMMのライブラリを設定します．
 
+.. code-block:: bash
 
-
-
-5. Genomonで使用しているソフトウェアのインストール
-^^^^^^^^^^^^^^^^
-
-GenomonPipeline/{dna/rna}_genomon.cfgのカテゴリ[SOFTWARE]に記載されているソフトをインストールする必要があります．ご使用のコンピュータにインストールして${dna/rna}_genomon.cfgを書き換えてください
+  # N1GE用のDRMAA（HGCスパコンであればこちらでOK）です．ご使用しているDRMシステムのライブラリに変更をお願いします．
+  export DRMAA_LIBRARY_PATH= the path to the libdrmaa.so.1.0
 
 
 .. _GRCh37-lite.fa.gz: ftp://ftp.ncbi.nih.gov/genomes/archive/old_genbank/Eukaryotes/vertebrates_mammals/Homo_sapiens/GRCh37/special_requests/GRCh37-lite.fa.gz
