@@ -1,6 +1,5 @@
-========================================
-RNA解析で出力されるファイルについて
-========================================
+RNA 解析で出力されるファイルについて
+====================================
 
 出力ディレクトリ階層
 ---------------------
@@ -9,20 +8,20 @@ RNA解析で出力されるファイルについて
   :scale: 100%
 	
 	
-マッピング結果（BAM)
+マッピング結果（Bamファイル)
 -----------------------
-| star/$sample(各サンプル)ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/star/{サンプル名}ディレクトリ内に出力されます．
 
-* **${sample}.Aligned.sortedByCoord.out.bam** -- BAMファイル．
-* **${sample}.Aligned.sortedByCoord.out.bam.bai** -- BAM indexファイル．
+* **{サンプル名}.Aligned.sortedByCoord.out.bam** -- Bamファイル．
+* **{サンプル名}.Aligned.sortedByCoord.out.bam.bai** -- Bam indexファイル．
 
 
 Fusion検出結果
 -----------------------
-| fusion/$sample(各サンプル)ディレクトリ内に出力されます．
+| {出力ルートディレクトリ}/fusion/{サンプル名}ディレクトリ内に出力されます．
 
-* **${sample}_fusion_fusion.result.txt** -- fusionfusion結果ファイル．
-* **${sample}_star.fusion.result.txt** -- 中間ファイル．デバッグ用．
+* **{サンプル名}_fusion_fusion.result.txt** -- 融合遺伝子検出結果ファイル．
+* **{サンプル名}_star.fusion.result.txt** -- 中間ファイル．デバッグ用．
 
 config log script
 -----------------------
