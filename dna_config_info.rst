@@ -102,51 +102,51 @@ DNA パイプライン設定ファイルについて
     qsub_option = -l s_vmem=5.3G,mem_req=5.3G
     
     [fisher_mutation_call]
-    # 変異ポジションのリード数が指定した数以下であれば候補の対象となりません,tumor normalともに指定した本数以上なければなりません
+    # 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．Tumor Normalともに指定した本数以上なければなりません．
     min_depth = 8
     # mapping qualityが指定した値以下であればその情報は使用されません．
     map_quality = 20
     # base qualityが指定した値以下であればその情報は使用されません．
     base_quality = 15
-    # tumoreのvariant readがこの値以上でなければ候補の対象となりません．
+    # Tumorのvariant readがこの値以上でなければ候補の対象となりません．
     min_variant_read = 4
-    # tumorのallele比がこの値以下であれば候補の対象となりません．
+    # Tumorのアレル比がこの値以下であれば候補の対象となりません．
     disease_min_allele_frequency = 0.02
-    # normalのallele比がこの値以上であれば候補の対象となりません．
+    # Normalのallele比がこの値以上であれば候補の対象となりません．
     control_max_allele_frequency = 0.1
-    # fihser検定による結果の閾値です．
+    # Fihser検定による結果の閾値です．
     fisher_thres_hold = 0.1
     # 変異アレルのリード数は二項分布でモデル化できますが，これをベイズ的にやろうとしてベータ分布を利用し，その結果の10% posterio quantileを閾値としています.
     post_10_q = 0.02
-    # fisher_thres_holdとの違いは，こちらの値はmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
+    # fisher_thres_holdとの違いは，こちらの値は変異コールの結果のrawデータであるmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
     fisher_pval-log10_thres = 1.0
     # post_10_qとの違いは，こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
     post_10_q_thres = 0.1
     
     [realignment_filter]
-    # tumorの変異数が指定した値以上であれば，フィルタ済み結果ファイルに出力されます
+    # Tumorの変異数が指定した値以上であれば，フィルタ済み結果ファイルに出力されます
     disease_min_mismatch=4
-    # normalの変異数が指定した値以下であれば，フィルタ済み結果ファイルに出力されます
+    # Normalの変異数が指定した値以下であれば，フィルタ済み結果ファイルに出力されます
     control_max_mismatch=2
     # リードリアライメント時にはマルチアライメントしているのですが，1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，そのリードを使用しないという設定です
     score_diff=5
-    # リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異position + window size(bases)のリファレンスゲノムを作っています．
+    # リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
     window_size=200
-    # 対象の変異positionがこの値以上であればrealignment対象となりません．
+    # 対象の変異positionがこの値以上であればリアライメント対象となりません．
     max_depth=5000
-    # こちらの値はmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
+    # こちらの値は変異コールの結果のrawデータであるmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
     fisher_pval-log10_thres = 1.0
     # こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
     post_10_q_thres = 0.1
     
     [indel_filter]
-    # indelをsearchするときの範囲をしていします search_length(bases) + 変異position + search_length(bases)の範囲で探しに行きます
+    # indelを検索するときの範囲を指定します search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
     search_length=40
-    # 探し出したindelが候補のポジションから指定した値のrange内にいればindelフィルタの対象とします
+    # 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
     neighbor=5
-    # samtools mpileupをつかって，indelをサーチするのですが，mpileupのオプションである-qの値となります．deletionの場合はbasequalityは無視されます．
+    # samtools mpileupをつかって，indelを検索するのですが，mpileupのオプションである-qの値となります．deletionの場合はbase qualityは無視されます．
     base_quality=20
-    #depthと書かれている場合は変異ポジションのリード数のthresholdになります．
+    #depthと書かれている場合は変異ポジションのリード数の閾値になります．
     min_depth=8
     max_mismatch=100000
     max_allele_freq=1
@@ -201,9 +201,9 @@ DNA パイプライン設定ファイルについて
     [pa_plot]
     # paplotを使用しない場合はFalse
     enable = True
-    # pairを設定していないサンプルをpaplotの対象から除く場合はFalse
+    # ペアを設定していないサンプルをpaplotの対象から除く場合はFalse
     include_unpair = True
-    # controlpanelを使用しないサンプルをpaplotの対象から除く場合はFalse
+    # コントロールパネルを使用しないサンプルをpaplotの対象から除く場合はFalse
     include_unpanel = True
     title = Genomon
     remarks = Data used in this report were generated using below software.
