@@ -37,9 +37,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
-  # 実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv /home/genomon/output_test_RNA /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv {出力ルートディレクトリ} {作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．
@@ -67,9 +65,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
-  # 実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv /home/genomon/output_RNA /home/genomon/rna_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna {作成したサンプル設定ファイル} {出力ルートディレクトリ} {作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．
