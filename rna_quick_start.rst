@@ -69,7 +69,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # Genomonを実行する
   bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ：rna} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
   # 実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/genomon/sample_config.csv /home/genomon/output_RNA /home/genomon/rna_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv /home/genomon/output_RNA /home/genomon/rna_genomon.cfg
   #
   # 解析タイプ
   #   'rna'を指定します．
