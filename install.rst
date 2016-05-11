@@ -7,10 +7,11 @@ HGCスパコン以外のコンピュータにインストールする場合に�
 インストール必須要件
 ^^^^^^^^^^^^^^^^^^^^
 * Linux
+* python2.7
 * Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
 * DRMシステムを入れて運用する程度のスペックのあるコンピュータ
  ※HGCスパコンではGrid Engineを使用しています
- 
+
  
 Genomonのインストール
 ^^^^^^^^^^^^^^^^^^^^^
@@ -18,6 +19,9 @@ GenomonとGenomonを動かすのに必要なpythonパッケージのインスト
 必要なパッケージは４つです→Genomon，ruffus，PyYAML，drmaa
 
 .. code-block:: bash
+
+  # インストールを始める前に，
+  # python2.7であることを確認してください．
 
   # Genomonのダウンロードとインストール
   wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.2.0.tar.gz
