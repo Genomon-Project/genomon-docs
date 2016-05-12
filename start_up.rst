@@ -24,13 +24,13 @@ GenomonはHGCスパコン以外のサーバで稼働実績があります．Geno
 .. code-block:: bash
 
   # DNA exome解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_exome_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv {output_directory} /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
 
   # DNA whole genome解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna sample_config.csv /home/genomon/sample_DNA_WGS_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv {output_directory} /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
 
   # RNA解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna sample_config.csv /home/genomon/sample_RNA_ACC /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_rna/sample_config_RNA.csv {output_directory} /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/rna_genomon.cfg
   
   * qloginをする必要があります．
 
