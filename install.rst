@@ -1,4 +1,9 @@
 
+.strike {
+  text-decoration: line-through;
+}
+
+
 Genomonインストール
 -------------------
 
@@ -90,7 +95,7 @@ Genomonで使用するデータベースのインストール
 
 `bait_file`
  | exomeの場合のbam summaryのcoverageを計算するとき使います．SureSelectなど使用したbaitファイルがある場合はそちらを設定してください．無い場合はrefGene.coding.exon.bedを使用してもらえればと思います．refGene.coding.exon.bed はrefGene.txtのcoding exon領域だけをとりだして，そちらをbaitの範囲としています．作成方法は以下のwebサイトに記載しています．
- | https://github.com/ken0-1n/RefGeneTxtToBed
+ | :strike:`https://github.com/ken0-1n/RefGeneTxtToBed`
  | Whole genomeシーケンスの場合はbait_fileを使用しません．Whole Genomeの解析の場合はパイプライン設定ファイルの以下のハイライトのパラメタをTrueに変更してください．
  
 .. code-block:: cfg
