@@ -1,15 +1,11 @@
 # genomon-documentation
 Welcome to genomon’s documentation!
 
-[正式版]
-
-http://genomon.readthedocs.org/ja/master/
-
-[開発版]
+[最新のドキュメントはこちら]
 
 http://genomon.readthedocs.org/ja/latest/
 
-[read the docs]
+[read the docs (開発者向け)]
 
 https://readthedocs.org/projects/genomon/
 
