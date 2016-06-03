@@ -55,7 +55,7 @@ Genomon Office Hourの使い方
 | ２．キャンセルの理由を記入のうえ、「Confirm Cancellation」をクリックしてください。
 |
 
- .. image:: image/genomon_office_hour_3.PNG
+ .. image:: image/genomon_office_hour_4.PNG
   :scale: 100%
 
 
