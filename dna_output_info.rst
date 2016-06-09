@@ -51,7 +51,7 @@ Post_analysis結果
 * **merge_mutation_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
 * **merge_mutation.txt** -- 上記４つのファイルをマージしたファイル．
 | 変異コール結果 フィルタ済み
-* **merge_mutation_filt_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルの結果をマージしたファイル．[パターン1]
+* **merge_mutation_filt_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルありの結果をマージしたファイル．[パターン1]
 * **merge_mutation_filt_pair.txt** -- サンプルがペア、コントロールパネルなしの結果をマージしたファイル．[パターン2]
 * **merge_mutation_filt_unpair_controlpanel.txt** -- サンプルがペアでない、コントロールパネルありの結果をマージしたファイル．[パターン3]
 * **merge_mutation_filt_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
