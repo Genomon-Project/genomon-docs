@@ -42,13 +42,37 @@ BAMのQuality Control結果
 Post_analysis結果
 -----------------------
 | サンプル毎に出力される変異コールやSV検出結果をマージしたファイルを取得できます．
-| 同じ名前のファイルがある場合，ファイルは上書きされます．
+| サンプル設定ファイルの[mutation_call][sv_detection]にはパターン１～パターン４の記載方法がありますが、その単位でマージしたファイルがpost_analysisの結果に出力されます。
+|
+| 変異コール結果
+* **merge_mutation_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルありの結果をマージしたファイル．[パターン1]
+* **merge_mutation_pair.txt** -- サンプルがペア、コントロールパネルなしの結果をマージしたファイル．[パターン2]
+* **merge_mutation_unpair_controlpanel.txt** -- サンプルがペアでない、コントロールパネルありの結果をマージしたファイル．[パターン3]
+* **merge_mutation_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
+* **merge_mutation.txt** -- 上記４つのファイルをマージしたファイル．
+| 変異コール結果 フィルタ済み
+* **merge_mutation_filt_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルの結果をマージしたファイル．[パターン1]
+* **merge_mutation_filt_pair.txt** -- サンプルがペア、コントロールパネルなしの結果をマージしたファイル．[パターン2]
+* **merge_mutation_filt_unpair_controlpanel.txt** -- サンプルがペアでない、コントロールパネルありの結果をマージしたファイル．[パターン3]
+* **merge_mutation_filt_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
+* **merge_mutation_filt.txt** -- 上記４つのファイルをマージしたファイル．
+| SV検出結果
+* **merge_sv_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルありの結果をマージしたファイル．[パターン1]
+* **merge_sv_pair.txt** -- サンプルがペア、コントロールパネルなしの結果をマージしたファイル．[パターン2]
+* **merge_sv_unpair_controlpanel.txt** -- サンプルがペアでない、コントロールパネルありの結果をマージしたファイル．[パターン3]
+* **merge_sv_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
+* **merge_sv.txt** -- 上記４つのファイルをマージしたファイル．
+| SV検出結果 フィルタ済み
+* **merge_sv_filt_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルの結果をマージしたファイル．[パターン1]
+* **merge_sv_filt_pair.txt** -- サンプルがペア、コントロールパネルなしの結果をマージしたファイル．[パターン2]
+* **merge_sv_filt_unpair_controlpanel.txt** -- サンプルがペアでない、コントロールパネルありの結果をマージしたファイル．[パターン3]
+* **merge_sv_filt_unpair.txt** -- サンプルがペアでない、コントロールパネルなしの結果をマージしたファイル．[パターン4]
+* **merge_sv_filt.txt** -- 上記４つのファイルをマージしたファイル．
+| BAMのQuality Control結果
+* **merge_qc.txt** -- 結果をマージしたファイル．
 
-* **merge_genomon_mutations.result.filt.txt** -- 変異コール結果をマージしたファイル．
-* **merge_genomon_mutations.result.txt** -- 変異コール結果をマージしたファイル(フィルタなし)．
-* **merge_genomon_sv.result.filt.txt** -- SV検出結果をマージしたファイル．
-* **merge_genomon_sv.result.txt** -- SV検出結果をマージしたファイル(フィルタなし)．
-* **merge_genomon_qc.result.txt** -- BAMのQuality Control結果をマージしたファイル．
+
+
 
 | このThe Integrative Genomics Viewer (IGV) で読み込むと，変異CAll結果とSVのポジションが画像として保存されます．
 
