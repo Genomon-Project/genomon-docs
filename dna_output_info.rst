@@ -42,7 +42,7 @@ BAMのQuality Control結果
 Post_analysis結果
 -----------------------
 | サンプル毎に出力される変異コールやSV検出結果をマージしたファイルを取得できます．
-| :doc:`dna_sample_csv` の[mutation_call][sv_detection]にはパターン１～パターン４の記載方法がありますが、その単位でマージしたファイルがpost_analysisの結果に出力されます。
+| :doc:`dna_sample_csv` の記載方法には[mutation_call][sv_detection]にはパターン１～パターン４がありますが、その単位でマージしたファイルがpost_analysisの結果に出力されます。
 |
 | 変異コール結果
 * **merge_mutation_pair_controlpanel.txt** -- サンプルがペア、コントロールパネルありの結果をマージしたファイル．[パターン1]
