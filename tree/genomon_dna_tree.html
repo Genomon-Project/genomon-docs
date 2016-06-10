@@ -1,0 +1,208 @@
+<html lang="ja">
+<head>
+  <title>tree</title>
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <style type="text/css">
+  .filelist{
+    background-color: #EEEEEE;
+    padding: 12px 24px 12px 24px;
+    border: 1px solid #CCCCCC;
+    margin: 4px;
+    font-size: 16px;
+    font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+    display: block;
+    color: #333333;
+  }
+  .filelist dt, .filelist dd{
+    margin: 0px;
+    padding: 4px 0 4px 0;
+  }
+  .filelist dl{
+    margin: 0px;
+    padding: 0px 0px 0px 30px;
+  }
+  /* dir style */
+  .filelist dl dt:before, .filelist dl dd:before{
+    content: "┗";
+    float: left;
+    width: 20px;
+    margin-left: -20px;
+    color: #D36015;
+  }
+  .filelist dt icon:before{
+    content: "\f07c";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #D36015;
+  }
+  /* files icons */
+  .filelist dd icon_text:before{
+    content: "\f15c";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_archive:before{
+    content: "\f1c6";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_xls:before{
+    content: "\f1c3";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  .filelist dd icon_image:before{
+    content: "\f1c5";
+    font-family: FontAwesome;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    color: #2660A1;
+  }
+  </style>
+</head>
+<body>
+<dl class="fa filelist">
+	<dt><icon/>{出力ルートディレクトリ}</dt>
+	<dl>
+		<dt><icon/>fastq</dt>
+		<dl>
+			<dt><icon/>{サンプル名}</dt>
+			<dl>
+				<dd><icon_text/>single_end_output.txt</dd>
+				<dd><icon_text/>unmatched_first_output.txt</dd>
+				<dd><icon_text/>unmatched_second_output.txt</dd>
+				<dd><icon_text/>fastq_line_num.txt</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>bam</dt>
+		<dl>
+			<dt><icon/>{サンプル名}</dt>
+			<dl>
+				<dd><icon_text/>{サンプル名}.markdup.bam</dd>
+				<dd><icon_text/>{サンプル名}.markdup.bam.bai</dd>
+				<dd><icon_text/>{サンプル名}.markdup.metrics</dd>
+				<dd><icon_text/>{サンプル名}.markdup.bam.md5</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>mutation</dt>
+		<dl>
+			<dt><icon/>{サンプル名}</dt>
+			<dl>
+				<dd><icon_text/>{サンプル名}.genomon_mutation.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.genomon_mutation.result.filt.txt</dd>
+			</dl>
+			<dt><icon/>control_panel</dt>
+			<dl>
+			</dl>
+		</dl>
+
+		<dt><icon/>sv</dt>
+		<dl>
+			<dt><icon/>{サンプル名}</dt>
+			<dl>
+				<dd><icon_text/>{サンプル名}.genomonSV.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.genomonSV.result.filt.txt</dd>
+				<dd><icon_archive/>{サンプル名}.junction.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>{サンプル名}.junction.clustered.bedpe.gz.tbi</dd>
+				<dd><icon_archive/>{サンプル名}.improper.clustered.bedpe.gz</dd>
+				<dd><icon_archive/>{サンプル名}.improper.clustered.bedpe.gz.tbi</dd>
+			</dl>
+			<dt><icon/>control_panel</dt>
+			<dl>
+				<dd><icon_text/>{コントロールパネル名}.control_info.txt</dd>
+			</dl>
+			<dt><icon/>non_matched_control_panel</dt>
+			<dl>
+			</dl>
+		</dl>
+
+		<dt><icon/>qc</dt>
+		<dl>
+			<dt><icon/>{サンプル名}</dt>
+			<dl>
+				<dd><icon_text/>{サンプル名}.genomonQC.result.txt</dd>
+				<dd><icon_text/>{サンプル名}.bamstats</dd>
+				<dd><icon_text/>{サンプル名}.coverage</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>post_analysis</dt>
+		<dl>
+			<dt><icon/>{サンプル設定ファイル名}</dt>
+				<dl>
+				<dt><icon/>mutation</dt>
+				<dl>
+					<dt><icon/>capture_script</dt>
+					<dl>
+						<dd><icon_text/>capture.bat</dd>
+					</dl>
+				</dl>
+				
+				<dt><icon/>sv</dt>
+				<dl>
+					<dt><icon/>capture_script</dt>
+					<dl>
+						<dd><icon_text/>capture.bat</dd>
+					</dl>
+				</dl>
+				
+				<dd><icon_text/>merge_genomon_mutations.result.filt.txt</dd>
+				<dd><icon_text/>merge_genomon_mutations.result.txt</dd>
+				<dd><icon_text/>merge_genomon_sv.result.filt.txt</dd>
+				<dd><icon_text/>merge_genomon_sv.result.txt</dd>
+				<dd><icon_text/>merge_genomon_qc.result.txt</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>paplot</dt>
+		<dl>
+			<dt><icon/>${サンプル設定ファイル名}</dt>
+			<dl>
+				<dt><icon/>Genomon</dt>
+				<dl>
+				</dl>
+				<dt><icon/>lib</dt>
+				<dl>
+				</dl>
+				<dt><icon/>style</dt>
+				<dl>
+				</dl>
+				<dt><icon/>js</dt>
+				<dl>
+				</dl>
+				<dd><icon_text/>index.html</dd>
+			</dl>
+		</dl>
+
+		<dt><icon/>config</dt>
+		<dl>
+		</dl>
+
+		<dt><icon/>log</dt>
+		<dl>
+		</dl>
+
+		<dt><icon/>script</dt>
+		<dl>
+		</dl>
+
+	</dl>
+</dl>
+</body>
+</html>
