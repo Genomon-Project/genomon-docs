@@ -26,9 +26,9 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
 .. code-block:: bash
 
   # Exome解析用パイプライン設定ファイルはこちらにあります
-  /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_exome_genomon.cfg
+  /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/dna_exome_genomon.cfg
   # Whole Genome解析用パイプライン設定ファイルはこちらにあります
-  /home/w3varann/genomon_pipeline-2.2.0/genomon_conf/dna_wgs_genomon.cfg
+  /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/dna_wgs_genomon.cfg
 
 変異コールの結果にANNOVARによるアノテーションを行うことをお奨めします．（ANNOVARをインストールしなくてもGenomonは実行できます．ANNOVARのインストールが必要ない方は，次の「2．テストサンプルでGenomonを実行してみる」にお進み下さい．以下にHGCスパコンへのANNOVARのインストールとGenomonへの設定方法を記載しました．
 
@@ -47,7 +47,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # ANNOVARのディレクトリに移動します．
   cd annovar
   # Genomonで必要なANNOVARのデータベースをダウンロードするスクリプトをコピーします
-  cp /home/w3varann/genomon_pipeline-2.2.0/genomon_script/annovar_database_download.sh .
+  cp /home/w3varann/genomon_pipeline-2.3.0/genomon_script/annovar_database_download.sh .
   # ANNOVARのスクリプトを使用してダウンロードを実行します．
   bash ./annovar_database_download.sh
 
@@ -74,12 +74,12 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.3.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'dna'を指定します．
   # サンプル設定ファイル
-  #   /home/w3varann/genomon_pipeline-2.2.0/test_data/test_dna/sample_config_DNA.csvを指定します．
+  #   /home/w3varann/genomon_pipeline-2.3.0/test_data/test_dna/sample_config_DNA.csvを指定します．
   # 出力ルートディレクトリ
   #   任意の出力ルートディレクトリを指定します．
   # パイプライン設定ファイル
@@ -104,7 +104,7 @@ HGCスパコンでのDNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.2.0/genomon_script/genomon_pipeline_HGC.sh dna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh dna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'dna'を指定します．

@@ -11,9 +11,10 @@ HGCスパコン以外のコンピュータにインストールする場合に�
 * python2.7
 * Drmaa(http://www.drmaa.org/)が使用できるDRMシステム
 * DRMシステムを入れて運用する程度のスペックのあるコンピュータ
- ※HGCスパコンではGrid Engineを使用しています
 
- 
+| ※HGCスパコンではGrid Engineを使用しています
+|
+
 Genomonのインストール
 ^^^^^^^^^^^^^^^^^^^^^
 GenomonとGenomonを動かすのに必要なpythonパッケージのインストールについて記載します．
@@ -25,9 +26,9 @@ GenomonとGenomonを動かすのに必要なpythonパッケージのインスト
   # python2.7であることを確認してください．
 
   # Genomonのダウンロードとインストール
-  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.2.0.tar.gz
-  tar xzvf v2.2.0.tar.gz
-  cd GenomonPipeline-v2.2.0
+  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.3.0.tar.gz
+  tar xzvf v2.3.0.tar.gz
+  cd GenomonPipeline-v2.3.0
   python setup.py install --user
 
   # ruffusのダウンロードとインストール
@@ -76,6 +77,7 @@ Genomonで使用するデータベースのインストール
  | Star indexファイルを作成する必要があります．解析対象のreadのおよその長さに合わせてオプション --sjdbOverhang の指定を変えることができますが，100で大体よいとマニュアルに書いてあって，実際に問題なく検出できているので，現在はread lengthによって変えなくても良しとしています
 
 .. code-block:: bash
+
     #STAR index ファイルの作成コマンド
     STAR \
     --runThreadN 8 \
@@ -188,7 +190,7 @@ Genomonで呼び出されるソフトウェアのインストール
 +--------------+-------------------------------------------------------------+----------------------------+
 | STAR         | https://github.com/alexdobin/STAR                           | 2.4                        |
 +--------------+-------------------------------------------------------------+----------------------------+
-| STAR-Fusion  | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.2.0では未使用   |
+| STAR-Fusion  | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.3.0では未使用   |
 +--------------+-------------------------------------------------------------+----------------------------+
 | fusionfusion | https://github.com/Genomon-Project/fusionfusion             | v0.1.0                     |
 +--------------+-------------------------------------------------------------+----------------------------+

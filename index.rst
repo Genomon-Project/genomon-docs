@@ -6,8 +6,8 @@
 .. image:: image/genomon_kun.png
 .. image:: image/genomon_logo.png
 
-—The Zen of Cancer Genome Sequence Analysis
------------------------
+The Zen of Cancer Genome Sequence Analysis
+-------------------------------------------------
 
 * **Version** -- v2.2
 * *Stable* -- `v.2.0`_
