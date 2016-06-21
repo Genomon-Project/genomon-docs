@@ -1,12 +1,12 @@
 はじめに
 ========
 
-ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン)にGenomonはすでにインストールされております．HGCスパコンアカウントをお持ちの方は，以下のコマンドを実行するだけで，DNA，RNA解析ができます．
+ヒトゲノム解析センタースーパーコンピュータ（HGCスパコン）にGenomonはすでにインストールされております．HGCスパコンアカウントをお持ちの方は，以下のコマンドを実行するだけで，DNA／RNA解析ができます．
 
-GenomonはHGCスパコン以外のサーバで稼働実績があります．Genomonインストール方法については，:doc:`install` を参照してください．またご不明な点がございましたら、お気軽にお問い合わせいただければと思います．genomon.devel@gmail.com
+GenomonはHGCスパコン以外のサーバで稼働実績があります．Genomonインストール方法については，:doc:`install` を参照してください．またご不明な点がございましたら，お気軽にお問い合わせいただければと思います．genomon.devel@gmail.com
 
 .. code-block:: bash
-　
+
   # HGCスパコンでのGenomon使用方法
   bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
 
