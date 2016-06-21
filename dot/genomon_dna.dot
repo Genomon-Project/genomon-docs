@@ -10,8 +10,9 @@ digraph "Genomon Pipeline Schemes DNA"
 	subgraph clustertasks
 	{
 		rank="min";
-		fontname = "helvetica"
+		fontname = "helvetica";
 		fontcolor = "#FF3232";
+		fontsize = "18";
 		label = "Genomon Pipeline Schemes DNA";
 
 		#### nodes
@@ -27,33 +28,10 @@ digraph "Genomon Pipeline Schemes DNA"
 		t_split_files       [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="split_files"];
 		t_map_dna_sequence  [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="map_dna_sequence"];
 		t_markdup           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="markdup"];
-		t_bam_stats         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="bam_stats"];
-		t_coverage          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="coverage"];
-		t_parse_sv          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="parse_sv"];
-		t_merge_sv          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="merge_sv"];
-		t_filt_sv           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="filt_sv"];
-		t_mutations         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="identify_mutations"];
-		t_merge_qc          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="merge_qc"];
-		t_pa_qc             [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_qc"];
-		t_pa_sv             [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_sv"];
-		t_pa_mutation       [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_mutation"];
-		t_paplot_qc         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
-		t_paplot_sv         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
-#		t_paplot_mu         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
 
 		# output
 		t_output_bam        [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="markdup.bam"];
-		t_output_mutation   [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomon_mutation.result.txt"];
-		t_output_qc         [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomonQC.result.txt"];
-		t_output_sv         [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomonSV.result.txt"];
-		t_output_pa_sv_i    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="capture.IGV"];
-		t_output_pa_mu_i    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="capture.IGV"];
-		t_output_pa_qc_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
-		t_output_pa_sv_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
-		t_output_pa_mu_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
-		t_output_paplot_qc  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
-		t_output_paplot_sv  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
-#		t_output_paplot_mu  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
+		
 
 		#### lines
 		# input
@@ -62,46 +40,129 @@ digraph "Genomon Pipeline Schemes DNA"
 		t_input_bamimport -> t_link_import_bam[color="#0044A0"];
 
 		# stage
-		t_link_import_bam -> t_output_bam[color="#0044A0"];
 		t_bam2fastq -> t_split_files[color="#0044A0"];
 		t_link_input_fastq -> t_split_files[color="#0044A0"];
 		t_split_files -> t_map_dna_sequence[color="#0044A0"];
 		t_map_dna_sequence -> t_markdup[color="#0044A0"];
+		t_link_import_bam -> t_output_bam[color="#0044A0"];
 		t_markdup -> t_output_bam[color="#0044A0"];
-		t_output_bam -> t_parse_sv[color="#0044A0"];
-		t_output_bam -> t_mutations[color="#0044A0"];
 		t_output_bam -> t_bam_stats[color="#0044A0"];
 		t_output_bam -> t_coverage[color="#0044A0"];
-		t_bam_stats -> t_merge_qc[color="#0044A0"];
-		t_coverage -> t_merge_qc[color="#0044A0"];
-		t_parse_sv -> t_merge_sv[color="#0044A0"];
-		t_merge_sv -> t_filt_sv[color="#0044A0"];
+		t_output_bam -> t_mutations[color="#0044A0"];
+		t_output_bam -> t_parse_sv[color="#0044A0"];
 
-		# output
-		t_mutations -> t_output_mutation[color="#0044A0"];
-		t_merge_qc -> t_output_qc[color="#0044A0"];
-		t_filt_sv -> t_output_sv[color="#0044A0"];
+		subgraph clustertasks_mutation
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = " [mutation_call]";
+			style = dashed;
 
-		#### post_analysis
-		t_output_qc -> t_pa_qc[color="#0044A0"];
-		t_output_sv -> t_pa_sv[color="#0044A0"];
-		t_output_mutation -> t_pa_mutation[color="#0044A0"];
+			#### nodes
+			t_mutations         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="identify_mutations"];
+			t_pa_mutation       [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_mutation"];
+			t_paplot_mu         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
 
-		t_pa_qc -> t_output_pa_qc_m[color="#0044A0"];
-		t_pa_sv -> t_output_pa_sv_m[color="#0044A0"];
-		t_pa_mutation -> t_output_pa_mu_m[color="#0044A0"];
-		t_pa_sv -> t_output_pa_sv_i[color="#0044A0"];
-		t_pa_mutation -> t_output_pa_mu_i[color="#0044A0"];
+			# output
+			t_output_mutation   [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomon_mutation.result.txt"];
+			t_output_pa_mu_i    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="capture.IGV"];
+			t_output_pa_mu_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			t_output_paplot_mu  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
 
-		#### paplot
-		t_output_qc -> t_paplot_qc[color="#0044A0"];
-		t_output_sv -> t_paplot_sv[color="#0044A0"];
-#		t_output_mutation -> t_paplot_mu[color="#0044A0"];
+			#### lines
+			# output
+			t_mutations -> t_output_mutation[color="#0044A0"];
 
-		t_paplot_qc -> t_output_paplot_qc[color="#0044A0"];
-		t_paplot_sv -> t_output_paplot_sv[color="#0044A0"];
-#		t_paplot_mu -> t_output_paplot_mu[color="#0044A0"];
+			#### post_analysis
+			t_output_mutation -> t_pa_mutation[color="#0044A0"];
+			t_pa_mutation -> t_output_pa_mu_m[color="#0044A0"];
+			t_pa_mutation -> t_output_pa_mu_i[color="#0044A0"];
+
+			#### paplot
+			t_output_pa_mu_m -> t_paplot_mu[color="#0044A0"];
+			t_paplot_mu -> t_output_paplot_mu[color="#0044A0"];
+		}
+		subgraph clustertasks_sv
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = "[sv_detection]";
+			style = dashed;
+
+			#### nodes
+			t_parse_sv          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="parse_sv"];
+			t_merge_sv          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="merge_sv"];
+			t_filt_sv           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="filt_sv"];
+			t_pa_sv             [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_sv"];
+			t_paplot_sv         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
+
+			# output
+			t_output_sv         [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomonSV.result.txt"];
+			t_output_pa_sv_i    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="capture.IGV"];
+			t_output_pa_sv_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			t_output_paplot_sv  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
+
+			#### lines
+			# stage
+			t_parse_sv -> t_merge_sv[color="#0044A0"];
+			t_merge_sv -> t_filt_sv[color="#0044A0"];
+
+			# output
+			t_filt_sv -> t_output_sv[color="#0044A0"];
+
+			#### post_analysis
+			t_output_sv -> t_pa_sv[color="#0044A0"];
+			t_pa_sv -> t_output_pa_sv_m[color="#0044A0"];
+			t_pa_sv -> t_output_pa_sv_i[color="#0044A0"];
+
+			#### paplot
+			t_output_pa_sv_m -> t_paplot_sv[color="#0044A0"];
+			t_paplot_sv -> t_output_paplot_sv[color="#0044A0"];
+		}
+			
+		subgraph clustertasks_qc
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = "[qc]";
+			style = dashed;
+
+			#### nodes
+			t_bam_stats         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="bam_stats"];
+			t_coverage          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="coverage"];
+			t_merge_qc          [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="merge_qc"];
+			t_pa_qc             [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_qc"];
+			t_paplot_qc         [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
+
+			# output
+			t_output_qc         [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="genomonQC.result.txt"];
+			t_output_pa_qc_m    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			t_output_paplot_qc  [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
+
+			#### lines
+			# stage
+			t_bam_stats -> t_merge_qc[color="#0044A0"];
+			t_coverage -> t_merge_qc[color="#0044A0"];
+
+			# output
+			t_merge_qc -> t_output_qc[color="#0044A0"];
+
+			#### post_analysis
+			t_output_qc -> t_pa_qc[color="#0044A0"];
+			t_pa_qc -> t_output_pa_qc_m[color="#0044A0"];
+
+			#### paplot
+			t_output_pa_qc_m -> t_paplot_qc[color="#0044A0"];
+			t_paplot_qc -> t_output_paplot_qc[color="#0044A0"];
+		}
 	}
+
 	subgraph clusterkey1
 	{
 		rank = "min";

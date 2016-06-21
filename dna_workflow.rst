@@ -20,27 +20,30 @@ DNA 解析パイプラインSchemes
 * **map_dna_sequence** -- 分割したFASTQ単位でリファレンスゲノムにマッピング，そしてソートします．
 * **markdup** -- 分割されているソートしたBAMを１つにマージして＋重複リードをマークします．
 
-変異コール Task
--------------------
+変異コール Task (mutation_call)
+------------------------------------
 * **identify_mutations** -- 変異コールします.
 
-SV検出 Task
--------------------
+SV検出 Task (sv_detection)
+------------------------------
+
 * **parse_sv** -- BAMファイルから，breakpointやSVの証拠となるリードをparseします．
 * **merge_sv** -- parse_svの結果から，control panelを作成します．
 * **filt_sv** -- parse_svに対して，control panelやNormalサンプルを用いて偽陽性をフィルタして，SVの候補を検出します．
 
-BAMのQuality Control出力 Task
----------------------------
+BAMのQuality Control出力 Task (qc)
+--------------------------------------
+
 * **bam_stats** -- BAMのリードとマッピングのstatisticsを生成します．
 * **coverage** -- BAMのcoverageを生成します．
 * **merge_qc** -- bam_statsの結果と，coverageの結果をマージします．
 
 Post Analysis Task
 -------------------
-* **paplot** -- SV検出した候補とBAMのQuality Control結果をplotしグラフを出力します．
-* **post_analysis_summary** -- 全サンプルのBAMのQuality Control結果を１つのファイルにマージして出力します．
+* **paplot** -- 各結果をplotしグラフを出力します．
+* **post_analysis_qc** -- 全サンプルのBAMのQuality Control結果を１つのファイルにマージして出力します．
 * **post_analysis_sv** -- 全サンプルのSV検出した候補を１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
+* **post_analysis_mutation** -- 全サンプルの変異コールを１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
 
 その他Task
 ----------
