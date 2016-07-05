@@ -15,7 +15,7 @@ Genomon Office Hourの使い方
 | Webブラウザで `Genomon Office Hour <https://genomon-office.youcanbook.me/>`_ のページを開きます．
 | 
 | このようなページが表示されます．水色の時間帯が予約可能です．
-| 
+| ※前日の17:00締切
 
  .. image:: image/genomon_office_hour_1.PNG
   :scale: 100%
