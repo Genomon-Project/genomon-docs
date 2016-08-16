@@ -87,5 +87,9 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 
   # 融合遺伝子検出結果
   {出力ルートディレクトリ}/fusion/{サンプル名}/fusion_fusion.result.txt
+  
+  # paplotの結果
+  # index.htmlをクリックすることで結果が表示されます．
+  {出力ルートディレクトリ}/paplot/{サンプル設定ファイル名}
 
 結果ファイルの説明は :doc:`rna_results` を参照ください．

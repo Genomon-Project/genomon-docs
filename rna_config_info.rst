@@ -21,6 +21,8 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     STAR                        = # the path to the STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
     STAR-Fusion                 = # the path to the STAR-Fusion-master/STAR-Fusion
     fusionfusion                = # the path to the bin/fusionfusion
+    genomon_pa                  = # the path to the bin/genomon_pa
+    pa_plot                     = # the path to the bin/pa_plot
 
     [ENV]
     PERL5LIB                    = # the path to the perl module
@@ -54,5 +56,19 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     qsub_option = -l ljob,s_vmem=5.3G,mem_req=5.3G
     param_file = /home/w3varann/database/fusionfusion_hg19/param.cfg
     
-    
+    ##########
+    ## Post Analysis
+    [pa_plot]
+    enable = True
+    title = Genomon_RNA
+    remarks = Data used in this report were generated using below software.
+    software = genomon_pipeline:Genomon-Pipeline, tophat2:tophat2, STAR:STAR, STAR-Fusion:STAR-Fusion, fusionfusion:fusionfusion
+
+    config_file = # the path to the config file of paplot
+    qsub_option = -l s_vmem=2G,mem_req=2G
+
+    [post_analysis]
+    enable = True
+    config_file = # the path to the config file of post_analysis
+    qsub_option = -l s_vmem=2G,mem_req=2G
     

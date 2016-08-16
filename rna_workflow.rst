@@ -12,6 +12,12 @@ RNA 解析パイプラインSchemes
 * **task_star_align** -- Starによるリファレンスゲノムにアライメントを実行します．
 * **task_fusion_fusion** -- 融合遺伝子を検出します．
 
+Post Analysis Task
+-------------------
+* **paplot** -- 各結果をplotしグラフを出力します．
+* **post_analysis_starqc** -- 全サンプルのfastqのQuality Control結果を１つのファイルにマージして出力します．
+* **post_analysis_fusionfusion** -- 全サンプルの融合遺伝子を検出を１つのファイルにマージして出力します．
+
 その他Task
 -----------
 

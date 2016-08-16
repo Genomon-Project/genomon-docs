@@ -23,6 +23,32 @@ Fusion検出結果
 * **{サンプル名}_fusion_fusion.result.txt** -- 融合遺伝子検出結果ファイル．
 * **{サンプル名}_star.fusion.result.txt** -- 中間ファイル．デバッグ用．
 
+
+Post_analysis結果
+-----------------------
+
+| サンプル毎に出力される変異コールやSV検出結果をマージしたファイルを取得できます．
+|
+| Fusion検出結果
+|
+
+* merge_fusionfusion.txt
+
+| fastqのQuality Control結果
+|
+
+* merge_starqc.txt
+
+paplot結果
+-----------------------
+
+| Fusion検出結果とfastqのQuality Control結果をビジュアライゼーションした結果です．
+| paplotディレクトリをダウンロードし，index.htmlをダブルクリックしてください．結果を確認できます．
+|
+
+paplotの使い方についてはこちら
+http://paplot-jp.readthedocs.org/ja/latest/
+
 config log script
 -----------------------
 
