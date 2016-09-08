@@ -14,19 +14,142 @@ digraph "Genomon Pipeline Schemes RNA"
 		fontcolor = "#FF3232";
 		label = "Genomon Pipeline Schemes RNA";
 
-		t3[color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", label="[fastq]", shape=box3d, style=filled];
+		#### nodes
+		# input
+		t_input_bam2fastq   [color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", shape=box3d, style=filled, label="[bam_tofastq]"];
+		t_input_fastq         [color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", shape=box3d, style=filled, label="[fastq]"];
+		t_input_bamimport     [color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", shape=box3d, style=filled, label="[bam_import]"];
+		
+		# stage
+		t_bam2fastq           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="bam2fastq"];
+		t_link_import_bam     [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="link_import_bam"];
+		t_link_input_fastq    [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="link_input_fastq"];
+		t_star                [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="task_star_align"];
+		
+		# output
+		t_output_star         [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="Aligned.sortedByCoord.out.bam"];
+		t_output_starqc       [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="Log.final.out"];
+		
+		#### lines
+		# input
+		t_input_bam2fastq -> t_bam2fastq[color="#0044A0"];
+		t_input_fastq -> t_link_input_fastq[color="#0044A0"];
+		t_input_bamimport -> t_link_import_bam[color="#0044A0"];
+		
+		# stage
+		t_bam2fastq -> t_star[color="#0044A0"];
+		t_link_input_fastq -> t_star[color="#0044A0"];
+		
+		t_star -> t_output_star[color="#0044A0"];
+		t_star -> t_output_starqc[color="#0044A0"];
+		t_link_import_bam -> t_output_star[color="#0044A0"];
+		t_link_import_bam -> t_output_starqc[color="#0044A0"];
+		
+		t_output_star -> t_fusion_c[color="#0044A0"];
+		t_output_star -> t_expression[color="#0044A0"];
+		t_output_starqc -> t_pa_starqc[color="#0044A0"];
+	
+		subgraph clustertasks_fusion
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = " [fusion]";
+			style = dashed;
 
-		t0[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="link_input_fastq", shape=box3d, style=filled];
-		t1[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="task_star_align", shape=box3d, style=filled];
-		t2[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="task_fusionfusion", shape=box3d, style=filled];
+			#### nodes
+			t_fusion_c            [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="task_fusion_count"];
+			t_fusion_m            [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="task_fusion_merge"];
+			t_fusion              [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="task_fusionfusion"];
+			t_pa_ff               [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_fusionfusion"];
+			t_paplot_ff           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
+			
+			# output
+			t_output_fusion       [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="fusion_fusion.result.txt"];
+			t_output_pa_ff        [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			t_output_paplot_ff    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
 
-		t4[color="#1C1C1C", fillcolor="#EFA03B", fontcolor="#000000", label="fusion_fusion.result.txt", shape=box3d, style=filled];
+			#### lines
+			# stage
+			t_fusion_c -> t_fusion_m[color="#0044A0"];
+			t_fusion_m -> t_fusion[color="#0044A0"];
+			
+			# output
+			t_fusion -> t_output_fusion[color="#0044A0"];
 
-		t0 -> t1[color="#0044A0"];
-		t1 -> t2[color="#0044A0"];
-		t3 -> t0[color="#0044A0"];
-		t2 -> t4[color="#0044A0"];
+			# post_analysis
+			t_output_fusion -> t_pa_ff[color="#0044A0"];
+			t_pa_ff -> t_output_pa_ff[color="#0044A0"];
+
+			# paplot
+			t_output_pa_ff -> t_paplot_ff[color="#0044A0"];
+			t_paplot_ff -> t_output_paplot_ff[color="#0044A0"];
+		}
+
+		subgraph clustertasks_expression
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = " [expression]";
+			style = dashed;
+
+			#### nodes
+			# nodes
+			t_expression              [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="task_genomon_expression"];
+			#t_pa_expression           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_expression"];
+			#t_paplot_expression       [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
+			
+			# output
+			t_output_expression       [color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", shape=box3d, style=filled, label="sym2fkpm.txt"];
+			#t_output_pa_expression    [color="#33220D", fillcolor="#EBF3FF", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			#t_output_paplot_expression[color="#33220D", fillcolor="#EBF3FF", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
+			
+
+			#### lines
+			# stage
+			t_expression -> t_output_expression[color="#0044A0"];
+			
+			# post_analysis
+			#t_output_expression -> t_pa_expression[color="#0044A0"];
+			#t_pa_expression -> t_output_pa_expression[color="#0044A0"];
+
+			# paplot
+			#t_output_pa_expression -> t_paplot_expression[color="#0044A0"];
+			#t_paplot_expression -> t_output_paplot_expression[color="#0044A0"];
+		}
+
+		subgraph clustertasks_starqc
+		{
+			rank="min";
+			fontname = "helvetica";
+			fontcolor = "#0044A0";
+			fontsize = "18";
+			label = " [qc]";
+			style = dashed;
+
+			#### nodes
+			# nodes
+			t_pa_starqc           [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="post_analysis_star_qc"];
+			t_paplot_starqc       [color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", shape=box3d, style=filled, label="paplot"];
+			
+			# output
+			t_output_pa_starqc    [color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="merge.result"];
+			t_output_paplot_starqc[color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", shape=box3d, style=filled, label="plot"];
+			
+
+			#### lines
+			# post_analysis
+			t_pa_starqc -> t_output_pa_starqc[color="#0044A0"];
+
+			# paplot
+			t_output_pa_starqc -> t_paplot_starqc[color="#0044A0"];
+			t_paplot_starqc -> t_output_paplot_starqc[color="#0044A0"];
+		}
 	}
+	
 	subgraph clusterkey1
 	{
 		rank = "min";
@@ -40,8 +163,12 @@ digraph "Genomon Pipeline Schemes RNA"
 		node[margin="0.2,0.2", fontname = "helvetica", fontsize="10"];
 		k1_1[color="#006000", fillcolor="#B8CC6E", fontcolor="#006000", label="Input", shape=box3d, style=filled];
 		k2_1[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="Task to run", shape=box3d, style=filled];
-		k4_1[color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", label="Output", shape=box3d, style=filled];
+		k3_1[color="#33220D", fillcolor="#F8CA31", fontcolor="#33220D", label="Output", shape=box3d, style=filled];
+		k4_1[color="#0044A0", fillcolor="#EBF3FF", fontcolor="#0044A0", label="Task to run", shape=box3d, style=filled];
+		k5_1[color="#33220D", fillcolor="#EFA03B", fontcolor="#33220D", label="Post Analysis Output", shape=box3d, style=filled];
 		k1_1 -> k2_1[color="#0044A0", arrowtype=normal];
-		k2_1 -> k4_1[color="#0044A0", arrowtype=normal];
+		k2_1 -> k3_1[color="#0044A0", arrowtype=normal];
+		k3_1 -> k4_1[color="#0044A0", arrowtype=normal];
+		k4_1 -> k5_1[color="#0044A0", arrowtype=normal];
 	}
 }

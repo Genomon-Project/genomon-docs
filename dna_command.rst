@@ -12,7 +12,7 @@ DNA 解析コマンドを実行する
 
 :解析タイプ: ``dna`` / ``rna``
 
-  | DNA解析をする場合は，dna を，RNA解析をする場合は，rna を指定します．
+  | dna を指定します．
 
 :サンプル設定ファイル: ``/path/to/sample_config.csv``
 

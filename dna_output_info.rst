@@ -106,7 +106,7 @@ https://www.broadinstitute.org/software/igv/batch
 paplot結果
 -----------------------
 
-| SV検出結果とQC結果をビジュアライゼーションした結果です．
+| 変異コール、SV検出結果とQC結果をビジュアライゼーションした結果です．
 | paplotディレクトリをダウンロードし，index.htmlをダブルクリックしてください．結果を確認できます．
 |
 

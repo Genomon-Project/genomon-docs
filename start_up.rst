@@ -8,7 +8,7 @@ GenomonはHGCスパコン以外のサーバで稼働実績があります．Geno
 .. code-block:: bash
 
   # HGCスパコンでのGenomon使用方法
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh {解析タイプ} {サンプル設定ファイル} {出力ルートディレクトリ} {パイプライン設定ファイル}
 
 ご使用者にやっていただくことは，コマンドに必要な４つのパラメータを指定していただき，HGCにインストール済みのGenomonを実行するだけです．
 
@@ -24,13 +24,16 @@ GenomonはHGCスパコン以外のサーバで稼働実績があります．Geno
 .. code-block:: bash
 
   # DNA exome解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.3.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/dna_exome_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.4.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/dna_exome_genomon.cfg
 
   # DNA whole genome解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.3.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/dna_wgs_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.4.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/dna_wgs_genomon.cfg
+
+  # DNA target genome解析の実行例
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh dna /home/w3varann/genomon_pipeline-2.4.0/test_data/test_dna/sample_config_DNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/dna_target_genomon.cfg
 
   # RNA解析の実行例
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.30/test_data/test_rna/sample_config_RNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/rna_genomon.cfg
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.30/test_data/test_rna/sample_config_RNA.csv {出力ルートディレクトリ} /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/rna_genomon.cfg
   
   * qloginをする必要があります．
 

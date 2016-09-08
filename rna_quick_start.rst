@@ -25,7 +25,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 .. code-block:: bash
 
   # RNA解析用パイプライン設定ファイルはこちらにあります
-  /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/rna_genomon.cfg
+  /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/rna_genomon.cfg
   
 2．テストサンプルでGenomonを実行してみる
 ----------------------------------------
@@ -37,12 +37,12 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.3.0/test_data/test_rna/sample_config_RNA.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh rna /home/w3varann/genomon_pipeline-2.4.0/test_data/test_rna/sample_config_RNA.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．
   # サンプル設定ファイル
-  #   /home/w3varann/genomon_pipeline-2.3.0/test_data/test_rna/sample_config_RNA.csvを指定します．
+  #   /home/w3varann/genomon_pipeline-2.4.0/test_data/test_rna/sample_config_RNA.csvを指定します．
   # 出力ルートディレクトリ
   #   任意の出力ルートディレクトリを指定します．
   # パイプライン設定ファイル
@@ -51,11 +51,10 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 3. サンプル設定ファイルを作成する
 ---------------------------------
 
-サンプル設定ファイルには解析対象のFASTQを指定します．
-
-サンプル設定ファイルの記載方法は  :doc:`rna_sample_csv` を参照ください．
-
-サンプル設定ファイルの拡張子は.csvにしてください．
+| サンプル設定ファイルには解析対象のFASTQやBAMファイル，どの解析（融合遺伝子，発現量，BAMのQuality Control）を実行するのかを指定します．
+| サンプル設定ファイルの記載方法は  :doc:`rna_sample_csv` を参照ください．
+| サンプル設定ファイルの名前は任意で設定可能ですが，拡張子は ``.csv`` としてください．
+| 
 
 4．Genomonを実行する
 --------------------
@@ -67,7 +66,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.3.0/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.4.0/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．
@@ -85,7 +84,16 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 
 .. code-block:: bash
 
+  # 発現量解析結果
+  {出力ルートディレクトリ}/expression/{サンプル名}/{サンプル名}.sym2fkpm.txt
+  
   # 融合遺伝子検出結果
-  {出力ルートディレクトリ}/fusion/{サンプル名}/fusion_fusion.result.txt
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_fusionfusion_filt.txt
+  # BAMのQuality Controlの結果
+  {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_starqc.txt
+  
+  # paplotの結果
+  # index.htmlをクリックすることで結果が表示されます．
+  {出力ルートディレクトリ}/paplot/{サンプル設定ファイル名}
 
 結果ファイルの説明は :doc:`rna_results` を参照ください．
