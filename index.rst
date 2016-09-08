@@ -10,9 +10,11 @@ The Zen of Cancer Genome Sequence Analysis
 -------------------------------------------------
 
 * **Version** -- v2.4
-* *Stable* -- `v.2.0`_
+* *Stable* -- `v.2.0`_ `v.2.2`_ `v.2.3`_
 
 .. _v.2.0: http://genomon.readthedocs.org/ja/v2.0/
+.. _v.2.2: http://genomon.readthedocs.org/ja/v2.2/
+.. _v.2.3: http://genomon.readthedocs.org/ja/v2.3/
 .. _Yuki Tsujita: http://jp.linkedin.com/pub/yuki-tsujita/7/692/582
 
 .. toctree::
