@@ -55,7 +55,7 @@ digraph "Genomon Pipeline Schemes RNA"
 			fontname = "helvetica";
 			fontcolor = "#0044A0";
 			fontsize = "18";
-			label = " [fusionfusion]";
+			label = " [fusion]";
 			style = dashed;
 
 			#### nodes

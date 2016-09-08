@@ -20,7 +20,7 @@ sample_normal,None,None
 sample_tumor,sample_normal,panel1
 sample_normal,None,None
 
-[summary]
+[qc]
 sample_tumor
 sample_normal
 
