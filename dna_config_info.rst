@@ -128,6 +128,7 @@ DNA パイプライン設定ファイルについて
     [eb_filter]
     map_quality = 20
     base_quality = 15
+    filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
 
     [annotation]
     active_annovar_flag = False
