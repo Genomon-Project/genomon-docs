@@ -73,38 +73,6 @@ DNA 解析結果ファイルの説明
 
 Tumor V.S. Normalで比較　(パターン１, パターン２)
 **************************************************
-
-変異コール結果ファイルはパイプライン設定ファイルの以下のハイライトの値でフィルタしています．
-
-.. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 3,8,10,15,22
-
-    [fisher_mutation_call]
-    # Fisher（P-value）>= 1.0
-    fisher_pval-log10_thres = 1.0
-    post_10_q_thres = 0.1
-
-    [realignment_filter]
-    # variantPairNum_tumor >= 4
-    disease_min_mismatch=4
-    # variantPairNum_normal <= 2
-    control_max_mismatch=2
-    score_diff=5
-    window_size=200
-    max_depth=5000
-    # P-value(fisher)_realignment: >= 1.0
-    fisher_pval-log10_thres = 1.0
-    post_10_q_thres = 0.1
-
-    [eb_filter]
-    map_quality = 20
-    base_quality = 15
-    # EBCall（P-value）>= 4.0
-    ebcall_pval-log10_thres = 4.0
-
-
-
 各カラムの説明
 ^^^^^^^^^^^^^^^^^^^
 
@@ -208,36 +176,6 @@ Tumor V.S. Normalで比較　(パターン１, パターン２)
 
 Normalなし　(パターン３, パターン４)
 ***************************************
-
-変異コール結果ファイルはパイプライン設定ファイルの以下のハイライトの値でフィルタしています．
-
-.. code-block:: cfg
-    :linenos:
-    :emphasize-lines: 3,8,14,21
-
-    [fisher_mutation_call]
-    # Fisher（P-value）>= 1.0
-    fisher_pval-log10_thres = 1.0
-    post_10_q_thres = 0.1
-
-    [realignment_filter]
-    # variantPairNum_tumor >= 4
-    disease_min_mismatch=4
-    control_max_mismatch=2
-    score_diff=5
-    window_size=200
-    max_depth=5000
-    # P-value(fisher)_realignment: >= 1.0
-    fisher_pval-log10_thres = 1.0
-    post_10_q_thres = 0.1
-
-    [eb_filter]
-    map_quality = 20
-    base_quality = 15
-    # EBCall（P-value）>= 4.0
-    ebcall_pval-log10_thres = 4.0
-
-
 各カラムの説明
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -309,6 +247,22 @@ Normalなし　(パターン３, パターン４)
 
 :HGVDの結果:
   HGVDをご使用の方はここにHGVDの結果が出力されます．
+
+
+変異コールのフィルタについて
+****************************
+
+変異コール結果で、フィルタ前後のファイルがありますが
+(例) {サンプル名}_mutation.txt -> {サンプル名}_mutation_filt.txt
+このフィルタはパイプライン設定ファイルの[mutation_util]タグで変更が可能です。Tumor V.S. Normalで比較のパターンは pair_params=のオプションを変更します。Normalなしパターンがsingle_paramsのオプションを変更します。
+
+.. code-block:: cfg
+    :linenos:
+
+    [mutation_util]
+    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
+    single_params = --post10q 0.1 --r_post10q 0.1 --eb_pval 4.0 --count 4
+
 
 
 SV検出結果
