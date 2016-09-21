@@ -17,14 +17,14 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
 
     [REFERENCE]
     # prepared reference fasta file
-    star_genome                             = # the path to the GRCh37.STAR-STAR_2.4.0k
+    star_genome                             = # the path to the GRCh37.STAR-2.5.2a
     ref_fasta                               = # the path to the reference genome
 
     [SOFTWARE]
     # prepared tools
     samtools                                = # the path to the samtools-1.2/samtools
     tophat2                                 = # the path to the tophat-2.0.14.Linux_x86_64/tophat2
-    STAR                                    = # the path to the STAR-STAR_2.4.0k/bin/Linux_x86_64/STAR
+    STAR                                    = # the path to the STAR-2.5.2a/bin/Linux_x86_64/STAR
     STAR-Fusion                             = # the path to the STAR-Fusion-master/STAR-Fusion
     bedtools                                = # the path to the bedtools
     biobambam                               = # the path to the biobambam-0.0.191/bin
