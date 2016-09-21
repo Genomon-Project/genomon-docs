@@ -51,7 +51,14 @@ DNA 解析結果ファイルの説明
 
 **フィルタリングあり**
 
-フィルタの内容はNormalサンプルがあるかないかで異なります．次の項目を参照ください．
+フィルタの内容はNormalサンプルがあるかないかで異なります．このフィルタはパイプライン設定ファイルの[mutation_util]タグで変更が可能です。Tumor V.S. Normalで比較のパターンは pair_params=のオプションを変更します。Normalなしパターンがsingle_paramsのオプションを変更します。
+
+.. code-block:: cfg
+    :linenos:
+
+    [mutation_util]
+    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
+    single_params = --post10q 0.1 --r_post10q 0.1 --eb_pval 4.0 --count 4
 
 .. code-block:: bash
 
@@ -247,22 +254,6 @@ Normalなし　(パターン３, パターン４)
 
 :HGVDの結果:
   HGVDをご使用の方はここにHGVDの結果が出力されます．
-
-
-変異コールのフィルタについて
-****************************
-
-変異コール結果で、フィルタ前後のファイルがありますが
-(例) {サンプル名}_mutation.txt -> {サンプル名}_mutation_filt.txt
-このフィルタはパイプライン設定ファイルの[mutation_util]タグで変更が可能です。Tumor V.S. Normalで比較のパターンは pair_params=のオプションを変更します。Normalなしパターンがsingle_paramsのオプションを変更します。
-
-.. code-block:: cfg
-    :linenos:
-
-    [mutation_util]
-    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
-    single_params = --post10q 0.1 --r_post10q 0.1 --eb_pval 4.0 --count 4
-
 
 
 SV検出結果
