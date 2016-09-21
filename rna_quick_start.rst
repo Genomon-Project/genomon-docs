@@ -89,6 +89,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   
   # 融合遺伝子検出結果
   {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_fusionfusion_filt.txt
+  
   # BAMのQuality Controlの結果
   {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_starqc.txt
   
