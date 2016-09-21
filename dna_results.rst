@@ -51,7 +51,7 @@ DNA 解析結果ファイルの説明
 
 **フィルタリングあり**
 
-フィルタの内容はNormalサンプルがあるかないかで異なります．このフィルタはパイプライン設定ファイルの[mutation_util]タグで変更が可能です。Tumor V.S. Normalで比較のパターンは pair_params=のオプションを変更します。Normalなしパターンがsingle_paramsのオプションを変更します。
+フィルタの内容はNormalサンプルがあるかないかで異なります．このフィルタはパイプライン設定ファイルの[mutation_util]タグで変更が可能です。Tumor V.S. Normalで比較のパターンは pair_params=のオプションを変更します。Normalなしパターンはsingle_paramsのオプションを変更します。
 
 .. code-block:: cfg
     :linenos:
