@@ -26,7 +26,9 @@ DNA パイプライン設定ファイルについて
     gaptxt                                  = # the path to the gap.txt
     bait_file                               = # the path to the refGene.coding.exon.151207.bed
     simple_repeat_tabix_db                  = # the path to the simpleRepeat.bed.bgz
-    HGVD_tabix_db                           = # the path to the DBexome20131010.bed.gz
+    HGVD_2013_tabix_db                      = # the path to the DBexome20131010.bed.gz
+    HGVD_2016_tabix_db                      = # the path to the DBexome20160412.bed.gz
+    ExAC_tabix_db                           = # the path to the ExAC.bed.gz
 
     [SOFTWARE]
     # prepared tools
@@ -126,13 +128,22 @@ DNA パイプライン設定ファイルについて
     [eb_filter]
     map_quality = 20
     base_quality = 15
+    filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
 
     [annotation]
     active_annovar_flag = False
     annovar_buildver = hg19
     table_annovar_params = -buildver hg19 -remove --otherinfo -protocol refGene,cytoBand,genomicSuperDups,esp6500siv2_all,1000g2010nov_all,1000g2014oct_all,1000g2014oct_afr,1000g2014oct_eas,1000g2014oct_eur,snp131,snp138,snp131NonFlagged,snp138NonFlagged,cosmic68wgs,cosmic70,clinvar_20150629,ljb26_all -operation g,r,r,f,f,f,f,f,f,f,f,f,f,f,f,f,f
     annovar_database = /your_annovar/humandb
-    active_HGVD_flag = False
+    # Use of this HGVD database is subject to compliance with the terms of use.
+    # Please refere to the site below:
+    # http://www.genome.med.kyoto-u.ac.jp/SnpDB/about.html
+    active_HGVD_2013_flag = False
+    active_HGVD_2016_flag = False
+    # Use of this ExAC database is subject to compliance with the terms of use.
+    # Please refere to the site below:
+    # http://exac.broadinstitute.org/faq
+    active_ExAC_flag = False
 
     [mutation_merge]
     qsub_option = -l s_vmem=2G,mem_req=2G
