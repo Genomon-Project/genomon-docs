@@ -26,9 +26,9 @@ GenomonとGenomonを動かすのに必要なpythonパッケージのインスト
   # python2.7であることを確認してください．
 
   # Genomonのダウンロードとインストール
-  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v2.4.0.tar.gz
-  tar xzvf v2.4.0.tar.gz
-  cd GenomonPipeline-v2.4.0
+  wget https://github.com/Genomon-Project/GenomonPipeline/archive/v${version}.tar.gz
+  tar xzvf v${version}.tar.gz
+  cd GenomonPipeline-v${version}
   python setup.py install --user
 
   # ruffusのダウンロードとインストール
@@ -82,7 +82,7 @@ Genomonで使用するデータベースのインストール
     STAR \
     --runThreadN 8 \
     --runMode genomeGenerate \
-    --genomeDir $HOME/database/GRCh37.STAR-STAR_2.4.0k \
+    --genomeDir $HOME/database/GRCh37.STAR-${STAR_version} \
     --genomeFastaFiles $HOME/database/GRCh37.fa/GRCh37.fa \
     --sjdbGTFfile $HOME/database/GTF/Homo_sapiens.GRCh37.74.gtf \
     --sjdbOverhang 100
@@ -190,7 +190,7 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | STAR                   | https://github.com/alexdobin/STAR                           | 2.5.2a                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| STAR-Fusion            | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.4.0では未使用   |
+| STAR-Fusion            | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.4.1では未使用   |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | bedtools               | http://code.google.com/p/bedtools/                          | bedtools-2.24.0            |
 +------------------------+-------------------------------------------------------------+----------------------------+
