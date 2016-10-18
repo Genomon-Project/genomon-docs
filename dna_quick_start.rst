@@ -91,8 +91,9 @@ HGCスパコンでDNA解析に必要な手順
   [annotation]
   active_annovar_flag = True
   FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
-
-
+  annovar_database = /home/genomon/tools/annovar/humandb
+  ANNOVARのデータベースのディレクトリのパスを設定する．
+  
 2．テストサンプルでGenomonを実行してみる
 ----------------------------------------
 
