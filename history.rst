@@ -89,7 +89,13 @@ Genomon2.4.0
 
  | ・mm10(GRCm38)でも解析できるようになりました．mm10で解析する際には以下のGRCm38と記載されているパイプライン設定ファイルをご使用ください．mm10以 外の解析も可能です．その場合はユーザ様ご自身で設定ください．
 
- | ・下位バージョン（v2.3.0）のパイプライン設定ファイルはご使用できません．以下のv2.4.0用のファイルをご使用ください．ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
+ | ・下位バージョン（v2.3.0）のパイプライン設定ファイルはご使用できません．以下のv2.4.0用のファイルをご使用ください．ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．v2.4.0からANNOVARのデータベースのディレクトリを設定する必要があります．
+
+ | [annotation]
+ | active_annovar_flag = True
+ | FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
+ | annovar_database = /home/genomon/tools/annovar/humandb
+ | ANNOVARのデータベースのディレクトリのパスを設定する．
 
  | /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/
  | ├ dna_exome_genomon.cfg
