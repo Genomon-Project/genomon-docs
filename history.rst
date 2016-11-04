@@ -10,7 +10,6 @@ Genomon2.5.0
 |    pmsignatureについては、こちらを参照ください．https://github.com/friend1ws/pmsignature
 |
 |    パイプライン設定ファイル(dna_genomon.cfg)
-|
 
  .. code-block:: cfg
  
@@ -49,6 +48,39 @@ Genomon2.4.1
 Genomon2.4.0
 ====================
 
+.. attention::
+
+  | 下位バージョン（v2.3.0）のパイプライン設定ファイルはご使用できません．
+  | 以下のv2.4.0用のファイルをご使用ください．
+  
+   .. code-block:: none
+
+       /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/
+        ├ dna_exome_genomon.cfg
+        ├ dna_exome_genomon_GRCm38.cfg
+        ├ dna_target_genomon.cfg
+        ├ dna_wgs_genomon.cfg
+        ├ rna_genomon.cfg
+        ├ rna_genomon_GRCm38.cfg
+        └ paplot                      ←新規追加
+            ├ paplot_dna.cfg
+            ├ paplot_dna_GRCm38.cfg
+            ├ paplot_rna.cfg
+            └ paplot_rna_GRCm38.cfg
+  
+  | ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
+  | ※v2.4.0からANNOVARのデータベースのディレクトリを設定する必要があります．
+  |
+  | パイプライン設定ファイル(dna_genomon.cfg)
+  
+   .. code-block:: cfg
+   
+       [annotation]
+       active_annovar_flag = True
+       # FalseをTrueに変更する (ANNOVARを使用する/しない)を管理しているフラグです．デフォルトはFalseになります．
+       annovar_database = /home/genomon/tools/annovar/humandb
+       # ANNOVARのデータベースのディレクトリのパスを設定する．
+
 DNA解析パイプライン
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -58,7 +90,6 @@ DNA解析パイプライン
 |    デフォルトではskip duplicateします．
 |
 | パイプライン設定ファイルで変更が必要な箇所：
-|
 
  .. code-block:: cfg
  
@@ -87,11 +118,11 @@ DNA解析パイプライン
      # 変更前）skip duplicate しない
        filter_flags = UNMAP,SECONDARY,QCFAIL
 
-| 変更するパターンとしては、sam flagsを操作するものと、samtools mpileupの ffオプションで特定のリードをスキップしないようにする2パターンがあります．
+|    変更するパターンとしては、sam flagsを操作するものと、samtools mpileupの ffオプションで特定のリードをスキップしないようにする2パターンがあります．
 |
-| samflagsについては以下のページを参照してフラグを確認してください．
-| https://broadinstitute.github.io/picard/explain-flags.html  
-| samtools mpileup オプションについては、samtools mpileupのヘルプでご確認ください．
+|    samflagsについては以下のページを参照してフラグを確認してください．
+|    https://broadinstitute.github.io/picard/explain-flags.html  
+|    samtools mpileup オプションについては、samtools mpileupのヘルプでご確認ください．
 |
 | ● 変異コールでHGVDの最新バージョンとExACのアノテーションが付くようになりました。
 |    パイプライン設定ファイル(dna_genomon.cfg)の以下のフラグをTrueにすることでご使用いただけます。
@@ -117,20 +148,12 @@ RNA解析パイプライン
 |
 | ● fusionfusionでcontrolpanelが使用できるようになりました．
 |
-| ● 発現量解析ができるようになりました．
+| ● fusionfusionにxxxxx.result.filt.txtが新たに出力されます．
+|    こちらはDNAパイプラインと同様に適切な値でフィルタ済みのファイルになります．
 |
-| ● [bam_import] と [bam_tofastq] 機能がRNAパイプラインにも追加されました
-|
-| ● QCが出力されるようになりました．
-|
-| 新機能の追加により、サンプル設定ファイルの記載方法が変わります．記載方法につきましてはドキュメントをご確認ください．
-| http://genomon.readthedocs.io/ja/latest/rna_sample_csv.html
-|
-| ● fusionfusionにxxxxx.result.filt.txtが新たに出力されます．こちらはDNAパイプラインと同様に適切な値でフィルタ済みのファイルになります．
-|
-| フィルタ機能の詳細：
-|  １．候補のポジションが“MT”か“GL0”で始まるヒトゲノムのscaffold  (assembled contigs separated by gaps)であった場合、候補からフィルタされます．
-|  ２．fusion元とfusion先の遺伝子名が同じで合ったら候補からフィルタします．こちらはrna_genomon.cfgの以下のパラメータ filt_paramsを変更することにより、このフィルタをなくすことができます．xxxxx.result.txtにはフィルタ前の候補一覧が出力されるので、このフィルタにより、必要な候補が削除されていないか確認できます．
+|    フィルタ機能の詳細：
+|     １．候補のポジションが“MT”か“GL0”で始まるヒトゲノムのscaffold  (assembled contigs separated by gaps)であった場合、候補からフィルタされます．
+|     ２．fusion元とfusion先の遺伝子名が同じで合ったら候補からフィルタします．こちらはrna_genomon.cfgの以下のパラメータ filt_paramsを変更することにより、このフィルタをなくすことができます．xxxxx.result.txtにはフィルタ前の候補一覧が出力されるので、このフィルタにより、必要な候補が削除されていないか確認できます．
 |
 
  .. code-block:: cfg
@@ -138,7 +161,15 @@ RNA解析パイプライン
      [fusionfusion]
      filt_params = --filter_same_gene
 
-| ● bam_importはGenomonパイプラインのSTARでアライメントされたBAMファイルを前提としています．以下の4つのファイルが存在していなければbam importエラーとなります．
+| ● 発現量解析ができるようになりました．
+|
+| ● QCが出力されるようになりました．
+|
+|    新機能の追加により、サンプル設定ファイルの記載方法が変わります．記載方法につきましてはドキュメントをご確認ください．
+|    http://genomon.readthedocs.io/ja/latest/rna_sample_csv.html
+|
+| ● [bam_import] と [bam_tofastq] 機能がRNAパイプラインにも追加されました．
+|    bam_importはGenomonパイプラインのSTARでアライメントされたBAMファイルを前提としています．以下の4つのファイルが存在していなければbam importエラーとなります．
 |
 
  .. code-block:: none
@@ -148,50 +179,39 @@ RNA解析パイプライン
      {サンプル名}.Chimeric.out.sam
      {サンプル名}.Log.final.out
 
-| サンプルCSVに記載する方法はDNAパイプラインと同じでBAMファイルのみを指定してください．指定したBAMファイルのprefixから同じディレクトリの上記のファイルを探します．[bam_tofastq] はBAMファイルだけあれば大丈夫です．記載方法もDNAパイプラインと同じです．
+|    サンプルCSVに記載する方法はDNAパイプラインと同じでBAMファイルのみを指定してください．指定したBAMファイルのprefixから同じディレクトリの上記のファイルを探します．
 |
-| ● RNA パイプラインにfusionfusionとQC(starにより生成)のプロジェクト単位にマージしたファイルが(post_analysisで)出力されるようになりました．
+|    bam_tofastqはBAMファイルだけあれば大丈夫です．記載方法もDNAパイプラインと同じです．
+|
+| ● post analysis機能がRNAパイプラインにも追加されました．
+|    fusionfusionとQC(starにより生成)のプロジェクト単位にマージしたファイルが(post_analysisで)出力されるようになりました．
 |    post_analysisのfusionfusionは、xxxxxx.result.filt.txtの結果をマージしています．QCはstarディレクトリのxxxxxx.Log.final.outを利用しています．
 |
-| ● fusionfusionとQC情報がpaplotで出力されるようになりました．
+| ● paplotがRNAパイプラインにも追加されました．
+|    fusionfusionとQC情報がpaplotで出力されるようになりました．
 |
 | ● mm10(GRCm38)でも解析できるようになりました．
 |    mm10で解析する際には以下のGRCm38と記載されているパイプライン設定ファイルをご使用ください．
 |    mm10以外の解析も可能です．その場合はユーザ様ご自身で設定ください．
-|    下位バージョン（v2.3.0）のパイプライン設定ファイルはご使用できません．以下のv2.4.0用のファイルをご使用ください．ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
 |
-| ● ``/home/w3varann/genomon_pipeline-2.4.0/genomon_conf/`` にpaplotディレクトリを追加しました．
-|
-
- .. code-block:: none
-
-     /home/w3varann/genomon_pipeline-2.4.0/genomon_conf/
-      ├ dna_exome_genomon.cfg
-      ├ dna_exome_genomon_GRCm38.cfg
-      ├ dna_target_genomon.cfg
-      ├ dna_wgs_genomon.cfg
-      ├ rna_genomon.cfg
-      ├ rna_genomon_GRCm38.cfg
-      └ paplot                      ←新規追加
-          ├ paplot_dna.cfg
-          ├ paplot_dna_GRCm38.cfg
-          ├ paplot_rna.cfg
-          └ paplot_rna_GRCm38.cfg
-
 
 Genomon2.3.0
 ====================
 
-| ● 下位バージョン（v2.2.0）のパイプライン設定ファイルはご使用できません．以下のv2.3.0用のファイルをご使用ください．ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
-|
+.. attention::
 
- .. code-block:: none
+  | 下位バージョン（v2.2.0）のパイプライン設定ファイルはご使用できません．
+  | 以下のv2.3.0用のファイルをご使用ください．
+  | ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
+  |
+  
+   .. code-block:: none
 
-     /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/
-      ├ dna_exome_genomon.cfg
-      ├ dna_target_genomon.cfg (TargetSeq用の設定ファイルが新たに追加されました)
-      ├ dna_wgs_genomon.cfg
-      ├ rna_genomon.cfg
+       /home/w3varann/genomon_pipeline-2.3.0/genomon_conf/
+        ├ dna_exome_genomon.cfg
+        ├ dna_target_genomon.cfg (TargetSeq用の設定ファイルが新たに追加されました)
+        ├ dna_wgs_genomon.cfg
+        ├ rna_genomon.cfg
 
 | ● SVの特定のサンプルで起こっていたエラーを修正しました．レアパターンです．エラーになっていなければ影響はありません．
 |
