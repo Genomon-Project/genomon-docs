@@ -122,7 +122,7 @@ DNA解析パイプライン
 |    samflagsについては以下のページを参照してフラグを確認してください．
 |    https://broadinstitute.github.io/picard/explain-flags.html  
 |    samtools mpileup オプションについては、samtools mpileupのヘルプでご確認ください．
-|
+
 | ● 変異コールでHGVDの最新バージョンとExACのアノテーションが付くようになりました。
 |    パイプライン設定ファイル(dna_genomon.cfg)の以下のフラグをTrueにすることでご使用いただけます。
 |    Genomon2.3で出力されるHGVDはHGVD_2013へと名称を変更しました。
@@ -144,7 +144,7 @@ RNA解析パイプライン
 |    2.4.0k→2.5.2aにしました．それに伴いSTARのオプションも変更しております．これにより特異度が高くなります．
 
 | ● fusionfusionでcontrolpanelが使用できるようになりました．
-|
+
 | ● fusionfusionにxxxxx.result.filt.txtが新たに出力されます．
 |    こちらはDNAパイプラインと同様に適切な値でフィルタ済みのファイルになります．
 |
@@ -158,12 +158,12 @@ RNA解析パイプライン
      filt_params = --filter_same_gene
 
 | ● 発現量解析ができるようになりました．
-|
+
 | ● QCが出力されるようになりました．
 |
 |    新機能の追加により、サンプル設定ファイルの記載方法が変わります．記載方法につきましてはドキュメントをご確認ください．
 |    http://genomon.readthedocs.io/ja/latest/rna_sample_csv.html
-|
+
 | ● [bam_import] と [bam_tofastq] 機能がRNAパイプラインにも追加されました．
 |    bam_importはGenomonパイプラインのSTARでアライメントされたBAMファイルを前提としています．以下の4つのファイルが存在していなければbam importエラーとなります．
 
