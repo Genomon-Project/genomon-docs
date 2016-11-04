@@ -4,7 +4,7 @@ DNA パイプライン設定ファイルについて
 パイプライン設定ファイルはGenomon実行時に読込まれるファイルです．各ツールのパスやパラメータを設定することができます．
 
  .. note::
-  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.4.1/genomon_conf/`` にあります．
+  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.5.0/genomon_conf/`` にあります．
 
   :exome解析用: dna_exome_genomon.cfg
   :wgs解析用:   dna_wgs_genomon.cfg
@@ -28,7 +28,7 @@ DNA パイプライン設定ファイルについて
     simple_repeat_tabix_db                  = # the path to the simpleRepeat.bed.bgz
     HGVD_2013_tabix_db                      = # the path to the DBexome20131010.bed.gz
     HGVD_2016_tabix_db                      = # the path to the DBexome20160412.bed.gz
-    ExAC_tabix_db                           = # the path to the ExAC.bed.gz
+    ExAC_tabix_db                           = # the path to the ExAC.r0.3.1.sites.vep.bed.gz
 
     [SOFTWARE]
     # prepared tools
@@ -39,14 +39,16 @@ DNA パイプライン設定ファイルについて
     biobambam                               = # the path to the biobambam-0.0.191/bin
     bamstats                                = # the path to the PCAP-core-dev.20150511/bin/bam_stats.pl
     htslib                                  = # the path to the htslib-1.3
+    r_scripts                               = # the path to the genomon_Rscripts-0.1.0
     genomon_sv                              = # the path to the bin/GenomonSV
     sv_utils                                = # the path to the bin/sv_utils
     mutfilter                               = # the path to the bin/mutfilter
     ebfilter                                = # the path to the bin/EBFilter
     fisher                                  = # the path to the bin/fisher
     mutanno                                 = # the path to the bin/mutanno
+    genomon_qc                              = # the path to the bin/genomon_qc
     genomon_pa                              = # the path to the bin/genomon_pa
-    pa_plot                                 = # the path to the bin/pa_plot
+    paplot                                  = # the path to the bin/paplot
     mutil                                   = # the path to the bin/mutil
 
     # annovar needs to be installed individually
@@ -57,7 +59,9 @@ DNA パイプライン設定ファイルについて
     PYTHONHOME                              = # the path to the python home
     PYTHONPATH                              = # the path to the python path
     LD_LIBRARY_PATH                         = # the path to the python library
-
+    R_PATH                                  = # the path to the R bin
+    R_LD_LIBRARY_PATH                       = # the path to the R library
+    R_LIBS                                  = # the path to the R packages
 
     ######################################################################
     #
@@ -150,7 +154,7 @@ DNA パイプライン設定ファイルについて
 
     [mutation_util]
     pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
-    single_params = --post10q 0.1 --r_post10q 0.1 --eb_pval 4.0 --count 4
+    single_params = --post10q 0.1 --r_post10q 0.1 --count 4
 
     ##########
     ## Genomon SV
@@ -172,19 +176,43 @@ DNA パイプライン設定ファイルについて
 
     ##########
     ## Post Analysis
-    [pa_plot]
+    [paplot]
     enable = True 
+    qsub_option = -l s_vmem=2G,mem_req=2G
     include_unpair = True
     include_unpanel = True
     title = Genomon
     remarks = Data used in this report were generated using below software.
-    software = genomon_pipeline:Genomon-Pipeline, genomon_sv:GenomonSV, sv_utils:sv_utils, fisher:GenomonFisher, mutfilter:GenomonMutationFilter, ebfilter:EBFilter, mutanno:mutanno, mutil:mutil
+    software = genomon_pipeline:Genomon-Pipeline, genomon_sv:GenomonSV, sv_utils:sv_utils, fisher:GenomonFisher, mutfilter:GenomonMutationFilter, ebfilter:EBFilter, mutanno:mutanno, mutil:mutil, genomon_qc:Geno  monQC
 
-    config_file = # the path to the paplot-0.2.8/paplot.cfg
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    config_file = # the path to the paplot-0.5.0/paplot.cfg
 
     [post_analysis]
-    enable = True 
-    config_file = # the path to the GenomonPostAnalysis-1.0.2/genomon_post_analysis.cfg
+    enable = True
     qsub_option = -l s_vmem=2G,mem_req=2G
+    config_file = # the path to the GenomonPostAnalysis-1.0.2/genomon_post_analysis.cfg
+
+    ############
+    # pmsignature
+
+    [pre_pmsignature]
+    qsub_option = -l s_vmem=2G,mem_req=2G
+
+    [pmsignature_full]
+    enable = False
+    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+    signum_min = 2
+    signum_max = 6
+    trdirflag = F
+    trialnum = 10
+
+    [pmsignature_ind]
+    enable = True
+    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+    signum_min = 2
+    signum_max = 6
+    trdirflag = T
+    trialnum = 10
+
+
 
