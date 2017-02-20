@@ -6,9 +6,9 @@ DNA パイプライン設定ファイルについて
  .. note::
   HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.5.0/genomon_conf/`` にあります．
 
-  :exome解析用: dna_exome_genomon.cfg
-  :wgs解析用:   dna_wgs_genomon.cfg
-  :target解析用: dna_target_genomon.cfg
+  :Exome解析用: dna_exome_genomon.cfg
+  :WGS解析用:   dna_wgs_genomon.cfg
+  :Target解析用: dna_target_genomon.cfg
   
   ANNOVARの設定が必要ですので，まずは :doc:`dna_quick_start` から始めてください．
 
