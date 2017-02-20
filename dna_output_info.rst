@@ -53,8 +53,9 @@ Post_analysis結果
 | サンプル毎に出力される変異コールやSV検出結果をマージしたファイルを取得できます．
 | :doc:`dna_sample_csv` の[mutation_call][sv_detection]の記載方法にはパターン１～パターン４がありますが，その単位でマージしたファイルがpost_analysisの結果に出力されます．
 |
-| 変異コール結果
-|
+
+変異コール結果
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * **merge_mutation_pair_controlpanel.txt** -- サンプルがペア，コントロールパネルありの結果をマージしたファイル．[パターン1]
 * **merge_mutation_pair.txt** -- サンプルがペア，コントロールパネルなしの結果をマージしたファイル．[パターン2]
@@ -62,8 +63,8 @@ Post_analysis結果
 * **merge_mutation_unpair.txt** -- サンプルがペアでない，コントロールパネルなしの結果をマージしたファイル．[パターン4]
 * **merge_mutation.txt** -- 上記４つのファイルをマージしたファイル．
 
-| 変異コール結果 フィルタ済み
-|
+変異コール結果 フィルタ済み
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * **merge_mutation_filt_pair_controlpanel.txt** -- サンプルがペア，コントロールパネルありの結果をマージしたファイル．[パターン1]
 * **merge_mutation_filt_pair.txt** -- サンプルがペア，コントロールパネルなしの結果をマージしたファイル．[パターン2]
@@ -71,8 +72,8 @@ Post_analysis結果
 * **merge_mutation_filt_unpair.txt** -- サンプルがペアでない，コントロールパネルなしの結果をマージしたファイル．[パターン4]
 * **merge_mutation_filt.txt** -- 上記４つのファイルをマージしたファイル．
 
-| SV検出結果
-|
+SV検出結果
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * **merge_sv_pair_controlpanel.txt** -- サンプルがペア，コントロールパネルありの結果をマージしたファイル．[パターン1]
 * **merge_sv_pair.txt** -- サンプルがペア，コントロールパネルなしの結果をマージしたファイル．[パターン2]
@@ -80,8 +81,8 @@ Post_analysis結果
 * **merge_sv_unpair.txt** -- サンプルがペアでない，コントロールパネルなしの結果をマージしたファイル．[パターン4]
 * **merge_sv.txt** -- 上記４つのファイルをマージしたファイル．
 
-| SV検出結果 フィルタ済み
-|
+SV検出結果 フィルタ済み
+^^^^^^^^^^^^^^^^^^^^^^^
 
 * **merge_sv_filt_pair_controlpanel.txt** -- サンプルがペア，コントロールパネルの結果をマージしたファイル．[パターン1]
 * **merge_sv_filt_pair.txt** -- サンプルがペア，コントロールパネルなしの結果をマージしたファイル．[パターン2]
@@ -89,8 +90,8 @@ Post_analysis結果
 * **merge_sv_filt_unpair.txt** -- サンプルがペアでない，コントロールパネルなしの結果をマージしたファイル．[パターン4]
 * **merge_sv_filt.txt** -- 上記４つのファイルをマージしたファイル．
 
-| BAMのQuality Control結果
-|
+BAMのQuality Control結果
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * **merge_qc.txt** -- 結果をマージしたファイル．
 
@@ -100,8 +101,39 @@ Post_analysis結果
 * **mutation/capture_script/capture.bat** -- 変異コール結果の周辺ポジションをIGVでsnapshotする.
 * **sv/capture_script/capture.bat** -- SV検出結果の周辺ポジションをIGVでnapshotする.
 
-IGVのBAT取り込み方法についてはこちら
-https://www.broadinstitute.org/software/igv/batch
+| IGVのBAT取り込み方法についてはこちら
+| https://www.broadinstitute.org/software/igv/batch
+|
+
+pmsignatureによるsignature出力結果
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* **mutation.cut.txt** -- 変異コールのマージ結果からpmsignatureで使用するフィールドのみ抽出したファイル．
+
+| 使用するファイルはデフォルトの場合、以下
+
+ - merge_mutation_filt_pair_controlpanel.txt
+ - merge_mutation_filt_pair.txt
+ - merge_mutation_filt_unpair_controlpanel.txt
+ - merge_mutation_filt_unpair.txt
+
+
+| 使用するファイルは以下設定で変更します．
+
+ .. code-block:: cfg
+ 
+     [paplot]
+     include_unpair = True
+     include_unpanel = True
+
+* **full.*.Rdata** -- pmsignature結果ファイル．(.Rdata形式, type=full)
+* **ind.*.Rdata** -- pmsignature結果ファイル．(.Rdata形式, type=ind)
+* **pmsignature.full.result.*.json** -- full.*.Rdataをpaplotで使用できる形式に変換したファイル．
+* **pmsignature.ind.result.*.json** -- ind.*.Rdataをpaplotで使用できる形式に変換したファイル．
+
+| ``*`` は出力するsignatureの数．(デフォルトの場合、2 ～ 6)
+| 実際の結果を確認する場合は、paplotを参照ください．
+|
 
 paplot結果
 -----------------------
@@ -109,9 +141,9 @@ paplot結果
 | 変異コール、SV検出結果とQC結果をビジュアライゼーションした結果です．
 | paplotディレクトリをダウンロードし，index.htmlをダブルクリックしてください．結果を確認できます．
 |
-
-paplotの使い方についてはこちら
-http://paplot-jp.readthedocs.org/ja/latest/
+| paplotの使い方についてはこちら
+| http://paplot-jp.readthedocs.org/ja/latest/
+|
 
 config log script
 -----------------------

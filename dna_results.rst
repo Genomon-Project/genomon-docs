@@ -13,6 +13,7 @@ DNA 解析結果ファイルの説明
   # BAMのQuality Controlの結果
   {出力ルートディレクトリ}/post_analysis/{サンプル設定ファイル名}/merge_qc.txt
   # Paplotの結果
+  #  * pmsignatureの結果はこちらを参照してください．
   # index.htmlをクリックすることで結果が表示されます．
   {出力ルートディレクトリ}/paplot/{サンプル設定ファイル名}
 
@@ -497,3 +498,9 @@ QC結果 (BAMのQuality Control)
     wgs_i_bed_width = 100
 
 .. _ANNOVAR: http://annovar.openbioinformatics.org/en/latest/user-guide/download/
+
+pmsignature
+----------------------------------
+
+| pmsignatureの結果はpmsignatureディレクトリに出力しますが、.Rdataおよび.json形式ですので、結果の確認にはpaplotディレクトリを参照ください
+|

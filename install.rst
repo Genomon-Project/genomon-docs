@@ -158,23 +158,27 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | hstlib                 | http://www.htslib.org/download/                             | htslib-1.3                 |
 +------------------------+-------------------------------------------------------------+----------------------------+
+| r_scripts              | https://github.com/Genomon-Project/genomon_Rscripts         | v0.1.2                     |
++------------------------+-------------------------------------------------------------+----------------------------+
 | genomon_sv             | https://github.com/Genomon-Project/GenomonSV                | genomonsv-0.4.1            |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | sv_utils               | https://github.com/friend1ws/sv_utils                       | v0.4.0beta2                |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| mutfilter              | https://github.com/Genomon-Project/GenomonMutationFilter    | v0.2.0                     |
+| mutfilter              | https://github.com/Genomon-Project/GenomonMutationFilter    | v0.2.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| ebfilter               | https://github.com/Genomon-Project/EBFilter                 | v0.2.0                     |
+| ebfilter               | https://github.com/Genomon-Project/EBFilter                 | v0.2.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | fisher                 | https://github.com/Genomon-Project/GenomonFisher            | v0.2.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | mutanno                | https://github.com/Genomon-Project/GenomonMutationAnnotator | v0.1.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.2.0                     |
+| genomon_qc             | https://github.com/Genomon-Project/GenomonQC                | v2.0.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| pa_plot                | https://github.com/Genomon-Project/paplot                   | v0.4.0                     |
+| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.4.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| mutil                  | https://github.com/ken0-1n/mutation_util                    | v0.4.0                     |
+| paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.2                     |
++------------------------+-------------------------------------------------------------+----------------------------+
+| mutil                  | https://github.com/ken0-1n/mutation_util                    | v0.5.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | ANNOVAR                | http://annovar.openbioinformatics.org/en/latest/            | versionは最新でよい        |
 +------------------------+-------------------------------------------------------------+----------------------------+
@@ -190,7 +194,7 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | STAR                   | https://github.com/alexdobin/STAR                           | 2.5.2a                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| STAR-Fusion            | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.4.1では未使用   |
+| STAR-Fusion            | https://github.com/STAR-Fusion/STAR-Fusion                  | Genomon-v2.5.0では未使用   |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | bedtools               | http://code.google.com/p/bedtools/                          | bedtools-2.24.0            |
 +------------------------+-------------------------------------------------------------+----------------------------+
@@ -200,19 +204,19 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | hstlib                 | http://www.htslib.org/download/                             | htslib-1.3                 |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | 0.2.0beta                  |
+| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| fusion_utils           | https://github.com/friend1ws/fusion_utils                   | master                     |
+| fusion_utils           | https://github.com/friend1ws/fusion_utils                   | v0.2.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.1.0beta                 |
+| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.2.0beta                 |
+| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.2.0                     |
+| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.2.0                     |
+| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.4.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| pa_plot                | https://github.com/Genomon-Project/paplot                   | v0.4.0                     |
+| paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.2                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 
 

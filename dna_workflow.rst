@@ -41,6 +41,7 @@ BAMのQuality Control出力 Task (qc)
 Post Analysis Task
 -------------------
 * **paplot** -- 各結果をplotしグラフを出力します．
+* **pmsignature** -- 変異コールの結果を使用して、signatureを出力します．
 * **post_analysis_qc** -- 全サンプルのBAMのQuality Control結果を１つのファイルにマージして出力します．
 * **post_analysis_sv** -- 全サンプルのSV検出した候補を１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
 * **post_analysis_mutation** -- 全サンプルの変異コールを１つのファイルにマージして出力します．IGVの画像をキャプチャできるbatファイルを生成します．
