@@ -204,19 +204,19 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | hstlib                 | http://www.htslib.org/download/                             | htslib-1.3                 |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | 0.2.0beta                  |
+| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| fusion_utils           | https://github.com/friend1ws/fusion_utils                   | master                     |
+| fusion_utils           | https://github.com/friend1ws/fusion_utils                   | v0.2.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.1.0beta                 |
+| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.2.0beta                 |
+| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.2.0                     |
+| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.3.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.2.0                     |
+| genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.4.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.0                     |
+| paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.2                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 
 
