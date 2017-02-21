@@ -15,7 +15,7 @@ v2.5.0用のファイルをご使用ください．ANNOVARなどの設定がFALS
 |
 |    パイプライン設定ファイル(dna_genomon.cfg)
 
-.. code-block:: cfg
+　　.. code-block:: cfg
  
     [hotspot]
     active_hotspot_flag = True
