@@ -136,6 +136,9 @@ Tumor V.S. Normalで比較　(パターン１, パターン２)
 :P-value(fisher):
   Fisher -log10(p値)
 
+:score(hotspot):
+  the base-calling error probabilities から算出したスコア
+  
 :RefNum_tumor:
   変異を含まないリード数
 
