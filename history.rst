@@ -9,8 +9,7 @@ Attention!
 以下のv2.5.0用のファイルをご使用ください．ANNOVARやinhouseの設定がFALSEになっているので再設定をお願いします．
 
 | ● DNAパイプラインの変異コールにHotspotのポジションを特別な方法で検出する機能(Hotspot Call)を追加しました．
-|    通常の変異コールFisher's exact testで検出できずに、Hotspot Callで検出できた候補には、新しく追加されたカラム"score(hotspot)"に値が入っています．
-|    score(hotspot) ≧ 8 の場合、本物の可能性が高いとみて、候補とします．
+|    通常の変異コールFisher's exact testで検出できずに、Hotspot Callで検出できた候補には、新しく追加されたカラム"score(hotspot)"に値が入っています． score(hotspot) ≧ 8 の場合、本物の可能性が高いとみて、候補とします．
 |    
 |    こちらの機能はデフォルトで動作します。必要がない場合はパイプライン設定ファイルのactive_hotspot_flagをFalseに変更してご使用ください．
 |
