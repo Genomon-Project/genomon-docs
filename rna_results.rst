@@ -126,6 +126,27 @@ RNA 解析結果ファイルの説明
  #. 発現量(FKPM value.)
 
 
+Intron Retention検出結果
+----------------------------------
+
+| Intron Retention検出の概要については https://github.com/friend1ws/intron_retention_utils のsimple_countの項目を参照してください．
+|
+
+各カラムの説明
+^^^^^^^^^^^^^^^^^
+
+:Chr: chromosome of the exon-intron boundary
+:Boundary_Pos: coordinate of the exon-intron boundary (the last exonic base)
+:Gene_Symbol: gene symbol from refGene.txt.gz
+:Motif_Type: splicing donor or acceptor
+:Strand: transcription starnd of the gene
+:Junction_List: cannonical splicing junction list from that exon-intron boundary
+:Gene_ID_List: refGene ID list with that exon-intron boundary
+:Exon_Num_List: exon numbers for each refGene IDs
+:Edge_Read_Count: the number of reads covering each exon-intron boundary
+:Intron_Retention_Read_Count: the number of putative intron retention reads
+
+
 STAR-QC結果 (BAMのQuality Control)
 ----------------------------------
 
