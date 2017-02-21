@@ -3,7 +3,21 @@
 
 Genomon2.5.0
 ====================
+| ● DNAパイプラインの変異コールにHotspotのポジションを特別な方法で検出する機能(Hotspot Call)を追加しました．
+|    通常の変異コールFisher's exact testで検出できずに、Hotspot Callで検出できた候補には、新しく追加されたカラム"score(hotspot)"に値が入っています．
+|    score(hotspot) ≧ 8 の場合、本物の可能性が高いとみて、候補とします．
+|    
+|    こちらの機能はデフォルトで動作します。必要がない場合はパイプライン設定ファイルのactive_hotspot_flagをFalseに変更してご使用ください．
+|
+|    パイプライン設定ファイル(dna_genomon.cfg)
 
+.. code-block:: cfg
+ 
+    [hotspot]
+    active_hotspot_flag = True
+    params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000"
+
+|
 | ● DNAパイプラインにpmsignatureを追加しました．
 |    pmsignatureは変異コールの結果を使用しますので、サンプルCSVの変更はありません．
 |
@@ -34,7 +48,10 @@ Genomon2.5.0
      signum_max = 6
      trdirflag = T
      trialnum = 10
-    
+
+| ● RNA　intron_retentionの検出機能をpre-rereaseしました．
+| ● RNA Genomon Expressionをバージョンアップしました．
+| ● エラーハンドリング機能を改良しました．
 
 Genomon2.4.1
 ====================
