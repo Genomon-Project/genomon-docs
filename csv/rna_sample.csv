@@ -3,6 +3,7 @@ sample_test1,/home/genomon/testdata/test1_r1.fastq,/home/genomon/testdata/test1_
 
 [bam_tofastq]
 sample_test2,/home/genomon/testdata/test2.bam
+sample_test3,/home/genomon/testdata/test3.bam
 
 [bam_import]
 reference1,/home/genomon/testdata/reference1.bam
@@ -18,15 +19,23 @@ reference10,/home/genomon/testdata/reference10.bam
 
 [fusion]
 sample_test1,panel1
-sample_test2,None
+sample_test2,panel1
+sample_test3,None
 
 [expression]
 sample_test1
 sample_test2
+sample_test3
+
+[intron_retention]
+sample_test1
+sample_test2
+sample_test3
 
 [qc]
 sample_test1
 sample_test2
+sample_test3
 
 [controlpanel]
 panel1,reference1,reference2,reference3,reference4,reference5,reference6,reference7,reference8,reference9,reference10
