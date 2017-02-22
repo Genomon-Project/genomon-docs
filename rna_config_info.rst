@@ -37,5 +37,64 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     genomon_expression                      = # the path to the bin/genomon_expression
     genomon_pa                              = # the path to the bin/genomon_pa
     paplot                                  = # the path to the bin/paplot
-
-    (省略)
+    
+    ######################################################################
+    #
+    # Analysis parameters
+    #
+    #   If not defined, default values are going to be used in the pipeline.
+    #
+    
+    ##########
+    # parameters for bam2fastq
+    [bam2fastq]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    
+    ##########
+    # parameters for star alignment
+    [star_align]
+    qsub_option = -pe def_slot 6 -l s_vmem=5.3G,mem_req=5.3G
+    star_params = --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted
+    samtools_sort_params = -@ 6 -m 3G
+    
+    ##########
+    # parameters for fusionfusion
+    [fusion_count_control]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    params =
+    
+    [fusion_merge_control]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    params =
+    
+    [fusionfusion]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    params = --grc
+    filt_params = --filter_same_gene --grc
+    
+    [genomon_expression]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    params = --grc
+    
+    [intron_retention]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    params = --grc
+    
+    ##########
+    ## Post Analysis
+    [paplot]
+    enable = True
+    include_unpair = True
+    include_unpanel = True
+    title = Genomon_RNA
+    remarks = Data used in this report were generated using below software.
+    software = genomon_pipeline:Genomon-Pipeline, STAR:STAR, fusionfusion:fusionfusion
+    
+    config_file = # the path to the paplot-0.5.0/paplot.cfg
+    qsub_option = -l s_vmem=2G,mem_req=2G
+    
+    [post_analysis]
+    enable = True
+    config_file = # the path to the GenomonPostAnalysis-1.2.0/genomon_post_analysis.cfg
+    qsub_option = -l s_vmem=2G,mem_req=2G
+    
