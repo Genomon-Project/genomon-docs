@@ -130,7 +130,7 @@ DNA パイプライン設定ファイルについて
     #    --score_difference: リードリアライメント時にはマルチアライメントしているのですが，1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，そのリードを使用しないという設定です
     #    --window_size: リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
     #    --max_depth: 対象の変異positionがこの値以上のdepthであればリアライメントしません．
-    #    --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます。
+    #    --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
     params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
     
     [indel_filter]
@@ -146,9 +146,9 @@ DNA パイプライン設定ファイルについて
     [breakpoint_filter]
     #   --max_depth: 対象の変異positionがこの値以上のdepthであればBreakpoint Filterを行いません．
     #   --min_clip_size: ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
-    #   --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません。
+    #   --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません．
     #   --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
-    #   --exclude_sam_flags:　指定された値を含むsam flagのリードは対象から除かれます。
+    #   --exclude_sam_flags:　指定された値を含むsam flagのリードは対象から除かれます．
     
     params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
     
@@ -164,8 +164,8 @@ DNA パイプライン設定ファイルについて
     active_hotspot_flag = True
     #    -t: Tumorのミスマッチ率がこの値より小さければ候補の対象となりません．
     #    -c: Normalのミスマッチ率がこの値より大きければ候補の対象となりません．
-    #    -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません。
-    #    -m: scoreの値が指定した値より小さければ候補になりません。
+    #    -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません．
+    #    -m: scoreの値が指定した値より小さければ候補になりません．
     #    -S: samtool mpileupのパラメータです．
     params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
     
@@ -193,7 +193,7 @@ DNA パイプライン設定ファイルについて
     # pair_params: ペアリードに使用します．
     # single_params: シングルリードに使用します．
     #
-    # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です。以下の条件を満たした候補がresult.filt.txtに出力されます。デフォルト値は以下になります。
+    # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
     #    --fish_pval: カラム"P-value(fisher)"　>= 1.0
     #    --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
     #    --eb_pval: カラム"P-value(EBCall)" >= 4.0
@@ -224,7 +224,7 @@ DNA パイプライン設定ファイルについて
     params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
     annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
     # 
-    # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です。以下の条件を満たした候補がresult.filt.txtに出力されます。デフォルト値は以下になります。
+    # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
     #    --min_tumor_allele_freq >= 0.07
     #    --max_control_variant_read_pair >= 1
     #    --control_depth_thres >= 10
