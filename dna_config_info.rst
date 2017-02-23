@@ -185,7 +185,18 @@ DNA パイプライン設定ファイルについて
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [mutation_util]
-    # 
+    # pair_params: ペアリードに使用します．
+    # single_params: シングルリードに使用します．
+    #
+    # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です。以下の条件を満たした候補がresult.filt.txtに出力されます。デフォルト値は以下になります。
+    #       --fish_pval: カラム"P-value(fisher)"　>= 1.0
+    #       --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
+    #       --eb_pval: カラム"P-value(EBCall)" >= 4.0
+    #       --tcount: カラム"AltNum_tumor" >= 4
+    #       --ncount: カラム"AltNum_normal" <= 2
+    #       --post10q: カラム"10%_posterior_quantile" >= 0.1
+    #       --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 0.1
+    #       --count: カラム"readPairNum" >= 0.1
     pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
     single_params = --post10q 0.1 --r_post10q 0.1 --count 4
     
@@ -202,8 +213,17 @@ DNA パイプライン設定ファイルについて
     
     [sv_filt]
     qsub_option = -l s_vmem=2G,mem_req=2G
+    #      --min_junc_num: minimum required number of supporting junction read pairs
+    #      --max_control_variant_read_pair maximum allowed number of read pairs in matched control sample
+    #      --min_overhang_size minimum region size arround each break-point which have to be covered by at least one aligned short read
     params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
     annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
+    # 
+    # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です。以下の条件を満たした候補がresult.filt.txtに出力されます。デフォルト値は以下になります。
+    # min_tumor_allele_freq >= 0.07
+    # max_control_variant_read_pair >= 1
+    # control_depth_thres >= 10
+    # inversion_size_thres >= 1000
     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
     sv_utils_annotation_dir = # the path to the sv_utils-0.4.0beta/resource 
     
