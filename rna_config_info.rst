@@ -83,8 +83,11 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     ##########
     ## Post Analysis
     [paplot]
+    # paplotを使用しない場合はFalse
     enable = True
+    # ペアを設定していないサンプルをpaplotの対象から除く場合はFalse
     include_unpair = True
+    # コントロールパネルを使用しないサンプルをpaplotの対象から除く場合はFalse
     include_unpanel = True
     title = Genomon_RNA
     remarks = Data used in this report were generated using below software.
@@ -94,6 +97,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [post_analysis]
+    # Genomon Post Analysisを使用しない場合はFalse
     enable = True
     config_file = # the path to the GenomonPostAnalysis-1.2.0/genomon_post_analysis.cfg
     qsub_option = -l s_vmem=2G,mem_req=2G

@@ -247,6 +247,7 @@ DNA パイプライン設定ファイルについて
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [pmsignature_full]
+    # pmsignature (type=full) を実行しない場合はFalse
     enable = False
     qsub_option = -l s_vmem=2G,mem_req=2G
     signum_min = 2
@@ -255,6 +256,7 @@ DNA パイプライン設定ファイルについて
     trialnum = 10
     
     [pmsignature_ind]
+    # pmsignature (type=independent) を実行しない場合はFalse
     enable = True
     qsub_option = -l s_vmem=2G,mem_req=2G
     signum_min = 2
