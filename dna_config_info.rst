@@ -115,19 +115,13 @@ DNA パイプライン設定ファイルについて
     # single_params: シングルリードに使用します．
     #
     #      --min_depth: 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．Tumor Normalともに指定した本数以上なければなりません．
-    #      --base_quality: base qualityが指定した値以下であればその情報は使用されません．
-    #      --min_variant_read: Tumorのvariant readがこの値以上でなければ候補の対象となりません．
-    #      --min_allele_freq: 
-    #      --max_allele_freq:
-    # [del]--disease_min_allele_frequency: Tumorのアレル比がこの値以下であれば候補の対象となりません．
-    # [del]--control_max_allele_frequency: Normalのallele比がこの値以上であれば候補の対象となりません．
-    #      --fisher_value:
-    # [del]--fisher_thres_hold: Fihser検定による結果の閾値です．
-    # [del]--fisher_pval-log10_thres: fisher_thres_holdとの違いは，こちらの値は変異コールの結果のrawデータであるmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
+    #      --base_quality: Base Qualityが指定した値以下であればその情報は使用されません．
+    #      --min_variant_read: Tumorの変異を含んだリードの数がこの値以上でなければ候補の対象となりません．
+    #      --min_allele_freq: Tumorのアレル比がこの値以下であれば候補の対象となりません．
+    #      --max_allele_freq: Normalのアレル比がこの値以上であれば候補の対象となりません．
+    #      --fisher_value: Fihser検定による結果の閾値です．
     #      --post_10_q: 変異アレルのリード数は二項分布でモデル化できますが，これをベイズ的にやろうとしてベータ分布を利用し，その結果の10% posterio quantileを閾値としています.
-    # [del]--post_10_q_thres: post_10_qとの違いは，こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
-    # [del]--map_quality: mapping qualityが指定した値以下であればその情報は使用されません．
-    #      --samtools_params: samtoolのパラメータです．
+    #      --samtools_params: samtool mpileupで使用するのパラメータです．
     
     pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
@@ -135,33 +129,26 @@ DNA パイプライン設定ファイルについて
     [realignment_filter]
     #      --score_difference: リードリアライメント時にはマルチアライメントしているのですが，1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，そのリードを使用しないという設定です
     #      --window_size: リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
-    #      --max_depth: 対象の変異positionがこの値以上であればリアライメント対象となりません．
-    #      --exclude_sam_flags: 
-    # [del]--disease_min_mismatch: Tumorの変異数が指定した値以上であれば，フィルタ済み結果ファイルに出力されます
-    # [del]--control_max_mismatch: Normalの変異数が指定した値以下であれば，フィルタ済み結果ファイルに出力されます
-    # [del]--fisher_pval-log10_thres: こちらの値は変異コールの結果のrawデータであるmutation.result.txtからmutation.result.filt.txtというフィルタ済みファイルを生成する際に使用されます．
-    # [del]--post_10_q_thres: こちらの値はフィルタ済み結果ファイルを生成する際に使用されます．
-    
+    #      --max_depth: 対象の変異positionがこの値以上のdepthであればリアライメントしません．
+    #      --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます。
     params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
     
     [indel_filter]
     #      --search_length: indelを検索するときの範囲を指定します search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
     #      --neighbor: 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
-    #      --min_depth: depthと書かれている場合は変異ポジションのリード数の閾値になります．
-    #      --max_mismatch: 
-    # [del]--max_allele_freq: 
-    #      --af_thres:
-    # [del]--base_quality: samtools mpileupをつかって，indelを検索するのですが，mpileupのオプションである-qの値となります．deletionの場合はbase qualityは無視されます．
-    #      --samtools_params: samtoolのパラメータです．
+    #      --min_depth: Depthと書かれている場合は変異ポジションのリード数の閾値になります．
+    #      --min_mismatch: 指定された値以上のミスマッチ数であればその変異を出力しません．
+    #      --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
+    #      --samtools_params: samtool mpileupのパラメータです．
     
     params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
     [breakpoint_filter]
-    # --max_depth: 
+    # --max_depth: 対象の変異positionがこの値以上のdepthであればBreakpoint Filterを行いません．
     # --min_clip_size: ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
-    # --junc_num_thres: 
-    # --map_quality: mapping qualityが指定した値以下であればその情報は使用されません．
-    # --exclude_sam_flags:
+    # --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません。
+    # --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
+    # --exclude_sam_flags:　指定された値を含むsam flagのリードは対象から除かれます。
     
     params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
     
@@ -173,6 +160,7 @@ DNA パイプライン設定ファイルについて
     filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
     
     [hotspot]
+    # hotspot　callを使用するにはこのflagをTrueにしてください．
     active_hotspot_flag = True
     params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
     
@@ -197,6 +185,7 @@ DNA パイプライン設定ファイルについて
     qsub_option = -l s_vmem=2G,mem_req=2G
     
     [mutation_util]
+    # 
     pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
     single_params = --post10q 0.1 --r_post10q 0.1 --count 4
     
