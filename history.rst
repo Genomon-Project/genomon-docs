@@ -1,6 +1,13 @@
 リリースノート
 --------------------
 
+Genomon2.5.2
+====================
+
+
+| ● DNAパイプライン、RNAパイプラインの設定ファイル（*.cfg）でデフォルト値を変更しました。
+|    ご使用の際はANNOVARなどの設定がFALSEになっているので再設定をお願いします．
+
 Genomon2.5.0
 ====================
 
@@ -53,7 +60,7 @@ v2.5.0用のファイルをご使用ください．ANNOVARなどの設定がFALS
      trdirflag = T
      trialnum = 10
 
-| ● RNA　intron_retentionの検出機能をpre-rereaseしました．
+| ● RNA intron_retentionの検出機能をpre-rereaseしました．
 | ● RNA Genomon Expressionをバージョンアップしました．
 | ● エラーハンドリング機能を改良しました．
 
