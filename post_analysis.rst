@@ -17,17 +17,18 @@ GenomonPipelineで解析した結果をまとめる処理を行います．
  - 解析結果をIGVでキャプチャーするスクリプトを作成します
  - 変異の場所だけを抜き出して新しいbamを作成するスクリプトを作成します
 
-出力ファイルに関する解説は `post-analysis <./dna_output_info.html#post-analysis>`_ 参照．
+出力ファイルに関する解説は `post-analysis <./dna_output_info.html#post-analysis>`__ 参照．
 
 デフォルトで有効になっていますので，無効化する場合は以下の設定をFalseにします．
 
 .. code-block:: cfg
   :caption: genomon.cfg
+  :name: genomon.cfg_1
   
-    ##########
-    ## Post Analysis
-    [post_analysis]
-    enable = True 
+  ##########
+  ## Post Analysis
+  [post_analysis]
+  enable = True 
 
 ====================
 paplot
@@ -45,7 +46,7 @@ GenomonPipelineで解析した結果を使用してレポートを作成しま�
  - pmsignature: pmsignature (type=independent) により作成されたシグネチャをプロットします．
  - signature: pmsignature (type=full) により作成されたシグネチャをプロットします．
 
-出力ファイルに関する解説は `post-analysis <./dna_output_info.html#paplot>`_ 参照．
+出力ファイルに関する解説は `paplot <./dna_output_info.html#paplot>`__ 参照．
 
 【RNA】
 
@@ -58,9 +59,10 @@ GenomonPipelineで解析した結果を使用してレポートを作成しま�
 
 .. code-block:: cfg
   :caption: genomon.cfg
-
-    [paplot]
-    enable = True 
+  :name: genomon.cfg_2
+  
+  [paplot]
+  enable = True 
 
 =======================================
 GenomonPipelineでの設定について
@@ -90,6 +92,7 @@ paplotは新しく作られた"Merge_Func"列をfunctionのデータとして使
 
 .. code-block:: cfg
   :caption: paplot_dna.cfg
+  :name: paplot_dna.cfg_1
   :emphasize-lines: 4
 
   [result_format_mutation]
@@ -120,7 +123,8 @@ Genomonでは，functionが(空白), unknown, synonymous_SNV のうちどれか�
 
 .. code-block:: cfg
   :caption: paplot_dna.cfg
-
+  :name: paplot_dna.cfg_2
+  
   [mut]
   # geneごとの変異の発生率が一定以上のもののみ使用する
   ## Genomonでは0にしているので，すべて使用する
@@ -152,6 +156,7 @@ Genomonでは，SV, fusionともにchrが1～22,X,Yの変異のみ使用して�
 
 .. code-block:: cfg
   :caption: paplot_dna.cfg
+  :name: paplot_dna.cfg_3
 
   [ca]
   use_chrs = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y
@@ -178,6 +183,7 @@ paplotはGenomonPostAnalysisで作られたヘッダを使用して設定を行�
 
 .. code-block:: cfg
   :caption: paplot_rna.cfg
+  :name: paplot_rna.cfg_1
 
   [result_format_ca]
   header = True
@@ -202,7 +208,8 @@ paplotはGenomonPostAnalysisで作られたヘッダを使用して設定を行�
 
 .. code-block:: cfg
   :caption: paplot_rna.cfg
-
+  :name: paplot_rna.cfg_2
+  
   [result_format_ca]
   header = False
   # column index (required)
