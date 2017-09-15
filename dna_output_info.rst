@@ -95,7 +95,7 @@ BAMのQuality Control結果
 
 * **merge_qc.txt** -- 結果をマージしたファイル．
 
-| このThe Integrative Genomics Viewer (IGV) で読み込むと，変異CAll結果とSVのポジションが画像として保存されます．
+| このcapture.batファイルをThe Integrative Genomics Viewer (IGV) で読み込み実行すると，変異CAll結果とSVのポジションが画像として保存されます．
 |
 
 * **mutation/capture_script/capture.bat** -- 変異コール結果の周辺ポジションをIGVでsnapshotする.

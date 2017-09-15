@@ -50,6 +50,13 @@ The Zen of Cancer Genome Sequence Analysis
 
 .. toctree::
    :maxdepth: 2
+   :caption: Post Analysis Documentation
+   
+   post_analysis.rst
+   paplot_older_genomon.rst
+   
+.. toctree::
+   :maxdepth: 2
    :caption: Install Documentation
 
    install.rst

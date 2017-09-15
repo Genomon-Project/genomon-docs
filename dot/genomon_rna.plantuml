@@ -1,0 +1,73 @@
+@startuml
+title Genomon Pipeline Schemes RNA
+skinparam Shadowing false
+
+skinparam activity {
+  ArrowColor #0044A0
+  BackgroundColor #EBF3FF
+  BackgroundColor<<input>> #B8CC6E
+  BackgroundColor<<output>> #F8CA31
+  BackgroundColor<<result>> #EFA03B
+  
+  BorderColor #0044A0
+  BorderColor<<input>> #006000
+  BorderColor<<output>> #33220D
+  BorderColor<<result>> #33220D
+  
+'  FontName helvetica
+'  FontSize 12
+}
+
+"[bam_tofastq]"<<input>> --> bam2fastq
+"[fastq]"<<input>> --> link_input_fastq
+"[bam_import]"<<input>> --> link_import_bam
+
+bam2fastq --> task_star_align
+link_input_fastq --> task_star_align
+
+task_star_align --> "Aligned.sortedByCoord.out.bam"<<output>>
+task_star_align --> "Log.final.out"<<output>>
+link_import_bam --> "Aligned.sortedByCoord.out.bam"<<output>>
+
+partition "[fusion]" {
+  "Aligned.sortedByCoord.out.bam" --> task_fusion_count
+  --> tast_fusion_merge
+  --> task_fusionfusion
+  --> "fusion_fusion.result.txt"<<output>>
+  --> post_analysis_fusionfusion
+  --> "merge.result.fusion"<<result>>
+  --> paplot_fusion
+  --> "plot.fusion"<<result>>
+}
+
+partition "[expression]" {
+  "Aligned.sortedByCoord.out.bam" --> task_genomon_expression
+  --> "sym2fkpm.txt"<<output>>
+}
+
+partition "[intron_retention]" {
+  "Aligned.sortedByCoord.out.bam" --> task_intron_retention
+  --> "ir_simple_count.txt"<<output>>
+}
+
+partition "[qc]" {
+  "Log.final.out" --> post_analysis_star_qc
+  --> "merge.result.qc"<<result>>
+  --> paplot_qc
+  --> "plot.qc"<<result>>
+}
+
+partition "key:" #F6F4F4 {
+  Input<<input>> --> "Task 1 to run"
+  --> Output<<output>>
+  --> "Task 2 to run"
+  --> "Post Analysis Output"<<result>>
+}
+
+/'
+(1) 編集したら、Ctrl+A -> Ctrl+C したのち、このページに張り付けましょう
+  http://www.plantuml.com/plantuml/
+
+(2) [Submit] ボタンを押して、できた画像を保存します
+'/
+@enduml

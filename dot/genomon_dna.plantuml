@@ -1,0 +1,89 @@
+@startuml
+title Genomon Pipeline Schemes DNA
+skinparam Shadowing false
+
+skinparam activity {
+  ArrowColor #0044A0
+  BackgroundColor #EBF3FF
+  BackgroundColor<<input>> #B8CC6E
+  BackgroundColor<<output>> #F8CA31
+  BackgroundColor<<result>> #EFA03B
+  
+  BorderColor #0044A0
+  BorderColor<<input>> #006000
+  BorderColor<<output>> #33220D
+  BorderColor<<result>> #33220D
+  
+'  FontName helvetica
+'  FontSize 12
+}
+
+"[bam_tofastq]"<<input>> --> bam2fastq
+bam2fastq --> split_files
+
+"[fastq]"<<input>> --> link_input_fastq
+link_input_fastq --> split_files
+
+split_files --> map_dna_sequence
+--> markdup
+--> "markdup.bam"<<output>>
+
+"[bam_import]"<<input>> --> link_import_bam
+--> "markdup.bam"<<output>>
+
+partition "[mutation_call]" {
+  "markdup.bam" --> identify_mutations
+  --> "genomon_mutation.result.txt"<<output>>
+  --> post_analysis_mutation
+  --> "capture_IGV_mutation"<<result>>
+  
+  post_analysis_mutation --> "merge.result.mutation"<<result>>
+  --> paplot_mutation
+  --> "plot_mutation"<<result>>
+  
+  "merge.result.mutation" --> pmsignature
+  --> "pmsignature.result.json"<<result>>
+  --> paplot_pmsignature
+  --> "plot_pmsignature"<<result>>
+}
+
+partition "[sv_detection]" {
+  "markdup.bam" --> parse_sv
+  --> merge_sv
+  --> filt_sv
+  --> "genomonSV.result.txt"<<output>>
+  --> post_analysis_sv
+  --> "capture_IGV_sv"<<result>>
+  
+  post_analysis_sv --> "merge.result.sv"<<result>>
+  --> paplot_sv
+  --> "plot_sv"<<result>>
+}
+
+partition "[qc]" {
+  "markdup.bam" --> coverage
+  "markdup.bam" --> bam_stats
+  coverage --> merge_qc
+  bam_stats --> merge_qc
+  merge_qc --> "genomonQC.result.txt"<<output>>
+
+  "genomonQC.result.txt" --> post_analysis_qc
+  --> "merge.result.qc"<<result>>
+  --> paplot_qc
+  --> "plot.qc"<<result>><<output>>
+}
+
+partition "key:" #F6F4F4 {
+  Input<<input>> --> "Task 1 to run"
+  --> Output<<output>>
+  --> "Task 2 to run"
+  --> "Post Analysis Output"<<result>>
+}
+
+/'
+(1) 編集したら、Ctrl+A -> Ctrl+C したのち、このページに張り付けましょう
+  http://www.plantuml.com/plantuml/
+
+(2) [Submit] ボタンを押して、できた画像を保存します
+'/
+@enduml
