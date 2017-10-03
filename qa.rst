@@ -17,19 +17,19 @@ Q & A
 |
 | Q：同じ腫瘍サンプルを異なるノーマルサンプルとペアにして解析結果を比較したいのですが、それぞれGenomonを実行しないといけないのでしょうか？
 | A：腫瘍サンプルのサンプル名を別名にすることで同時に解析できます。
-| 
-| .. code-block:: bash
-|   :caption: tumorAをnormal1, normal2 とそれぞれペアにする場合の記述例
-|   
-|   [bam_import]
-|   tumorA1,/path/to/tumorA
-|   tumorA2,/path/to/tumorA
-|   normal1,/path/to/normal1
-|   normal2,/path/to/normal2
-|   
-|   [mutation_call]
-|   tumorA1,normal1,List1
-|   tumorA2,normal2,List1
+
+.. code-block:: bash
+  :caption: tumorAをnormal1, normal2 とそれぞれペアにする場合の記述例
+  
+  [bam_import]
+  tumorA1,/path/to/tumorA
+  tumorA2,/path/to/tumorA
+  normal1,/path/to/normal1
+  normal2,/path/to/normal2
+  
+  [mutation_call]
+  tumorA1,normal1,List1
+  tumorA2,normal2,List1
 
 コントロールパネルについて
 ------------------------------
@@ -38,7 +38,7 @@ Q & A
 | A：腫瘍サンプルで検出された変異がsomatic mutationかどうかを判断するときに使用します。腫瘍サンプルで検出された変異がほかのノーマルサンプルでも検出されていればsomatic mutationとして検出結果から取り除く、という考え方です。 [mutation_call], [sv_detection], [fusionfusion] で使用しています。
 |
 | Q：ノーマルサンプルが１つしかないんですけど、それでも入れたほうがいいんですか？
-| A：解析手法によりアルゴリズムが異なり、SVとfusionfusionは少なくても入れた方がベター、mutation_call (EBCall※ という手法を使用しています) は、8個以下なら使わない方が良いです。※ EBCall (Shiraishi et al., NAR, 2013)
+| A：解析手法によりアルゴリズムが異なります。SVとfusionfusionは少なくても入れた方がよいです。mutation_call (EBCall※ という手法を使用しています) は、8個以下なら使わない方がよいです。※ EBCall (Shiraishi et al., NAR, 2013)
 
 変異コールについて
 ---------------------
