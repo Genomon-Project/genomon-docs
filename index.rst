@@ -48,13 +48,6 @@ The Zen of Cancer Genome Sequence Analysis
    rna_workflow.rst
    rna_output_info.rst
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Post Analysis Documentation
-   
-   post_analysis.rst
-   paplot_older_genomon.rst
-   
 .. toctree:: 
    :maxdepth: 2
    :caption: Users Guide
@@ -64,6 +57,13 @@ The Zen of Cancer Genome Sequence Analysis
    man_check.rst
    man_trouble.rst
    man_rerun.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Post Analysis Documentation
+   
+   post_analysis.rst
+   paplot_older_genomon.rst
 
 .. toctree::
    :maxdepth: 2

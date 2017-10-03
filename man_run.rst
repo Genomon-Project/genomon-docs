@@ -86,7 +86,7 @@ BAMファイルを解析データとして使用する場合，BAM Indexファ�
 -------------------------------
 
 Genomonを実行するために以下2つのスクリプトを用意します．一つはGenomonをジョブとして投入するためのスクリプト，もう一つはジョブとして投入されるスクリプトです．
-以下のパスについては適宜変更ください．
+以下スクリプトのパスについては環境に合わせて適宜変更ください．
 
 .. code-block:: bash
   :caption: genomon_pipeline.sh
@@ -103,7 +103,7 @@ Genomonを実行するために以下2つのスクリプトを用意します．
   qsub $5 -o ${project_dir}/log -e ${project_dir}/log /home/lect-1/Genomon2_5_2/script/qsub_genomon_pipeline.sh $1 $2 $3 $4 "$6"
 
 .. code-block:: bash
-  :caption: qsub/qsub_genomon_pipeline.sh
+  :caption: qsub_genomon_pipeline.sh
   
   #$ -S /bin/bash         # set shell in UGE
   #$ -cwd                 # execute at the submitted dir

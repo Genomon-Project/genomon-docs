@@ -393,16 +393,8 @@ pmsignature
   2: In readMPFile(inputFile, numBases = 5, trDir = trDirFlag, bs_genome = eval(parse(text = bs_genome)), :
   The characters other than (A, C, G, T) are included in alternate bases of 184931 mutations. We have removed them.
   Execution halted
-  if [ $? -ne 0 ]
-  then
-  echo pmsignature terminated abnormally.
-  echo '{"id":[],"ref":[],"alt":[],"strand":[],"mutation":[]}' > /home/ana/genomon/20170719_TARGET/exome/AML/hg19/2.5.2/pmsignature/AML_analysis/pmsignature.ind.result.$sig_num.json
-  exit 0
-  fi
-  + '[' 1 -ne 0 ']'
-  + echo pmsignature terminated abnormally.
-  + echo '{"id":[],"ref":[],"alt":[],"strand":[],"mutation":[]}'
-  + exit 0
+  ・・・・・・・
+  ・・・・・・・
   (END)
 
 
