@@ -68,10 +68,13 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
   (END)
 
 
-【原因】
+【確認方法】
 
-| mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過したことにより，スパコンによりジョブの実行が中止されたと考えられます．
+| 以下いずれかに当てはまる場合、メモリ超過エラーと考えられます．
 
+ - ケース１：mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過している．
+ - ケース２：extが139もしくは152で終了している．
+ 
 【対処法】
 
 | Genomon解析コマンドの ``qsubオプション`` に，Ropt 列で示された qsub オプション値を指定し，Genomon を再実行します．
@@ -112,13 +115,43 @@ Genomon本体のログファイルは解析の出力ディレクトリ内の ``l
   $ ls /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e<ジョブID>
 
 
-ログファイルを特定したら，任意のテキストビューアまたはテキストエディタでログファイルを開き，記録内容が以下のケースに該当するか確認ください．
+ログファイルを特定したら，その内容が以下のケースに該当するか確認ください．
 解決しない場合は，次章 :ref:`3-4. 解析ジョブの使用メモリを確認 <job_mem>` に進んでください．
 
 Genomon本体のログ出力例
 ****************************************
 
-◆ケース1: DRMAA sessionエラー
+◆ケース1: RuntimeError: Job: xxxxx
++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  Traceback (most recent call last):
+    File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/task.py, line 751, in run_pooled_job_without_exceptions
+      register_cleanup, touch_files_only)
+    File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/task.py, line 567, in job_wrapper_io_files
+      ret_val = user_defined_work_func(*params)
+    File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packageslib/python/genomon_pipeline/dna_pipeline.py, line 517, in identify_mutations
+      mutation_call.task_exec(arguments, run_conf.project_root + '/log/' + sample_name, run_conf.project_root + '/script/' + sample_name, max_task_id)
+    File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 105, in task_exec
+      raise RuntimeError("Job: " + str(retval.jobId)  + ' failed at Date/Time: ' + date)
+  'RuntimeError: Job: 35281321 failed at Date/Time: 2017-10-03 11:42:27'
+  (END)
+  
+【原因】
+
+| Genomonが呼び出した解析ジョブが何らかの原因で異常終了したことが原因です．
+| 上記の場合，異常終了した解析ジョブのIDは ``35281321`` であることがわかります．
+
+【対処法】
+
+| 詳しい原因を調査するため，次章 :ref:`3-4. 解析ジョブの使用メモリを確認 <job_mem>` に進んでください．
+
+
+◆ケース2: DRMAA sessionエラー
 ++++++++++++++++++++++++++++++++++
 
 .. code-block:: bash
@@ -152,7 +185,7 @@ Genomon本体のログ出力例
   '-l s_vmem=96G,mem_req=96G'
 
 
-◆ケース2: DrmCommunicationExceptionエラー
+◆ケース3: DrmCommunicationExceptionエラー
 +++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: bash
@@ -180,7 +213,7 @@ Genomon本体のログ出力例
 | Genomon解析コマンドを再実行してください．
 
 
-◆ケース3: DatabaseError
+◆ケース4: DatabaseError
 ++++++++++++++++++++++++++++
 
 .. code-block:: bash
@@ -208,7 +241,7 @@ Genomon本体のログ出力例
 | ②Genomon解析コマンドを再実行してください．
 
 
-◆ケース4 強制終了
+◆ケース5: 強制終了
 ++++++++++++++++++++++++
 
 .. code-block:: bash
@@ -229,7 +262,7 @@ Genomon本体のログ出力例
 | ②Genomon解析コマンドに，①で作成したサンプル設定ファイルを指定して，サンプル設定ファイル数ぶんGenomon解析コマンドを再実行してください．
 
 
-◆ケース5: （サンプル名）.markdup.bam does not exists
+◆ケース6: （サンプル名）.markdup.bam does not exists
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: bash
@@ -261,6 +294,7 @@ Genomon本体のログ出力例
 | ①サンプル設定ファイルに記載したディレクトリに記載した通り当該解析対象ファイルが配置されていることや，サンプル設定ファイルの記載内容を確認してください．
 | ②Genomon解析コマンドを再実行してください．
 
+
 .. _job_mem:
 
 3-4. 解析ジョブの使用メモリを確認
@@ -268,25 +302,50 @@ Genomon本体のログ出力例
 
 Genomon本体ではなく，解析ジョブに問題が発生した場合は各解析ジョブを確認することで原因が特定できることがあります．
 
-まず，``qreport`` コマンドを使用して使用したメモリを確認します．
+まず，``qreport`` コマンドを使用してジョブの結果を確認します．
 該当しない場合は，次章 :ref:`3-5. 解析ジョブのログファイルを確認 <job_log>` に進んでください．
+
+異常終了したジョブが特定できている場合は以下のようにして確認します．
+
+.. code-block:: bash
+
+  $ qreport -j 34753787 -l
+  | owner  | jobid    |~|ext|fail|~| jobname                             |~| mmem|  rmem|~|Ropt                    |
+  | lect-1 | 34753787 |~|137|100 |~| fusionfusion_20170825_160352_970695 |~| 3.2G|  6.0G|~|-l s_vmem=6G,mem_req=6G |
+  
+
+ジョブが特定できていない場合は以下のようにして探します．
 
 .. code-block:: bash
   
-  # STARによるアライメントジョブが異常終了した例
   $ qreport -f -b 201708101300 -o lect-1 -l
-  | owner  | jobid    |~| jobname                           |~| mmem | rmem |~| Ropt                        |
-  | lect-1 | 35172311 |~| star_align_20170810_204030_806134 |~| 6.1G | 5.3G |~| -l s_vmem=8.0G,mem_req=8.0G |
-
-  # pmsignature解析ジョブが異常終了した例
-  $ qreport -f -b 201708101300 -o lect-1 –l
-  | owner  | jobid    |~| jobname                            |~| mmem | rmem |~| Ropt                    |
-  | lect-1 | 35172356 |~| pmsignature_20170810_204030_806134 |~| 2.1G | 2.0G |~| -l s_vmem=5G,mem_req=5G |
+  | owner  | jobid    |~|ext|fail|~| jobname                           |~| mmem | rmem |~| Ropt                        |
+  | lect-1 | 35172311 |~|137|100 |~| star_align_20170810_204030_806134 |~| 6.1G | 5.3G |~| -l s_vmem=8.0G,mem_req=8.0G |
 
 
-【原因】
+【確認方法】
 
-mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過したことによるメモリ不足のためと考えられます．
+以下いずれかに当てはまる場合、メモリ超過エラーと考えられます．
+
+ - ケース１：mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過している．
+ - ケース２：extが139もしくは152で終了している．
+
+.. note::
+
+  **エラーコードの見方**
+  
+  | ◆ exit_status は実行したプログラム（bash）の終了ステータスであり、exit codeと標準シグナルを理解することで確認できます。
+  | 
+  | [exit code] http://www.tldp.org/LDP/abs/html/exitcodes.html
+  | [標準シグナル] http://linuxjm.osdn.jp/html/LDP_man-pages/man7/signal.7.html
+  |
+  | `exit_status 137` は `128 + n (signal)` に該当し、`128+9` でシグナルn=9です。標準シグナルを参照すると、9はkillコマンドのシグナルなので、killされた、という意味になります。
+  | `exit_status 139` は `128+11` でシグナルnは11となり "不正なメモリー参照" と読むことができます。
+  | 
+  | ◆ failed はsun grid engineのqacct -j failed フィールドコードで、こちらで確認できます。
+  | 
+  | [表 7–5 qacct -j failed フィールドコード] https://docs.oracle.com/cd/E19957-01/820-2162/chp11-1/index.html
+
 
 【対処法】
 
@@ -342,38 +401,24 @@ mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求
 3-5. 解析ジョブのログファイルを確認
 ---------------------------------------
 
-``qreport`` コマンドの出力よりジョブIDを確認し，そのジョブIDに該当するジョブのログファイルを特定します．
-
-確認例：
-
-.. code-block:: bash
-
-  $ qreport -f -b 201708101300 -o lect-1 -l
-  | owner  | jobid    |~| jobname                            |~| mmem | rmem |~| Ropt                    |
-  | lect-1 | 35172322 |~| pmsignature_20170810_204030_806134 |~| 1.9G | 2.0G |~| -l s_vmem=2G,mem_req=2G |
-  ・・・・・・・
-  ・・・・・・・
-  (END)
-
-
-上記の例では，ジョブIDは ``35172322`` であることがわかります．
+今回は異常終了した解析ジョブのIDが ``35172322`` であると仮定します．
 
 各ジョブのログファイルは，解析の出力ディレクトリ内の ``log`` ディレクトリ配下に出力されますので，下記のコマンドを用いて，そのジョブIDに該当するジョブのログファイルを特定します．
 
 .. code-block:: bash
   :caption: ログファイルの特定方法
   
-  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e<ジョブID>*
+  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e<ジョブID>
 
 .. code-block:: bash
   :caption: ログファイルの特定例
   
-  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e35172322*
+  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e35172322
   /home/lect-1/Genomon2_5_2/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e35172322.1
   $
 
 
-ログファイルを特定したら，任意のテキストビューアまたはテキストエディタでログファイルを開き，記録内容が以下のケースに該当するか確認ください．
+ログファイルを特定したら，その内容が以下のケースに該当するか確認ください．
 
 pmsignature
 *******************
