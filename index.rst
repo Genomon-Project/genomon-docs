@@ -75,7 +75,8 @@ The Zen of Cancer Genome Sequence Analysis
 .. toctree::
    :maxdepth: 2
    :caption: Information
-
+   
+   qa.rst
    license.rst
    contact.rst
 
