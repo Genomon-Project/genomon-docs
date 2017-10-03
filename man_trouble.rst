@@ -1,0 +1,515 @@
+3. トラブルシューティング
+=============================
+
+解析ジョブがすべて完了しているのにも関わらず解析結果が出力されていない場合，異常終了した可能性があります．下記の手順をもとに原因の切り分けと対策を行います．
+
+3-1. 異常終了したジョブの特定
+-----------------------------------
+
+``qreport`` コマンドを用いて異常終了したジョブをリストアップします．
+（ジョブの実行結果の確認方法はお使いのUGEシステムによって異なることがあります．下記コマンドで確認できない場合はジョブの実行結果の確認方法をシステム管理者にご確認ください）
+
+例えば，2017/8/10 13:00以降に実行したジョブのうち異常終了したものをリストアップする場合は，以下のように実行します．
+
+.. code-block:: bash
+
+  $ qreport -f -b 201708101300 -o lect-1 -l
+
+:f: 異常終了したジョブのみ表示
+:b: 指定した日時以降のジョブのみ表示
+:o: 指定したユーザIDのジョブのみ表示
+:l: 一覧表示モードで表示
+
+.. code-block:: bash
+  :caption: qreport コマンドの出力例
+  
+  # -f オプションを指定しているため失敗したジョブのみ表示されています
+  $ qreport -f -b 201708101300 -o lect-1 -l
+  | owner  | jobid    |~| jobname                            |~| mmem  | rmem  |~| Ropt                       |
+  | lect-1 | 35171900 |~| qsub_genomon_pipeline.sh           |~| 33.1G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
+  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh           |~| 32.9G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
+  | lect-1 | 35172311 |~| star_align_20170810_204030_806134  |~| 6.1G  | 5.3G  |~| -l s_vmem=8.0G,mem_req=8.0G|
+  | lect-1 | 35172356 |~| pmsignature_20170810_204030_806134 |~| 2.1G  | 2.0G  |~| -l s_vmem=5G,mem_req=5G    |
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+:owner:   ユーザ名
+:jobid:   ジョブID
+:jobname: ジョブ名
+:mmem:    実際に使用したメモリの最大値
+:rmem:    スパコンに要求したメモリ量
+:Ropt:    ジョブ再投入時に推奨されるqsubオプション
+
+jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるものがGenomon本体，それ以外はGenomon本体から呼び出された解析ジョブですが，Genomon以外にジョブを実行していた場合はその限りではありません．
+
+なお，Genomonには，ジョブが異常終了した場合に自動的に再実行する機能が備わっています．このため ``qreport`` コマンドによってリストアップされたジョブであっても，再実行により解析が成功している場合もあります．
+
+3-2. Genomon本体の使用メモリを確認
+--------------------------------------
+
+まずGenomon本体のジョブが異常終了した原因を確認します．
+
+``qreport`` コマンドを使用して使用したメモリを確認します．
+該当しない場合は，次章 3-3. ログファイルを確認 に進んでください．
+
+.. code-block:: bash
+
+  $ qreport -f -b 201708101300 -o lect-1 -l
+  | owner  | jobid    |~| jobname                  |~| mmem  | rmem  |~| Ropt                      |
+  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh |~| 32.9G | 32.0G |~| -l s_vmem=48G,mem_req=48G |
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+【原因】
+
+mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過したことにより，スパコンによりジョブの実行が中止されたと考えられます．
+
+【対処法】
+
+Genomon解析コマンドの ``qsubオプション`` に，Ropt 列で示された qsub オプション値を指定し，Genomon を再実行します．
+
+.. code-block:: bash
+
+  $ bash
+  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  rna \
+  /home/lect-1/Genomon2_5_2/config/test5929.csv \
+  /home/lect-1/Genomon2_5_2/test5929 \
+  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg \
+  '-l s_vmem=48G,mem_req=48G'
+
+
+3-3. Genomon本体のログファイルを確認
+----------------------------------------
+
+``qreport`` コマンドの出力よりジョブIDを確認し，エラーが発生したジョブのログファイルを特定します．
+
+.. code-block:: bash
+
+  $ qreport -f -b 201708101300 -o lect-1 -l
+  | owner  | jobid    |~| jobname                  |~| mmem  | rmem  |~| Ropt                      |
+  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh |~| 32.9G | 32.0G |~| -l s_vmem=48G,mem_req=48G |
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+上記の例では，ジョブIDは ``35171943`` であることがわかります．
+Genomon本体のログファイルは解析の出力ディレクトリ内の ``log`` ディレクトリ配下に出力されます．
+
+.. code-block:: bash
+  :caption: Genomon本体のログファイルの場所
+  
+  $ ls /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e<ジョブID>
+
+
+ログファイルを特定したら，任意のテキストビューアまたはテキストエディタでログファイルを開き，記録内容が以下のケースに該当するか確認ください．
+
+Genomon本体のログ出力例
+****************************************
+
+◆ケース1: DRMAA sessionエラー
+++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  'AlreadyActiveSessionException: code 11: Initialization failed due to existing DRMAA session.'
+  (END)
+
+【原因】
+
+Genomon本体が使用するメモリ量がグリッドエンジン側で不足し，グリッドエンジンのセッションエラーが発生することで解析が異常終了したためと考えられます．
+
+【対処法】
+
+本エラーを以ってGenomon本体が異常終了することによりメモリは開放されているため，Genomon解析コマンドを再度実行してください．
+
+繰り返し本ケースが生じるようであればGenomon解析コマンドの ``qsubオプション`` にてより多くのメモリをスパコンに要求し，再度実行してください．
+
+なお， ``qsubオプション`` を指定しない場合，Genomon解析コマンドは ``64GB`` のメモリをスパコンに要求します．
+
+再実行例：
+
+.. code-block:: bash
+
+  $ bash
+  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  rna \
+  /home/lect-1/Genomon2_5_2/config/test5929.csv \
+  /home/lect-1/Genomon2_5_2/test5929 \
+  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg \
+  '-l s_vmem=96G,mem_req=96G'
+
+
+◆ケース2: DrmCommunicationExceptionエラー
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/stage_task.py", line 56, in task_exec
+  jobid = s.runJob (jt)
+  File "build/bdist.linux-x86_64/egg/drmaa/session.py", line 314, in runJob
+  c (drmaa_run_job, jid, sizeof (jid) , jobTemplate)
+  File "build/bdist.linux-x86_64/egg/drmaa/helpers.py", line 299, in c
+  return f (\* (args + (error_buffer, sizeof (error_buffer) ) ) )
+  File "build/bdist.linux-x86_64/egg/drmaa/errors.py", line 151, in error_check
+  raise _ERRORS[code - 1] (error_string)
+  'DrmCommunicationException: code 2: failed receiving gdi request response for mid=4 (got syncron message receive timeout error) .'
+  (END)
+
+【原因】
+
+解析実行時，スパコン側においてグリッドエンジンのマスタホストの負荷が高かったことにより，グリッドエンジンのコミュニケーションエラーが発生し解析が異常終了した可能性が考えられます．
+
+【対処法】
+
+Genomon解析コマンドを再実行してください．
+
+
+◆ケース3: DatabaseError
+++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/file_name_parameters.py", line 548, in needs_update_check_modify_time
+  if os.path.relpath (p) not in job_history and p not in set_incomplete_files:
+  File "/home/w3varann/python/2.7.10/lib/python2.7/_abcoll.py", line 388, in __contains__
+  self[key]
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/*ruffus*/dbdict.py", line 174, in __getitem__
+  (key, ) ) .fetchone ()
+  'DatabaseError: database disk image is malformed'
+  (END)
+
+
+【原因】
+
+Genomonがパイプラインの進捗管理に使用しているデータベースファイル (.ruffus_history.splite) に対する読み取りまたは書き込みに失敗し，解析が異常終了したためと考えられます．
+
+【対処法】
+
+①データベースファイルを削除してください．
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/Genomon2_5_2/config/
+  $ rm .ruffus_history.splite
+
+
+②Genomon解析コマンドを再実行してください．
+
+
+◆ケース4 強制終了
+++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  genomon_pipeline: line 47: 21714 '強制終了'
+  (END)
+
+【原因】
+
+入力サンプル数が多いとき，スパコン側で計算リソースが不足し強制終了することがあります．
+
+【対処法】
+
+①入力サンプル数が多い場合は (目安: 数1000以上) ，サンプル設定ファイル中の解析対象サンプルが500程度になるようにサンプル設定ファイルを分割して複数作成してください．
+
+サンプル設定ファイル ``test5929.csv`` 分割・配置例：
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/ Genomon2_5_2/
+  $ ls config/
+  test5929_1.csv test5929_2.csv test5929_3.csv test5929_4.csv rna_genomon.cfg
+  $
+
+
+②Genomon解析コマンドの第2引数 {サンプル設定ファイル} に，①で作成したサンプル設定ファイルを指定して，サンプル設定ファイル数ぶんGenomon解析コマンドを再実行してください．
+
+再実行例：
+
+.. code-block:: bash
+
+  $ bash
+  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  rna \
+  '/home/lect-1/Genomon2_5_2/config/test5929_1.csv' \
+  /home/lect-1/Genomon2_5_2/test5929 \
+  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg
+
+
+◆ケース5: （サンプル名）.markdup.bam does not exists
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  Genomon is checking parameters ...
+  Traceback (most recent call last):
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/bin/genomon_pipeline", line 29, in <module>
+  main(args)
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/run.py", line 21, in main
+  sample_conf.parse_file(run_conf.sample_conf_file)
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py", line 61, in parse_file
+  self.parse_data(file_data_trimmed)
+  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py", line 237, in parse_data
+  raise ValueError(err_msg)
+  ValueError: test_1:
+  '/home/lect-1/Genomon2_5_2/raw/bam/test_1/test_1.markdup.bam does not exists'
+  (END)
+
+
+【原因】
+
+当該解析対象ファイルがサンプル設定ファイルに記載したディレクトリ下に配置されていないため，解析対象ファイルが読み込めていない状態と考えられます．
+
+【対処法】
+
+①サンプル設定ファイルに記載したディレクトリに記載した通り当該解析対象ファイルが配置されていることや，サンプル設定ファイルの記載内容を確認してください．
+
+②Genomon解析コマンドを再実行してください．
+
+
+3-4. 解析ジョブの使用メモリを確認
+------------------------------------------
+
+Genomon本体ではなく，解析ジョブに問題が発生した場合は各解析ジョブを確認することで原因が特定できることがあります．
+
+まず，``qreport`` コマンドを使用して使用したメモリを確認します．
+該当しない場合は，次章 3-5. ログファイルを確認 に進んでください．
+
+.. code-block:: bash
+  
+  # STARによるアライメントジョブが異常終了した例
+  $ qreport -f -b 201708101300 -o lect-1 -l
+  | owner  | jobid    |~| jobname                           |~| mmem | rmem |~| Ropt                        |
+  | lect-1 | 35172311 |~| star_align_20170810_204030_806134 |~| 6.1G | 5.3G |~| -l s_vmem=8.0G,mem_req=8.0G |
+
+  # pmsignature解析ジョブが異常終了した例
+  $ qreport -f -b 201708101300 -o lect-1 –l
+  | owner  | jobid    |~| jobname                            |~| mmem | rmem |~| Ropt                    |
+  | lect-1 | 35172356 |~| pmsignature_20170810_204030_806134 |~| 2.1G | 2.0G |~| -l s_vmem=5G,mem_req=5G |
+
+
+【原因】
+
+mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過したことによるメモリ不足のためと考えられます．
+
+【対処法】
+
+①パイプライン設定ファイルを編集し，該当するジョブに対するqsubオプションに，(Ropt) 列で示されたqsubオプション値を指定し，Genomonを再実行します．
+
+◆STARによるアライメントジョブのqsubオプション値の変更例
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/Genomon2_5_2/config/
+  $ vi rna_genomon.cfg
+  ##########
+  # parameters for star alignment
+  [star_align]
+  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=8.0G,mem_req=8.0G -pe def_slot 6
+
+
+◆pmsignatureジョブのqsubオプション値の変更例
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/Genomon2_5_2/config/
+  $ vi dna_exome_genomon.cfg
+  ############
+  # pmsignature
+  [pmsignature_full]
+  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5G,mem_req=5G
+
+  [pmsignature_ind]
+  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5G,mem_req=5G
+
+
+②Genomon解析コマンドを再度実行してください．
+
+3-5. 解析ジョブのログファイルを確認
+---------------------------------------
+
+``qreport`` コマンドの出力よりジョブIDを確認し，そのジョブIDに該当するジョブのログファイルを特定します．
+
+確認例：
+
+.. code-block:: bash
+
+  $ qreport -f -b 201708101300 -o lect-1 -l
+  | owner  | jobid    |~| jobname                            |~| mmem | rmem |~| Ropt                    |
+  | lect-1 | 35172322 |~| pmsignature_20170810_204030_806134 |~| 1.9G | 2.0G |~| -l s_vmem=2G,mem_req=2G |
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+上記の例では，ジョブIDは ``35172322`` であることがわかります．
+
+各ジョブのログファイルは，解析の出力ディレクトリ内の ``log`` ディレクトリ配下に出力されますので，下記のコマンドを用いて，そのジョブIDに該当するジョブのログファイルを特定します．
+
+.. code-block:: bash
+  :caption: ログファイルの特定方法
+  
+  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e<ジョブID>*
+
+.. code-block:: bash
+  :caption: ログファイルの特定例
+  
+  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e35172322*
+  /home/lect-1/Genomon2_5_2/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e35172322.1
+  $
+
+
+ログファイルを特定したら，任意のテキストビューアまたはテキストエディタでログファイルを開き，記録内容が以下のケースに該当するか確認ください．
+
+pmsignature
+*******************
+
+◆ケース1: Error: cannot allocate vector
+++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e12345678.1
+  ・・・・・・・
+  ・・・・・・・
+  'Error: cannot allocate vector' of size 111.9 Mb
+  In addition: Warning messages:
+  1: In readMPFile(inputFile, numBases = 5, trDir = trDirFlag, bs_genome = eval(parse(text = bs_genome)), :
+  The central bases are inconsistent in 214424 mutations. We have removed them.
+  2: In readMPFile(inputFile, numBases = 5, trDir = trDirFlag, bs_genome = eval(parse(text = bs_genome)), :
+  The characters other than (A, C, G, T) are included in alternate bases of 184931 mutations. We have removed them.
+  Execution halted
+  if [ $? -ne 0 ]
+  then
+  echo pmsignature terminated abnormally.
+  echo '{"id":[],"ref":[],"alt":[],"strand":[],"mutation":[]}' > /home/ana/genomon/20170719_TARGET/exome/AML/hg19/2.5.2/pmsignature/AML_analysis/pmsignature.ind.result.$sig_num.json
+  exit 0
+  fi
+  + '[' 1 -ne 0 ']'
+  + echo pmsignature terminated abnormally.
+  + echo '{"id":[],"ref":[],"alt":[],"strand":[],"mutation":[]}'
+  + exit 0
+  (END)
+
+
+【原因】
+
+mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過したことによるメモリ不足のためと考えられます．
+
+【対処法】
+
+ ``3-3-1. ``qreport`` コマンドによる確認`` の手順をもとに，pmsignatureで利用するメモリ量を増やしてジョブを再実行してください．
+
+
+STAR
+***********
+
+◆ケース1: 期待してない token \` (' のあたりにシンタックスエラー
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  /home/lect-1/Genomon2_5_2/config/test5929/script/test_(1) /star_align
+  '_20170824_152847_296876.sh: line 13: 期待してない token \` (' のあたりにシンタックスエラー'
+  /home/lect-1/Genomon2_5_2/test5929/script/test_(1) /star_align_20170824_152847_296876.sh: line 13: \`{path to genomon installed}/genomon_pipeline-2.5.2/tools/STAR-2.5.2a/bin/Linux_x86_64_static/STAR --genomeDir {path to genomon installed}/genomon_pipeline-2.5.2/database/GRCh37.STAR-2.5.2a --readFilesIn /home/lect-1/Genomon2_5_2/raw/fastq/test_(1) /1_1.fastq /home/lect-1/Genomon2_5_2/raw/fastq/test_(1) /1_2.fastq --outFileNamePrefix /home/lect-1/Genomon2_5_2/test5929/star/test_(1) /test_(1) ) . --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted '
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+【原因】
+
+上記エラーにおいてはサンプル名が ``test_(1)`` であり，括弧” (“がサンプル名内に含まれてることが原因でした．
+サンプル設定ファイル内に記述されているディレクトリ名・ファイル名・サンプル名に特殊文字が含まれているとSTARで読み込めないことがあります．
+
+【対処法】
+
+①サンプル設定ファイル内の特殊文字を削除してください．Genomonでは，英数字，ハイフン，ピリオドのみの使用が推奨されています．
+
+②Genomon解析コマンドを再実行してください．
+
+
+◆ケース2: ReadAlignChunk_processChunks.cpp:115:processChunks EXITING because of FATAL ERROR in input reads: unknown file format: ....
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  'ReadAlignChunk_processChunks.cpp:115:processChunks EXITING because of FATAL ERROR in input reads: unknown file format: the read ID should start with @ or >'
+  Aug 23 18:12:04 …… FATAL ERROR, exiting
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+【原因】
+
+(1) 入力されたFastqファイルの記述内容が不正のためと考えられます．
+
+(2)  ``gzip`` 等で圧縮されたFastqファイルを入力しているためと考えられます．アライメントに使用しているツール ``STAR`` では，gzip等で圧縮された形式でのFastqファイルの入力をサポートしておらず，Fastqフォーマットエラーと出力されます．
+
+【対処法】
+
+①原因ごとに以下を実行してください．
+
+(1) Fastqファイルの中身を確認してください．
+
+(2) 解凍して入力してください．合わせて，サンプル設定ファイルにおけるFastqファイルパスの記述も，解凍後のものへと変更してください．
+
+②Genomon解析コマンドを再実行してください．
+
+◆ケース3: FATAL ERROR: Read1 and Read2 are not consistent
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  EXITING because of 'FATAL ERROR: Read1 and Read2 are not consistent, reached the end of the one before the other one'
+  SOLUTION: Check you your input files: they may be corrupted
+  Aug 24 17:39:14 ...... FATAL ERROR, exiting
+  ・・・・・・・
+  ・・・・・・・
+  (END)
+
+
+【原因】
+
+ペアとなるRead1とRead2のリード数が一致していないためと考えられます．
+
+【対処法】
+
+①Genomonではリード数が不一致の場合使用できませんので，当該サンプルをサンプル設定ファイル上から削除してください．
+
+②Genomon解析コマンドを再実行してください．
+
