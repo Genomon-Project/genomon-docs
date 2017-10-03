@@ -52,7 +52,6 @@ The Zen of Cancer Genome Sequence Analysis
    :maxdepth: 2
    :caption: Users Guide
    
-   man_index.rst
    man_run.rst
    man_check.rst
    man_trouble.rst
