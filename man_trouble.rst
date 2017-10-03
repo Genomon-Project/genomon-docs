@@ -156,13 +156,13 @@ Genomon本体が使用するメモリ量がグリッドエンジン側で不足�
   $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/stage_task.py", line 56, in task_exec
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 56, in task_exec
   jobid = s.runJob (jt)
-  File "build/bdist.linux-x86_64/egg/drmaa/session.py", line 314, in runJob
+  File build/bdist.linux-x86_64/egg/drmaa/session.py, line 314, in runJob
   c (drmaa_run_job, jid, sizeof (jid) , jobTemplate)
-  File "build/bdist.linux-x86_64/egg/drmaa/helpers.py", line 299, in c
+  File build/bdist.linux-x86_64/egg/drmaa/helpers.py, line 299, in c
   return f (\* (args + (error_buffer, sizeof (error_buffer) ) ) )
-  File "build/bdist.linux-x86_64/egg/drmaa/errors.py", line 151, in error_check
+  File build/bdist.linux-x86_64/egg/drmaa/errors.py, line 151, in error_check
   raise _ERRORS[code - 1] (error_string)
   'DrmCommunicationException: code 2: failed receiving gdi request response for mid=4 (got syncron message receive timeout error) .'
   (END)
@@ -184,11 +184,11 @@ Genomon解析コマンドを再実行してください．
   $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/file_name_parameters.py", line 548, in needs_update_check_modify_time
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/file_name_parameters.py, line 548, in needs_update_check_modify_time
   if os.path.relpath (p) not in job_history and p not in set_incomplete_files:
-  File "/home/w3varann/python/2.7.10/lib/python2.7/_abcoll.py", line 388, in __contains__
+  File /home/w3varann/python/2.7.10/lib/python2.7/_abcoll.py, line 388, in __contains__
   self[key]
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/*ruffus*/dbdict.py", line 174, in __getitem__
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/ruffus/dbdict.py, line 174, in __getitem__
   (key, ) ) .fetchone ()
   'DatabaseError: database disk image is malformed'
   (END)
@@ -266,13 +266,13 @@ Genomonがパイプラインの進捗管理に使用しているデータベー�
   ・・・・・・・
   Genomon is checking parameters ...
   Traceback (most recent call last):
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/bin/genomon_pipeline", line 29, in <module>
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/bin/genomon_pipeline, line 29, in <module>
   main(args)
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/run.py", line 21, in main
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/run.py, line 21, in main
   sample_conf.parse_file(run_conf.sample_conf_file)
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py", line 61, in parse_file
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 61, in parse_file
   self.parse_data(file_data_trimmed)
-  File "{path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py", line 237, in parse_data
+  File {path to genomon installed}/genomon_pipeline-2.5.2/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 237, in parse_data
   raise ValueError(err_msg)
   ValueError: test_1:
   '/home/lect-1/Genomon2_5_2/raw/bam/test_1/test_1.markdup.bam does not exists'
@@ -329,7 +329,11 @@ mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求
   ##########
   # parameters for star alignment
   [star_align]
-  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=8.0G,mem_req=8.0G -pe def_slot 6
+  
+  # 変更前
+  qsub_option = -l s_vmem=5.3G,mem_req=5.3G -pe def_slot 6
+  # 変更後
+  qsub_option = -l s_vmem=8.0G,mem_req=8.0G -pe def_slot 6
 
 
 ◆pmsignatureジョブのqsubオプション値の変更例
@@ -340,12 +344,22 @@ mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求
   /home/lect-1/Genomon2_5_2/config/
   $ vi dna_exome_genomon.cfg
   ############
-  # pmsignature
+  
+  # pmsignature full の場合
   [pmsignature_full]
-  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5G,mem_req=5G
-
+  
+  # 変更前
+  qsub_option = -l s_vmem=2G,mem_req=2G
+  # 変更後
+  qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+  
+  # pmsignature ind の場合
   [pmsignature_ind]
-  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5G,mem_req=5G
+  
+  # 変更前
+  qsub_option = -l s_vmem=2G,mem_req=2G
+  # 変更後
+  qsub_option = -l s_vmem=5.3G,mem_req=5.3G
 
 
 ②Genomon解析コマンドを再度実行してください．
