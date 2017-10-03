@@ -69,7 +69,7 @@ RNA 解析結果ファイルの説明
     qsub_option = -l ljob,s_vmem=5.3G,mem_req=5.3G
     annotation_dir = # the path to the fusionfusion/resource
     params=
-    # 以下の設定では、同一遺伝子で検出されたfusionは除外する
+    # 以下の設定では，同一遺伝子で検出されたfusionは除外する
     filt_params = --filter_same_gene
 
 

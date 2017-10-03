@@ -110,7 +110,7 @@ pmsignatureによるsignature出力結果
 
 * **mutation.cut.txt** -- 変異コールのマージ結果からpmsignatureで使用するフィールドのみ抽出したファイル．
 
-| 使用するファイルはデフォルトの場合、以下
+| 使用するファイルはデフォルトの場合，以下
 
  - merge_mutation_filt_pair_controlpanel.txt
  - merge_mutation_filt_pair.txt
@@ -131,14 +131,14 @@ pmsignatureによるsignature出力結果
 * **pmsignature.full.result.*.json** -- full.*.Rdataをpaplotで使用できる形式に変換したファイル．
 * **pmsignature.ind.result.*.json** -- ind.*.Rdataをpaplotで使用できる形式に変換したファイル．
 
-| ``*`` は出力するsignatureの数．(デフォルトの場合、2 ～ 6)
-| 実際の結果を確認する場合は、paplotを参照ください．
+| ``*`` は出力するsignatureの数．(デフォルトの場合，2 ～ 6)
+| 実際の結果を確認する場合は，paplotを参照ください．
 |
 
 paplot結果
 -----------------------
 
-| 変異コール、SV検出結果とQC結果をビジュアライゼーションした結果です．
+| 変異コール，SV検出結果とQC結果をビジュアライゼーションした結果です．
 | paplotディレクトリをダウンロードし，index.htmlをダブルクリックしてください．結果を確認できます．
 |
 | paplotの使い方についてはこちら

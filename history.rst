@@ -6,7 +6,7 @@ Genomon2.5.2
 
 .. attention::
 
-  | DNAパイプライン、RNAパイプラインの設定ファイル (.cfg) でデフォルト値を変更しました．
+  | DNAパイプライン，RNAパイプラインの設定ファイル (.cfg) でデフォルト値を変更しました．
   | ご使用の際はANNOVARなどの設定がFALSEになっているので再設定をお願いします．
 
 
@@ -19,9 +19,9 @@ Genomon2.5.0
   | v2.5.0用のファイルをご使用ください．ANNOVARなどの設定がFALSEになっているので再設定をお願いします．
  
 | ● DNAパイプラインの変異コールにHotspotのポジションを特別な方法で検出する機能(Hotspot Call)を追加しました．
-|    通常の変異コールFisher's exact testで検出できずに、Hotspot Callで検出できた候補には、新しく追加されたカラム"score(hotspot)"に値が入っています． score(hotspot) ≧ 8 の場合、本物の可能性が高いとみて、候補とします．
+|    通常の変異コールFisher's exact testで検出できずに，Hotspot Callで検出できた候補には，新しく追加されたカラム"score(hotspot)"に値が入っています． score(hotspot) ≧ 8 の場合，本物の可能性が高いとみて，候補とします．
 |    
-|    こちらの機能はデフォルトで動作します。必要がない場合はパイプライン設定ファイルのactive_hotspot_flagをFalseに変更してご使用ください．
+|    こちらの機能はデフォルトで動作します．必要がない場合はパイプライン設定ファイルのactive_hotspot_flagをFalseに変更してご使用ください．
 |
 |    パイプライン設定ファイル(dna_genomon.cfg)
 
@@ -33,9 +33,9 @@ Genomon2.5.0
 
 |
 | ● DNAパイプラインにpmsignatureを追加しました．
-|    pmsignatureは変異コールの結果を使用しますので、サンプルCSVの変更はありません．
+|    pmsignatureは変異コールの結果を使用しますので，サンプルCSVの変更はありません．
 |
-|    pmsignatureについては、こちらを参照ください．https://github.com/friend1ws/pmsignature
+|    pmsignatureについては，こちらを参照ください．https://github.com/friend1ws/pmsignature
 |
 |    パイプライン設定ファイル(dna_genomon.cfg)
 
@@ -148,15 +148,15 @@ DNA解析パイプライン
      # 変更前）skip duplicate しない
        filter_flags = UNMAP,SECONDARY,QCFAIL
 
-|    変更するパターンとしては、sam flagsを操作するものと、samtools mpileupの ffオプションで特定のリードをスキップしないようにする2パターンがあります．
+|    変更するパターンとしては，sam flagsを操作するものと，samtools mpileupの ffオプションで特定のリードをスキップしないようにする2パターンがあります．
 |
 |    samflagsについては以下のページを参照してフラグを確認してください．
 |    https://broadinstitute.github.io/picard/explain-flags.html  
-|    samtools mpileup オプションについては、samtools mpileupのヘルプでご確認ください．
+|    samtools mpileup オプションについては，samtools mpileupのヘルプでご確認ください．
 
-| ● 変異コールでHGVDの最新バージョンとExACのアノテーションが付くようになりました。
-|    パイプライン設定ファイル(dna_genomon.cfg)の以下のフラグをTrueにすることでご使用いただけます。
-|    Genomon2.3で出力されるHGVDはHGVD_2013へと名称を変更しました。
+| ● 変異コールでHGVDの最新バージョンとExACのアノテーションが付くようになりました．
+|    パイプライン設定ファイル(dna_genomon.cfg)の以下のフラグをTrueにすることでご使用いただけます．
+|    Genomon2.3で出力されるHGVDはHGVD_2013へと名称を変更しました．
 
  .. code-block:: cfg
  
@@ -180,8 +180,8 @@ RNA解析パイプライン
 |    こちらはDNAパイプラインと同様に適切な値でフィルタ済みのファイルになります．
 |
 |    フィルタ機能の詳細：
-|     １．候補のポジションが“MT”か“GL0”で始まるヒトゲノムのscaffold  (assembled contigs separated by gaps)であった場合、候補からフィルタされます．
-|     ２．fusion元とfusion先の遺伝子名が同じで合ったら候補からフィルタします．こちらはrna_genomon.cfgの以下のパラメータ filt_paramsを変更することにより、このフィルタをなくすことができます．xxxxx.result.txtにはフィルタ前の候補一覧が出力されるので、このフィルタにより、必要な候補が削除されていないか確認できます．
+|     １．候補のポジションが“MT”か“GL0”で始まるヒトゲノムのscaffold  (assembled contigs separated by gaps)であった場合，候補からフィルタされます．
+|     ２．fusion元とfusion先の遺伝子名が同じで合ったら候補からフィルタします．こちらはrna_genomon.cfgの以下のパラメータ filt_paramsを変更することにより，このフィルタをなくすことができます．xxxxx.result.txtにはフィルタ前の候補一覧が出力されるので，このフィルタにより，必要な候補が削除されていないか確認できます．
 
  .. code-block:: cfg
  
@@ -192,7 +192,7 @@ RNA解析パイプライン
 
 | ● QCが出力されるようになりました．
 |
-|    新機能の追加により、サンプル設定ファイルの記載方法が変わります．記載方法につきましてはドキュメントをご確認ください．
+|    新機能の追加により，サンプル設定ファイルの記載方法が変わります．記載方法につきましてはドキュメントをご確認ください．
 |    http://genomon.readthedocs.io/ja/latest/rna_sample_csv.html
 
 | ● [bam_import] と [bam_tofastq] 機能がRNAパイプラインにも追加されました．
@@ -211,7 +211,7 @@ RNA解析パイプライン
 
 | ● post analysis機能がRNAパイプラインにも追加されました．
 |    fusionfusionとQC(starにより生成)のプロジェクト単位にマージしたファイルが(post_analysisで)出力されるようになりました．
-|    post_analysisのfusionfusionは、xxxxxx.result.filt.txtの結果をマージしています．QCはstarディレクトリのxxxxxx.Log.final.outを利用しています．
+|    post_analysisのfusionfusionは，xxxxxx.result.filt.txtの結果をマージしています．QCはstarディレクトリのxxxxxx.Log.final.outを利用しています．
 
 | ● paplotがRNAパイプラインにも追加されました．
 |    fusionfusionとQC情報がpaplotで出力されるようになりました．
@@ -223,9 +223,9 @@ RNA解析パイプライン
 Genomon2.3.1
 ====================
 
-| ● post_analysisの変異コール結果ファイルをマージする機能のバグを修正しました．サンプル設定ファイルの[mutation_call],[sv_detection]に記載するサンプルが同じでないと、マージされないサンプルがでてしまうことがありました．
+| ● post_analysisの変異コール結果ファイルをマージする機能のバグを修正しました．サンプル設定ファイルの[mutation_call],[sv_detection]に記載するサンプルが同じでないと，マージされないサンプルがでてしまうことがありました．
 |    svのマージした結果ファイルは正しく出力されます．
-|    サンプル設定ファイルに記載した、[mutation_call]と[sv_detection]のサンプルが同じであればこのバグによる影響はありません．
+|    サンプル設定ファイルに記載した，[mutation_call]と[sv_detection]のサンプルが同じであればこのバグによる影響はありません．
 
 Genomon2.3.0
 ====================
@@ -255,16 +255,16 @@ Genomon2.2.0
 |    内容はv2.0.5のパイプライン設定ファイルとほとんど変わりません．
 
 | ● SV検出の感度がより良くなりました．
-|    TCGAデータを使用して確認したところ、候補の結果が1.2倍程度増えた癌種もあります．Genomon v2.2.0でSV検出を再実行することをお奨めします．(v2.0.5とBAMファイルに変更はないので、サンプル設定ファイルに[bam_import]でBAMファイルをインポートして、[sv_detection]を実行しましょう．
+|    TCGAデータを使用して確認したところ，候補の結果が1.2倍程度増えた癌種もあります．Genomon v2.2.0でSV検出を再実行することをお奨めします．(v2.0.5とBAMファイルに変更はないので，サンプル設定ファイルに[bam_import]でBAMファイルをインポートして，[sv_detection]を実行しましょう．
 
 | ● 名称の変更summary→qc(quality control)になりました．
 |    結果ファイルのExcelファイルが出力されないようになりました．出力内容に変更はございません．
 
-| ● 変異コール、SV検出の結果ディレクトリにxxxxx.result.filt.txtが新たに出力されます．
+| ● 変異コール，SV検出の結果ディレクトリにxxxxx.result.filt.txtが新たに出力されます．
 |    こちらは適切な値でフィルタ済みのファイルになります．上級者である先生方には今まで通りのフィルタされていない結果ファイル(xxxx.result.txt(.filtがファイル名にない結果ファイル))をご使用いただければと思います．
 
 | ● 解析結果のレポートが出力されるようになりました．
-|    出力ルートディレクトリに‘paplot’ディレクトリが追加されました．こちらをディレクトリごとwinSCPなどでローカルのマシンにダウンロードしていただき、index.htmlをダブルクリックしてください．SVやBam Quality Controlの結果がリッチテキストで確認できます．
+|    出力ルートディレクトリに‘paplot’ディレクトリが追加されました．こちらをディレクトリごとwinSCPなどでローカルのマシンにダウンロードしていただき，index.htmlをダブルクリックしてください．SVやBam Quality Controlの結果がリッチテキストで確認できます．
 
-| ● サンプル毎に分かれて出力される変異コール、SV検出及びBamQCの結果ファイルをマージしたファイルが出力されるようになりました．
+| ● サンプル毎に分かれて出力される変異コール，SV検出及びBamQCの結果ファイルをマージしたファイルが出力されるようになりました．
 |    出力ルートディレクトリ内のpost_analysisディレクトリにマージされた結果ファイルが出力されます．

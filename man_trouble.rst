@@ -27,11 +27,11 @@
   
   # -f オプションを指定しているため失敗したジョブのみ表示されています
   $ qreport -f -b 201708101300 -o lect-1 -l
-  | owner  | jobid    |~| jobname                            |~| mmem  | rmem  |~| Ropt                       |
-  | lect-1 | 35171900 |~| qsub_genomon_pipeline.sh           |~| 33.1G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
-  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh           |~| 32.9G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
-  | lect-1 | 35172311 |~| star_align_20170810_204030_806134  |~| 6.1G  | 5.3G  |~| -l s_vmem=8.0G,mem_req=8.0G|
-  | lect-1 | 35172356 |~| pmsignature_20170810_204030_806134 |~| 2.1G  | 2.0G  |~| -l s_vmem=5G,mem_req=5G    |
+  | owner  | jobid    |~|ext|fail|~| jobname                            |~| mmem  | rmem  |~| Ropt                       |
+  | lect-1 | 35171900 |~|152| 100|~| qsub_genomon_pipeline.sh           |~| 33.1G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
+  | lect-1 | 35171943 |~|137| 100|~| qsub_genomon_pipeline.sh           |~| 32.9G | 32.0G |~| -l s_vmem=32G,mem_req=32G  |
+  | lect-1 | 35172311 |~|137| 100|~| star_align_20170810_204030_806134  |~| 6.1G  | 5.3G  |~| -l s_vmem=8.0G,mem_req=8.0G|
+  | lect-1 | 35172356 |~|137| 100|~| pmsignature_20170810_204030_806134 |~| 2.1G  | 2.0G  |~| -l s_vmem=5G,mem_req=5G    |
   ・・・・・・・
   ・・・・・・・
   (END)
@@ -61,8 +61,8 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
 .. code-block:: bash
 
   $ qreport -f -b 201708101300 -o lect-1 -l
-  | owner  | jobid    |~| jobname                  |~| mmem  | rmem  |~| Ropt                      |
-  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh |~| 32.9G | 32.0G |~| -l s_vmem=48G,mem_req=48G |
+  | owner  | jobid    |~|ext|fail|~| jobname                  |~| mmem  | rmem  |~| Ropt                      |
+  | lect-1 | 35171943 |~|  1|   0|~| qsub_genomon_pipeline.sh |~| 32.9G | 32.0G |~| -l s_vmem=48G,mem_req=48G |
   ・・・・・・・
   ・・・・・・・
   (END)
@@ -70,7 +70,7 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
 
 【確認方法】
 
-| 以下いずれかに当てはまる場合、メモリ超過エラーと考えられます．
+| 以下いずれかに当てはまる場合，メモリ超過エラーと考えられます．
 
  - ケース１：mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過している．
  - ケース２：extが139もしくは152で終了している．
@@ -325,27 +325,10 @@ Genomon本体ではなく，解析ジョブに問題が発生した場合は各�
 
 【確認方法】
 
-以下いずれかに当てはまる場合、メモリ超過エラーと考えられます．
+以下いずれかに当てはまる場合，メモリ超過エラーと考えられます．
 
  - ケース１：mmem (実際に使用したメモリの最大値) がrmem (スパコンに要求したメモリ量) を超過している．
  - ケース２：extが139もしくは152で終了している．
-
-.. note::
-
-  **エラーコードの見方**
-  
-  | ◆ exit_status は実行したプログラム（bash）の終了ステータスであり、exit codeと標準シグナルを理解することで確認できます。
-  | 
-  | [exit code] http://www.tldp.org/LDP/abs/html/exitcodes.html
-  | [標準シグナル] http://linuxjm.osdn.jp/html/LDP_man-pages/man7/signal.7.html
-  |
-  | `exit_status 137` は `128 + n (signal)` に該当し、`128+9` でシグナルn=9です。標準シグナルを参照すると、9はkillコマンドのシグナルなので、killされた、という意味になります。
-  | `exit_status 139` は `128+11` でシグナルnは11となり "不正なメモリー参照" と読むことができます。
-  | 
-  | ◆ failed はsun grid engineのqacct -j failed フィールドコードで、こちらで確認できます。
-  | 
-  | [表 7–5 qacct -j failed フィールドコード] https://docs.oracle.com/cd/E19957-01/820-2162/chp11-1/index.html
-
 
 【対処法】
 
