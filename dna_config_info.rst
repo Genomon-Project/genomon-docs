@@ -12,12 +12,14 @@ DNA パイプライン設定ファイルについて
   
   ANNOVARの設定が必要ですので，まずは :doc:`dna_quick_start` から始めてください．
 
-.. code-block:: cfg
-    :linenos:
+解析ツールのパス設定
+-------------------------
 
-    #
-    # Genomon pipeline configuration file
-    #
+| 解析に使用するリファレンスファイル ([REFERENCE] セクション) やソフトウェア ([SOFTWARE] セクション) のパスをパイプライン設定ファイルに記入します．
+| 各種ソフトウェアのインストールについは :doc:`install` を参照してください．
+|
+
+.. code-block:: cfg
 
     [REFERENCE]
     # prepared reference fasta file
@@ -57,118 +59,16 @@ DNA パイプライン設定ファイルについて
     # annovar needs to be installed individually
     annovar                                 = # the path to the annovar
 
-    ######################################################################
-    #
-    # Analysis parameters
-    #
-    #   If not defined, default values are going to be used in the pipeline.
-    #
-    
-    ##########
-    # parameters for bam2fastq
-    [bam2fastq]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    
-    ##########
-    # parameters for split fastq
-    [split_fastq]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    split_fastq_line_number = 40000000
-    fastq_filter = False
-    
-    ##########
-    # parameters for bwa_mem
-    [bwa_mem]
-    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
-    bwa_params = -T 0 
-    
-    ##########
-    ## BAM markduplicates
-    [markduplicates]
-    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
-    java_memory = 10.6G
-    
-    ##########
-    # BAM file statistics
-    [qc_bamstats]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    
-    [qc_coverage]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    coverage    = 2,10,20,30,40,50,100
-    wgs_flag = False
-    wgs_incl_bed_width = 1000000
-    wgs_i_bed_lines = 10000
-    wgs_i_bed_width = 100
-    samtools_params = -F 3072 -f 2
-    
-    [qc_merge]
-    qsub_option = -l s_vmem=1G,mem_req=1G
-    
-    ###########
-    # mutation call
-    [mutation_call]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
-    
-    [fisher_mutation_call]
-    # pair_params: ペアリードに使用します．
-    # single_params: シングルリードに使用します．
-    #
-    #    --min_depth: 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．Tumor Normalともに指定した本数以上なければなりません．
-    #    --base_quality: Base Qualityが指定した値以下であればその情報は使用されません．
-    #    --min_variant_read: Tumorの変異を含んだリードの数がこの値以上でなければ候補の対象となりません．
-    #    --min_allele_freq: Tumorのアレル比がこの値以下であれば候補の対象となりません．
-    #    --max_allele_freq: Normalのアレル比がこの値以上であれば候補の対象となりません．
-    #    --fisher_value: Fihser検定による結果の閾値です．
-    #    --post_10_q: 変異アレルのリード数は二項分布でモデル化できますが，これをベイズ的にやろうとしてベータ分布を利用し，その結果の10% posterio quantileを閾値としています.
-    #    --samtools_params: samtool mpileupで使用するのパラメータです．
-    
-    pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
-    single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
-    
-    [realignment_filter]
-    #    --score_difference: リードリアライメント時にはマルチアライメントしているのですが，1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，そのリードを使用しないという設定です
-    #    --window_size: リアライメントするときのリファレンスゲノムを作るときの設定ですwindow size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
-    #    --max_depth: 対象の変異positionがこの値以上のdepthであればリアライメントしません．
-    #    --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
-    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
-    
-    [indel_filter]
-    #    --search_length: indelを検索するときの範囲を指定します search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
-    #    --neighbor: 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
-    #    --min_depth: Depthと書かれている場合は変異ポジションのリード数の閾値になります．
-    #    --min_mismatch: 指定された値以上のミスマッチ数であればその変異を出力しません．
-    #    --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
-    #    --samtools_params: samtool mpileupのパラメータです．
-    
-    params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
-    
-    [breakpoint_filter]
-    #   --max_depth: 対象の変異positionがこの値以上のdepthであればBreakpoint Filterを行いません．
-    #   --min_clip_size: ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
-    #   --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません．
-    #   --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
-    #   --exclude_sam_flags:　指定された値を含むsam flagのリードは対象から除かれます．
-    
-    params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
-    
-    [eb_filter]
-    # mapping qualityが指定した値以下であればその情報は使用されません．
-    map_quality = 20
-    # base qualityが指定した値以下であればその情報は使用されません．
-    base_quality = 15
-    filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
-    
-    [hotspot]
-    # hotspot　callを使用するにはこのflagをTrueにしてください．
-    active_hotspot_flag = True
-    #    -t: Tumorのミスマッチ率がこの値より小さければ候補の対象となりません．
-    #    -c: Normalのミスマッチ率がこの値より大きければ候補の対象となりません．
-    #    -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません．
-    #    -m: scoreの値が指定した値より小さければ候補になりません．
-    #    -S: samtool mpileupのパラメータです．
-    params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
-    
+annotation
+------------
+
+| 変異コールで見つけた変異に対して，遺伝子名や変異タイプなどの情報を追加する機能です．（アノテーションといいます）
+| GenomonではANNOVARを採用していますが，ライセンスの都合上あらかじめインストールしたものを使用していただくことができないため，各自でインストールする必要があります．
+| この設定はなくてもGenomonによる解析は可能ですが，設定することをお勧めしています．
+|
+
+.. code-block:: cfg
+
     [annotation]
     # annovarを使用するにはこのflagをTrueにしてください．
     active_annovar_flag = False
@@ -185,55 +85,318 @@ DNA パイプライン設定ファイルについて
     # Please refere to the site below:
     # http://exac.broadinstitute.org/faq
     active_ExAC_flag = False
+
+アライメント
+------------------
+
+| ここではアライメント処理に関するオプションについて解説します．
+| 
+| [bam_tofastq] もしくは [fastq] でシーケンスファイルを指定したとき，使用します．
+| [bam_import] ではアライメントを行いませんので，このオプションは使用しません．
+|
+
+.. note::
+
+  **共通**
+  
+  | ``qsub_option`` はジョブ投入時のオプションです．
+  | メモリ超過エラー発生時や処理時間が長すぎるため特定のキューに投入したいとき等，適宜調整してください．
+
+.. code-block:: cfg
+
+    ##########
+    # bamをfastqに変換するジョブの設定です
+    # [bam_tofastq] でシーケンスファイルを指定したときのみ，使用します．
+    [bam2fastq]
+    qsub_option = -l s_vmem=1G,mem_req=1G
     
+    ##########
+    # Genomonでは，入力されたfastqを適切な大きさに分割してからアライメントを並行で行います．
+    [split_fastq]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    
+    # ファイルを分割する大きさです．fastqファイルの行数を示していますので，4の倍数である必要があります
+    split_fastq_line_number = 40000000
+    
+    # fastqのフィルタリングを行いたい場合はTrueに設定します
+    # Trueに設定すると，次の正規表現に該当しないリードは削除されます
+    # grep -A 3 '^@.* [^:]*:N:[^:]*:' 
+    fastq_filter = False
+    
+    ##########
+    # アライメントのオプションです
+    [bwa_mem]
+    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+
+    # Genomonでは "bwa_mem" にてアライメントを行っており，"bwa mem" のオプションを指定できます．
+    # "bwa mem" に関する解説はbwaドキュメントを別途参照してください．
+    bwa_params = -T 0 
+    
+    ##########
+    # アライメントののち，重複リードに対して重複フラグを設定します
+    [markduplicates]
+    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+    java_memory = 10.6G
+
+
+変異コール
+--------------
+
+| ここでは変異コールに関するオプションについて解説します．
+| [mutation_call] で設定したサンプルに対して解析を行います．
+|
+
+.. code-block:: cfg
+
+    ###########
+    # mutation call
+    [mutation_call]
+    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    
+    # 1) fisher検定
+    # Genomonでは検出した変異に対して，まずfisher検定を行います．
+    # 以下の基準を満たす変異のみ，候補として次のステップに進みます
+    [fisher_mutation_call]
+    
+    # --min_depth: 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．
+    #              Tumor Normalともに指定した本数以上なければなりません．
+    # --base_quality: Base Qualityが指定した値以下であればその情報は使用されません．
+    # --min_variant_read: Tumorの変異を含んだリードの数がこの値以上でなければ候補の対象となりません．
+    # --min_allele_freq: Tumorのアレル比がこの値以下であれば候補の対象となりません．
+    # --max_allele_freq: Normalのアレル比がこの値以上であれば候補の対象となりません．
+    # --fisher_value: Fihser検定による結果の閾値です．
+    # --post_10_q: 変異アレルのリード数は二項分布でモデル化できますが，
+    #              これをベイズ的にやろうとしてベータ分布を利用し，
+    #              その結果の10% posterio quantileを閾値としています.
+    # --samtools_params: samtool mpileupで使用するのパラメータです．
+
+    # pair_params: ペアリードに使用します．
+    pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
+
+    # single_params: シングルリードに使用します．
+    single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
+    
+    # 2) リアライメント
+    # つぎに，変異が見つかったリードを再度アライメントします（これをリアライメントと呼びます）
+    [realignment_filter]
+    
+    # --score_difference: リードリアライメント時にはマルチアライメントしているのですが，
+    #                     1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，
+    #                     そのリードを使用しないという設定です
+    # --window_size: リアライメントするときのリファレンスゲノムを作るときの設定です
+    #                window size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
+    # --max_depth: 対象の変異positionがこの値以上のdepthであればリアライメントしません．
+    # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
+    
+    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
+
+    # 3) indel判定
+    # 検出した変異をindelとみなすための条件を設定します．
+    # indelとみなされた変異はここでフィルタリンぐされ，出力されません．
+    # indel判定に使用した値は解析結果ファイル中，"indel_mismatch_count", と "indel_mismatch_rate" 列に出力されます
+    [indel_filter]
+    
+    # --search_length: indelを検索するときの範囲を指定します
+    #                  search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
+    # --neighbor: 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
+    # --min_depth: Depthと書かれている場合は変異ポジションのリード数の閾値になります．
+    # --min_mismatch: 指定された値以上のミスマッチ数であればその変異を出力しません．
+    # --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
+    # --samtools_params: samtool mpileupのパラメータです．
+    
+    params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
+    
+    # 4) breakpoint
+    [breakpoint_filter]
+    
+    # --max_depth: 対象の変異positionがこの値以上のdepthであればBreakpoint Filterを行いません．
+    # --min_clip_size: ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
+    # --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません．
+    # --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
+    # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
+    
+    params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
+    
+    # 5) EBCall
+    # サンプル設定ファイルに記載されたコントロールパネルを使用してEBCallを行います
+    [eb_filter]
+    # mapping qualityが指定した値以下であればその情報は使用されません．
+    map_quality = 20
+    # base qualityが指定した値以下であればその情報は使用されません．
+    base_quality = 15
+    filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
+    
+    # 6) Hot sopt
+    [hotspot]
+    # hotspot callを使用するにはこのflagをTrueにしてください．
+    active_hotspot_flag = True
+    
+    # -t: Tumorのミスマッチ率がこの値より小さければ候補の対象となりません．
+    # -c: Normalのミスマッチ率がこの値より大きければ候補の対象となりません．
+    # -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません．
+    # -m: scoreの値が指定した値より小さければ候補になりません．
+    # -S: samtool mpileupのパラメータです．
+    params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
+    
+    # 7) 変異結果のマージ
+    # Genomonでは 1)～6) までの処理をシーケンスデータを分割して変更して行います．
+    # ここで一つのファイル {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.txt に結果をまとめます．
     [mutation_merge]
     qsub_option = -l s_vmem=2G,mem_req=2G
     
+    # 8) Genomonおすすめフィルタ
+    # 7) で作成した結果ファイルに対して，よく使用されるフィルタリングをあらかじめ実施します
+    # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．
     [mutation_util]
-    # pair_params: ペアリードに使用します．
-    # single_params: シングルリードに使用します．
-    #
-    # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
-    #    --fish_pval: カラム"P-value(fisher)"　>= 1.0
-    #    --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
-    #    --eb_pval: カラム"P-value(EBCall)" >= 4.0
-    #    --tcount: カラム"AltNum_tumor" >= 4
-    #    --ncount: カラム"AltNum_normal" <= 2
-    #    --post10q: カラム"10%_posterior_quantile" >= 0.1
-    #    --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 0.1
-    #    --count: カラム"readPairNum" >= 0.1
-    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
-    single_params = --post10q 0.1 --r_post10q 0.1 --count 4
+
+    # 以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
+    #  --fish_pval: カラム"P-value(fisher)" >= 1.0
+    #  --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
+    #  --eb_pval: カラム"P-value(EBCall)" >= 4.0
+    #  --tcount: カラム"AltNum_tumor" >= 4
+    #  --ncount: カラム"AltNum_normal" <= 2
+    #  --post10q: カラム"10%_posterior_quantile" >= 0.1
+    #  --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 0.1
+    #  --count: カラム"readPairNum" >= 0.1
     
+    # pair_params: ペアリードに使用します．
+    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
+    
+    # single_params: シングルリードに使用します．
+    single_params = --post10q 0.1 --r_post10q 0.1 --count 4
+
+構造変異解析 (SV)
+------------------
+
+| ここでは SV 検出に関するオプションについて解説します．
+| Genomonでは SV の検出にGenomonSVというソフトウェアを使用しており， [sv_detection] で設定したサンプルに対して解析を行います．
+|
+
+.. code-block:: cfg
+
     ##########
     ## Genomon SV
     
+    # 1) svの検出を行います
     [sv_parse]
     qsub_option = -l s_vmem=2G,mem_req=2G
     params =
     
+    # 2) svのマージを行います
     [sv_merge]
     qsub_option = -l s_vmem=2G,mem_req=2G
     params = 
     
+    # 3) svのフィルタリングを行います
     [sv_filt]
     qsub_option = -l s_vmem=2G,mem_req=2G
+    
+    ### フィルタその1：
+    # {サンプル名}.genomon_sv.result.txtファイルを作成するためのフィルタ条件です
     #    --min_junc_num: minimum required number of supporting junction read pairs
     #    --max_control_variant_read_pair maximum allowed number of read pairs in matched control sample
     #    --min_overhang_size minimum region size arround each break-point which have to be covered by at least one aligned short read
     params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
+    
+    # GenomonSVではアノテーションに独自リソースを使用していますので
+    # リソースの場所を指定します．
+    # GenomonSV をインストールした場所にあります．
     annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
+    
+    ### フィルタその2：
+    # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です
+    # sv_utilsというソフトウェアを使用しています．
     # 
-    # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
+    # 以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
     #    --min_tumor_allele_freq >= 0.07
     #    --max_control_variant_read_pair >= 1
     #    --control_depth_thres >= 10
     #    --inversion_size_thres >= 1000
     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
+
+    # sv_utilsではアノテーションに独自リソースを使用していますので
+    # リソースの場所を指定します．
+    # sv_utils をインストールした場所にあります．
     sv_utils_annotation_dir = # the path to the sv_utils-0.4.0beta/resource 
+
+Quality Control (QC)
+----------------------------
+
+| ここではQCに関するオプションについて解説します．
+|
+| Genomonでは QC の算出にPCAP (bam_stats.pl) と GenomonQC (depthのカバレッジ計算) というソフトウェアを使用しています．
+| [qc] で設定したサンプルに対して解析を行います．
+|
+
+.. code-block:: cfg
+
+    ######
+    # bamstats
+    # PCAP (bam_stats.pl) 実行時オプションです．
+    # 特別な設定はありません．
+    [qc_bamstats]
+    qsub_option = -l s_vmem=1G,mem_req=1G
     
-    ##########
-    ## Post Analysis
+    ######
+    # カバレッジ
+    # PCAP (bam_stats.pl) ではカバレッジ計算ができませんので，GenomonQC を使用します．
+    # exomeとwgsでは計算方法が異なりますのでwgsの場合は設定が必要です
+    [qc_coverage]
+    
+    ### 共通
+    qsub_option = -l s_vmem=1G,mem_req=1G
+    
+    # カバレッジ率 (%)
+    # 以下の場合，2% 10% 20% 30% 40% 50% 100% のカバレッジをそれぞれ計算します
+    coverage    = 2,10,20,30,40,50,100
+    
+    # 指定したリードのみカバレッジ計算に使用します
+    # Genomoではdepth計算の対象リードの取得に "samtools view" を使用しており，そこで使用するオプションです．
+    # 【参考】その後，depthの計算に "samtools depth" を使用しています．
+    samtools_params = -F 3072 -f 2
+    
+    ### WGS用の設定
+    # wgsはsamtoolsで全リードを計算するにはサイズが大きすぎるため，
+    # "bedtools shuffle" を用いてリードをランダムに抽出する処理を行っています．
+    # 
+    # wgsかどうか(wgsの場合はTrue)
+    wgs_flag = False
+
+    # リード抽出に使用する bedファイルを作成するオプションで，
+    # bedファイル1行に記載する領域の大きさを指定します．
+    # "bedtools shuffle" ではbedファイル1行から領域を選択するため，
+    # 1行に記載された bed の領域に差があると抽出に偏りが生じるためこのようにサイズを統一しています．
+    wgs_incl_bed_width = 1000000
+    
+    # 抽出するリードの本数
+    wgs_i_bed_lines = 10000
+    # 抽出するリードの長さ
+    wgs_i_bed_width = 100    
+    
+    [qc_merge]
+    qsub_option = -l s_vmem=1G,mem_req=1G
+
+Post Analysis
+----------------------------
+
+| ここでは変異コール，SV，QCの解析結果をレポート出力するPost Analysisという機能のオプションについて解説します．
+|
+| Post Analysisによるマージされた結果が必要ですので，レポート出力するには [post_analysis] と [paplot] 両方が有効(enable = True)にする必要があります．
+|
+
+.. code-block:: cfg
+
+    # GenomonではGenomonPostAnalysisというソフトウェアを用いて，サンプル毎の結果ファイルを1つのファイルにマージしています
+    [post_analysis]
+    qsub_option = -l s_vmem=2G,mem_req=2G
+
+    # Genomon Post Analysisを使用しない場合はFalse
+    enable = True
+    
+    # post analysisの設定ファイルです．インストールした場所にありますので，パスを設定してください
+    config_file = # the path to the GenomonPostAnalysis-1.0.2/genomon_post_analysis.cfg
+    
+    # paplotというソフトウェアを用いてレポートを作成します
     [paplot]
     # paplotを使用しない場合はFalse
     enable = True 
@@ -242,18 +405,32 @@ DNA パイプライン設定ファイルについて
     include_unpair = True
     # コントロールパネルを使用しないサンプルをpaplotの対象から除く場合はFalse
     include_unpanel = True
+
+    # paplotの設定ファイルです．
+    # paplotをインストールした場所/config_template/ 配下にGenomon用の設定ファイルがありますので，パスを設定してください
+    config_file = # the path to the paplot-0.5.0/paplot.cfg
+
+    # index.htmlの設定です．通常変更する必要はありません
     title = Genomon
     remarks = Data used in this report were generated using below software.
     software = genomon_pipeline:Genomon-Pipeline, genomon_sv:GenomonSV, sv_utils:sv_utils, fisher:GenomonFisher, mutfilter:GenomonMutationFilter, ebfilter:EBFilter, mutanno:mutanno, mutil:mutil, genomon_qc:GenomonQC
-    
-    config_file = # the path to the paplot-0.5.0/paplot.cfg
-    
-    [post_analysis]
-    # Genomon Post Analysisを使用しない場合はFalse
-    enable = True
-    qsub_option = -l s_vmem=2G,mem_req=2G
-    config_file = # the path to the GenomonPostAnalysis-1.0.2/genomon_post_analysis.cfg
-    
+
+
+pmsignature
+------------------
+
+| ここではシグネチャ解析のオプションについて解説します．
+|
+| Genomonでは変異コールで見つかった変異を使用してシグネチャ解析を行います．
+| Post Analysisによるマージされた結果が必要であり，プロットによる確認が必要なため以下条件をすべて満たすときのみ実行します
+|
+
+ - サンプル設定ファイル [mutation_call] でサンプルが設定されている
+ - Genomon Post Analysisが有効である ([post_analysis] enable = True)
+ - paplotが有効である ([paplot] enable = True)
+
+.. code-block:: cfg
+
     ############
     # pmsignature
     
