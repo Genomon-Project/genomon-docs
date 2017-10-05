@@ -17,7 +17,6 @@ DNA パイプライン設定ファイルについて
 
 | 解析に使用するリファレンスファイル ([REFERENCE] セクション) やソフトウェア ([SOFTWARE] セクション) のパスをパイプライン設定ファイルに記入します．
 | 各種ソフトウェアのインストールについは :doc:`install` を参照してください．
-|
 
 .. code-block:: cfg
 
@@ -65,7 +64,6 @@ annotation
 | 変異コールで見つけた変異に対して，遺伝子名や変異タイプなどの情報を追加する機能です．（アノテーションといいます）
 | GenomonではANNOVARを採用していますが，ライセンスの都合上あらかじめインストールしたものを使用していただくことができないため，各自でインストールする必要があります．
 | この設定はなくてもGenomonによる解析は可能ですが，設定することをお勧めしています．
-|
 
 .. code-block:: cfg
 
@@ -93,7 +91,6 @@ annotation
 | 
 | [bam_tofastq] もしくは [fastq] でシーケンスファイルを指定したとき，使用します．
 | [bam_import] ではアライメントを行いませんので，このオプションは使用しません．
-|
 
 .. note::
 
@@ -144,7 +141,6 @@ annotation
 
 | ここでは変異コールに関するオプションについて解説します．
 | [mutation_call] で設定したサンプルに対して解析を行います．
-|
 
 .. code-block:: cfg
 
@@ -270,7 +266,6 @@ annotation
 
 | ここでは SV 検出に関するオプションについて解説します．
 | Genomonでは SV の検出にGenomonSVというソフトウェアを使用しており， [sv_detection] で設定したサンプルに対して解析を行います．
-|
 
 .. code-block:: cfg
 
@@ -303,7 +298,7 @@ annotation
     # GenomonSV をインストールした場所にあります．
     annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
     
-    ### フィルタその2：
+    ### フィルタその2：Genomonおすすめフィルタ
     # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です
     # sv_utilsというソフトウェアを使用しています．
     # 
@@ -326,7 +321,6 @@ Quality Control (QC)
 |
 | Genomonでは QC の算出にPCAP (bam_stats.pl) と GenomonQC (depthのカバレッジ計算) というソフトウェアを使用しています．
 | [qc] で設定したサンプルに対して解析を行います．
-|
 
 .. code-block:: cfg
 
@@ -373,6 +367,7 @@ Quality Control (QC)
     # 抽出するリードの長さ
     wgs_i_bed_width = 100    
     
+    # bamstats とカバレッジの結果をマージして{サンプル名}.genomonQC.result.txtファイルを作成します．
     [qc_merge]
     qsub_option = -l s_vmem=1G,mem_req=1G
 
@@ -382,7 +377,6 @@ Post Analysis
 | ここでは変異コール，SV，QCの解析結果をレポート出力するPost Analysisという機能のオプションについて解説します．
 |
 | Post Analysisによるマージされた結果が必要ですので，レポート出力するには [post_analysis] と [paplot] 両方が有効(enable = True)にする必要があります．
-|
 
 .. code-block:: cfg
 
@@ -398,9 +392,11 @@ Post Analysis
     
     # paplotというソフトウェアを用いてレポートを作成します
     [paplot]
+    qsub_option = -l s_vmem=2G,mem_req=2G
+    
     # paplotを使用しない場合はFalse
     enable = True 
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    
     # ペアを設定していないサンプルをpaplotの対象から除く場合はFalse
     include_unpair = True
     # コントロールパネルを使用しないサンプルをpaplotの対象から除く場合はFalse
@@ -423,7 +419,6 @@ pmsignature
 |
 | Genomonでは変異コールで見つかった変異を使用してシグネチャ解析を行います．
 | Post Analysisによるマージされた結果が必要であり，プロットによる確認が必要なため以下条件をすべて満たすときのみ実行します
-|
 
  - サンプル設定ファイル [mutation_call] でサンプルが設定されている
  - Genomon Post Analysisが有効である ([post_analysis] enable = True)
