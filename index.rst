@@ -69,6 +69,7 @@ The Zen of Cancer Genome Sequence Analysis
    :caption: Install Documentation
 
    install.rst
+   install_reference.rst
    history.rst
    
 .. toctree::
