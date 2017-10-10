@@ -35,24 +35,24 @@ partition "[fusion]" {
   --> task_fusionfusion
   --> "fusion_fusion.result.txt"<<output>>
   --> post_analysis_fusionfusion
-  --> "merge.result.fusion"<<result>>
+  --> "genomonFusion.result.txt"<<result>>
   --> paplot_fusion
   --> "plot.fusion"<<result>>
 }
 
 partition "[expression]" {
   "Aligned.sortedByCoord.out.bam" --> task_genomon_expression
-  --> "sym2fkpm.txt"<<output>>
+  --> "genomonExpression.result.txt"<<output>>
 }
 
 partition "[intron_retention]" {
   "Aligned.sortedByCoord.out.bam" --> task_intron_retention
-  --> "ir_simple_count.txt"<<output>>
+  --> "genomonIR.result.txt"<<output>>
 }
 
 partition "[qc]" {
   "Log.final.out" --> post_analysis_star_qc
-  --> "merge.result.qc"<<result>>
+  --> "genomonQC.result.txt"<<result>>
   --> paplot_qc
   --> "plot.qc"<<result>>
 }
@@ -65,9 +65,9 @@ partition "key:" #F6F4F4 {
 }
 
 /'
-(1) •ÒW‚µ‚½‚çACtrl+A -> Ctrl+C ‚µ‚½‚Ì‚¿A‚±‚Ìƒy[ƒW‚É’£‚è•t‚¯‚Ü‚µ‚å‚¤
+(1) ç·¨é›†ã—ãŸã‚‰ã€Ctrl+A -> Ctrl+C ã—ãŸã®ã¡ã€ã“ã®ãƒšãƒ¼ã‚¸ã«å¼µã‚Šä»˜ã‘ã¾ã—ã‚‡ã†
   http://www.plantuml.com/plantuml/
 
-(2) [Submit] ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA‚Å‚«‚½‰æ‘œ‚ğ•Û‘¶‚µ‚Ü‚·
+(2) [Submit] ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã€ã§ããŸç”»åƒã‚’ä¿å­˜ã—ã¾ã™
 '/
 @enduml
