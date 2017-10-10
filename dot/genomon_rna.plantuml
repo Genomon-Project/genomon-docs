@@ -33,9 +33,9 @@ partition "[fusion]" {
   "Aligned.sortedByCoord.out.bam" --> task_fusion_count
   --> tast_fusion_merge
   --> task_fusionfusion
-  --> "fusion_fusion.result.txt"<<output>>
+  --> "genomonFusion.result.txt"<<output>>
   --> post_analysis_fusionfusion
-  --> "genomonFusion.result.txt"<<result>>
+  --> "merge.result.fusion"<<result>>
   --> paplot_fusion
   --> "plot.fusion"<<result>>
 }
@@ -52,7 +52,7 @@ partition "[intron_retention]" {
 
 partition "[qc]" {
   "Log.final.out" --> post_analysis_star_qc
-  --> "genomonQC.result.txt"<<result>>
+  --> "merge.result.qc"<<result>>
   --> paplot_qc
   --> "plot.qc"<<result>>
 }
