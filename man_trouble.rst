@@ -516,3 +516,40 @@ STAR
 | ①Genomonではリード数が不一致の場合使用できませんので，当該サンプルをサンプル設定ファイル上から削除してください．
 | ②Genomon解析コマンドを再実行してください．
 
+
+SV
+*******************
+
+◆ケース1: Error: sequence depth exceeds the threshould
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/sv_filt_YYYYMMDD_123456_123456.e12345678
+  ・・・・・・・
+  ・・・・・・・
+  sequence depth exceeds the threshould for: 16,46474950,-,6,26731656,+
+  ・・・・・・・
+
+
+【原因】
+
+| ログに記載されているブレークポイント (Chr16: 46474950, Chr6: 26731656) のどちらかでdepthが深すぎることがと考えられます．
+
+【対処法】
+
+| ①シーケンスデータファイルを見直してください．局所的にdepthが深いような場合はデータが正しくないことも考えられます．
+| ②depthの上限を変更する場合はパイプライン設定ファイルを以下のように変更し，ジョブを再実行してください．
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/Genomon2_5_2/config/
+  $ vi dna_exome_genomon.cfg
+  ############
+  
+  [sv_filt]
+  # 最後に--max_depthをつけ足してください．デフォルトのdepth上限は5000です
+  params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30 --max_depth MAX_DEPTH
+
+
