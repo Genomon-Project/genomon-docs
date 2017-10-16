@@ -2,7 +2,7 @@
 リファレンスゲノムの変更方法
 -------------------------------------
 
-Genomon2の実行時に指定するパイプライン設定ファイルの内容を変更することにより、ヒトゲノム以外の解析やGRCh38での解析が可能です．このマニュアルではGRCh38.faの使用を例にあげて説明しております．
+Genomon2の実行時に指定するパイプライン設定ファイルの内容を変更することにより、ヒトゲノム以外の解析やGRCh38での解析が可能です．このマニュアルではGRCh38 Reference Sequenceの使用を例にあげて説明しております．
 
 
 (A) DNA解析の設定について
@@ -25,7 +25,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   
   [REFERENCE]
   # prepared reference fasta file
-  ref_fasta = /path/to/database/GRCh38/GRCh38.p7.genome.fa
+  ref_fasta = /path/to/database/GRCh38/GRCh38.d1.vd1.fa
   interval_list = /path/to/database/GRCh38/GRCh38_noScaffold_noDecoy.interval_list
   genome_size = /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/bedtools-2.24.0/genomes/human.hg38.genome
   gaptxt = /path/to/database/hg38.fa/gap.txt
@@ -34,6 +34,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   HGVD_2013_tabix_db =
   HGVD_2016_tabix_db =
   ExAC_tabix_db =
+  hotspot_db = 
   
   [sv_filt]
   annotation_dir = /path/to/database/GenomonSV-0.4.0beta/resource_GRCh38
@@ -43,6 +44,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   config_file = /path/to/database/paplot-0.5.0/paplot_dna_GRCh38.cfg
   
   [SOFTWARE]
+  bwa = /path/to/bwa-0.7.15/bwa
   annovar = /path/to/annovar
   
   [annotation]
@@ -65,10 +67,11 @@ indexファイル、fasta indexファイルを作成しておく必要があり�
 ・リファレンスゲノム(FASTA形式)をダウンロードし、圧縮されている場合は解凍してください．こちらのFASTA形式のファイルのファイルパスをref_fastaに指定します．
 
 .. code-block:: bash
-
-  wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/GRCh38.p7.genome.fa.gz
-
-
+  # Genomic Data Commons WebSite
+  https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files
+  # Reference Sequenceをダウンロード
+　　GRCh38.d1.vd1.fa.tar.gz
+  
 .. attention::
 
   我々はChromosomeのPrefixにchrが付かないようにファイルを変更して使用しています
@@ -79,15 +82,15 @@ indexファイル、fasta indexファイルを作成しておく必要があり�
 
 .. code-block:: bash
 
-  /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/bwa-0.7.8/bwa index GRCh38.p7.genome.fa
+  /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/bwa-0.7.8/bwa index GRCh38.d1.vd1.fa
 
 以下のBWA indexが作成されます．
 
- - GRCh38.p7.genome.fa.amb
- - GRCh38.p7.genome.fa.ann
- - GRCh38.p7.genome.fa.bwt
- - GRCh38.p7.genome.fa.pac
- - GRCh38.p7.genome.fa.sa
+ - GRCh38.d1.vd1.amb
+ - GRCh38.d1.vd1.ann
+ - GRCh38.d1.vd1.bwt
+ - GRCh38.d1.vd1.pac
+ - GRCh38.d1.vd1.sa
 
 ・samtools indexファイルを作成します．
 
@@ -95,11 +98,11 @@ samtools faidxコマンドを使用してindexファイルを作成します．
 
 .. code-block:: bash
 
-  /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/samtools-1.2/samtools faidx GRCh38.p7.genome.fa
+  /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/samtools-1.2/samtools faidx GRCh38.d1.vd1.fa
 
 Fasta indexが作成されます．
 
- - GRCh38.p7.genome.fa.fai
+ - GRCh38.d1.vd1.fai
 
 (A-2) interval_list
 ----------------------------------------------
@@ -176,8 +179,7 @@ SureSelectなど使用したbaitファイルがある場合はそちらを設定
 http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
 
 作成方法は以下のwebサイトに記載しています．
-
-(スクリプト修正中です)https://github.com/ken0-1n/RefGeneTxtToBed（しばらくお待ちください）
+https://github.com/ken0-1n/RefGeneTxtToBed
 
 ベイトファイルはBED形式で記載してください．対応するファイルがない場合は ``touch`` コマンドでダミーファイルを作成して指定してください．
 
@@ -227,7 +229,7 @@ UCSCにsimpleRepeat.txtが存在しない場合は、ダミーファイルを作
 (A-7) HGVD_2013_tabix_db HGVD_2016_tabix_db ExAC_tabix_db
 -------------------------------------------------------------------------------------------
 
-HGVD (ヒトゲノムのデータベース) はHG38に未対応のため空白．
+HGVD (ヒトゲノムのデータベース) はHG38に未対応のため空白にする．
 
 (A-8) SV検出のAnnotationのリソースディレクトリを変更する
 --------------------------------------------------------
@@ -287,10 +289,9 @@ resourceディレクトリ内のprepGeneInfo.shの中身を変更します
   wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
   wget http://ccb.jhu.edu/software/tophat/downloads/hg38/ensGene.txt.gz
   wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/simpleRepeat.txt.gz
-  
 
 
-※GCF_000001405.33.assembly.txtはGRCh38.p7用です．
+※GCF_000001405.33.assembly.txtはGRCh38用です．
 
 ※GCF_000001405.33.assembly.txtはSequence-NameとUCSC-style-nameの関係を抽出して、どちらにも対応できるようにするために使用しております．
 
