@@ -75,6 +75,7 @@ indexファイル、fasta indexファイルを作成しておく必要があり�
 .. attention::
 
   我々はChromosomeのPrefixにchrが付かないようにファイルを変更して使用しています
+  ミトコンドリアはMTとしています．(chrM,M,MTなどで表しますが、我々はMTにしています。)
 
 ・BWA index ファイルを作成します．
 
@@ -464,7 +465,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   
   [REFERENCE]
   star_genome = /path/to/database/GRCh38.STAR-2.5.2a
-  ref_fasta = /path/to/database/GRCh38/GRCh38.p7.genome.fa <- (A-1)と同じ
+  ref_fasta = /path/to/database/GRCh38/GRCh38.d1.vd1.fa <- (A-1)と同じ
   
   [fusionfusion]
   annotation_dir = /path/to/database/fusionfusion-0.2.0beta/resource_GRCh38
@@ -502,7 +503,7 @@ STARコマンドを使用してSTAR indexを作成します．
   --runThreadN 8 \
   --runMode genomeGenerate \
   --genomeDir /path/to/database/GRCh38.STAR-2.5.2a \
-  --genomeFastaFiles /path/to/database/GRCh38/GRCh38.p7.genome.fa \
+  --genomeFastaFiles /path/to/database/GRCh38/GRCh38.d1.vd1.fa \
   --sjdbGTFfile /path/to/database/GTF/gencode.v25.gtf \
   --sjdbOverhang 100
 
