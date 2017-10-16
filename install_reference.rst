@@ -129,6 +129,10 @@ interval_listには変異コールを並列化して実行するためのファ�
   4:10000-190204555
   5:10000-181528259
   (以下略)
+  
+Genomon-Projectからダウンロードしてご使用ください．
+
+https://github.com/Genomon-Project/genomon_database
 
 
 (A-3) genome_size
@@ -147,6 +151,10 @@ Chromosome名とサイズがタブ区切りで記載されたファイルを指�
   chr4 190214555
   chr5 181538259
   (以下略)
+
+Genomon-Projectからダウンロードしてご使用ください．
+
+https://github.com/Genomon-Project/genomon_database
 
 (A-4) gaptxt
 ------------------------------------------
@@ -226,10 +234,20 @@ simpleRepeat_hg38.bed.gzをsimple_repeat_tabix_dbに指定します．
 
 UCSCにsimpleRepeat.txtが存在しない場合は、ダミーファイルを作成する必要があります．
 
-(A-7) HGVD_2013_tabix_db HGVD_2016_tabix_db ExAC_tabix_db
+(A-7) HGVD_2013_tabix_db HGVD_2016_tabix_db ExAC_tabix_db　hotspot_db
 -------------------------------------------------------------------------------------------
 
-HGVD (ヒトゲノムのデータベース) はHG38に未対応のため空白にする．
+HGVD, ExAC, hotspotはHG38に未対応のため空白にする．
+
+.. code-block:: cfg
+  :caption: パイプライン設定ファイル (dna_exome_genomon_GRCh38.cfg)
+  
+  [REFERENCE]
+  HGVD_2013_tabix_db =
+  HGVD_2016_tabix_db =
+  ExAC_tabix_db =
+  hotspot_db = 
+
 
 (A-8) SV検出のAnnotationのリソースディレクトリを変更する
 --------------------------------------------------------
@@ -342,14 +360,7 @@ paplotを使用する場合は、パイプライン設定ファイルに指定�
 
 (A-1)で作成したfasta indexファイルを使用すると簡単に作成できます．
 
-.. code-block:: bash
-
-  cut -f1-2 GRCh38.p7.genome.fa.fai | awk '/^[0-9XY]+/{print $1","$2}' > GRCh38.genome_size
-  cut -f1-2 GRCh38.d1.vd1.fa.fai | awk '/^[0-9XY]+/{print $1","$2}' > GRCh38.genome_size
-
-作成したGRCh38.genome_sizeを編集して、1_KI270706v1_random,175055以降の行を削除します。
-
-次にuse_chrsを解析するゲノムの染色体数に合わせてください．
+use_chrsを解析するゲノムの染色体数に合わせてください．
 
 .. code-block:: cfg
   :caption: paplot_dna_GRCh38.cfg
@@ -394,6 +405,7 @@ ANNOVARのホームページにてユーザ登録 (User License Agreement) が�
 ダウンロード後はANNOVARのPerlスクリプトを使用してdbSNP131などの各種データをダウンロードします．
 
 # Genomonで必要なANNOVARのデータベースをダウンロードします．Copy and Pasteして使ってください．
+# データベースの追加は可能です．
 
 .. code-block:: bash
 
@@ -416,6 +428,7 @@ ANNOVARのホームページにてユーザ登録 (User License Agreement) が�
 
 
 ANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所の変更をお願いします．
+データベースを追加した場合は、table_annovar_paramsにも追加設定が必要です．
 
 .. code-block:: cfg
 
