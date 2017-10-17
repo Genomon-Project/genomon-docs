@@ -466,20 +466,16 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   star_genome = /path/to/database/GRCh38.STAR-2.5.2a
   ref_fasta = /path/to/database/GRCh38/GRCh38.d1.vd1.fa <- (A-1)と同じ
   
-　　[fusion_count_control]
-　　params = --genome_id hg38
-
-　　[fusion_merge_control]
-　　params = --genome_id hg38
-
-　　[fusionfusion]
+  [fusion_count_control]
+  params = --genome_id hg38
+  [fusion_merge_control]
+  params = --genome_id hg38
+  [fusion_fusion]
 　　params = --grc --genome_id hg38
-
-　　[genomon_expression]
-　　params = --grc --genome_id hg38
-
-　　[intron_retention]
-　　params = --grc --genome_id hg38
+  [genomon_expression]
+  params = --grc --genome_id hg38
+  [intron_retention]
+ 　params = --grc --genome_id hg38
   
   [paplot]
   config_file = /path/to/database/paplot-0.5.0/paplot_rna_GRCh38.cfg
@@ -551,7 +547,7 @@ STARコマンドを使用してSTAR indexを作成します．
   params = --genome_id hg38
   
   [fusion_fusion]
-　　params = --genome_id hg38
+　　params = --grc --genome_id hg38
   
 
 (B-3) Expressionの設定ファイルを変更する
