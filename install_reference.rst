@@ -536,132 +536,32 @@ STARコマンドを使用してSTAR indexを作成します．
 (B-2) fusionfusionの設定ファイルを変更する
 ------------------------------------------
 
-annotation_dirを作成しましょう．以下のリソースディレクトリを適当なディレクトリにコピーしてください．
-
-.. code-block:: bash
-
-  cp -r /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/fusionfusion-0.2.0beta/resource \
-        /path/to/database/fusionfusion-0.2.0beta/resource_GRCh38
-
-コピー先resourceディレクトリ内のprepGeneInfo.shの中身を変更します
-
-.. code-block:: bash
-
-  # 変更前
-  rm –rf GCF_000001405.13.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.13.assembly.txt
-  python make_ucsc_grch.py GCF_000001405.13.assembly.txt > grch2ucsc.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/ensGene.txt.gz
-  
-  # 変更後
-  rm –rf GCF_000001405.33.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.33.assembly.txt
-  python make_ucsc_grch.py GCF_000001405.33.assembly.txt > grch2ucsc.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/ensGene.txt.gz
-
-※GCF_000001405.33.assembly.txtはGRCm38用です．
-
-※GCF_000001405.33.assembly.txtはSequence-NameとUCSC-style-nameの関係を抽出して、どちらにも対応できるようにするために使用しております．
-
-変更が完了したらシェルを実行します．
-
-.. code-block:: bash
-
-  bash prepGeneInfo.sh
-
-パイプライン設定ファイルを変更します．更新したディレクトリを以下の項目に指定してください．
+パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
 .. code-block:: cfg
 
   [fusionfusion]
-  annotation_dir = /path/to/database/fusionfusion-0.2.0beta/resource_GRCh38
+  params = --genome_id hg38
 
 (B-3) Expressionの設定ファイルを変更する
 ----------------------------------------
-
-annotation_dirを作成しましょう．以下のリソースディレクトリを適当なディレクトリにコピーしてください．
-
-.. code-block:: bash
-
-  cp -r /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/GenomonExpression-0.2.0/resource \
-        /path/to/database/GenomonExpression-0.2.0/resource_GRCh38
-
-コピー先resourceディレクトリ内のprepGeneInfo.shの中身を変更します
-
-.. code-block:: bash
-
-  # 変更前
-  rm –rf GCF_000001405.13.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.13.assembly.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz
-  python proc_ref_exon.py refGene.txt.gz | sort -k1,1 -k2,2n -k3,3n - > exon.hg19.bed
-  python proc_ref_exon.GRCh37.py refGene.txt.gz GCF_000001405.13.assembly.txt | sort -k1,1 -k2,2n -k3,3n - > exon.GRCh37.bed
-  
-  # 変更後
-  rm –rf GCF_000001405.33.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.33.assembly.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
-  python proc_ref_exon.py refGene.txt.gz | sort -k1,1 -k2,2n -k3,3n - > exon.hg38.bed
-  python proc_ref_exon.GRCh37.py refGene.txt.gz GCF_000001405.33.assembly.txt | sort -k1,1 -k2,2n -k3,3n - > exon.GRCh38.bed"
-
-変更が完了したらシェルを実行します．
-
-.. code-block:: bash
-  
-  bash prepGeneInfo.sh
 
 パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
 .. code-block:: cfg
 
   [genomon_expression]
-  annotation_file = /path/to/database/GenomonExpression-0.2.0/resource_GRCh38/exon.GRCh38.bed
+  params = --grc --genome_id hg38
 
 (B-4)intron retentionの設定ファイルを変更する
 ---------------------------------------------
-
-annotation_dirを作成しましょう．以下のリソースディレクトリを適当なディレクトリにコピーしてください．
-
-.. code-block:: bash
-
-  cp -r /home/w3varann/.genomon_local/genomon_pipeline-2.5.2/tools/intron_retention_utils-0.2.0beta/resource \
-        /path/to/database/intron_retention_utils-0.2.0beta/resource_GRCh38
-
-コピー先resourceディレクトリ内のmake_ucsc_grch.shの中身を変更します
-
-.. code-block:: bash
-
-  # 変更前
-  rm -rf GCF_000001405.13.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.13.assembly.txt
-  python make_ucsc_grch.py GCF_000001405.13.assembly.txt ucsc2grch.txt
-  
-  # 変更後
-  rm -rf GCF_000001635.20.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001635.20.assembly.txt
-  python make_ucsc_grch.py GCF_000001635.20.assembly.txt ucsc2grch.txt
-
-変更が完了したらシェルを実行します．
-
-.. code-block:: bash
-
-  bash make_ucsc_grch.sh
-
-refGene.txtをダウンロードします．
-
-.. code-block:: bash
-
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
 
 パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
 .. code-block:: cfg
 
   [intron_retention]
-  ref_gene = /path/to/database/intron_retention_utils-0.2.0beta/resource_GRCh38/refGene.txt.gz
-  params= --chr_name_list /path/to/database/intron_retention_utils-0.2.0beta/resource_GRCh38/ucsc2grch.txt
+ 　params = --grc --genome_id hg38
 
 (B-5)paplotの設定ファイルを変更する．
 -------------------------------------
