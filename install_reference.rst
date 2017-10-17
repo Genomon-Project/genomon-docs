@@ -75,7 +75,6 @@ indexファイル、fasta indexファイルを作成しておく必要があり�
 .. attention::
 
   我々はChromosomeのPrefixにchrが付かないようにファイルを変更して使用しています
-  ミトコンドリアはMTとしています．(chrM,M,MTなどで表しますが、我々はMTにしています。)
 
 ・BWA index ファイルを作成します．
 
@@ -467,15 +466,20 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   star_genome = /path/to/database/GRCh38.STAR-2.5.2a
   ref_fasta = /path/to/database/GRCh38/GRCh38.d1.vd1.fa <- (A-1)と同じ
   
-  [fusionfusion]
-  annotation_dir = /path/to/database/fusionfusion-0.2.0beta/resource_GRCh38
-  
-  [genomon_expression]
-  annotation_file = /path/to/database/GenomonExpression-0.2.0/resource_GRCh38/exon.GRCh38.bed
-  
-  [intron_retention]
-  ref_gene = /path/to/database/intron_retention_utils-0.2.0beta/resource_GRCh38/refGene.txt.gz
-  params = --chr_name_list /path/to/database/intron_retention_utils-0.2.0beta/resource_GRCh38/ucsc2grch.txt
+　　[fusion_count_control]
+　　params = --genome_id hg38
+
+　　[fusion_merge_control]
+　　params = --genome_id hg38
+
+　　[fusionfusion]
+　　params = --grc --genome_id hg38
+
+　　[genomon_expression]
+　　params = --grc --genome_id hg38
+
+　　[intron_retention]
+　　params = --grc --genome_id hg38
   
   [paplot]
   config_file = /path/to/database/paplot-0.5.0/paplot_rna_GRCh38.cfg
@@ -504,7 +508,7 @@ STARコマンドを使用してSTAR indexを作成します．
   --runMode genomeGenerate \
   --genomeDir /path/to/database/GRCh38.STAR-2.5.2a \
   --genomeFastaFiles /path/to/database/GRCh38/GRCh38.d1.vd1.fa \
-  --sjdbGTFfile /path/to/database/GTF/gencode.v25.gtf \
+  --sjdbGTFfile /path/to/database/GTF/gencode.v25.annotation.gtf \
   --sjdbOverhang 100
 
 メモリが足りない場合はqloginするときに ``-l s_vmem=64G,mem_req=64G`` オプションを指定してください
@@ -540,6 +544,12 @@ STARコマンドを使用してSTAR indexを作成します．
 
 .. code-block:: cfg
 
+　　[fusion_count_control]
+　　params = --genome_id hg38
+
+　　[fusion_merge_control]
+　　params = --genome_id hg38
+  
   [fusionfusion]
   params = --genome_id hg38
 
