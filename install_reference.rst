@@ -187,6 +187,7 @@ SureSelectなど使用したbaitファイルがある場合はそちらを設定
 http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
 
 作成方法は以下のwebサイトに記載しています．
+
 https://github.com/ken0-1n/RefGeneTxtToBed
 
 ベイトファイルはBED形式で記載してください．対応するファイルがない場合は ``touch`` コマンドでダミーファイルを作成して指定してください．
