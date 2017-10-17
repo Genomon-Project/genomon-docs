@@ -558,7 +558,7 @@ STARコマンドを使用してSTAR indexを作成します．
   [genomon_expression]
   params = --grc --genome_id hg38
 
-(B-4)intron retentionの設定ファイルを変更する
+(B-4) intron retentionの設定ファイルを変更する
 ---------------------------------------------
 
 パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
@@ -568,7 +568,7 @@ STARコマンドを使用してSTAR indexを作成します．
   [intron_retention]
  　params = --grc --genome_id hg38
 
-(B-5)paplotの設定ファイルを変更する．
+(B-5) paplotの設定ファイルを変更する．
 -------------------------------------
 
 paplotを使用する場合は、パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
