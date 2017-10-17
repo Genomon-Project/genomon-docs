@@ -543,14 +543,15 @@ STARコマンドを使用してSTAR indexを作成します．
 パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
 .. code-block:: cfg
-　　[fusion_count_control]
+
+  [fusion_count_control]
   params = --genome_id hg38
-　　
-  [fusion_merge_control]
-　　params = --genome_id hg38
   
-  [fusionfusion]
+  [fusion_merge_control]
   params = --genome_id hg38
+  
+  [fusion_fusion]
+　　params = --genome_id hg38
   
 
 (B-3) Expressionの設定ファイルを変更する
