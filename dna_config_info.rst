@@ -156,7 +156,7 @@ annotation
     [mutation_call]
     qsub_option = -l s_vmem=5.3G,mem_req=5.3G
     
-    # 1) fisher検定
+    # 1) fisher検定 （https://github.com/Genomon-Project/GenomonFisher)
     # Genomonでは検出した変異に対して，まずfisher検定を行います．
     # 以下の基準を満たす変異のみ，候補として次のステップに進みます
     [fisher_mutation_call]
@@ -177,7 +177,7 @@ annotation
     # --samtools_path $path_to_samtools {single_params}    
     single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
-    # パラメータの説明（https://github.com/Genomon-Project/GenomonFisher)
+    # パラメータの説明
     # --min_depth: 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．
     #              Tumor Normalともに指定した本数以上なければなりません．
     # --base_quality: Base Qualityが指定した値以下であればその情報は使用されません．
@@ -190,18 +190,18 @@ annotation
     #              その結果の10% posterio quantileを閾値としています.
     # --samtools_params: samtool mpileupで使用するのパラメータです．
     
-    # 2) リアライメント
+    # 2) リアライメント （https://github.com/Genomon-Project/GenomonMutationFilter)
     # つぎに，変異が見つかったリードをblatを使用して再度アライメントします（これをリアライメントと呼びます）
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
     # /path/to/mutfilter realignment \
-    # --target_mutation_file $fisher_output \
+    # --target_mutation_file $input.txt \
     # -1 $disease_bam (-2 $control_bam) \
     # --output $output.txt --ref_genome $reference_genome.fa \
     # --blat_path $path_to_blat {params}
     [realignment_filter]    
     params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
     
-    # パラメータの説明（https://github.com/Genomon-Project/GenomonMutationFilter)
+    # パラメータの説明
     # --score_difference: リアライメント時にマルチアライメントしているが，
     #                     1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，
     #                     そのリードを使用しないという設定です（基本的にスコアに差がある方がUniqueにアライメントされています)
@@ -211,19 +211,19 @@ annotation
     # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
 
 
-    # 3) indel判定
+    # 3) indel判定 （https://github.com/Genomon-Project/GenomonMutationFilter)
     # Normalサンプルの検出した変異ポジションの周辺にindelがあるか確認します．サンプルペアでないとこの処理は動きません．
     # indelとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
     # indel判定に使用した値は解析結果ファイル中，"indel_mismatch_count", と "indel_mismatch_rate" 列に出力されます
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
     # /path/to/mutfilter indel \
-    # --target_mutation_file $realignment.output \
+    # --target_mutation_file $input.txt \
     # -2 $control.bam --output $output.txt \
     # --samtools_path $path_to_samtools {params} 
     [indel_filter]
     params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
-    # パラメータの説明（https://github.com/Genomon-Project/GenomonMutationFilter)
+    # パラメータの説明
     # --search_length: indelを検索するときの範囲を指定します
     #                  search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
     # --neighbor: 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
@@ -232,18 +232,25 @@ annotation
     # --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
     # --samtools_params: samtool mpileupのパラメータです．
     
-    
-    # 4) breakpoint
+    # 4) breakpoint （https://github.com/Genomon-Project/GenomonMutationFilter)
+    # Normalサンプルの検出した変異ポジションの周辺にbreakpointがあるか確認します．サンプルペアでないとこの処理は動きません．
+    # breakpointとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/mutfilter breakpoint \
+    # --target_mutation_file $input.txt \
+    # -2 {control_bam} --output $output.txt \
+    # {params} 
     [breakpoint_filter]
+    params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
     
+    # パラメータの説明
     # --max_depth: 対象の変異positionがこの値以上のdepthであればBreakpoint Filterを行いません．
     # --min_clip_size: ソフトクリッピングの長さが指定した値以下であればその情報は使用されません．
     # --junc_num_thres: junctionの数が指定の値より小さければその変異を出力しません．
     # --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
     # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
     
-    params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
-    
+
     # 5) EBCall
     # サンプル設定ファイルに記載されたコントロールパネルを使用してEBCallを行います
     [eb_filter]
@@ -251,19 +258,22 @@ annotation
     map_quality = 20
     # base qualityが指定した値以下であればその情報は使用されません．
     base_quality = 15
+    # SAM Flagで以下のフラグが立っているリードをスキップします.
     filter_flags = UNMAP,SECONDARY,QCFAIL,DUP
     
     # 6) Hot sopt
-    [hotspot]
+    # サンプルペアでないとこの処理は動きません．
     # hotspot callを使用するにはこのflagをTrueにしてください．
+    [hotspot]
     active_hotspot_flag = True
     
+    params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
+
     # -t: Tumorのミスマッチ率がこの値より小さければ候補の対象となりません．
     # -c: Normalのミスマッチ率がこの値より大きければ候補の対象となりません．
     # -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません．
     # -m: scoreの値が指定した値より小さければ候補になりません．
     # -S: samtool mpileupのパラメータです．
-    params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
     
     # 7) 変異結果のマージ
     # Genomonでは 1)～6) までの処理をシーケンスデータを分割して変更して行います．
