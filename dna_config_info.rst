@@ -107,7 +107,7 @@ annotation
  　　[bam2fastq]
  　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
    
-    # paramsに指定するオプションを設定してください
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
     # /path/to/bamtofastq {params} \
     # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
     # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
@@ -131,7 +131,7 @@ annotation
     [bwa_mem]
     qsub_option = -q '!mjobs_rerun.q' -l s_vmem=10.6G,mem_req=10.6G
 
-    # bwa_paramsに指定するオプションを設定してください
+    # Genomonが次のコマンドの実行時、{bwa_params}に設定するオプションを指定できます
     # /path/to/bwa mem {bwa_params} $ref_genome \
     # $fastq1 $fastq2 > $output.sam
  　　 bwa_params = -T 0 
@@ -173,14 +173,24 @@ annotation
     #              その結果の10% posterio quantileを閾値としています.
     # --samtools_params: samtool mpileupで使用するのパラメータです．
 
-    # pair_params: ペアリードに使用します．
+    # サンプルペアがある解析で実行されます．
+    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # /path/to/fisher　comparison -R $region /
+    # -o $output.txt --ref_fa $reference_genome.fa /
+    # -1 $disease_bam -2 $control_bam 　/
+    # --samtools_path $path_to_samtools {pair_params}
     pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
 
-    # single_params: シングルリードに使用します．
+    # サンプルペアがない解析で実行されます．
+    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # /path/to/fisher　single -R $region /
+    # -o $output.txt --ref_fa $reference_genome.fa /
+    # -1 $disease_bam -2 $control_bam 　/
+    # --samtools_path $path_to_samtools {single_params}    
     single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
     # 2) リアライメント
-    # つぎに，変異が見つかったリードを再度アライメントします（これをリアライメントと呼びます）
+    # つぎに，変異が見つかったリードをblatを使用して再度アライメントします（これをリアライメントと呼びます）
     [realignment_filter]
     
     # --score_difference: リードリアライメント時にはマルチアライメントしているのですが，
