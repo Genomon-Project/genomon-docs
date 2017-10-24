@@ -161,6 +161,23 @@ annotation
     # 以下の基準を満たす変異のみ，候補として次のステップに進みます
     [fisher_mutation_call]
     
+    # サンプルペアがある解析で実行されます．
+    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # /path/to/fisher　comparison -R $region \
+    # -o $output.txt --ref_fa $reference_genome.fa \
+    # -1 $disease_bam -2 $control_bam 　\
+    # --samtools_path $path_to_samtools {pair_params}
+    pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
+
+    # サンプルペアがない解析で実行されます．
+    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # /path/to/fisher　single -R $region \
+    # -o $output.txt --ref_fa $reference_genome.fa \
+    # -1 $disease_bam -2 $control_bam 　\
+    # --samtools_path $path_to_samtools {single_params}    
+    single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
+    
+    # パラメータの説明（https://github.com/Genomon-Project/GenomonFisher)
     # --min_depth: 変異ポジションのリード数が指定した数以下であれば候補の対象となりません．
     #              Tumor Normalともに指定した本数以上なければなりません．
     # --base_quality: Base Qualityが指定した値以下であればその情報は使用されません．
@@ -172,43 +189,41 @@ annotation
     #              これをベイズ的にやろうとしてベータ分布を利用し，
     #              その結果の10% posterio quantileを閾値としています.
     # --samtools_params: samtool mpileupで使用するのパラメータです．
-
-    # サンプルペアがある解析で実行されます．
-    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
-    # /path/to/fisher　comparison -R $region /
-    # -o $output.txt --ref_fa $reference_genome.fa /
-    # -1 $disease_bam -2 $control_bam 　/
-    # --samtools_path $path_to_samtools {pair_params}
-    pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
-
-    # サンプルペアがない解析で実行されます．
-    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
-    # /path/to/fisher　single -R $region /
-    # -o $output.txt --ref_fa $reference_genome.fa /
-    # -1 $disease_bam -2 $control_bam 　/
-    # --samtools_path $path_to_samtools {single_params}    
-    single_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --post_10_q 0.02 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
     # 2) リアライメント
     # つぎに，変異が見つかったリードをblatを使用して再度アライメントします（これをリアライメントと呼びます）
-    [realignment_filter]
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/mutfilter realignment \
+    # --target_mutation_file $fisher_output \
+    # -1 $disease_bam (-2 $control_bam) \
+    # --output $output.txt --ref_genome $reference_genome.fa \
+    # --blat_path $path_to_blat {params}
+    [realignment_filter]    
+    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
     
-    # --score_difference: リードリアライメント時にはマルチアライメントしているのですが，
+    # パラメータの説明（https://github.com/Genomon-Project/GenomonMutationFilter)
+    # --score_difference: リアライメント時にマルチアライメントしているが，
     #                     1番目に良いスコアと2番目に良いスコアの差が指定した値以内であったら，
-    #                     そのリードを使用しないという設定です
+    #                     そのリードを使用しないという設定です（基本的にスコアに差がある方がUniqueにアライメントされています)
     # --window_size: リアライメントするときのリファレンスゲノムを作るときの設定です
     #                window size(bases) + 変異サイズ + window size(bases)のリファレンスゲノムを作っています．
     # --max_depth: 対象の変異positionがこの値以上のdepthであればリアライメントしません．
     # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
-    
-    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3328
+
 
     # 3) indel判定
-    # 検出した変異をindelとみなすための条件を設定します．
-    # indelとみなされた変異はここでフィルタリンぐされ，出力されません．
+    # Normalサンプルの検出した変異ポジションの周辺にindelがあるか確認します．サンプルペアでないとこの処理は動きません．
+    # indelとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
     # indel判定に使用した値は解析結果ファイル中，"indel_mismatch_count", と "indel_mismatch_rate" 列に出力されます
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/mutfilter indel \
+    # --target_mutation_file $realignment.output \
+    # -2 $control.bam --output $output.txt \
+    # --samtools_path $path_to_samtools {params} 
     [indel_filter]
+    params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
+    # パラメータの説明（https://github.com/Genomon-Project/GenomonMutationFilter)
     # --search_length: indelを検索するときの範囲を指定します
     #                  search_length(bases) + 変異サイズ + search_length(bases)の範囲で探しに行きます．
     # --neighbor: 探し出したindelが候補のポジションから指定した値の範囲内にいればindelフィルタの対象とします．
@@ -217,7 +232,6 @@ annotation
     # --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
     # --samtools_params: samtool mpileupのパラメータです．
     
-    params = --search_length 40 --neighbor 5 --min_depth 8 --min_mismatch 100000 --af_thres 1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
     
     # 4) breakpoint
     [breakpoint_filter]
