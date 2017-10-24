@@ -104,13 +104,19 @@ annotation
     ##########
     # bamをfastqに変換するジョブの設定です
     # [bam_tofastq] でシーケンスファイルを指定したときのみ，使用します．
-    [bam2fastq]
-    qsub_option = -l s_vmem=1G,mem_req=1G
+ 　　[bam2fastq]
+ 　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
+   
+    # paramsに指定するオプションを設定してください
+    # /path/to/bamtofastq {params} \
+    # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
+    # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
+ 　　params = collate=1 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY tryoq=0
     
     ##########
     # Genomonでは，入力されたfastqを適切な大きさに分割してからアライメントを並行で行います．
     [split_fastq]
-    qsub_option = -l s_vmem=1G,mem_req=1G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     # ファイルを分割する大きさです．fastqファイルの行数を示していますので，4の倍数である必要があります
     split_fastq_line_number = 40000000
@@ -123,16 +129,17 @@ annotation
     ##########
     # アライメントのオプションです
     [bwa_mem]
-    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=10.6G,mem_req=10.6G
 
-    # Genomonでは "bwa_mem" にてアライメントを行っており，"bwa mem" のオプションを指定できます．
-    # "bwa mem" に関する解説はbwaドキュメントを別途参照してください．
-    bwa_params = -T 0 
+    # bwa_paramsに指定するオプションを設定してください
+    # /path/to/bwa mem {bwa_params} $ref_genome \
+    # $fastq1 $fastq2 > $output.sam
+ 　　 bwa_params = -T 0 
     
     ##########
     # アライメントののち，重複リードに対して重複フラグを設定します
     [markduplicates]
-    qsub_option = -l s_vmem=10.6G,mem_req=10.6G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=10.6G,mem_req=10.6G
     java_memory = 10.6G
 
 
