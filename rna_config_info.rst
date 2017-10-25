@@ -61,8 +61,16 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     ##########
     # bamをfastqに変換するジョブの設定です
     # [bam_tofastq] でシーケンスファイルを指定したときのみ，使用します．
-    [bam2fastq]
-    qsub_option = -l s_vmem=1G,mem_req=1G
+    # bamをfastqに変換するジョブの設定です
+    # [bam_tofastq] でシーケンスファイルを指定したときのみ，使用します．
+  　　[bam2fastq]
+  　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
+    
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/bamtofastq {params} \
+    # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
+    # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
+ 　　params = collate=1 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY tryoq=0
     
     ##########
     # Genomonでは STAR にてアライメントを行っており，
