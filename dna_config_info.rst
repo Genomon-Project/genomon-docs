@@ -156,7 +156,7 @@ annotation
     [mutation_call]
     qsub_option = -l s_vmem=5.3G,mem_req=5.3G
     
-    # 1) fisher検定 （https://github.com/Genomon-Project/GenomonFisher)
+    # 1) fisher検定
     # Genomonでは検出した変異に対して，まずfisher検定を行います．
     # 以下の基準を満たす変異のみ，候補として次のステップに進みます
     [fisher_mutation_call]
@@ -190,7 +190,7 @@ annotation
     #              その結果の10% posterio quantileを閾値としています.
     # --samtools_params: samtool mpileupで使用するのパラメータです．
     
-    # 2) リアライメント （https://github.com/Genomon-Project/GenomonMutationFilter)
+    # 2) リアライメント
     # つぎに，変異が見つかったリードをblatを使用して再度アライメントします（これをリアライメントと呼びます）
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
     # /path/to/mutfilter realignment \
@@ -211,7 +211,7 @@ annotation
     # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
 
 
-    # 3) indel判定 （https://github.com/Genomon-Project/GenomonMutationFilter)
+    # 3) indel判定
     # Normalサンプルの検出した変異ポジションの周辺にindelがあるか確認します．サンプルペアでないとこの処理は動きません．
     # indelとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
     # indel判定に使用した値は解析結果ファイル中，"indel_mismatch_count", と "indel_mismatch_rate" 列に出力されます
@@ -232,7 +232,7 @@ annotation
     # --af_thres: 指定された値以上のアレル比であればその変異を出力しません．
     # --samtools_params: samtool mpileupのパラメータです．
     
-    # 4) breakpoint （https://github.com/Genomon-Project/GenomonMutationFilter)
+    # 4) breakpoint
     # Normalサンプルの検出した変異ポジションの周辺にbreakpointがあるか確認します．サンプルペアでないとこの処理は動きません．
     # breakpointとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
@@ -250,7 +250,6 @@ annotation
     # --map_quality: Mapping Qualityが指定した値以下であればその情報は使用されません．
     # --exclude_sam_flags: 指定された値を含むsam flagのリードは対象から除かれます．
     
-
     # 5) EBCall
     # サンプル設定ファイルに記載されたコントロールパネルを使用してEBCallを行います
     [eb_filter]
@@ -326,11 +325,11 @@ annotation
 .. code-block:: cfg
 
     ##########
-    ## Genomon SV (https://github.com/Genomon-Project/GenomonSV)
+    ## Genomon SV
     
     # 1) svの検出を行います 
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
-    # paramsに設定できるパラメータについてはGenomonSVのgithubのページをご確認ください．
+    # paramsに設定できるパラメータについてはGenomonSVのドキュメントをご確認ください．
    　# /path/to/genomon_sv parse \
     # $input_bam output_prefix {params}
     [sv_parse]
@@ -339,7 +338,7 @@ annotation
     
     # 2) svのマージを行います
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
-    # paramsに設定できるパラメータについてはGenomonSVのgithubのページをご確認ください．
+    # paramsに設定できるパラメータについてはGenomonSVのドキュメントをご確認ください．
     # /path/to/genomon_sv merge \
     # $control_info $merge_output_file {params} 
     [sv_merge]
