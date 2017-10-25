@@ -375,10 +375,10 @@ annotation
     
     # パラメータの説明
     # たとえば--min_tumor_allele_freqに 0.007 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
-    #    --min_tumor_allele_freq >= 0.07
-    #    --max_control_variant_read_pair >= 1
-    #    --control_depth_thres >= 10
-    #    --inversion_size_thres >= 1000
+    #    --min_tumor_allele_freq >= 
+    #    --max_control_variant_read_pair >=
+    #    --control_depth_thres >=
+    #    --inversion_size_thres >=
     
     # sv_utilsではアノテーションに独自リソースを使用していますので
     # リソースの場所を指定します．
@@ -400,7 +400,7 @@ Quality Control (QC)
     # PCAP (bam_stats.pl) 実行時オプションです．
     # 特別な設定はありません．
     [qc_bamstats]
-    qsub_option = -l s_vmem=1G,mem_req=1G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     ######
     # カバレッジ
@@ -409,7 +409,7 @@ Quality Control (QC)
     [qc_coverage]
     
     ### 共通
-    qsub_option = -l s_vmem=1G,mem_req=1G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     # カバレッジ率 (%)
     # 以下の場合，2% 10% 20% 30% 40% 50% 100% のカバレッジをそれぞれ計算します
@@ -440,7 +440,7 @@ Quality Control (QC)
     
     # bamstats とカバレッジの結果をマージして{サンプル名}.genomonQC.result.txtファイルを作成します．
     [qc_merge]
-    qsub_option = -l s_vmem=1G,mem_req=1G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
 
 Post Analysis
 ----------------------------
@@ -453,7 +453,7 @@ Post Analysis
 
     # GenomonではGenomonPostAnalysisというソフトウェアを用いて，サンプル毎の結果ファイルを1つのファイルにマージしています
     [post_analysis]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
 
     # Genomon Post Analysisを使用しない場合はFalse
     enable = True
@@ -463,7 +463,7 @@ Post Analysis
     
     # paplotというソフトウェアを用いてレポートを作成します
     [paplot]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     # paplotを使用しない場合はFalse
     enable = True 
@@ -501,12 +501,12 @@ pmsignature
     # pmsignature
     
     [pre_pmsignature]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     [pmsignature_full]
     # pmsignature (type=full) を実行しない場合はFalse
     enable = False
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     signum_min = 2
     signum_max = 6
     trdirflag = F
@@ -515,7 +515,7 @@ pmsignature
     [pmsignature_ind]
     # pmsignature (type=independent) を実行しない場合はFalse
     enable = True
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     signum_min = 2
     signum_max = 6
     trdirflag = T
