@@ -305,7 +305,7 @@ annotation
     # {single_params}
     single_params = --post10q 0.1 --r_post10q 0.1 --count 4
 
-    # パラメータの説明。カラムの項目に対してフィルタをかけます．
+    # パラメータの説明
     # たとえば--fish_pvalに 1.0 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
     #  --fish_pval: カラム"P-value(fisher)" >= 
     #  --realign_pval: カラム"P-value(fisher)_realignment" >= 
@@ -326,10 +326,11 @@ annotation
 .. code-block:: cfg
 
     ##########
-    ## Genomon SV
+    ## Genomon SV (https://github.com/Genomon-Project/GenomonSV)
     
-    # 1) svの検出を行います
+    # 1) svの検出を行います 
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # paramsに設定できるパラメータについてはGenomonSVのgithubのページをご確認ください．
    　# /path/to/genomon_sv parse \
     # $input_bam output_prefix {params}
     [sv_parse]
@@ -337,21 +338,29 @@ annotation
     params = 
     
     # 2) svのマージを行います
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # paramsに設定できるパラメータについてはGenomonSVのgithubのページをご確認ください．
+    # /path/to/genomon_sv merge \
+    # $control_info $merge_output_file {params} 
     [sv_merge]
     qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params = 
     
     # 3) svのフィルタリングを行います
-    [sv_filt]
-    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
-    
     ### フィルタその1：
     # {サンプル名}.genomon_sv.result.txtファイルを作成するためのフィルタ条件です
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/genomon_sv filt \
+    # $input_bam $output_prefix $reference_genome \
+    # $annotation_dir {params} 
+    [sv_filt]
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
+    params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
+    
+    # パラメータの説明
     #    --min_junc_num: minimum required number of supporting junction read pairs
     #    --max_control_variant_read_pair maximum allowed number of read pairs in matched control sample
     #    --min_overhang_size minimum region size arround each break-point which have to be covered by at least one aligned short read
-    params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30  
-    
     # GenomonSVではアノテーションに独自リソースを使用していますので
     # リソースの場所を指定します．
     # GenomonSV をインストールした場所にあります．
@@ -359,15 +368,19 @@ annotation
     
     ### フィルタその2：Genomonおすすめフィルタ
     # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です
-    # sv_utilsというソフトウェアを使用しています．
-    # 
-    # 以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
+    # Genomonが次のコマンドの実行時、{sv_utils_params}に設定するオプションを指定できます
+    # /path/to/sv_utils filter \
+    # input.txt output.txt $sv_utils_annotation_dir \
+    # {sv_utils_param} 
+    sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
+    
+    # パラメータの説明
+    # たとえば--min_tumor_allele_freqに 0.007 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
     #    --min_tumor_allele_freq >= 0.07
     #    --max_control_variant_read_pair >= 1
     #    --control_depth_thres >= 10
     #    --inversion_size_thres >= 1000
-    sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
-
+    
     # sv_utilsではアノテーションに独自リソースを使用していますので
     # リソースの場所を指定します．
     # sv_utils をインストールした場所にあります．
