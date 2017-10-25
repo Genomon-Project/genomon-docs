@@ -94,24 +94,44 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
 .. code-block:: cfg
 
     # 1) Count supporting read pairs for each chimera junction
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # chimera_utils に関する解説はchimera_utilsドキュメントを別途参照してください．
+    # /path/to/chimera_utils count {params} \
+    # $chimeric_sam $output
     [fusion_count_control]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params =
     
     # 2) Merge chimeric junction count file
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # chimera_utils に関する解説はchimera_utilsドキュメントを別途参照してください．
+    # /path/to/merge_control count {params} \
+    # $count_list $output
     [fusion_merge_control]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params =
     
     3)  融合遺伝子を検出します．
+    # Genomonでは 融合遺伝子検出のためfusionfusionを使用しており，
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # fusionfusion に関する解説はfusionfusionドキュメントを別途参照してください．
+    # /path/to/fusionfusion --star $chimeric_sam \
+    # --out $output_prefix --reference_genome $reference_genome \
+    # {params}
     [fusionfusion]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params = --grc
     
     # Genomonおすすめフィルタ
     # 検出された融合遺伝子に対して，よく使用されるフィルタリングをあらかじめ実施します
     # {sample}.fusion.fusion.result.txt から {sample}.fusion.fusion.result.filt.txt を作成します
+    # Genomonが次のコマンドの実行時、{filt_params}に設定するオプションを指定できます
+    # fusionfusion に関する解説はfusionfusionドキュメントを別途参照してください．
+    # /path/to/fusion_utils filt \
+    # $input.txt $output.txt \
+    # {filt_params}    
     filt_params = --filter_same_gene --grc
+
 
 発現量
 --------------
@@ -121,8 +141,13 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
 
 .. code-block:: cfg
 
+    # Genomonでは 発現量の計算のためgenomon_expressionを使用しており，
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # genomon_expression に関する解説はgenomon_expressionドキュメントを別途参照してください．
+    # /path/to/genomon_expression {additional_params} \
+    # $input_bam $output_prefix
     [genomon_expression]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params = --grc
 
 Intron Retention
@@ -133,8 +158,13 @@ Intron Retention
 
 .. code-block:: cfg
 
+    # Genomonでは intron_retentionの検出のためintron_retention_utilsを使用しており，
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # intron_retention_utils に関する解説はintron_retention_utilsドキュメントを別途参照してください．
+    # /path/to/intron_retention_utils simple_count \
+    # {params} $input_bam $output_prefix
     [intron_retention]
-    qsub_option = -l s_vmem=5.3G,mem_req=5.3G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params = --grc
 
 Post Analysis
@@ -148,7 +178,7 @@ Post Analysis
 
     # GenomonではGenomonPostAnalysisというソフトウェアを用いて，サンプル毎の結果ファイルを1つのファイルにマージしています
     [post_analysis]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
 
     # Genomon Post Analysisを使用しない場合はFalse
     enable = True
@@ -158,7 +188,7 @@ Post Analysis
     
     # paplotというソフトウェアを用いてレポートを作成します
     [paplot]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     # paplotを使用しない場合はFalse
     enable = True
