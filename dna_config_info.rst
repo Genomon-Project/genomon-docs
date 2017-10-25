@@ -169,7 +169,7 @@ annotation
     # --samtools_path $path_to_samtools {pair_params}
     pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
 
-    # サンプルペアがない解析で実行されます．
+    # サンプルペアでない解析で実行されます．
     # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
     # /path/to/fisher　single -R $region \
     # -o $output.txt --ref_fa $reference_genome.fa \
@@ -238,7 +238,7 @@ annotation
     # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
     # /path/to/mutfilter breakpoint \
     # --target_mutation_file $input.txt \
-    # -2 {control_bam} --output $output.txt \
+    # -2 $control_bam --output $output.txt \
     # {params} 
     [breakpoint_filter]
     params = --max_depth 1000 --min_clip_size 20 --junc_num_thres 0 --mapq_thres 10 --exclude_sam_flags 3332
@@ -267,8 +267,13 @@ annotation
     [hotspot]
     active_hotspot_flag = True
     
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # /path/to/hotspot {params} \
+    # $disease_bam $control.bam \
+    # $output.txt $hotspot_database
     params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000" 
 
+    # パラメータの説明
     # -t: Tumorのミスマッチ率がこの値より小さければ候補の対象となりません．
     # -c: Normalのミスマッチ率がこの値より大きければ候補の対象となりません．
     # -R: Normalのミスマッチ率 > Tumorのミスマッチ率 * 指定した値にであれば候補になりません．
@@ -285,9 +290,19 @@ annotation
     # 7) で作成した結果ファイルに対して，よく使用されるフィルタリングをあらかじめ実施します
     # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．
     [mutation_util]
+    
+    # pair_params: ペアリードに使用します．
+    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
 
-    # 以下の条件を満たした候補がresult.filt.txtに出力されます．デフォルト値は以下になります．
-    #  --fish_pval: カラム"P-value(fisher)" >= 1.0
+    # サンプルペアでない解析で実行されます．
+    # Genomonが次のコマンドの実行時、{single_params}に設定するオプションを指定できます
+    # /path/to/mutil filter \
+    # -i $input.txt -o $output.txt \
+    # {single_params}
+    single_params = --post10q 0.1 --r_post10q 0.1 --count 4
+
+    # パラメータの説明
+    #  --fish_pval: カラム"P-value(fisher)"
     #  --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
     #  --eb_pval: カラム"P-value(EBCall)" >= 4.0
     #  --tcount: カラム"AltNum_tumor" >= 4
@@ -295,12 +310,7 @@ annotation
     #  --post10q: カラム"10%_posterior_quantile" >= 0.1
     #  --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 0.1
     #  --count: カラム"readPairNum" >= 0.1
-    
-    # pair_params: ペアリードに使用します．
-    pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
-    
-    # single_params: シングルリードに使用します．
-    single_params = --post10q 0.1 --r_post10q 0.1 --count 4
+
 
 構造変異解析 (SV)
 ------------------
