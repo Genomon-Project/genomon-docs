@@ -284,14 +284,18 @@ annotation
     # Genomonでは 1)～6) までの処理をシーケンスデータを分割して変更して行います．
     # ここで一つのファイル {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.txt に結果をまとめます．
     [mutation_merge]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
     # 8) Genomonおすすめフィルタ
     # 7) で作成した結果ファイルに対して，よく使用されるフィルタリングをあらかじめ実施します
     # {サンプル名}.genomon_mutation.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です．
     [mutation_util]
     
-    # pair_params: ペアリードに使用します．
+    # サンプルペアの解析で実行されます．
+    # Genomonが次のコマンドの実行時、{single_params}に設定するオプションを指定できます
+    # /path/to/mutil filter \
+    # -i $input.txt -o $output.txt \
+    # {single_params}
     pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
 
     # サンプルペアでない解析で実行されます．
@@ -301,15 +305,16 @@ annotation
     # {single_params}
     single_params = --post10q 0.1 --r_post10q 0.1 --count 4
 
-    # パラメータの説明
-    #  --fish_pval: カラム"P-value(fisher)"
-    #  --realign_pval: カラム"P-value(fisher)_realignment" >= 1.0
-    #  --eb_pval: カラム"P-value(EBCall)" >= 4.0
-    #  --tcount: カラム"AltNum_tumor" >= 4
-    #  --ncount: カラム"AltNum_normal" <= 2
-    #  --post10q: カラム"10%_posterior_quantile" >= 0.1
-    #  --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 0.1
-    #  --count: カラム"readPairNum" >= 0.1
+    # パラメータの説明。カラムの項目に対してフィルタをかけます．
+    # たとえば--fish_pvalに 1.0 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
+    #  --fish_pval: カラム"P-value(fisher)" >= 
+    #  --realign_pval: カラム"P-value(fisher)_realignment" >= 
+    #  --eb_pval: カラム"P-value(EBCall)" >= 
+    #  --tcount: カラム"AltNum_tumor" >= 
+    #  --ncount: カラム"AltNum_normal" <= 
+    #  --post10q: カラム"10%_posterior_quantile" >= 
+    #  --r_post10q: カラム"10%_posterior_quantile(realignment)" >= 
+    #  --count: カラム"readPairNum" >= 
 
 
 構造変異解析 (SV)
@@ -324,18 +329,21 @@ annotation
     ## Genomon SV
     
     # 1) svの検出を行います
+    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+   　# /path/to/genomon_sv parse \
+    # $input_bam output_prefix {params}
     [sv_parse]
-    qsub_option = -l s_vmem=2G,mem_req=2G
-    params =
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
+    params = 
     
     # 2) svのマージを行います
     [sv_merge]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     params = 
     
     # 3) svのフィルタリングを行います
     [sv_filt]
-    qsub_option = -l s_vmem=2G,mem_req=2G
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
     
     ### フィルタその1：
     # {サンプル名}.genomon_sv.result.txtファイルを作成するためのフィルタ条件です
