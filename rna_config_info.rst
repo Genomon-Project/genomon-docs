@@ -65,18 +65,26 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     qsub_option = -l s_vmem=1G,mem_req=1G
     
     ##########
-    # アライメントのオプションです
+    # Genomonでは STAR にてアライメントを行っており，
+    # Genomonが次のコマンドの実行時、{star_params}に設定するオプションを指定できます
+    # STAR に関する解説はSTARドキュメントを別途参照してください．
+    # /path/to/star --genomeDir $star_genome \
+    # --readFilesIn $fastq1 $fastq2 \
+    # --outFileNamePrefix $out_prefix \
+    # {star_params} 
     [star_align]
     qsub_option = -pe def_slot 6 -l s_vmem=5.3G,mem_req=5.3G
-        
-    # Genomonでは STAR にてアライメントを行っており，STAR のオプションを指定できます．
-    # STAR に関する解説はSTARドキュメントを別途参照してください．
     star_params = --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted
-    
-    # Genomonでは STARでアライメントしたbamに対して，"samtools sort" を使用してソートしており，"samtools sort" のオプションを指定できます．
+
+    # Genomonでは STARでアライメントしたbamに対して，"samtools sort" を使用してソートしており，
+    # Genomonが次のコマンドの実行時、{star_params}に設定するオプションを指定できます.
     # "samtools sort" に関する解説はsamtoolsドキュメントを別途参照してください．
+    # /path/to/samtools sort -T $Aligned.sortedByCoord.out \
+    # {samtools_sort_params} $Aligned.out.bam \
+    # -O bam > $Aligned.sortedByCoord.out.bam 
     samtools_sort_params = -@ 6 -m 3G
 
+    
 融合遺伝子
 --------------
 
