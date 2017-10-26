@@ -22,6 +22,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
 
 .. code-block:: cfg
   :caption: パイプライン設定ファイル (dna_exome_genomon_GRCh38.cfg)
+  :name: dna_exome_genomon_GRCh38.cfg_a
   
   [REFERENCE]
   # prepared reference fasta file
@@ -67,10 +68,11 @@ indexファイル、fasta indexファイルを作成しておく必要があり�
 ・リファレンスゲノム(FASTA形式)をダウンロードし、圧縮されている場合は解凍してください．こちらのFASTA形式のファイルのファイルパスをref_fastaに指定します．
 
 .. code-block:: bash
+
   # Genomic Data Commons WebSite
   https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files
   # Reference Sequenceをダウンロード
-　　GRCh38.d1.vd1.fa.tar.gz
+  GRCh38.d1.vd1.fa.tar.gz
   
 .. attention::
 
@@ -242,7 +244,8 @@ HGVD, ExAC, hotspotはHG38に未対応のため空白にする．
 
 .. code-block:: cfg
   :caption: パイプライン設定ファイル (dna_exome_genomon_GRCh38.cfg)
-  
+  :name: dna_exome_genomon_GRCh38.cfg_a7
+    
   [REFERENCE]
   HGVD_2013_tabix_db =
   HGVD_2016_tabix_db =
@@ -560,7 +563,7 @@ STARコマンドを使用してSTAR indexを作成します．
   params = --grc --genome_id hg38
 
 (B-4) intron retentionの設定ファイルを変更する
----------------------------------------------
+------------------------------------------------------------
 
 パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
@@ -569,7 +572,7 @@ STARコマンドを使用してSTAR indexを作成します．
   [intron_retention]
  　params = --grc --genome_id hg38
 
-(B-5) paplotの設定ファイルを変更する．
+(B-5) paplotの設定ファイルを変更する
 -------------------------------------
 
 paplotを使用する場合は、パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
