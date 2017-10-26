@@ -22,7 +22,7 @@ Genomon2.5.3
     samtools_params = -F 3332 -f 2
 
 |
-| ● DNAパイプライン
+| ● DNAパイプライン・RNAパイプライン共通
 |    bam2fastq 機能にオプションを追加しました．
 
  .. code-block:: cfg
