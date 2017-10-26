@@ -42,7 +42,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   sv_utils_annotation_dir = /path/to/database/sv_utils-0.4.0beta/resource_GRCh38
   
   [paplot]
-  config_file = /path/to/database/paplot-0.5.0/paplot_dna_GRCh38.cfg
+  config_file = /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
   
   [SOFTWARE]
   bwa = /path/to/bwa-0.7.15/bwa
@@ -356,7 +356,7 @@ paplotを使用する場合は、パイプライン設定ファイルに指定�
 .. code-block:: bash
 
   cp /home/w3varann/.genomon_local/genomon_pipeline-2.5.3/genomon_conf/paplot/paplot_dna.cfg \
-     /path/to/database/paplot-0.5.0/paplot_dna_GRCh38.cfg
+     /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
 
 変更する箇所は [genome] path と [ca] use_chrs(ヒトと染色体数が異なる場合) です．
 
@@ -381,7 +381,7 @@ use_chrsを解析するゲノムの染色体数に合わせてください．
   :caption: パイプライン設定ファイル (dna_exome_genomon_GRCm38.cfg)
   
   [paplot]
-  config_file = /path/to/database/paplot-0.5.0/paplot_dna_GRCh38.cfg
+  config_file = /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
 
 paplotのマニュアルを読んでいただけると、こちらの設定についての理解が深まると思います．
 
@@ -482,7 +482,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   params = --grc --genome_id hg38
   
   [paplot]
-  config_file = /path/to/database/paplot-0.5.0/paplot_rna_GRCh38.cfg
+  config_file = /path/to/database/paplot-0.5.5/paplot_rna_GRCh38.cfg
 
 （B-1）star_genome
 -------------------------------------------------
@@ -582,6 +582,6 @@ paplotを使用する場合は、パイプライン設定ファイルに指定�
 .. code-block:: bash
 
   cp /home/w3varann/.genomon_local/genomon_pipeline-2.5.3/genomon_conf/paplot/paplot_rna.cfg \
-     /path/to/database/paplot-0.5.0/paplot_rna_GRCh38.cfg
+     /path/to/database/paplot-0.5.5/paplot_rna_GRCh38.cfg
 
 RNA用のコンフィグファイル、paplot_rna.cfgのコピー後の作業はDNAの「(A-9) paplotの設定ファイルを変更する」と同じです。(A-9)の設定方法を参照ください．

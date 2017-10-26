@@ -28,6 +28,7 @@ link_input_fastq --> task_star_align
 task_star_align --> "Aligned.sortedByCoord.out.bam"<<output>>
 task_star_align --> "Log.final.out"<<output>>
 link_import_bam --> "Aligned.sortedByCoord.out.bam"<<output>>
+link_import_bam --> "Log.final.out"<<output>>
 
 partition "[fusion]" {
   "Aligned.sortedByCoord.out.bam" --> task_fusion_count

@@ -208,7 +208,7 @@ Post Analysis
     
     # paplotの設定ファイルです．
     # paplotをインストールした場所/config_template/ 配下にGenomon用の設定ファイルがありますので，パスを設定してください
-    config_file = # the path to the paplot-0.5.0/paplot.cfg
+    config_file = # the path to the paplot-0.5.5/paplot.cfg
     
     # index.htmlの設定です．通常変更する必要はありません
     title = Genomon_RNA
