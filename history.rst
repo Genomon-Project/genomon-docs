@@ -1,6 +1,37 @@
 リリースノート
 --------------------
 
+Genomon2.5.3
+====================
+
+.. attention::
+
+  | DNAパイプライン，RNAパイプラインの設定ファイル (.cfg) を変更しました．
+  | ご使用の際はANNOVARなどの設定がFALSEになっているので再設定をお願いします．
+
+| ● DNAパイプライン
+|    umapped リードを除くように設定ファイルのデフォルトを変更しました．
+|    パイプライン設定ファイル(dna_genomon.cfg)
+
+ .. code-block:: cfg
+ 
+    [realignment_filter]
+    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3332
+    
+    [qc_coverage]
+    samtools_params = -F 3332 -f 2
+
+|
+| ● DNAパイプライン
+|    bam2fastq 機能にオプションを追加しました．
+
+ .. code-block:: cfg
+ 
+     [bam2fastq]
+     params = collate=1 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY tryoq=0
+
+| ● その他，細かい不具合を修正しました．
+
 Genomon2.5.2
 ====================
 

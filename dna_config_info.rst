@@ -4,7 +4,7 @@ DNA パイプライン設定ファイルについて
 パイプライン設定ファイルはGenomon実行時に読込まれるファイルです．各ツールのパスやパラメータを設定することができます．
 
  .. note::
-  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.5.2/genomon_conf/`` にあります．
+  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.5.3/genomon_conf/`` にあります．
 
   :Exome解析用: dna_exome_genomon.cfg
   :WGS解析用:   dna_wgs_genomon.cfg
