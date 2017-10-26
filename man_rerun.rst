@@ -16,7 +16,7 @@ Genomonでは，出力ディレクトリ中に既に解析結果が存在すれ�
 .. code-block:: bash
   :caption: pmsignature出力ディレクトリ退避例
   
-  $ cd /home/lect-1/Genomon2_5_2/test5929/
+  $ cd /home/lect-1/test5929/
   $ mv pmsignature/ pmsignature.old
 
 
@@ -32,7 +32,7 @@ Genomonでは，出力ディレクトリ中に既に解析結果が存在すれ�
 .. code-block:: bash
   :caption: paplot出力ディレクトリの退避例
   
-  $ cd /home/lect-1/Genomon2_5_2/test5929/
+  $ cd /home/lect-1/test5929/
   $ mv paplot/ paplot.old
 
 
@@ -43,11 +43,11 @@ Genomonでは，出力ディレクトリ中に既に解析結果が存在すれ�
 .. code-block:: bash
 
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   dna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg
   $
 
 4-2. 特定のサンプルのみ再実行する
@@ -65,7 +65,7 @@ Genomonでは，出力ディレクトリ中に既に解析結果が存在すれ�
 .. code-block:: bash
   :caption: test2 サンプルディレクトリの退避例
   
-  $ cd /home/lect-1/Genomon2_5_2/test5929/intron_retention/
+  $ cd /home/lect-1/test5929/intron_retention/
   $ ls
   test1/ test2/ test3/ test4/ test5/
   $ mv test2/ test2.old/

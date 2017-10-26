@@ -82,11 +82,11 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
 .. code-block:: bash
 
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   rna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg \
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg \
   '-l s_vmem=48G,mem_req=48G'
 
 .. _main_log:
@@ -112,7 +112,7 @@ Genomon本体のログファイルは解析の出力ディレクトリ内の ``l
 .. code-block:: bash
   :caption: Genomon本体のログファイルの場所
   
-  $ ls /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e<ジョブID>
+  $ ls /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e<ジョブID>
 
 
 ログファイルを特定したら，その内容が以下のケースに該当するか確認ください．
@@ -126,7 +126,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   Traceback (most recent call last):
@@ -156,7 +156,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   'AlreadyActiveSessionException: code 11: Initialization failed due to existing DRMAA session.'
@@ -177,11 +177,11 @@ Genomon本体のログ出力例
 .. code-block:: bash
 
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   rna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg \
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg \
   '-l s_vmem=96G,mem_req=96G'
 
 
@@ -190,7 +190,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 56, in task_exec
@@ -218,7 +218,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/ruffus/file_name_parameters.py, line 548, in needs_update_check_modify_time
@@ -246,7 +246,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   genomon_pipeline: line 47: 21714 '強制終了'
@@ -267,7 +267,7 @@ Genomon本体のログ出力例
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
   Genomon is checking parameters ...
@@ -281,7 +281,7 @@ Genomon本体のログ出力例
   File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 237, in parse_data
   raise ValueError(err_msg)
   ValueError: test_1:
-  '/home/lect-1/Genomon2_5_2/raw/bam/test_1/test_1.markdup.bam does not exists'
+  '/home/lect-1/raw/bam/test_1/test_1.markdup.bam does not exists'
   (END)
 
 
@@ -339,7 +339,7 @@ Genomon本体ではなく，解析ジョブに問題が発生した場合は各�
 .. code-block:: bash
 
   $ pwd
-  /home/lect-1/Genomon2_5_2/config/
+  /home/lect-1/config/
   $ vi rna_genomon.cfg
   ##########
   # parameters for star alignment
@@ -356,7 +356,7 @@ Genomon本体ではなく，解析ジョブに問題が発生した場合は各�
 .. code-block:: bash
 
   $ pwd
-  /home/lect-1/Genomon2_5_2/config/
+  /home/lect-1/config/
   $ vi dna_exome_genomon.cfg
   ############
   
@@ -391,13 +391,13 @@ Genomon本体ではなく，解析ジョブに問題が発生した場合は各�
 .. code-block:: bash
   :caption: ログファイルの特定方法
   
-  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e<ジョブID>
+  $ ls -l /home/lect-1/test5929/log/*/*.e<ジョブID>
 
 .. code-block:: bash
   :caption: ログファイルの特定例
   
-  $ ls -l /home/lect-1/Genomon2_5_2/test5929/log/*/*.e35172322
-  /home/lect-1/Genomon2_5_2/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e35172322.1
+  $ ls -l /home/lect-1/test5929/log/*/*.e35172322
+  /home/lect-1/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e35172322.1
   $
 
 
@@ -411,7 +411,7 @@ pmsignature
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e12345678.1
+  $ tail /home/lect-1/test5929/log/pmsignature/pmsignatutre_YYYYMMDD_123456_123456.e12345678.1
   ・・・・・・・
   ・・・・・・・
   'Error: cannot allocate vector' of size 111.9 Mb
@@ -442,12 +442,12 @@ STAR
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  $ tail /home/lect-1/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
   ・・・・・・・
   ・・・・・・・
-  /home/lect-1/Genomon2_5_2/config/test5929/script/test_(1) /star_align
+  /home/lect-1/config/test5929/script/test_(1) /star_align
   '_20170824_152847_296876.sh: line 13: 期待してない token \` (' のあたりにシンタックスエラー'
-  /home/lect-1/Genomon2_5_2/test5929/script/test_(1) /star_align_20170824_152847_296876.sh: line 13: \`{path to genomon installed}/genomon_pipeline-2.5.3/tools/STAR-2.5.2a/bin/Linux_x86_64_static/STAR --genomeDir {path to genomon installed}/genomon_pipeline-2.5.3/database/GRCh37.STAR-2.5.2a --readFilesIn /home/lect-1/Genomon2_5_2/raw/fastq/test_(1) /1_1.fastq /home/lect-1/Genomon2_5_2/raw/fastq/test_(1) /1_2.fastq --outFileNamePrefix /home/lect-1/Genomon2_5_2/test5929/star/test_(1) /test_(1) ) . --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted '
+  /home/lect-1/test5929/script/test_(1) /star_align_20170824_152847_296876.sh: line 13: \`{path to genomon installed}/genomon_pipeline-2.5.3/tools/STAR-2.5.2a/bin/Linux_x86_64_static/STAR --genomeDir {path to genomon installed}/genomon_pipeline-2.5.3/database/GRCh37.STAR-2.5.2a --readFilesIn /home/lect-1/raw/fastq/test_(1) /1_1.fastq /home/lect-1/raw/fastq/test_(1) /1_2.fastq --outFileNamePrefix /home/lect-1/test5929/star/test_(1) /test_(1) ) . --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted '
   ・・・・・・・
   ・・・・・・・
   (END)
@@ -469,7 +469,7 @@ STAR
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  $ tail /home/lect-1/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
   ・・・・・・・
   ・・・・・・・
   'ReadAlignChunk_processChunks.cpp:115:processChunks EXITING because of FATAL ERROR in input reads: unknown file format: the read ID should start with @ or >'
@@ -496,7 +496,7 @@ STAR
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
+  $ tail /home/lect-1/test5929/log/test_1/star_align_YYYYMMDD_123456_123456.e1234567
   ・・・・・・・
   ・・・・・・・
   EXITING because of 'FATAL ERROR: Read1 and Read2 are not consistent, reached the end of the one before the other one'
@@ -525,7 +525,7 @@ SV
 
 .. code-block:: bash
 
-  $ tail /home/lect-1/Genomon2_5_2/test5929/log/test_1/sv_filt_YYYYMMDD_123456_123456.e12345678
+  $ tail /home/lect-1/test5929/log/test_1/sv_filt_YYYYMMDD_123456_123456.e12345678
   ・・・・・・・
   ・・・・・・・
   sequence depth exceeds the threshould for: 16,46474950,-,6,26731656,+
@@ -544,7 +544,7 @@ SV
 .. code-block:: bash
 
   $ pwd
-  /home/lect-1/Genomon2_5_2/config/
+  /home/lect-1/config/
   $ vi dna_exome_genomon.cfg
   ############
   

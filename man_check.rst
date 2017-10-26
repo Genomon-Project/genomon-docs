@@ -6,7 +6,7 @@ GenomonPipelineは，下記の出力ディレクトリ階層にて解析結果�
 .. code-block:: bash
   :caption: DNA解析結果ディレクトリ構成
   
-  /home/lect-1/Genomon2_5_2/test5929/  ：出力ルートディレクトリ
+  /home/lect-1/test5929/  ：出力ルートディレクトリ
     └ fastq/                            ：Fastqファイル
     └ bam/                              ：BAMファイル
         └test_1/
@@ -46,7 +46,7 @@ GenomonPipelineは，下記の出力ディレクトリ階層にて解析結果�
 .. code-block:: bash
   :caption: RNA解析結果ディレクトリ構成
   
-  /home/lect-1/Genomon2_5_2/test5929/  ：出力ルートディレクトリ
+  /home/lect-1/test5929/  ：出力ルートディレクトリ
     └ fastq/                            ：Fastqファイル
     └ star/                             ：BAMファイル(マッピング結果)
         └test_1/

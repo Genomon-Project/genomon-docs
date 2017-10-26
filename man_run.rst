@@ -25,7 +25,7 @@ Genomon Pipeline 実行の手引き
 
 ::
   
-  /home/lect-1/Genomon2_5_2/ ：作業ディレクトリ
+  /home/lect-1/ ：作業ディレクトリ
      ├ config/                 ：サンプル設定ファイル/パイプライン設定ファイル
      │  ├ dna_genomon.cfg
      │  ├ rna_genomon.cfg
@@ -110,7 +110,7 @@ Genomonを実行するために以下2つのスクリプトを用意します．
   # $5 qsub_option
   # $6 ruffus_option
   
-  qsub $5 -o ${project_dir}/log -e ${project_dir}/log /home/lect-1/Genomon2_5_2/script/qsub_genomon_pipeline.sh $1 $2 $3 $4 "$6"
+  qsub $5 -o ${project_dir}/log -e ${project_dir}/log /home/lect-1/script/qsub_genomon_pipeline.sh $1 $2 $3 $4 "$6"
 
 .. code-block:: bash
   :caption: qsub_genomon_pipeline.sh
@@ -135,7 +135,7 @@ Genomonを実行するために以下2つのスクリプトを用意します．
   :caption: Genomon解析コマンドの使用方法
 
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   {解析タイプ} \
   {サンプル設定ファイル} \
   {出力ルートディレクトリ} \
@@ -152,21 +152,21 @@ Genomonを実行するために以下2つのスクリプトを用意します．
   :caption: DNA(Exome) 解析実行例
   
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   dna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/dna_exome_genomon.cfg
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/dna_exome_genomon.cfg
 
 .. code-block:: bash
   :caption: RNA解析実行例
   
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   rna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg
 
 
 1-6. ジョブ実行状況の確認
@@ -222,10 +222,10 @@ qsub オプションを省略した場合，デフォルト値としてGenomon�
   :caption: Genomonオプションによるメモリ指定の例
 
   $ bash
-  /home/lect-1/Genomon2_5_2/script/genomon_pipeline.sh \
+  /home/lect-1/script/genomon_pipeline.sh \
   rna \
-  /home/lect-1/Genomon2_5_2/config/test5929.csv \
-  /home/lect-1/Genomon2_5_2/test5929 \
-  /home/lect-1/Genomon2_5_2/config/rna_genomon.cfg \
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg \
   '-l s_vmem=32G,mem_req=32G'
 
