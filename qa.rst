@@ -98,7 +98,8 @@ mutationのマージ機能をOFFにする場合の設定例
   output_filt_case3 = True
   output_filt_case4 = True
 
- - SVの場合は[merge_format_sv], fusionfusionの場合は[merge_format_fusionfusion] を変更してください
+SVの場合は[merge_format_sv], fusionfusionの場合は[merge_format_fusionfusion] を変更してください
+
  - ``output_filt_case*`` の項目はpmsignatureとpaplotで使用するため，Trueのままにしておいてください．
  - 設定ファイル中の case1,2,3,4 はサンプル設定ファイルのパターン1,2,3,4に該当します．
 `[mutation_call],[sv_detection]の記載方法 <./dna_sample_csv.html#mutation-call-sv-detection>`__ 
