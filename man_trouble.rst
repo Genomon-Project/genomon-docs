@@ -261,32 +261,6 @@ Genomon本体のログ出力例
 | ①入力サンプル数が多い場合は (目安: 数1000以上) ，サンプル設定ファイル中の解析対象サンプルが500程度になるようにサンプル設定ファイルを分割して複数作成してください．
 | ②Genomon解析コマンドに，①で作成したサンプル設定ファイルを指定して，サンプル設定ファイル数ぶんGenomon解析コマンドを再実行してください．
 
-
-◆ケース5: Disk quota exceeded
-+++++++++++++++++++++++++++++++++++
-
-.. code-block:: bash
-
-  ・・・・・・・
-  ・・・・・・・
-   Original exceptions:
-
-   Exception #1
-      'exceptions.IOError([Errno 122] Disk quota exceeded)' raised in ...
-       Task = def genomon_pipeline.dna_pipeline.post_analysis_mutation(...):
-  ・・・・・・・
-  ・・・・・・・
-
-【原因】
-
-出力するファイルサイズが大きすぎると発生します．主に変異の数が多いWGSのmutation結果マージの工程で発生します．
-
-【対処法】
-
-| ①主にGenomonPostAnalysisの工程で，変異結果をマージする際に発生しますので，マージファイルが不要であれば設定をOFFにします．
-|   詳しい手順は `マージ機能をスキップする方法 <./qa.html#merge_skip>`__ を参照ください．
-
-
 ◆ケース6: （サンプル名）.markdup.bam does not exists
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -319,6 +293,31 @@ Genomon本体のログ出力例
 | ①サンプル設定ファイルに記載したディレクトリに記載した通り当該解析対象ファイルが配置されていることや，サンプル設定ファイルの記載内容を確認してください．
 | ②Genomon解析コマンドを再実行してください．
 
+
+◆ケース7: Disk quota exceeded
++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
+  ・・・・・・・
+  ・・・・・・・
+  Original exceptions:
+  
+  Exception #1
+      'exceptions.IOError([Errno 122] Disk quota exceeded)' raised in ...
+       Task = def genomon_pipeline.dna_pipeline.post_analysis_mutation(...):
+  ・・・・・・・
+  ・・・・・・・
+
+【原因】
+
+出力するファイルサイズが大きすぎると発生します．主に変異の数が多いWGSのmutation結果マージの工程で発生します．
+
+【対処法】
+
+| ①主にGenomonPostAnalysisの工程で，変異結果をマージする際に発生しますので，マージファイルが不要であれば設定をOFFにします．
+|   詳しい手順は `レポート作成機能について <./qa.html#merge_skip>`__ を参照ください．
 
 .. _job_mem:
 
