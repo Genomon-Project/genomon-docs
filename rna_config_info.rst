@@ -66,7 +66,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
   　　[bam2fastq]
   　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
     
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/bamtofastq {params} \
     # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
     # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
@@ -74,7 +74,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     
     ##########
     # Genomonでは STAR にてアライメントを行っており，
-    # Genomonが次のコマンドの実行時、{star_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{star_params}に設定するオプションを指定できます
     # STAR に関する解説はSTARドキュメントを別途参照してください．
     # /path/to/star --genomeDir $star_genome \
     # --readFilesIn $fastq1 $fastq2 \
@@ -85,7 +85,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     star_params = --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted
 
     # Genomonでは STARでアライメントしたbamに対して，"samtools sort" を使用してソートしており，
-    # Genomonが次のコマンドの実行時、{star_params}に設定するオプションを指定できます.
+    # Genomonが次のコマンドの実行時，{star_params}に設定するオプションを指定できます.
     # "samtools sort" に関する解説はsamtoolsドキュメントを別途参照してください．
     # /path/to/samtools sort -T $Aligned.sortedByCoord.out \
     # {samtools_sort_params} $Aligned.out.bam \
@@ -102,7 +102,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
 .. code-block:: cfg
 
     # 1) Count supporting read pairs for each chimera junction
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # chimera_utils に関する解説はchimera_utilsドキュメントを別途参照してください．
     # /path/to/chimera_utils count {params} \
     # $chimeric_sam $output
@@ -111,7 +111,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     params =
     
     # 2) Merge chimeric junction count file
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # chimera_utils に関する解説はchimera_utilsドキュメントを別途参照してください．
     # /path/to/merge_control count {params} \
     # $count_list $output
@@ -121,7 +121,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     
     3)  融合遺伝子を検出します．
     # Genomonでは 融合遺伝子検出のためfusionfusionを使用しており，
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # fusionfusion に関する解説はfusionfusionドキュメントを別途参照してください．
     # /path/to/fusionfusion --star $chimeric_sam \
     # --out $output_prefix --reference_genome $reference_genome \
@@ -133,7 +133,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
     # Genomonおすすめフィルタ
     # 検出された融合遺伝子に対して，よく使用されるフィルタリングをあらかじめ実施します
     # {sample}.fusion.fusion.result.txt から {sample}.fusion.fusion.result.filt.txt を作成します
-    # Genomonが次のコマンドの実行時、{filt_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{filt_params}に設定するオプションを指定できます
     # fusionfusion に関する解説はfusionfusionドキュメントを別途参照してください．
     # /path/to/fusion_utils filt \
     # $input.txt $output.txt \
@@ -150,7 +150,7 @@ RNA解析パイプライン実行時に読込まれるファイルです．各�
 .. code-block:: cfg
 
     # Genomonでは 発現量の計算のためgenomon_expressionを使用しており，
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # genomon_expression に関する解説はgenomon_expressionドキュメントを別途参照してください．
     # /path/to/genomon_expression {additional_params} \
     # $input_bam $output_prefix
@@ -167,7 +167,7 @@ Intron Retention
 .. code-block:: cfg
 
     # Genomonでは intron_retentionの検出のためintron_retention_utilsを使用しており，
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # intron_retention_utils に関する解説はintron_retention_utilsドキュメントを別途参照してください．
     # /path/to/intron_retention_utils simple_count \
     # {params} $input_bam $output_prefix

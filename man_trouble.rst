@@ -262,6 +262,31 @@ Genomon本体のログ出力例
 | ②Genomon解析コマンドに，①で作成したサンプル設定ファイルを指定して，サンプル設定ファイル数ぶんGenomon解析コマンドを再実行してください．
 
 
+◆ケース5: Disk quota exceeded
++++++++++++++++++++++++++++++++++++
+
+.. code-block:: bash
+
+  ・・・・・・・
+  ・・・・・・・
+   Original exceptions:
+
+   Exception #1
+      'exceptions.IOError([Errno 122] Disk quota exceeded)' raised in ...
+       Task = def genomon_pipeline.dna_pipeline.post_analysis_mutation(...):
+  ・・・・・・・
+  ・・・・・・・
+
+【原因】
+
+出力するファイルサイズが大きすぎると発生します．主に変異の数が多いWGSのmutation結果マージの工程で発生します．
+
+【対処法】
+
+| ①主にGenomonPostAnalysisの工程で，変異結果をマージする際に発生しますので，マージファイルが不要であれば設定をOFFにします．
+|   詳しい手順は `マージ機能をスキップする方法 <./qa.html#merge_skip>`__ を参照ください．
+
+
 ◆ケース6: （サンプル名）.markdup.bam does not exists
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -538,7 +563,7 @@ SV
 
 【対処法】
 
-| ①シーケンスデータファイルを見直してください．
+| ①シーケンスデータファイルを見直してください．使用しないデータがあれば除いてください（MTなど）
 | ②depthの上限を変更する場合はパイプライン設定ファイルを以下のように変更し，ジョブを再実行してください．
 
 .. code-block:: bash

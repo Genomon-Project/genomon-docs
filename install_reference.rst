@@ -2,7 +2,7 @@
 リファレンスゲノムの変更方法
 -------------------------------------
 
-Genomon2の実行時に指定するパイプライン設定ファイルの内容を変更することにより、ヒトゲノム以外の解析やGRCh38での解析が可能です．このマニュアルではGRCh38 Reference Sequenceの使用を例にあげて説明しております．
+Genomon2の実行時に指定するパイプライン設定ファイルの内容を変更することにより，ヒトゲノム以外の解析やGRCh38での解析が可能です．このマニュアルではGRCh38 Reference Sequenceの使用を例にあげて説明しております．
 
 
 (A) DNA解析の設定について
@@ -10,7 +10,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
 
 パイプライン設定ファイルの内容を解析したいゲノムに変更します．
 
-以下のパイプラン設定ファイルを任意のディレクトリにコピーして、内容を変更してください．
+以下のパイプラン設定ファイルを任意のディレクトリにコピーして，内容を変更してください．
 
 /home/w3varann/.genomon_local/genomon_pipeline-2.5.3/genomon_conf/dna_exome_genomon.cfg
 
@@ -63,9 +63,9 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
 ------------------------------------------
 
 ref_fastaにはリファレンスゲノムを指定します．同ディレクトリ内にbwa
-indexファイル、fasta indexファイルを作成しておく必要があります．
+indexファイル，fasta indexファイルを作成しておく必要があります．
 
-・リファレンスゲノム(FASTA形式)をダウンロードし、圧縮されている場合は解凍してください．こちらのFASTA形式のファイルのファイルパスをref_fastaに指定します．
+・リファレンスゲノム(FASTA形式)をダウンロードし，圧縮されている場合は解凍してください．こちらのFASTA形式のファイルのファイルパスをref_fastaに指定します．
 
 .. code-block:: bash
 
@@ -111,7 +111,7 @@ Fasta indexが作成されます．
 
 interval_listには変異コールを並列化して実行するためのファイルを設定します．
 
-以下にインターバルリストの中身を記載しましたが、Chromosomeポジションの範囲が複数記載されています．指定した範囲が変異コールされる範囲となります．1行が1ジョブとなり、以下のファイルでは省略されていますが実際には24行ありますので、24並列でジョブが実行されます．
+以下にインターバルリストの中身を記載しましたが，Chromosomeポジションの範囲が複数記載されています．指定した範囲が変異コールされる範囲となります．1行が1ジョブとなり，以下のファイルでは省略されていますが実際には24行ありますので，24並列でジョブが実行されます．
 
 ◆記載ルール◆
 
@@ -235,7 +235,7 @@ tabixでindexを張ります．
 
 simpleRepeat_hg38.bed.gzをsimple_repeat_tabix_dbに指定します．
 
-UCSCにsimpleRepeat.txtが存在しない場合は、ダミーファイルを作成する必要があります．
+UCSCにsimpleRepeat.txtが存在しない場合は，ダミーファイルを作成する必要があります．
 
 (A-7) HGVD_2013_tabix_db HGVD_2016_tabix_db ExAC_tabix_db　hotspot_db
 -------------------------------------------------------------------------------------------
@@ -256,7 +256,7 @@ HGVD, ExAC, hotspotはHG38に未対応のため空白にする．
 (A-8) SV検出のAnnotationのリソースディレクトリを変更する
 --------------------------------------------------------
 
-SV検出を行う際は、Annotationのためのリソースを変更する必要があります．**2つ変更します！**
+SV検出を行う際は，Annotationのためのリソースを変更する必要があります．**2つ変更します！**
 
 ◆１つめ：
 
@@ -315,19 +315,19 @@ resourceディレクトリ内のprepGeneInfo.shの中身を変更します
 
 ※GCF_000001405.33.assembly.txtはGRCh38用です．
 
-※GCF_000001405.33.assembly.txtはSequence-NameとUCSC-style-nameの関係を抽出して、どちらにも対応できるようにするために使用しております．
+※GCF_000001405.33.assembly.txtはSequence-NameとUCSC-style-nameの関係を抽出して，どちらにも対応できるようにするために使用しております．
 
 .. note::
 
   **ensGene.txt.gzについて**
   
-  HG38からensGeneはなくなったらしいです。
+  HG38からensGeneはなくなったらしいです.
   
   https://groups.google.com/a/soe.ucsc.edu/forum/#!topic/genome/uOROZuefx_Y
   
     The Ensembl Genes track has been replaced on hg38 with the GENCODE Genes track as these two tracks have converged. When using the Table Browser, select the Genes and Gene Predictions group and then select the GENCODE V20 track.  Note that there are various tables available with GENCODE.  For a description of these, see the track description page at http://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg38&g=wgEncodeGencodeV20.
   
-  代わりに今回はtophatからとってきましたが、ヘッダが付いていてtabixでエラーになるので、そこは手動でスクリプトを変更します。
+  代わりに今回はtophatからとってきましたが，ヘッダが付いていてtabixでエラーになるので，そこは手動でスクリプトを変更します.
   
   http://ccb.jhu.edu/software/tophat/downloads/hg38/ensGene.txt.gz
 
@@ -349,7 +349,7 @@ resourceディレクトリ内のprepGeneInfo.shの中身を変更します
 (A-9) paplotの設定ファイルを変更する．
 --------------------------------------
 
-paplotを使用する場合は、パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
+paplotを使用する場合は，パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
 
 まずはpaplot.cfgファイルを適当なディレクトリにコピーして内容を変更します．
 
@@ -383,7 +383,7 @@ use_chrsを解析するゲノムの染色体数に合わせてください．
   [paplot]
   config_file = /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
 
-paplotのマニュアルを読んでいただけると、こちらの設定についての理解が深まると思います．
+paplotのマニュアルを読んでいただけると，こちらの設定についての理解が深まると思います．
 
 ・paplotマニュアル
 
@@ -432,7 +432,7 @@ ANNOVARのホームページにてユーザ登録 (User License Agreement) が�
 
 
 ANNOVARを使用するようにパイプライン設定ファイルを編集します．以下の2か所の変更をお願いします．
-データベースを追加した場合は、table_annovar_paramsにも追加設定が必要です．
+データベースを追加した場合は，table_annovar_paramsにも追加設定が必要です．
 
 .. code-block:: cfg
 
@@ -454,7 +454,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 
 パイプライン設定ファイルの内容を解析したいゲノムに変更します．
 
-以下のパイプラン設定ファイルを任意のディレクトリにコピーして、内容を変更してください．
+以下のパイプラン設定ファイルを任意のディレクトリにコピーして，内容を変更してください．
 
 /home/w3varann/.genomon_local/genomon_pipeline-2.5.3/genomon_conf/rna_genomon.cfg
 
@@ -491,7 +491,7 @@ star_genomeにはSTARのindexファイルが格納されているディレクト
 
 ・STAR index ファイルを作成します．
 
-STARにはのindexファイルを作成するには、FASTAファイル以外にGTFファイルが必要です．
+STARにはのindexファイルを作成するには，FASTAファイル以外にGTFファイルが必要です．
 
 ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/gencode.v25.annotation.gtf.gz
 
@@ -575,7 +575,7 @@ STARコマンドを使用してSTAR indexを作成します．
 (B-5) paplotの設定ファイルを変更する
 -------------------------------------
 
-paplotを使用する場合は、パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
+paplotを使用する場合は，パイプライン設定ファイルに指定されているpaplotの設定ファイルの中身を書き換える必要があります．
 
 まずはpaplot.cfgファイルを適当なディレクトリにコピーして内容を変更します．
 
@@ -584,4 +584,4 @@ paplotを使用する場合は、パイプライン設定ファイルに指定�
   cp /home/w3varann/.genomon_local/genomon_pipeline-2.5.3/genomon_conf/paplot/paplot_rna.cfg \
      /path/to/database/paplot-0.5.5/paplot_rna_GRCh38.cfg
 
-RNA用のコンフィグファイル、paplot_rna.cfgのコピー後の作業はDNAの「(A-9) paplotの設定ファイルを変更する」と同じです。(A-9)の設定方法を参照ください．
+RNA用のコンフィグファイル，paplot_rna.cfgのコピー後の作業はDNAの「(A-9) paplotの設定ファイルを変更する」と同じです.(A-9)の設定方法を参照ください．

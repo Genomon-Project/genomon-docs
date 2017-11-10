@@ -77,10 +77,10 @@ GenomonPipelineは，下記の出力ディレクトリ階層にて解析結果�
 
 各解析結果のファイルの詳細については，下記のGenomonドキュメントを参照ください．
 
- - `DNA解析結果ファイルの説明 <http://genomon.readthedocs.io/ja/latest/dna_results.html>`__
- - `DNA解析で出力されるファイルについて <http://genomon.readthedocs.io/ja/latest/dna_output_info.html>`__
- - `RNA解析結果ファイルの説明 <http://genomon.readthedocs.io/ja/latest/rna_results.html>`__
- - `RNA解析で出力されるファイルについて <http://genomon.readthedocs.io/ja/latest/rna_output_info.html>`__
+ - `DNA解析結果ファイルの説明 <./dna_results.html>`__
+ - `DNA解析で出力されるファイルについて <./dna_output_info.html>`__
+ - `RNA解析結果ファイルの説明 <./rna_results.html>`__
+ - `RNA解析で出力されるファイルについて <./rna_output_info.html>`__
 
 GenomonPipelineは，解析結果のまとめとして，解析結果をビジュアライゼーションしたレポートを ``paplot`` ディレクトリ内に出力します．
 この ``paplot`` ディレクトリをローカルの端末にダウンロードし，ディレクトリの中に含まれる ``index.html`` をウェブブラウザで開いて結果を確認してください．

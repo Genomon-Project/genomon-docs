@@ -52,8 +52,8 @@ BAMファイルを解析データとして使用する場合，BAM Indexファ�
 サンプル設定ファイルは，解析対象として入力するFastqやBAMファイルのパスや実行する解析の内容を記述するものです．
 サンプル設定ファイルの詳細については，下記のGenomonドキュメントを参照ください．
 
- - `DNAサンプル設定ファイルについて <http://genomon.readthedocs.io/ja/latest/dna_sample_csv.html>`__
- - `RNAサンプル設定ファイルについて <http://genomon.readthedocs.io/ja/latest/rna_sample_csv.html>`__
+ - `DNAサンプル設定ファイルについて <./dna_sample_csv.html>`__
+ - `RNAサンプル設定ファイルについて <./rna_sample_csv.html>`__
 
 本書では，前述の作業ディレクトリ内に ``config`` ディレクトリを作成し，この中に配置します．
 
@@ -79,12 +79,12 @@ BAMファイルを解析データとして使用する場合，BAM Indexファ�
   
   | GenomonのDNA解析ではANNOVARというアノテーションツールを使用しています．
   | ANNOVARをインストールしなくてもGenomonは実行できますが，Genomonの結果をグラフに描画する機能（paplot）ではANNOVARの出力結果を参照していますので，ANNOVARの設定を行うことをお奨めしています．
-  | `ANNOVARのインストールとGenomonへの設定方法 <http://genomon.readthedocs.io/ja/latest/dna_quick_start.html#id1>`__
+  | `ANNOVARのインストールとGenomonへの設定方法 <./dna_quick_start.html#id1>`__
 
 パイプライン設定ファイルの詳細については，下記のGenomonドキュメントを参照ください．
  
- - `DNAパイプライン設定ファイルについて <http://genomon.readthedocs.io/ja/latest/dna_config_info.html>`__
- - `RNAパイプライン設定ファイルについて <http://genomon.readthedocs.io/ja/latest/rna_config_info.html>`__
+ - `DNAパイプライン設定ファイルについて <./dna_config_info.html>`__
+ - `RNAパイプライン設定ファイルについて <./rna_config_info.html>`__
 
 
 1-5. Genomon解析コマンドの実行

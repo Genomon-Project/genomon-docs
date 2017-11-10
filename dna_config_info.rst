@@ -107,7 +107,7 @@ annotation
  　　[bam2fastq]
  　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
    
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/bamtofastq {params} \
     # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
     # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
@@ -131,7 +131,7 @@ annotation
     [bwa_mem]
     qsub_option = -q '!mjobs_rerun.q' -l s_vmem=10.6G,mem_req=10.6G
 
-    # Genomonが次のコマンドの実行時、{bwa_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{bwa_params}に設定するオプションを指定できます
     # /path/to/bwa mem {bwa_params} $ref_genome \
     # $fastq1 $fastq2 > $output.sam
  　　 bwa_params = -T 0 
@@ -162,7 +162,7 @@ annotation
     [fisher_mutation_call]
     
     # サンプルペアがある解析で実行されます．
-    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{pair_params}に設定するオプションを指定できます
     # /path/to/fisher　comparison -R $region \
     # -o $output.txt --ref_fa $reference_genome.fa \
     # -1 $disease_bam -2 $control_bam 　\
@@ -170,7 +170,7 @@ annotation
     pair_params = --min_depth 8 --base_quality 15 --min_variant_read 4 --min_allele_freq 0.02 --max_allele_freq 0.1 --fisher_value 0.1 --samtools_params "-q 20 -BQ0 -d 10000000 --ff UNMAP,SECONDARY,QCFAIL,DUP"
 
     # サンプルペアでない解析で実行されます．
-    # Genomonが次のコマンドの実行時、{pair_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{pair_params}に設定するオプションを指定できます
     # /path/to/fisher　single -R $region \
     # -o $output.txt --ref_fa $reference_genome.fa \
     # -1 $disease_bam -2 $control_bam 　\
@@ -192,7 +192,7 @@ annotation
     
     # 2) リアライメント
     # つぎに，変異が見つかったリードをblatを使用して再度アライメントします（これをリアライメントと呼びます）
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/mutfilter realignment \
     # --target_mutation_file $input.txt \
     # -1 $disease_bam (-2 $control_bam) \
@@ -215,7 +215,7 @@ annotation
     # Normalサンプルの検出した変異ポジションの周辺にindelがあるか確認します．サンプルペアでないとこの処理は動きません．
     # indelとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
     # indel判定に使用した値は解析結果ファイル中，"indel_mismatch_count", と "indel_mismatch_rate" 列に出力されます
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/mutfilter indel \
     # --target_mutation_file $input.txt \
     # -2 $control.bam --output $output.txt \
@@ -235,7 +235,7 @@ annotation
     # 4) breakpoint
     # Normalサンプルの検出した変異ポジションの周辺にbreakpointがあるか確認します．サンプルペアでないとこの処理は動きません．
     # breakpointとみなされた変異はアノテーションされます．この判定で変異候補の数は変わりません．
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/mutfilter breakpoint \
     # --target_mutation_file $input.txt \
     # -2 $control_bam --output $output.txt \
@@ -266,7 +266,7 @@ annotation
     [hotspot]
     active_hotspot_flag = True
     
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/hotspot {params} \
     # $disease_bam $control.bam \
     # $output.txt $hotspot_database
@@ -291,21 +291,21 @@ annotation
     [mutation_util]
     
     # サンプルペアの解析で実行されます．
-    # Genomonが次のコマンドの実行時、{single_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{single_params}に設定するオプションを指定できます
     # /path/to/mutil filter \
     # -i $input.txt -o $output.txt \
     # {single_params}
     pair_params = --fish_pval 1.0 --realign_pval 1.0 --eb_pval 4.0 --tcount 4 --ncount 2
 
     # サンプルペアでない解析で実行されます．
-    # Genomonが次のコマンドの実行時、{single_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{single_params}に設定するオプションを指定できます
     # /path/to/mutil filter \
     # -i $input.txt -o $output.txt \
     # {single_params}
     single_params = --post10q 0.1 --r_post10q 0.1 --count 4
 
     # パラメータの説明
-    # たとえば--fish_pvalに 1.0 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
+    # たとえば--fish_pvalに 1.0 を指定すると，その値以上のレコードがresult.filt.txtに出力されます.
     #  --fish_pval: カラム"P-value(fisher)" >= 
     #  --realign_pval: カラム"P-value(fisher)_realignment" >= 
     #  --eb_pval: カラム"P-value(EBCall)" >= 
@@ -328,7 +328,7 @@ annotation
     ## Genomon SV
     
     # 1) svの検出を行います 
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # paramsに設定できるパラメータについてはGenomonSVのドキュメントをご確認ください．
    　# /path/to/genomon_sv parse \
     # $input_bam output_prefix {params}
@@ -337,7 +337,7 @@ annotation
     params = 
     
     # 2) svのマージを行います
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # paramsに設定できるパラメータについてはGenomonSVのドキュメントをご確認ください．
     # /path/to/genomon_sv merge \
     # $control_info $merge_output_file {params} 
@@ -348,7 +348,7 @@ annotation
     # 3) svのフィルタリングを行います
     ### フィルタその1：
     # {サンプル名}.genomon_sv.result.txtファイルを作成するためのフィルタ条件です
-    # Genomonが次のコマンドの実行時、{params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/genomon_sv filt \
     # $input_bam $output_prefix $reference_genome \
     # $annotation_dir {params} 
@@ -367,14 +367,14 @@ annotation
     
     ### フィルタその2：Genomonおすすめフィルタ
     # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です
-    # Genomonが次のコマンドの実行時、{sv_utils_params}に設定するオプションを指定できます
+    # Genomonが次のコマンドの実行時，{sv_utils_params}に設定するオプションを指定できます
     # /path/to/sv_utils filter \
     # input.txt output.txt $sv_utils_annotation_dir \
     # {sv_utils_param} 
     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --remove_simple_repeat
     
     # パラメータの説明
-    # たとえば--min_tumor_allele_freqに 0.007 を指定すると、その値以上のレコードがresult.filt.txtに出力されます.
+    # たとえば--min_tumor_allele_freqに 0.007 を指定すると，その値以上のレコードがresult.filt.txtに出力されます.
     #    --min_tumor_allele_freq >= 
     #    --max_control_variant_read_pair >=
     #    --control_depth_thres >=
