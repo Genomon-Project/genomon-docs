@@ -22,7 +22,7 @@ Inputの方法は [fastq], [bam_tofastq], [bam_import] の3種類あります．
 2. 融合遺伝子検出 (fusion)
 ------------------------------
 
-[fusion], [expression], [qc] の項目をサンプル設定ファイルで定義すると実行されます．
+[fusion] の項目をサンプル設定ファイルで定義すると実行されます．
 
 :task_fusion_count, task_fusion_merge, task_fusion_fusion: 融合遺伝子を検出します．
 :post_analysis: 全サンプルのfusionを１つのファイルにマージして出力します．
@@ -31,7 +31,7 @@ Inputの方法は [fastq], [bam_tofastq], [bam_import] の3種類あります．
 3. 発現量解析 (expression)
 --------------------------------
 
-[fusion], [expression], [qc] の項目をサンプル設定ファイルで定義すると実行されます．
+[expression] の項目をサンプル設定ファイルで定義すると実行されます．
 
 * **task_genomon_expression** -- 発現量解析を行います．
 
