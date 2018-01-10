@@ -53,7 +53,7 @@ RNA サンプル設定ファイルについて
   # {サンプル名},{BAMファイルのパス} の順にカンマ (,) 区切りで記載してください
   sample3,/home/genomon/sample3.Aligned.sortedByCoord.out.bam
   
-| STAR の出力ファイルのうち、次の 3 つのファイル *.bam.bai，*.Chimeric.out.sam，*.Log.final.out が必要です．
+| STAR の出力ファイルのうち、次の 3 つのファイル `*.bam.bai，*.Chimeric.out.sam，*.Log.final.out` が必要です．
 | 以下の構成で置いてください．
 | 
 
@@ -65,7 +65,7 @@ RNA サンプル設定ファイルについて
     │    ├ {任意の文字列}.bam
     │    ├ {bamと同じ文字列}.bam.bai
     │    ├ AAA.Chimeric.out.sam   <---- ディレクトリと同じ名前 + ".Chimeric.out.sam" にしてください
-    │    └ AAA.Log.final.out
+    │    └ AAA.Log.final.out      <---- ディレクトリと同じ名前 + ".Log.final.out" にしてください
     │
     └ BBB/
           ├ {任意の文字列}.bam
