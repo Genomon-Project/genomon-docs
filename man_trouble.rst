@@ -46,7 +46,7 @@
 
 jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるものがGenomon本体，それ以外はGenomon本体から呼び出された解析ジョブですが，Genomon以外にジョブを実行していた場合はその限りではありません．
 
-なお，Genomonには，ジョブが異常終了した場合に自動的に再実行する機能が備わっています．このため ``qreport`` コマンドによってリストアップされたジョブであっても，再実行により解析が成功している場合もあります．
+なお，Genomonには，ジョブが異常終了した場合に自動的に再実行する機能が備わっています．そのため ``qreport`` コマンドによってリストアップされたジョブであっても，再実行により解析が成功している場合もあります．
 
 .. _main_mem:
 
@@ -56,7 +56,7 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
 まずGenomon本体のジョブが異常終了した原因を確認します．
 
 ``qreport`` コマンドを使用して使用したメモリを確認します．
-該当しない場合は，次章 :ref:`3-3. Genomon本体のログファイルを確認 <main_log>` に進んでください．
+該当しない場合は，次章 :ref:`3-3. Genomon本体の実行時間を確認 <main_time>` に進んでください．
 
 .. code-block:: bash
 
@@ -89,24 +89,67 @@ jobnameの列より，ジョブ名が ``qsub_genomon_pipeline.sh`` であるも�
   /home/lect-1/config/rna_genomon.cfg \
   '-l s_vmem=48G,mem_req=48G'
 
-.. _main_log:
+.. _main_time:
 
-3-3. Genomon本体のログファイルを確認
-----------------------------------------
+3-3. Genomon本体の実行時間を確認
+--------------------------------------
 
-``qreport`` コマンドの出力よりジョブIDを確認し，エラーが発生したジョブのログファイルを特定します．
+前章 :ref:`3-2. Genomon本体の使用メモリを確認 <main_mem>` よりGenomon本体のジョブIDが分かっているはずですので，
+そのジョブIDを使用して開始時間 (start_time) と終了時間 (end_time) を確認します．
+
+HGCのキューについて，詳しくは :ref:`こちら<https://supcom.hgc.jp/internal/mediawiki/UGE_%E3%81%AE%E3%82%AD%E3%83%A5%E3%83%BC>` を参照ください．
+（HGCのアカウントが必要です）
+
+.. code-block:: bash
+  :caption: 2か月の寿命を全うしたジョブの例
+  
+  $ qreport -j 35281321
+  ==============================================================
+  ・・・・・・・
+  exit_status          137
+  failed               100
+  qname                ljobs.q
+  ・・・・・・・
+  qsub_time            20170915-18:03:40    <--- 投入した時間
+  start_time           20170915-18:03:46    <--- runした時間
+  end_time             20171116-18:03:49    <--- 終了した時間
+  ・・・・・・・
+  ・・・・・・・
+
+該当しない場合は，次章 :ref:`3-4. Genomon本体のログファイルを確認 <main_log>` に進んでください．
+
+【確認方法】
+
+| 以下いずれかに当てはまる場合，キューの寿命と考えられます．
+
+ - ケース１：qname が ljobs.q で end_time - start_time が 2 か月である
+ - ケース２：qname が lmem.q で end_time - start_time が 2 週間である
+ - ケース３：qname が mjobs.q で end_time - start_time が 2 日である
+ 
+【対処法】
+
+| Genomon解析コマンドの ``qsubオプション`` に，寿命の長いキューを指定して，Genomon を再実行します．
+| すでに ljobs.q を使用していた場合はアライメントと解析を別にする，サンプルを分割するなどして全体の時間を短縮してください．
 
 .. code-block:: bash
 
-  $ qreport -f -b 201708101300 -o lect-1 -l
-  | owner  | jobid    |~| jobname                  |~| mmem  | rmem  |~| Ropt                      |
-  | lect-1 | 35171943 |~| qsub_genomon_pipeline.sh |~| 32.9G | 32.0G |~| -l s_vmem=48G,mem_req=48G |
-  ・・・・・・・
-  ・・・・・・・
-  (END)
+  $ bash
+  /home/lect-1/script/genomon_pipeline.sh \
+  rna \
+  /home/lect-1/config/test5929.csv \
+  /home/lect-1/test5929 \
+  /home/lect-1/config/rna_genomon.cfg \
+  '-q ljobs.q'
 
 
-上記の例では，ジョブIDは ``35171943`` であることがわかります．
+.. _main_log:
+
+3-4. Genomon本体のログファイルを確認
+----------------------------------------
+
+前章 :ref:`3-2. Genomon本体の使用メモリを確認 <main_mem>` よりGenomon本体のジョブIDが分かっているはずですので，
+そのジョブIDを使用してエラーが発生したジョブのログファイルを特定します．
+
 Genomon本体のログファイルは解析の出力ディレクトリ内の ``log`` ディレクトリ配下に出力されます．
 
 .. code-block:: bash
@@ -321,7 +364,7 @@ Genomon本体のログ出力例
 
 .. _job_mem:
 
-3-4. 解析ジョブの使用メモリを確認
+3-5. 解析ジョブの使用メモリを確認
 ------------------------------------------
 
 Genomon本体ではなく，解析ジョブに問題が発生した場合は各解析ジョブを確認することで原因が特定できることがあります．
@@ -403,10 +446,75 @@ Genomon本体ではなく，解析ジョブに問題が発生した場合は各�
 
 ②Genomon解析コマンドを再度実行してください．
 
+.. _job_time:
+
+3-6. 解析ジョブの実行時間を確認
+--------------------------------------
+
+前章 :ref:`3-5. 解析ジョブの使用メモリを確認 <job_mem>` より異常終了したジョブが分かっているはずですので，
+そのジョブIDを使用して開始時間 (start_time) と終了時間 (end_time) を確認します．
+
+HGCのキューについて，詳しくは :ref:`こちら<https://supcom.hgc.jp/internal/mediawiki/UGE_%E3%81%AE%E3%82%AD%E3%83%A5%E3%83%BC>` を参照ください．
+（HGCのアカウントが必要です）
+
+.. code-block:: bash
+  :caption: 2 日の寿命を全うしたジョブの例
+  
+  $ qreport -j 36037687
+  ==============================================================
+  ・・・・・・・
+  exit_status          137
+  failed               100
+  qname                mjobs.q
+  ・・・・・・・
+  jobname              sv_filt_20171009_143305_308295
+  qsub_time            20171011-14:33:25    <--- 投入した時間
+  start_time           20171011-14:33:52    <--- runした時間
+  end_time             20171013-14:33:54    <--- 終了した時間
+  ・・・・・・・
+  ・・・・・・・
+
+該当しない場合は，次章 :ref:`3-7. 解析ジョブのログファイルを確認 <job_log>` に進んでください．
+
+【確認方法】
+
+| 以下いずれかに当てはまる場合，キューの寿命と考えられます．
+
+ - ケース１：qname が ljobs.q で end_time - start_time が 2 か月である
+ - ケース２：qname が lmem.q で end_time - start_time が 2 週間である
+ - ケース３：qname が mjobs.q で end_time - start_time が 2 日である
+ 
+【対処法】
+
+| Genomon解析コマンドの ``qsubオプション`` に，寿命の長いキューを指定して，Genomon を再実行します．
+
+◆sv_filtジョブのqsubオプション値の変更例
+
+.. code-block:: bash
+
+  $ pwd
+  /home/lect-1/config/
+  $ vi dna_exome_genomon.cfg
+  ############
+  
+  [sv_filt]
+  # 変更前
+  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
+
+  # 変更後1 (ljobを使用する場合) 
+  qsub_option = -q ljobs.q -l s_vmem=5.3G,mem_req=5.3G
+  
+  # 変更後2 (ljobとlmemのどちらかを使用する場合) 
+  qsub_option = -q ljobs.q,lmem.q -l s_vmem=5.3G,mem_req=5.3G
+
+
 .. _job_log:
 
-3-5. 解析ジョブのログファイルを確認
+3-7. 解析ジョブのログファイルを確認
 ---------------------------------------
+
+前章 :ref:`3-5. 解析ジョブの使用メモリを確認 <job_mem>` より異常終了したジョブが分かっているはずですので，
+そのジョブIDを使用して解析ジョブのログファイルを確認します．
 
 今回は異常終了した解析ジョブのIDが ``35172322`` であると仮定します．
 
