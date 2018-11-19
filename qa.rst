@@ -116,8 +116,17 @@ SVの場合は[merge_format_sv], fusionfusionの場合は[merge_format_fusionfus
 ---------
 
 | Q：解析アルゴリズムについて説明資料が欲しい
-| A：次の資料を参考にしてください．(HGCアカウントが必要です) `Genomon2 Tutorial 実践編 <https://supcom.hgc.jp/internal/materials/lect-pdf/20160624/20160624-genomon2.pdf>`__
+| A：次の資料を参考にしてください．(HGCアカウントが必要です) `Genomon2 Tutorial 実践編 <https://supcom.hgc.jp/internal/materials/lect-pdf/20180907/Genomon2_Tutorial_2.pdf>`__
 |
+
+| Q：${HOME}/.localにインストールされているpython libraryを参照してしまうのですが無効にできますか？
+| A：可能です．パイプライン設定ファイルの変更で無効にできます．
+
+.. code-block:: bash
+  :caption: genomon_post_analysis.cfg
+
+  qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G -v PYTHONNOUSERSITE=/home/{ユーザ名}/.local/lib/python2.7/site-packages
+
 | Q：トラブルシューティングについて
 | A：よくあるエラーは次にまとめましたので参考にしてください．`トラブルシューティングについて <./man_trouble.html>`__
 
