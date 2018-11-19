@@ -66,7 +66,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /home/w3varann/genomon_pipeline-2.5.3/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /home/w3varann/genomon_pipeline-2.6.0/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．

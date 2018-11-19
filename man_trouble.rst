@@ -173,13 +173,13 @@ Genomon本体のログ出力例
   ・・・・・・・
   ・・・・・・・
   Traceback (most recent call last):
-    File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/ruffus/task.py, line 751, in run_pooled_job_without_exceptions
+    File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/ruffus/task.py, line 751, in run_pooled_job_without_exceptions
       register_cleanup, touch_files_only)
-    File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/ruffus/task.py, line 567, in job_wrapper_io_files
+    File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/ruffus/task.py, line 567, in job_wrapper_io_files
       ret_val = user_defined_work_func(*params)
-    File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packageslib/python/genomon_pipeline/dna_pipeline.py, line 517, in identify_mutations
+    File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packageslib/python/genomon_pipeline/dna_pipeline.py, line 517, in identify_mutations
       mutation_call.task_exec(arguments, run_conf.project_root + '/log/' + sample_name, run_conf.project_root + '/script/' + sample_name, max_task_id)
-    File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 105, in task_exec
+    File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 105, in task_exec
       raise RuntimeError("Job: " + str(retval.jobId)  + ' failed at Date/Time: ' + date)
   'RuntimeError: Job: 35281321 failed at Date/Time: 2017-10-03 11:42:27'
   (END)
@@ -236,7 +236,7 @@ Genomon本体のログ出力例
   $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 56, in task_exec
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/genomon_pipeline/stage_task.py, line 56, in task_exec
   jobid = s.runJob (jt)
   File build/bdist.linux-x86_64/egg/drmaa/session.py, line 314, in runJob
   c (drmaa_run_job, jid, sizeof (jid) , jobTemplate)
@@ -264,11 +264,11 @@ Genomon本体のログ出力例
   $ tail /home/lect-1/test5929/log/qsub_genomon_pipeline_HGC.sh.e1234567
   ・・・・・・・
   ・・・・・・・
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/ruffus/file_name_parameters.py, line 548, in needs_update_check_modify_time
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/ruffus/file_name_parameters.py, line 548, in needs_update_check_modify_time
   if os.path.relpath (p) not in job_history and p not in set_incomplete_files:
   File /home/w3varann/python/2.7.10/lib/python2.7/_abcoll.py, line 388, in __contains__
   self[key]
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/ruffus/dbdict.py, line 174, in __getitem__
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/ruffus/dbdict.py, line 174, in __getitem__
   (key, ) ) .fetchone ()
   'DatabaseError: database disk image is malformed'
   (END)
@@ -314,13 +314,13 @@ Genomon本体のログ出力例
   ・・・・・・・
   Genomon is checking parameters ...
   Traceback (most recent call last):
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/bin/genomon_pipeline, line 29, in <module>
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/bin/genomon_pipeline, line 29, in <module>
   main(args)
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/run.py, line 21, in main
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/genomon_pipeline/run.py, line 21, in main
   sample_conf.parse_file(run_conf.sample_conf_file)
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 61, in parse_file
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 61, in parse_file
   self.parse_data(file_data_trimmed)
-  File {path to genomon installed}/genomon_pipeline-2.5.3/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 237, in parse_data
+  File {path to genomon installed}/genomon_pipeline-2.6.0/python2.7-packages/lib/python/genomon_pipeline/config/sample_conf.py, line 237, in parse_data
   raise ValueError(err_msg)
   ValueError: test_1:
   '/home/lect-1/raw/bam/test_1/test_1.markdup.bam does not exists'
@@ -579,7 +579,7 @@ STAR
   ・・・・・・・
   /home/lect-1/config/test5929/script/test_(1) /star_align
   '_20170824_152847_296876.sh: line 13: 期待してない token \` (' のあたりにシンタックスエラー'
-  /home/lect-1/test5929/script/test_(1) /star_align_20170824_152847_296876.sh: line 13: \`{path to genomon installed}/genomon_pipeline-2.5.3/tools/STAR-2.5.2a/bin/Linux_x86_64_static/STAR --genomeDir {path to genomon installed}/genomon_pipeline-2.5.3/database/GRCh37.STAR-2.5.2a --readFilesIn /home/lect-1/raw/fastq/test_(1) /1_1.fastq /home/lect-1/raw/fastq/test_(1) /1_2.fastq --outFileNamePrefix /home/lect-1/test5929/star/test_(1) /test_(1) ) . --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted '
+  /home/lect-1/test5929/script/test_(1) /star_align_20170824_152847_296876.sh: line 13: \`{path to genomon installed}/genomon_pipeline-2.6.0/tools/STAR-2.5.2a/bin/Linux_x86_64_static/STAR --genomeDir {path to genomon installed}/genomon_pipeline-2.6.0/database/GRCh37.STAR-2.5.2a --readFilesIn /home/lect-1/raw/fastq/test_(1) /1_1.fastq /home/lect-1/raw/fastq/test_(1) /1_2.fastq --outFileNamePrefix /home/lect-1/test5929/star/test_(1) /test_(1) ) . --runThreadN 6 --outSAMstrandField intronMotif --outSAMunmapped Within --alignMatesGapMax 500000 --alignIntronMax 500000 --alignSJstitchMismatchNmax -1 -1 -1 -1 --outSJfilterDistToOtherSJmin 0 0 0 0 --outSJfilterOverhangMin 12 12 12 12 --outSJfilterCountUniqueMin 1 1 1 1 --outSJfilterCountTotalMin 1 1 1 1 --chimSegmentMin 12 --chimJunctionOverhangMin 12 --outSAMtype BAM Unsorted '
   ・・・・・・・
   ・・・・・・・
   (END)

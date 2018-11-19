@@ -3,6 +3,9 @@ Genomonインストール
 
 HGCスパコン以外のコンピュータにインストールする場合に必要な手順です．
 
+ライセンスを順守してください．
+license.rst
+
 インストール必須要件
 ^^^^^^^^^^^^^^^^^^^^
 * Linux
@@ -167,9 +170,9 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | r_scripts              | https://github.com/Genomon-Project/genomon_Rscripts         | v0.1.3                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_sv             | https://github.com/Genomon-Project/GenomonSV                | 0.4.2rc                    |
+| genomon_sv             | https://github.com/Genomon-Project/GenomonSV                | v0.6.1rc                   |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| sv_utils               | https://github.com/friend1ws/sv_utils                       | v0.4.2beta                 |
+| sv_utils               | https://github.com/friend1ws/sv_utils                       | v0.5.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | mutfilter              | https://github.com/Genomon-Project/GenomonMutationFilter    | v0.2.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
@@ -213,22 +216,22 @@ Genomonで呼び出されるソフトウェアのインストール
 +------------------------+-------------------------------------------------------------+----------------------------+
 | hstlib                 | http://www.htslib.org/download/                             | htslib-1.3                 |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | v0.3.0                     |
+| fusionfusion           | https://github.com/Genomon-Project/fusionfusion             | v0.4.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | fusion_utils           | https://github.com/friend1ws/fusion_utils                   | v0.2.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.3.0                     |
+| chimera_utils          | https://github.com/friend1ws/chimera_utils                  | v0.5.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.3.0                     |
+| intron_retention_utils | https://github.com/friend1ws/intron_retention_utils         | v0.5.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
-| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.3.0                     |
+| genomon_expression     | https://github.com/Genomon-Project/GenomonExpression        | v0.4.0                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | genomon_pa             | https://github.com/aokad/GenomonPostAnalysis                | v1.4.1                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 | paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.5                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 
-STAR-FusionはGenomon-v2.5.0では未使用ですが，現バージョンでは設定のみ必要ですので，適当な空ファイルへのリンクを設定してください．
+STAR-FusionはGenomon-v2.6.0では未使用ですが，現バージョンでは設定のみ必要ですので，適当な空ファイルへのリンクを設定してください．
 
 **ANNOVARを使用する場合の設定について**
 

@@ -1,6 +1,39 @@
 リリースノート
 --------------------
 
+Genomon2.6.0
+====================
+
+.. attention::
+
+  | DNAパイプライン，RNAパイプラインの設定ファイル (.cfg) を変更しました．
+  | ご使用の際はANNOVARなどの設定がFALSEになっているので再設定をお願いします．
+
+| ● DNAパイプライン
+|    GenomonSV, sv_utils がバージョンアップしました。オプションに変更があります。
+|    パイプライン設定ファイル(dna_genomon.cfg)
+
+ .. code-block:: cfg
+ 
+    [realignment_filter]
+    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3332
+    
+    [qc_coverage]
+    samtools_params = -F 3332 -f 2
+
+|
+| ● RNAパイプライン
+|    GenomonExpression, chimera_utils, fusionfusion, intron_retention_utils に変更がありました。
+|    オプションに変更はありません。
+
+
+| ● データベースの更新
+     SV検出, 発現解析, Fusion検出, Intron Retention検出で使用される
+     RefGeneなどを最新のバージョンに更新しました。
+
+| ● その他，細かい不具合を修正しました．
+
+
 Genomon2.5.3
 ====================
 
@@ -15,11 +48,10 @@ Genomon2.5.3
 
  .. code-block:: cfg
  
-    [realignment_filter]
-    params = --score_difference 5 --window_size 200 --max_depth 5000 --exclude_sam_flags 3332
-    
-    [qc_coverage]
-    samtools_params = -F 3332 -f 2
+     [sv_filt]
+     qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
+     params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30 --grc 
+     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --grc --simple_repeat_file /home/w3var    ann/.genomon_local/genomon_pipeline-2.6.0/database/GenomonSV-0.6.0rc1/hg19/simpleRepeat.txt.gz
 
 |
 | ● DNAパイプライン・RNAパイプライン共通
