@@ -360,10 +360,6 @@ annotation
     #    --min_junc_num: minimum required number of supporting junction read pairs
     #    --max_control_variant_read_pair maximum allowed number of read pairs in matched control sample
     #    --min_overhang_size minimum region size arround each break-point which have to be covered by at least one aligned short read
-    # GenomonSVではアノテーションに独自リソースを使用していますので
-    # リソースの場所を指定します．
-    # GenomonSV をインストールした場所にあります．
-    annotation_dir = # the path to the GenomonSV-0.4.0beta/resource
     
     ### フィルタその2：Genomonおすすめフィルタ
     # {サンプル名}.genomon_sv.result.txtから{サンプル名}.genomon_mutation.result.filt.txtファイルを作成するためのフィルタ条件です
@@ -379,11 +375,6 @@ annotation
     #    --max_control_variant_read_pair >=
     #    --control_depth_thres >=
     #    --inversion_size_thres >=
-    
-    # sv_utilsではアノテーションに独自リソースを使用していますので
-    # リソースの場所を指定します．
-    # sv_utils をインストールした場所にあります．
-    sv_utils_annotation_dir = # the path to the sv_utils-0.4.0beta/resource 
 
 Quality Control (QC)
 ----------------------------
