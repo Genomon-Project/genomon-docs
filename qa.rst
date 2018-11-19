@@ -120,7 +120,7 @@ SVの場合は[merge_format_sv], fusionfusionの場合は[merge_format_fusionfus
 |
 
 | Q：${HOME}/.localにインストールされているpython libraryを参照してしまうのですが無効にできますか？
-| A：可能です．パイプライン設定ファイルの変更で無効にできます．
+| A：可能です．パイプライン設定ファイルのqsub_optionにPYTHONNOUSERSITEの設定をすることで無効にできます．
 
 .. code-block:: bash
   :caption: genomon_post_analysis.cfg
