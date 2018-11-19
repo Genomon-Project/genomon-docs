@@ -18,7 +18,7 @@ Genomon2.6.0
      [sv_filt]
      qsub_option = -q '!mjobs_rerun.q' -l s_vmem=5.3G,mem_req=5.3G
      params = --min_junc_num 2 --max_control_variant_read_pair 10 --min_overhang_size 30 --grc 
-     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --grc --simple_repeat_file /home/w3var    ann/.genomon_local/genomon_pipeline-2.6.0/database/GenomonSV-0.6.0rc1/hg19/simpleRepeat.txt.gz
+     sv_utils_params = --min_tumor_allele_freq 0.07 --max_control_variant_read_pair 1 --control_depth_thres 10 --inversion_size_thres 1000 --grc --simple_repeat_file /home/w3varann/.genomon_local/genomon_pipeline-2.6.0/database/GenomonSV-0.6.0rc1/hg19/simpleRepeat.txt.gz
 
 |
 | ● RNAパイプライン
