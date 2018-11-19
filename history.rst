@@ -25,8 +25,7 @@ Genomon2.6.0
 |    GenomonExpression, chimera_utils, fusionfusion, intron_retention_utils がバージョンアップしました。オプションに変更はありません。
 
 | ● データベースの更新
-     SV検出, 発現解析, Fusion検出, Intron Retention検出で使用される
-     RefGeneなどを最新のバージョンに更新しました。
+|    SV検出, 発現解析, Fusion検出, Intron Retention検出で使用されるRefGeneなどを最新のバージョンに更新しました。
 
 | ● その他，細かい不具合を修正しました．
 
