@@ -9,9 +9,9 @@ Genomon Pipeline 実行の手引き
 .. note::
 
   | HGCのスパコンをご利用の場合，以下を参照ください．
-  | ※ 資料中のバージョンは2.2.0で記載していますが，最新のバージョンをご使用ください．
+  | ※ 資料中のバージョンは2.5.3で記載していますが，最新のバージョンをご使用ください．
   |
-  | `Genomon2 Tutorial (2016 年 5 月 24 日実施)資料 <https://supcom.hgc.jp/internal/materials/lect-pdf/20160524/Genomon2_Tutorial_3.pdf>`__
+  | `Genomon2 Tutorial (2018 年 9 月 7 日実施)資料 <https://supcom.hgc.jp/internal/materials/lect-pdf/20180907/Genomon2_Tutorial_2.pdf>`__
 
 1-1. スパコンへのログイン
 -------------------------------
