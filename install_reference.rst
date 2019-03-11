@@ -38,14 +38,14 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   hotspot_db = 
   
   [sv_filt]
-  annotation_dir = /path/to/database/GenomonSV-0.4.0beta/resource_GRCh38
-  sv_utils_annotation_dir = /path/to/database/sv_utils-0.4.0beta/resource_GRCh38
+  params = --grc --genome_id hg38
+  sv_utils_params = --grc --simple_repeat_file /home/w3varann/.genomon_local/genomon_pipeline-2.6.1/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
   
   [paplot]
   config_file = /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
   
   [SOFTWARE]
-  bwa = /path/to/bwa-0.7.15/bwa
+  bwa = /path/to/bwa-0.7.17/bwa
   annovar = /path/to/annovar
   
   [annotation]
@@ -256,95 +256,13 @@ HGVD, ExAC, hotspotはHG38に未対応のため空白にする．
 (A-8) SV検出のAnnotationのリソースディレクトリを変更する
 --------------------------------------------------------
 
-SV検出を行う際は，Annotationのためのリソースを変更する必要があります．**2つ変更します！**
-
-◆１つめ：
-
-以下のリソースディレクトリを任意のディレクトリにコピーしてください．
-
-.. code-block:: bash
-
-  cp –r /home/w3varann/.genomon_local/genomon_pipeline-2.6.1/database/GenomonSV-0.4.0beta/resource \
-        /path/to/database/GenomonSV-0.4.0beta/resource_GRCh38
-
-resourceディレクトリ内のprepGeneInfo.shの中身を変更します
-
-.. code-block:: bash
-
-  # 変更前
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz
-  
-  # 変更後
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
-
-変更が完了したらシェルを実行します．
-
-.. code-block:: bash
-
-  bash prepGeneInfo.sh
-
-◆２つめ：
-
-以下のリソースディレクトリを適当なディレクトリにコピーしてください．
-
-.. code-block:: bash
-
-  cp -r /home/w3varann/.genomon_local/genomon_pipeline-2.6.1/database/sv_utils-0.4.0beta/resource \
-        /path/to/database/sv_utils-0.4.0beta/resource_GRCh38
-
-resourceディレクトリ内のprepGeneInfo.shの中身を変更します
-
-.. code-block:: bash
-
-  # 変更前
-  rm –rf GCF_000001405.13.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.13.assembly.txt
-  python make_ucsc_grch.py GCF_000001405.13.assembly.txt > grch2ucsc.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/ensGene.txt.gz
-  wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/simpleRepeat.txt.gz
-  
-  # 変更後
-  rm –rf GCF_000001405.33.assembly.txt
-  wget ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/All/GCF_000001405.33.assembly.txt
-  python make_ucsc_grch.py GCF_000001405.33.assembly.txt > grch2ucsc.txt
-  wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz
-  wget http://ccb.jhu.edu/software/tophat/downloads/hg38/ensGene.txt.gz
-  wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/simpleRepeat.txt.gz
-
-
-※GCF_000001405.33.assembly.txtはGRCh38用です．
-
-※GCF_000001405.33.assembly.txtはSequence-NameとUCSC-style-nameの関係を抽出して，どちらにも対応できるようにするために使用しております．
-
-.. note::
-
-  **ensGene.txt.gzについて**
-  
-  HG38からensGeneはなくなったらしいです.
-  
-  https://groups.google.com/a/soe.ucsc.edu/forum/#!topic/genome/uOROZuefx_Y
-  
-    The Ensembl Genes track has been replaced on hg38 with the GENCODE Genes track as these two tracks have converged. When using the Table Browser, select the Genes and Gene Predictions group and then select the GENCODE V20 track.  Note that there are various tables available with GENCODE.  For a description of these, see the track description page at http://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg38&g=wgEncodeGencodeV20.
-  
-  代わりに今回はtophatからとってきましたが，ヘッダが付いていてtabixでエラーになるので，そこは手動でスクリプトを変更します.
-  
-  http://ccb.jhu.edu/software/tophat/downloads/hg38/ensGene.txt.gz
-
-
-変更が完了したらシェルを実行します．
-
-.. code-block:: bash
-  
-  bash prepGeneInfo.sh
-
-パイプライン設定ファイルを変更します．更新したディレクトリを以下の項目に指定してください
+パイプライン設定ファイルを変更します．更新したファイルを以下の項目に指定してください．
 
 .. code-block:: cfg
 
   [sv_filt]
-  annotation_dir = /path/to/database/GenomonSV-0.4.0beta/resource_GRCh38
-  sv_utils_annotation_dir = /path/to/database/sv_utils-0.4.0beta/resource_GRCh38
+  params = --grc --genome_id hg38
+  sv_utils_params = --grc --simple_repeat_file /home/w3varann/.genomon_local/genomon_pipeline-2.6.1/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
 
 (A-9) paplotの設定ファイルを変更する．
 --------------------------------------
@@ -418,8 +336,9 @@ ANNOVARのホームページにてユーザ登録 (User License Agreement) が�
   ljb26_all
   cosmic70
   esp6500siv2_all
-  1000g2014oct
-  clinvar_20150629
+  1000g2015aug
+  avsnp150
+  clinvar_20180603
   "
   
   for DATABASE in $DATABASE_LIST
@@ -438,13 +357,13 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 
   [SOFTWARE]
   annovar = [ANNOVARのパスをダウンロードしたANNOVAR]に変更する．
-  (例)annovar = /home/genomon/tools/annovar
+  (例)annovar = path/to/annovar
   
   [annotation]
   active_annovar_flag = True
   iannovar_buildver = hg38
-  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol refGene,esp6500siv2_all,1000g2014oct_all,1000g2014oct_afr,1000g2014oct_eas,1000g2014oct_eur,cosmic70,clinvar_20150629,ljb26_all -operation g,f,f,f,f,f,f,f,f
-  annovar_database = /home/w3varann/tools/annovar/humandb
+  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol refGene,cytoBand,genomicSuperDups,ljb26_all,cosmic70,esp6500siv2_all,1000g2015aug,avsnp150,clinvar_20180603 -operation g,r,r,f,f,f,f,f,f
+  annovar_database = /path/to/annovar/humandb
   active_HGVD_2013_flag = False
   active_HGVD_2016_flag = False
   active_ExAC_flag = False
@@ -476,6 +395,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   params = --genome_id hg38
   [fusion_fusion]
   params = --grc --genome_id hg38
+  filt_params = --filter_same_gene --grc --genome_id hg38
   [genomon_expression]
   params = --grc --genome_id hg38
   [intron_retention]
@@ -550,6 +470,7 @@ STARコマンドを使用してSTAR indexを作成します．
   params = --genome_id hg38
   [fusion_fusion]
   params = --grc --genome_id hg38
+  filt_params = --filter_same_gene --grc --genome_id hg38
   
 
 (B-3) Expressionの設定ファイルを変更する
