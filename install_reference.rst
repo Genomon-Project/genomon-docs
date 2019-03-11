@@ -51,7 +51,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   [annotation]
   active_annovar_flag = True
   iannovar_buildver = hg38
-  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol refGene,esp6500siv2_all,1000g2014oct_all,1000g2014oct_afr,1000g2014oct_eas,1000g2014oct_eur,cosmic70,clinvar_20150629,ljb26_all -operation g,f,f,f,f,f,f,f,f
+  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol   refGene,cytoBand,genomicSuperDups,ljb26_all,cosmic70,esp6500siv2_all,avsnp150,clinvar_20180603 -operation g,r,r,f,f,f,f,f
   annovar_database = /path/to/annovar/humandb
   active_HGVD_2013_flag = False
   active_HGVD_2016_flag = False
@@ -336,7 +336,6 @@ ANNOVARのホームページにてユーザ登録 (User License Agreement) が�
   ljb26_all
   cosmic70
   esp6500siv2_all
-  1000g2015aug
   avsnp150
   clinvar_20180603
   "
@@ -362,7 +361,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
   [annotation]
   active_annovar_flag = True
   iannovar_buildver = hg38
-  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol refGene,cytoBand,genomicSuperDups,ljb26_all,cosmic70,esp6500siv2_all,1000g2015aug,avsnp150,clinvar_20180603 -operation g,r,r,f,f,f,f,f,f
+  table_annovar_params = -buildver hg38 -remove --otherinfo -protocol refGene,cytoBand,genomicSuperDups,ljb26_all,cosmic70,esp6500siv2_all,avsnp150,clinvar_20180603 -operation g,r,r,f,f,f,f,f
   annovar_database = /path/to/annovar/humandb
   active_HGVD_2013_flag = False
   active_HGVD_2016_flag = False
