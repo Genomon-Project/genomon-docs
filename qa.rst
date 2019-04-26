@@ -102,7 +102,7 @@ SVの場合は[merge_format_sv], fusionfusionの場合は[merge_format_fusionfus
 
  - ``output_filt_case*`` の項目はpmsignatureとpaplotで使用するため，Trueのままにしておいてください．
  - 設定ファイル中の case1,2,3,4 はサンプル設定ファイルのパターン1,2,3,4に該当します．
-`[mutation_call],[sv_detection]の記載方法 <./dna_sample_csv.html#mutation-call-sv-detection>`__ 
+`[mutation_call],[sv_detection]の記載方法 <./dna_sample_csv.html#mutation-call-sv-detection>`__
 `[fusion]の記載方法 <./rna_sample_csv.html#fusion>`__ 
 
 

@@ -1,0 +1,10 @@
+<div id="toc" class="sidebarRow">
+
+    <h3><a href="{{ pathto(master_doc) }}">{{ _('目次') }}</a></h3>
+
+    {%- if sphinx_version[:3] >= '1.2' %}
+        {{ toctree (maxdepth=5, collapse=False, includehidden=True) }}
+    {% else %}
+        {{ toctree (maxdepth=5, collapse=False) }}
+    {% endif %}
+</div>

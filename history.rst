@@ -220,7 +220,7 @@ DNA解析パイプライン
      # 変更前）skip duplicate しない
        filter_flags = UNMAP,SECONDARY,QCFAIL
 
-|    変更するパターンとしては，sam flagsを操作するものと，samtools mpileupの ffオプションで特定のリードをスキップしないようにする2パターンがあります．
+|    変更するパターンとしては，sam flagsを操作するものと，samtools mpileupのffオプションで特定のリードをスキップしないようにする2パターンがあります．
 |
 |    samflagsについては以下のページを参照してフラグを確認してください．
 |    https://broadinstitute.github.io/picard/explain-flags.html  

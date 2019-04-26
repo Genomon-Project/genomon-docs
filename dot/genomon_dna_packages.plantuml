@@ -1,0 +1,129 @@
+@startuml
+title Genomon Pipeline Schemes RNA
+skinparam Shadowing false
+
+skinparam component  {
+  ArrowColor #0044A0
+}
+skinparam node {
+  BackgroundColor #EBF3FF
+  BorderColor #0044A0
+'  FontName helvetica
+'  FontSize 12
+}
+
+skinparam rectangle {
+
+  BackgroundColor<<input>> #B8CC6E
+  BorderColor<<input>>     #006000
+
+  BackgroundColor<<output>> #F8CA31
+  BorderColor<<output>> #33220D
+  
+  BackgroundColor #EFA03B
+  BorderColor #33220D
+}
+
+rectangle "[bam_tofastq]" <<input>> as tsk_input_bam2fastq
+rectangle "[fastq]"       <<input>> as tsk_input_fastq    
+rectangle "[bam_import]"  <<input>> as tsk_input_bamimport
+
+node "bam2fastq"        as tsk_bam2fastq       
+node "link_import_bam"  as tsk_link_import_bam 
+node "link_input_fastq" as tsk_link_input_fastq
+node "split_files"      as tsk_split_files     
+node "map_dna_sequence" as tsk_map_dna_sequence
+node "markdup"          as tsk_markdup         
+
+rectangle "markdup.bam" <<output>> as out_bam
+
+  
+tsk_input_bam2fastq  --> tsk_bam2fastq       
+tsk_input_fastq      --> tsk_link_input_fastq
+tsk_input_bamimport  --> tsk_link_import_bam 
+tsk_bam2fastq        --> tsk_split_files     
+tsk_link_input_fastq --> tsk_split_files     
+tsk_split_files      --> tsk_map_dna_sequence
+tsk_map_dna_sequence --> tsk_markdup         
+tsk_link_import_bam  --> out_bam             
+tsk_markdup          --> out_bam             
+
+frame "[mutation_call]" {
+  node "identify_mutations"          as tsk_m_identify
+  node "post_analysis_mutation"      as tsk_m_pa
+  node "paplot"                      as tsk_m_paplot
+  node "pmsignature"                 as tsk_m_signature
+  rectangle "genomon_mutation.result.txt" <<output>> as out_m_result
+  rectangle "capture.IGV"                  as out_m_pa_igv
+  rectangle "merge.result"                 as out_m_pa_merge
+  rectangle "pmsignature.result.json"     <<output>> as out_m_signature
+  rectangle "plot"                         as out_m_paplot
+
+  out_bam         --> tsk_m_identify 
+  tsk_m_identify  --> out_m_result   
+  out_m_result    --> tsk_m_pa       
+  tsk_m_pa        --> out_m_pa_merge 
+  tsk_m_pa        --> out_m_pa_igv   
+  out_m_pa_merge  --> tsk_m_signature
+  tsk_m_signature --> out_m_signature
+  out_m_pa_merge  --> tsk_m_paplot   
+  out_m_signature --> tsk_m_paplot   
+  tsk_m_paplot    --> out_m_paplot   
+}
+
+frame "[sv_detection]" {
+  node "parse_sv"             as tsk_s_parse      
+  node "merge_sv"             as tsk_s_merge      
+  node "filt_sv"              as tsk_s_filt       
+  node "post_analysis_sv"     as tsk_s_pa         
+  node "paplot"               as tsk_s_paplot     
+  rectangle "genomonSV.result.txt" <<output>> as out_s_result
+  rectangle "capture.IGV"           as out_s_pa_sv_igv
+  rectangle "merge.result"          as out_s_pa_sv_merge
+  rectangle "plot"                  as out_s_paplot
+
+  out_bam           --> tsk_s_parse
+  tsk_s_parse       --> tsk_s_merge
+  tsk_s_merge       --> tsk_s_filt
+  tsk_s_filt        --> out_s_result
+  out_s_result      --> tsk_s_pa
+  tsk_s_pa          --> out_s_pa_sv_merge
+  tsk_s_pa          --> out_s_pa_sv_igv
+  out_s_pa_sv_merge --> tsk_s_paplot
+  tsk_s_paplot      --> out_s_paplot
+}
+
+frame "[qc]" {
+  node "bam_stats"            as tsk_q_bam_stats
+  node "coverage"             as tsk_q_coverage
+  node "merge_qc"             as tsk_q_merge
+  node "post_analysis_qc"     as tsk_q_pa
+  node "paplot"               as tsk_q_paplot
+  rectangle "genomonQC.result.txt" <<output>> as out_q_result
+  rectangle "merge.result"          as out_q_pa_merge
+  rectangle "plot"                  as out_q_paplot
+
+  out_bam         --> tsk_q_bam_stats     
+  out_bam         --> tsk_q_coverage      
+  tsk_q_bam_stats --> tsk_q_merge
+  tsk_q_coverage  --> tsk_q_merge
+  tsk_q_merge     --> out_q_result
+  out_q_result    --> tsk_q_pa
+  tsk_q_pa        --> out_q_pa_merge
+  out_q_pa_merge  --> tsk_q_paplot
+  tsk_q_paplot    --> out_q_paplot
+}
+
+frame "Key:" {
+  rectangle "Input" <<input>> as k1
+  node "Task to run" as k2
+  rectangle "Output" <<output>> as k3
+  node "Task to run" as k4
+  rectangle "Post Analysis Output"  as k5
+  
+  k1 --> k2
+  k2 --> k3
+  k3 --> k4
+  k4 --> k5
+}
+@enduml
