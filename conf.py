@@ -258,6 +258,7 @@ latex_documents = [
 #latex_domain_indices = True
 
 latex_engine = 'platex'
+atex_use_xindy = False
 
 # -- Options for manual page output ---------------------------------------
 
