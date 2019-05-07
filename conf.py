@@ -257,7 +257,8 @@ latex_documents = [
 # If false, no module index is generated.
 #latex_domain_indices = True
 
-latex_engine = 'platex'
+#latex_engine = 'platex'
+latex_engine = 'xelatex'
 latex_use_xindy = False
 
 # -- Options for manual page output ---------------------------------------
