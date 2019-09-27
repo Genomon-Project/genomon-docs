@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Genomon'
-copyright = u'2015, Kenichi Chiba, Ai Okada and Yuichi Shiraishi'
+copyright = u'2019, Kenichi Chiba, Ai Okada and Yuichi Shiraishi'
 author = u'Kenichi Chiba, Ai Okada, Yuichi Shiraishi and contributors'
 
 # The version info for the project you're documenting, acts as replacement for
