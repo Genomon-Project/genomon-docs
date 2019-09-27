@@ -4,7 +4,7 @@ RNA パイプライン設定ファイルについて
 RNA解析パイプライン実行時に読込まれるファイルです．各ツールのフィルタリングの閾値などのパラメータを設定することができます．
 
  .. note::
-  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.6.1/genomon_conf/`` にあります．
+  HGCスパコンの場合，このファイルは ``/share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/`` にあります．
 
   :rna解析用: rna_genomon.cfg
 

@@ -73,9 +73,9 @@ Genomonで使用するデータベースのインストール
  | リファレンスの特性について詳細は上記の各webサイトの説明よんでください．たとえば，GRCh37-liteはpseudo-autosomal regions on chrY masked with Nsしているなどの記載があります．他にBWA index, FASTA indexを生成する必要があります．
  |
  | ・BWA index ファイルの作成コマンド
- | /home/w3varann/genomon_pipeline-2.0.5/tools/bwa-0.7.8/bwa index {マージしたファイル}
+ | /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/bwa-0.7.8/bwa index {マージしたファイル}
  | ・FASTA index ファイルの作成コマンド
- | /home/w3varann/genomon_pipeline-2.0.5/tools/samtools-1.2/samtools faidx {マージしたファイル}
+ | /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/samtools-1.2/samtools faidx {マージしたファイル}
  |
  
 `interval_list`
@@ -230,7 +230,7 @@ Genomonで呼び出されるソフトウェアのインストール
 | paplot                 | https://github.com/Genomon-Project/paplot                   | v0.5.5                     |
 +------------------------+-------------------------------------------------------------+----------------------------+
 
-STAR-FusionはGenomon-v2.6.0では未使用ですが，現バージョンでは設定のみ必要ですので，適当な空ファイルへのリンクを設定してください．
+STAR-FusionはGenomon-v2.6.2 では未使用ですが，現バージョンでは設定のみ必要ですので，適当な空ファイルへのリンクを設定してください．
 
 **ANNOVARを使用する場合の設定について**
 

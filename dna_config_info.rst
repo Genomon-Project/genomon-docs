@@ -4,11 +4,14 @@ DNA パイプライン設定ファイルについて
 パイプライン設定ファイルはGenomon実行時に読込まれるファイルです．各ツールのパスやパラメータを設定することができます．
 
  .. note::
-  HGCスパコンの場合，このファイルは ``/home/w3varann/genomon_pipeline-2.6.1/genomon_conf/`` にあります．
+  HGCスパコンの場合，このファイルは ``/share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/`` にあります．
 
-  :Exome解析用: dna_exome_genomon.cfg
-  :WGS解析用:   dna_wgs_genomon.cfg
-  :Target解析用: dna_target_genomon.cfg
+  :Exome解析用 (GRCh37) : dna_exome_genomon.cfg
+  :WGS解析用 (GRCh37) :   dna_wgs_genomon.cfg
+  :Target解析用 (GRCh37) : dna_target_genomon.cfg
+  :Exome解析用 (GRCh38) : dna_exome_genomon_GRCh38.cfg
+  :WGS解析用 (GRCh38) :   dna_wgs_genomon_GRCh38.cfg
+  :Target解析用 (GRCh38) : dna_target_genomon_GRCh38.cfg
   
   ANNOVARの設定が必要ですので，まずは :doc:`dna_quick_start` から始めてください．
 
@@ -104,14 +107,14 @@ annotation
     ##########
     # bamをfastqに変換するジョブの設定です
     # [bam_tofastq] でシーケンスファイルを指定したときのみ，使用します．
- 　　[bam2fastq]
- 　　qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
+    [bam2fastq]
+    qsub_option = -q '!mjobs_rerun.q' -l s_vmem=2G,mem_req=2G
    
     # Genomonが次のコマンドの実行時，{params}に設定するオプションを指定できます
     # /path/to/bamtofastq {params} \
     # filename=$in.bam F=$out1.fastq F2=$out2.fastq　\
     # T=$temp S=$single O=$unmatched_pair1 O2=unmatched_pair2
- 　　params = collate=1 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY tryoq=0
+    params = collate=1 exclude=QCFAIL,SECONDARY,SUPPLEMENTARY tryoq=0
     
     ##########
     # Genomonでは，入力されたfastqを適切な大きさに分割してからアライメントを並行で行います．
@@ -134,7 +137,7 @@ annotation
     # Genomonが次のコマンドの実行時，{bwa_params}に設定するオプションを指定できます
     # /path/to/bwa mem {bwa_params} $ref_genome \
     # $fastq1 $fastq2 > $output.sam
- 　　 bwa_params = -T 0 
+    bwa_params = -T 0 
     
     ##########
     # アライメントののち，重複リードに対して重複フラグを設定します

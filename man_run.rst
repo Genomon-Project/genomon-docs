@@ -93,7 +93,7 @@ BAMファイルを解析データとして使用する場合，BAM Indexファ�
 Genomonを実行するために以下2つのスクリプトを用意します．一つはGenomonをジョブとして投入するためのスクリプト，もう一つはジョブとして投入されるスクリプトです．
 
  .. note::
-  HGCスパコンの場合，スクリプトは ``/home/w3varann/genomon_pipeline-2.6.1/genomon_script/genomon_pipeline_HGC.sh`` にあります．
+  HGCスパコンの場合，スクリプトは ``/share/pub/genomon/genomon_pipeline-2.6.2/genomon_script/genomon_pipeline_HGC.sh`` にあります．
 
 
 以下スクリプトのパスについては環境に合わせて適宜変更ください．
