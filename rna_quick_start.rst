@@ -25,7 +25,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
 .. code-block:: bash
 
   # RNA解析用パイプライン設定ファイルはこちらにあります
-  /share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/rna_genomon.cfg
+  /share/pub/genomon/genomon_pipeline-2.6.3/genomon_conf/rna_genomon.cfg
   
 2．テストサンプルでGenomonを実行してみる
 ----------------------------------------
@@ -37,12 +37,12 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /share/pub/genomon/genomon_pipeline-2.6.2/genomon_script/genomon_pipeline_HGC.sh rna /share/pub/genomon/genomon_pipeline-2.6.2/sample_sheet/test_rna/MCF-7_sample.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /share/pub/genomon/genomon_pipeline-2.6.3/genomon_script/genomon_pipeline_HGC.sh rna /share/pub/genomon/genomon_pipeline-2.6.3/sample_sheet/test_rna/MCF-7_sample.csv {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．
   # サンプル設定ファイル
-  #   /share/pub/genomon/genomon_pipeline-2.6.2/sample_sheet/test_rna/MCF-7_sample.csv を指定します．
+  #   /share/pub/genomon/genomon_pipeline-2.6.3/sample_sheet/test_rna/MCF-7_sample.csv を指定します．
   # 出力ルートディレクトリ
   #   任意の出力ルートディレクトリを指定します．
   # パイプライン設定ファイル
@@ -66,7 +66,7 @@ HGCスパコンでのRNA解析に必要な手順をまとめました．
   # qloginする
   qlogin
   # Genomonを実行する
-  bash /share/pub/genomon/genomon_pipeline-2.6.2/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
+  bash /share/pub/genomon/genomon_pipeline-2.6.3/genomon_script/genomon_pipeline_HGC.sh rna {3.で作成したサンプル設定ファイル} {出力ルートディレクトリ} {1.で作成したパイプライン設定ファイル}
   #
   # 解析タイプ
   #   'rna'を指定します．

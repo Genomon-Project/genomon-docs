@@ -12,7 +12,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
 
 以下のパイプラン設定ファイルを任意のディレクトリにコピーして，内容を変更してください．
 
-/share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/dna_exome_genomon.cfg
+/share/pub/genomon/genomon_pipeline-2.6.3/genomon_conf/dna_exome_genomon.cfg
 
 今回のGenomon環境は以下のとおりとします．
 
@@ -28,7 +28,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   # prepared reference fasta file
   ref_fasta = /path/to/database/GRCh38/GRCh38.d1.vd1.fa
   interval_list = /path/to/database/GRCh38/GRCh38_noScaffold_noDecoy.interval_list
-  genome_size = /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/bedtools-2.24.0/genomes/human.hg38.genome
+  genome_size = /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/bedtools-2.24.0/genomes/human.hg38.genome
   gaptxt = /path/to/database/hg38.fa/gap.txt
   bait_file = /path/to/database/bait/refGene.coding.exon.hg38.161116.bed
   simple_repeat_tabix_db = /path/to/database/tabix/simpleRepeat_hg38.bed.gz
@@ -39,7 +39,7 @@ Genomon2の実行時に指定するパイプライン設定ファイルの内容
   
   [sv_filt]
   params = --grc --genome_id hg38
-  sv_utils_params = --grc --simple_repeat_file /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
+  sv_utils_params = --grc --simple_repeat_file /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
   
   [paplot]
   config_file = /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
@@ -84,7 +84,7 @@ indexファイル，fasta indexファイルを作成しておく必要があり�
 
 .. code-block:: bash
 
-  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/bwa-0.7.8/bwa index GRCh38.d1.vd1.fa
+  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/bwa-0.7.8/bwa index GRCh38.d1.vd1.fa
 
 以下のBWA indexが作成されます．
 
@@ -100,7 +100,7 @@ samtools faidxコマンドを使用してindexファイルを作成します．
 
 .. code-block:: bash
 
-  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/samtools-1.2/samtools faidx GRCh38.d1.vd1.fa
+  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/samtools-1.2/samtools faidx GRCh38.d1.vd1.fa
 
 Fasta indexが作成されます．
 
@@ -225,13 +225,13 @@ Tabixというツールを使用してindexを張ります．ツールに付属�
 
 .. code-block:: bash
 
-  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/htslib-1.3/bgzip simpleRepeat_hg38.bed
+  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/htslib-1.3/bgzip simpleRepeat_hg38.bed
 
 tabixでindexを張ります．
 
 .. code-block:: bash
 
-  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/htslib-1.3/tabix simpleRepeat_hg38.bed.gz
+  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/htslib-1.3/tabix simpleRepeat_hg38.bed.gz
 
 simpleRepeat_hg38.bed.gzをsimple_repeat_tabix_dbに指定します．
 
@@ -262,7 +262,7 @@ HGVD, ExAC, hotspotはHG38に未対応のため空白にする．
 
   [sv_filt]
   params = --grc --genome_id hg38
-  sv_utils_params = --grc --simple_repeat_file /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
+  sv_utils_params = --grc --simple_repeat_file /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/database/GenomonSV-0.6.0rc1/hg38/simpleRepeat.txt.gz --genome_id hg38
 
 (A-9) paplotの設定ファイルを変更する．
 --------------------------------------
@@ -273,7 +273,7 @@ paplotを使用する場合は，パイプライン設定ファイルに指定�
 
 .. code-block:: bash
 
-  cp /share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/paplot/paplot_dna.cfg \
+  cp /share/pub/genomon/genomon_pipeline-2.6.3/genomon_conf/paplot/paplot_dna.cfg \
      /path/to/database/paplot-0.5.5/paplot_dna_GRCh38.cfg
 
 変更する箇所は [genome] path と [ca] use_chrs(ヒトと染色体数が異なる場合) です．
@@ -374,7 +374,7 @@ ANNOVARを使用するようにパイプライン設定ファイルを編集し�
 
 以下のパイプラン設定ファイルを任意のディレクトリにコピーして，内容を変更してください．
 
-/share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/rna_genomon.cfg
+/share/pub/genomon/genomon_pipeline-2.6.3/genomon_conf/rna_genomon.cfg
 
 今回のGenomon環境は以下のとおりとします．
 
@@ -422,7 +422,7 @@ STARコマンドを使用してSTAR indexを作成します．
 
 .. code-block:: bash
 
-  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.2/install/STAR-2.5.2a/bin/Linux_x86_64_static/STAR \
+  /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/STAR-2.5.2a/bin/Linux_x86_64_static/STAR \
   --runThreadN 8 \
   --runMode genomeGenerate \
   --genomeDir /path/to/database/GRCh38.STAR-2.5.2a \
@@ -501,7 +501,7 @@ paplotを使用する場合は，パイプライン設定ファイルに指定�
 
 .. code-block:: bash
 
-  cp /share/pub/genomon/genomon_pipeline-2.6.2/genomon_conf/paplot/paplot_rna.cfg \
+  cp /share/pub/genomon/genomon_pipeline-2.6.3/genomon_conf/paplot/paplot_rna.cfg \
      /path/to/database/paplot-0.5.5/paplot_rna_GRCh38.cfg
 
 RNA用のコンフィグファイル，paplot_rna.cfgのコピー後の作業はDNAの「(A-9) paplotの設定ファイルを変更する」と同じです.(A-9)の設定方法を参照ください．
