@@ -13,7 +13,6 @@ HGCスパコン以外のコンピュータにインストールする場合に�
 * DRMシステムを入れて運用する程度のスペックのあるコンピュータ
 
 | ※HGCスパコンではGrid Engineを使用しています
-|
 
 Genomonのインストール
 ^^^^^^^^^^^^^^^^^^^^^
@@ -76,7 +75,6 @@ Genomonで使用するデータベースのインストール
  | /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/bwa-0.7.8/bwa index {マージしたファイル}
  | ・FASTA index ファイルの作成コマンド
  | /share/pub/genomon/.genomon_local/genomon_pipeline-2.6.3/install/samtools-1.2/samtools faidx {マージしたファイル}
- |
  
 `interval_list`
  | 並列処理をするために使用します．以下のサイトからダウンロードしてください
@@ -235,7 +233,7 @@ STAR-FusionはGenomon-v2.6.3 では未使用ですが，現バージョンでは
 **ANNOVARを使用する場合の設定について**
 
 | 以下を参考にしてください。
-| https://genomon.readthedocs.io/ja/latest/dna_quick_start.html#id1
+| https://genomon.readthedocs.io/ja/latest/dna_quick_start.html#annovargenomon
 
 **HGVDを使用する場合の設定について**
 

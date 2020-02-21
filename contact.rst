@@ -6,7 +6,6 @@
 | 
 | 対面形式，skypeでのアポイントはこちらで受け付けています．
 | Genomon Office Hour: https://genomon-office.youcanbook.me/
-| 
 
 ===========================
 Genomon Office Hourの使い方
@@ -16,7 +15,6 @@ Genomon Office Hourの使い方
 | 
 | このようなページが表示されます．水色の時間帯が予約可能です．
 | ※前日の17:00締切
-| 
 
  .. image:: image/genomon_office_hour_1.PNG
   :scale: 100%
@@ -29,7 +27,6 @@ Genomon Office Hourの使い方
 | ２-１．必要事項を入力してください．（名前やEメールアドレスは公開されません）
 | ２-２．最後に「ロボットではありません」にチェックを入れ，「予約確定」をクリックしてください．
 | ３．予約が確定しました．Googleカレンダー等をお使いの場合はここで予約を反映できます．
-| 
 
  .. image:: image/genomon_office_hour_2.PNG
   :scale: 100%
@@ -39,7 +36,6 @@ Genomon Office Hourの使い方
 ==============
 
 | １．予約確定メールを確認してください．最後に予約変更のリンクが記載されています．
-| 
 
  .. image:: image/genomon_office_hour_3.PNG
   :scale: 100%
@@ -48,13 +44,11 @@ Genomon Office Hourの使い方
 
 | １．予約確定メールの「RESHEDULE this booking」をクリックしてリンクを開いてください．
 | ２．予約時と同様に希望する時間を選択してください．
-|
 
 ** キャンセルの場合 **
 
 | １．予約確定メールの「CANCEL this booking」をクリックしてリンクを開いてください．
 | ２．キャンセルの理由を記入のうえ，「Confirm Cancellation」をクリックしてください．
-|
 
  .. image:: image/genomon_office_hour_4.PNG
   :scale: 100%

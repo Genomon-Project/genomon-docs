@@ -5,11 +5,6 @@
 
 GenomonはHGCスパコン以外のサーバで稼働実績があります．Genomonインストール方法については，:doc:`install` を参照してください．またご不明な点がございましたら，お気軽にお問い合わせいただければと思います．genomon.devel@gmail.com
 
-.. attention::
-
-  | HGC スパコンの環境変更 (os6→os7) に伴い、Genomon のスクリプトの場所を変更しました．
-  | このページは OS7 用ですので、OS6 をご使用の方は https://genomon.readthedocs.io/ja/v2.6.1/ を参照ください．
-  
 .. code-block:: bash
 
   # HGCスパコンでのGenomon使用方法

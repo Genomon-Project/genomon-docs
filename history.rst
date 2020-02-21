@@ -82,7 +82,6 @@ Genomon2.5.3
     [qc_coverage]
     samtools_params = -F 3332 -f 2
 
-|
 | ● DNAパイプライン・RNAパイプライン共通
 |    bam2fastq 機能にオプションを追加しました．
 
@@ -123,7 +122,6 @@ Genomon2.5.0
     active_hotspot_flag = True
     params = -t 0.1 -c 0.1 -R 0.1 -m 8.0 -S "-B -q 20 -Q2 -d 10000000"
 
-|
 | ● DNAパイプラインにpmsignatureを追加しました．
 |    pmsignatureは変異コールの結果を使用しますので，サンプルCSVの変更はありません．
 |
