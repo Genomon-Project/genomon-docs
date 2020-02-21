@@ -21,11 +21,6 @@ The Zen of Cancer Genome Sequence Analysis
 .. _v.2.6.2: http://genomon.readthedocs.org/ja/v2.6.2/
 .. _Yuki Tsujita: http://jp.linkedin.com/pub/yuki-tsujita/7/692/582
 
-.. attention::
-
-  | HGC スパコンの環境変更 (os6→os7) に伴い、Genomon のスクリプトの場所を変更しました．
-  | このページは OS7 用ですので、OS6 をご使用の方は https://genomon.readthedocs.io/ja/v2.6.1/ を参照ください．
-
 .. toctree::
    :maxdepth: 2
    :caption: Quick Start-Up Guide

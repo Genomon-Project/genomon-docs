@@ -72,9 +72,10 @@ HGCスパコンでDNA解析に必要な手順
   | ANNOVARのインストールが必要ない方は，次の「2．テストサンプルでGenomonを実行してみる」にお進み下さい．
   |
 
-**ANNOVARのインストールとGenomonへの設定方法**
+ANNOVARのインストールとGenomonへの設定方法
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| 各ユーザがANNOVARを使用するためにはANNOVARのウェブページ（http://www.openbioinformatics.org/annovar/annovar_download_form.php）にてUser License Agreementをしてください．
+| 各ユーザがANNOVARを使用するためにはANNOVARのウェブページ（http://download.openbioinformatics.org/annovar_download_form.php）にてUser License Agreementをしてください．
 | その時に登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．
 | そのリンクを使用してANNOVARをダウンロードします．
 | ダウンロード後にANNOVARのスクリプトを使用してdbSNP131など各種データベースをダウンロードします．
@@ -82,21 +83,29 @@ HGCスパコンでDNA解析に必要な手順
 
 .. code-block:: bash
 
-  # qloginする
+  # qloginします
   qlogin
-  # ANNOVARをダウンロードします．
+  
+  # ANNOVARをダウンロードします
   wget {Eメールに記載されたannovar.latest.tar.gzのURL}
-  # ANNOVARを解凍します．
+  
+  # ANNOVARを解凍します
   tar xzvf annovar.latest.tar.gz
-  # ANNOVARのディレクトリに移動します．
+  
+  # ANNOVARのディレクトリに移動します
   cd annovar
-  # Genomonで必要なANNOVARのデータベースをダウンロードするスクリプトをコピーします
-  cp /share/pub/genomon/genomon_pipeline-2.6.3/genomon_script/annovar_database_download.sh .
-  # ANNOVARのスクリプトを使用してダウンロードを実行します．
-  bash ./annovar_database_download.sh
 
-| ダウンロードが完了したらANNOVARを使用するようにパイプライン設定ファイルを編集します．
-| 以下の2か所を変更する必要があります．
+  # Genomonで必要なANNOVARのデータベースをダウンロードするスクリプトをコピーし、実行します
+  # (hg19の場合)
+  cp /share/pub/genomon/genomon_pipeline-2.6.3/genomon_script/annovar_database_download.sh .
+  bash ./annovar_database_download.sh
+  # (GRCh38の場合)
+  cp /share/pub/genomon/genomon_pipeline-2.6.3/genomon_script/annovar_database_download_GRCh38.sh .
+  bash ./annovar_database_download_GRCh38.sh
+  
+
+| ダウンロードが完了したらANNOVARを使用するようにパイプライン設定ファイルを編集します
+| 以下の2か所を変更する必要があります
 |
 
 .. code-block:: bash

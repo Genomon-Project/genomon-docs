@@ -234,47 +234,8 @@ STAR-FusionはGenomon-v2.6.3 では未使用ですが，現バージョンでは
 
 **ANNOVARを使用する場合の設定について**
 
-| ANNOVARのダウンロードにはユーザ登録 (User License Agreement) が必要です．
-| http://www.openbioinformatics.org/annovar/annovar_download_form.php
-| ANNOVARのホームページにてユーザ登録 (User License Agreement) が完了した後に，登録したメールアドレスにANNOVARをダウンロードするためのリンクが記載されたメールが届きます．そのリンクを使用してANNOVARをダウンロードします．ダウンロード後はANNOVARのPerlスクリプトを使用してdbSNP131などの各種データをダウンロードします．
-
-.. code-block:: bash
-
-  # Genomonで必要なANNOVARのデータベースをダウンロードします．Copy and Pasteして使ってください． 
-  DATABASE_LIST="
-  refGene
-  avsift
-  ljb26_all
-  cosmic68wgs
-  cosmic70
-  esp6500siv2_all
-  1000g2010nov
-  1000g2014oct
-  snp131
-  snp138
-  snp131NonFlagged
-  snp138NonFlagged
-  clinvar_20150629
-  "
-  for DATABASE in $DATABASE_LIST
-  do
-    ./annotate_variation.pl -buildver hg19 -downdb -webfrom annovar $DATABASE humandb/
-  done
-  ./annotate_variation.pl -buildver hg19 -downdb cytoBand humandb/
-  ./annotate_variation.pl -buildver hg19 -downdb genomicSuperDups humandb/
-
-ANNOVARを使用するようにパイプライン設定ファイルを編集する．以下の2か所の変更をお願いします．
-
-.. code-block:: bash
-
-  [SOFTWARE]
-  annovar = [ANNOVARのパスをダウンロードしたANNOVAR]に変更する．
-  (例)annovar = /home/genomon/tools/annovar
-
-  [annotation]
-  active_annovar_flag = True
-  FalseをTrueに変更する (ANNOVARの使用する/しない)を管理しているフラグになります．デフォルトはFalseになります．
-
+| 以下を参考にしてください。
+| https://genomon.readthedocs.io/ja/latest/dna_quick_start.html#id1
 
 **HGVDを使用する場合の設定について**
 
