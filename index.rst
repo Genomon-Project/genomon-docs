@@ -81,5 +81,4 @@ The Zen of Cancer Genome Sequence Analysis
    
    qa.rst
    license.rst
-   contact.rst
 
